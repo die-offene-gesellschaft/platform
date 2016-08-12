@@ -1,24 +1,15 @@
-# README
+# Die offene Gesellschaft
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the Ruby on Rails app powering the website of 'Die offene Gesellschaft'.
 
-Things you may want to cover:
+## Contributing
 
-* Ruby version
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
 
-* System dependencies
+## License
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+See [LICENSE](./LICENSE).
