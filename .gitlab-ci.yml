@@ -1,0 +1,47 @@
+image: 'ruby:2.3.1'
+
+cache:
+  paths:
+    - .bundle
+    - vendor/
+  key: "4d4d41dc19e9accffbb2c014839012f4"
+
+before_script:
+  - gem install bundler --no-ri --no-rdoc
+  - RAILS_ENV=test bundle install --path vendor/
+
+stages:
+  - linting
+  - code_analysis
+  - testing
+  - deployment_staging
+  - deployment_production
+
+code_analysis_job:
+  stage: code_analysis
+  script:
+    - bin/code-analyzers
+
+linting_job:
+  stage: linting
+  script:
+    - bin/linters
+
+test_job:
+  stage: testing
+  script:
+    - bin/test
+
+deployment_staging_job:
+  stage: deployment_staging
+  script:
+    - bin/deploy "staging"
+  only:
+    - master
+
+deployment_production_job:
+  stage: deployment_production
+  script:
+    - bin/deploy "production"
+  only:
+    - tags

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+./bin/helpers/message "RAILS BEST PRACTICES"
+
+bundle exec rails_best_practices

@@ -1,0 +1,14 @@
+scss_files: 'app/assets/stylesheets/**/*'
+
+linters:
+  NestingDepth:
+    max_depth: 6
+  SelectorDepth:
+    max_depth: 6
+  Indentation:
+    severity: warning
+    width: 2
+  Comment:
+    enabled: false
+  VendorPrefixes:
+    enabled: false

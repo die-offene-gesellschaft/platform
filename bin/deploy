@@ -1,0 +1,20 @@
+#!/bin/bash
+
+./bin/helpers/message "DEPLOYMENT"
+
+mkdir -p ~/.ssh
+cat >> ~/.ssh/id_rsa << EOF
+$SSH_DEPLOY_KEY
+EOF
+chmod 0600 ~/.ssh/id_rsa
+
+if [ "$1" = "production" ]; then
+	user="offenege"
+	host="$user.kochab.uberspace.de"
+elif [ "$1" = "staging" ]; then
+	user="offenege"
+	host="$user.kochab.uberspace.de"
+fi
+
+ssh-keyscan -H $host >> ~/.ssh/known_hosts
+git push -f $user@$host:~/offene-gesellschaft.git HEAD:master

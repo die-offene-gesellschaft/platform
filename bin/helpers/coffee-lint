@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+require 'bundler/setup'
+require 'coffeelint'
+
+system './bin/helpers/message "COFFEE LINT"'
+
+exit 1 if Coffeelint.run_test_suite(
+  'app/assets/javascripts',
+  config_file: 'config/linters/coffeelint.json'
+) > 0
