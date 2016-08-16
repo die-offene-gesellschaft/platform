@@ -1,7 +1,12 @@
 source 'https://rubygems.org'
 
+ruby '2.3.1'
+
 gem 'bcrypt'
+gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'bootstrap_tokenfield_rails'
 gem 'coffee-rails'
+gem 'devise'
 gem 'jbuilder'
 gem 'jquery-rails'
 gem 'puma'
