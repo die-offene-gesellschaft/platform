@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160817225303) do
 
   create_table "pictures", force: :cascade do |t|
     t.text     "description"
+    t.datetime "taken_at"
     t.boolean  "locked"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
