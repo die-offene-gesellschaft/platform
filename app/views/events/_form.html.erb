@@ -1,0 +1,57 @@
+<%= form_for(event) do |f| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :event_type %>
+    <%= f.text_field :event_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :begin_at %>
+    <%= f.datetime_select :begin_at %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_at %>
+    <%= f.datetime_select :end_at %>
+  </div>
+
+  <div class="field">
+    <%= f.label :active_members %>
+    <%= f.text_field :active_members %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :facebook_identifier %>
+    <%= f.text_field :facebook_identifier %>
+  </div>
+
+  <div class="field">
+    <%= f.label :locked %>
+    <%= f.check_box :locked %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
