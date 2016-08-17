@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :venues
   resources :locations
   resources :pictures
   resources :comments
