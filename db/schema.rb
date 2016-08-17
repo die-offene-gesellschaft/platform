@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817222421) do
+ActiveRecord::Schema.define(version: 20160817224915) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 20160817222421) do
   create_table "comments", force: :cascade do |t|
     t.text     "message"
     t.boolean  "locked"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.decimal  "radius"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
