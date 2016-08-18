@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817230543) do
+ActiveRecord::Schema.define(version: 20160818110913) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20160817230543) do
     t.boolean  "locked"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.         "user"
+    t.         "event"
   end
 
   create_table "events", force: :cascade do |t|
@@ -51,6 +53,8 @@ ActiveRecord::Schema.define(version: 20160817230543) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.         "user"
+    t.         "venue"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -71,6 +75,8 @@ ActiveRecord::Schema.define(version: 20160817230543) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.         "event"
+    t.         "user"
   end
 
   create_table "users", force: :cascade do |t|
@@ -106,6 +112,7 @@ ActiveRecord::Schema.define(version: 20160817230543) do
     t.boolean  "locked"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.         "location"
   end
 
 end
