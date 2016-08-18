@@ -12,4 +12,11 @@ RSpec.describe User, type: :model do
       .class_name('Event')
       .join_table('event_participations')
   end
+
+  it do
+    should have_and_belong_to_many(:friends)
+      .class_name('User')
+      .join_table('friendships')
+      .with_foreign_key('friend_id')
+  end
 end

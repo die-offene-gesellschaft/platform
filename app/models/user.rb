@@ -8,6 +8,11 @@ class User < ApplicationRecord
                           class_name: 'Event',
                           join_table: 'event_participations'
 
+  has_and_belongs_to_many :friends,
+                          join_table: 'friendships',
+                          foreign_key: :friend_id,
+                          class_name: 'User'
+
   has_many :events
   has_many :comments
   has_many :pictures
