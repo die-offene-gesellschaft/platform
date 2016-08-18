@@ -3,7 +3,7 @@ class Event < ApplicationRecord
                           class_name: 'User',
                           join_table: 'event_participations'
   belongs_to :user
-  has_many :comments
-  has_many :pictures
+  has_many :comments, dependent: :destroy
+  has_many :pictures, dependent: :destroy
   belongs_to :venue
 end
