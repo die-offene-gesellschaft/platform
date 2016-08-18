@@ -17,5 +17,5 @@ class Event < ApplicationRecord
   validates :picture,
             attachment_presence: true
   validates_attachment_content_type :picture,
-                                    content_type: /\Aimage\/.*\z/
+                                    content_type: %r{\Aimage\/.*\z}
 end
