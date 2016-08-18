@@ -29,6 +29,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop-rspec'
   gem 'scss_lint'
+  gem 'shoulda-matchers'
   gem 'slim_lint'
   gem 'sqlite3'
 end

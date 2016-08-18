@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it do
+    should have_and_belong_to_many(:participants)
+      .class_name('User')
+      .join_table('event_participations')
+  end
 end
