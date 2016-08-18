@@ -6,5 +6,6 @@ FactoryGirl.define do
     city 'Berlin'
     description 'Büros, Konferenz- und Veranstaltungsräume direkt am Alexanderplatz in Mitte.'
     locked false
+    location { FactoryGirl.create(:location) }
   end
 end

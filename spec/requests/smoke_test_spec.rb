@@ -2,9 +2,15 @@ require 'rails_helper'
 
 RSpec.describe "GET routes", type: :request do
   before(:each) do
-    %w(user comment picture event location venue).each do |model|
-      FactoryGirl.create(model)
-    end
+    @event = FactoryGirl.create(:event)
+    @user = @event.user
+    @venue = @event.venue
+    @comment = FactoryGirl.create :comment,
+                                  user: @user,
+                                  event: @event
+    @picture = FactoryGirl.create :picture,
+                                  user: @user,
+                                  event: @event
   end
 
   it 'should be error-free' do

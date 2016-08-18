@@ -7,5 +7,7 @@ FactoryGirl.define do
     begin_at { Time.zone.now }
     end_at { Time.zone.now + 2.hours }
     locked false
+    user { FactoryGirl.create(:user) }
+    venue { FactoryGirl.create(:venue) }
   end
 end
