@@ -9,4 +9,6 @@ class User < ApplicationRecord
                           join_table: 'event_participations'
 
   has_many :events
+  has_many :comments
+  has_many :pictures
 end

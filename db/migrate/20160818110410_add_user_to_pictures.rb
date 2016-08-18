@@ -1,5 +1,5 @@
 class AddUserToPictures < ActiveRecord::Migration[5.0]
   def change
-    add_column :pictures, :user, :reference
+    add_reference :pictures, :user, index: true, foreign_key: true
   end
 end

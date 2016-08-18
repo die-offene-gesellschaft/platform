@@ -1,5 +1,5 @@
 class AddEventToPictures < ActiveRecord::Migration[5.0]
   def change
-    add_column :pictures, :event, :reference
+    add_reference :pictures, :event, index: true, foreign_key: true
   end
 end

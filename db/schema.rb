@@ -34,8 +34,10 @@ ActiveRecord::Schema.define(version: 20160818112006) do
     t.boolean  "locked"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.         "user"
-    t.         "event"
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.index ["event_id"], name: "index_comments_on_event_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "event_participations", id: false, force: :cascade do |t|
@@ -60,8 +62,10 @@ ActiveRecord::Schema.define(version: 20160818112006) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.         "user"
-    t.         "venue"
+    t.integer  "user_id"
+    t.integer  "venue_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
+    t.index ["venue_id"], name: "index_events_on_venue_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -82,8 +86,10 @@ ActiveRecord::Schema.define(version: 20160818112006) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.         "event"
-    t.         "user"
+    t.integer  "event_id"
+    t.integer  "user_id"
+    t.index ["event_id"], name: "index_pictures_on_event_id"
+    t.index ["user_id"], name: "index_pictures_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -119,7 +125,8 @@ ActiveRecord::Schema.define(version: 20160818112006) do
     t.boolean  "locked"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.         "location"
+    t.integer  "location_id"
+    t.index ["location_id"], name: "index_venues_on_location_id"
   end
 
 end
