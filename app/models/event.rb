@@ -9,6 +9,13 @@ class Event < ApplicationRecord
                           class_name: 'User',
                           join_table: 'event_participations'
 
+  has_attached_file :picture
+
   validates :title, :event_type, :begin_at, :end_at, :description, :venue,
             presence: true
+
+  validates :picture,
+            attachment_presence: true
+  validates_attachment_content_type :picture,
+                                    content_type: /\Aimage\/.*\z/
 end
