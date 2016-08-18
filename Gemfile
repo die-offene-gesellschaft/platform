@@ -23,6 +23,7 @@ group :development, :test do
   gem 'brakeman'
   gem 'byebug', platform: :mri
   gem 'coffeelint'
+  gem 'factory_girl_rails'
   gem 'rails_best_practices'
   gem 'reek'
   gem 'rspec-rails'
