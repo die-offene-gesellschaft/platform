@@ -11,12 +11,16 @@
         = t('topbar.social-bar.faq')
       a href="/contact"
         = t('topbar.social-bar.contact')
-      - if user_signed_in? || admin_signed_in?
-        a.login href="#{destroy_user_session_path}"
-          = t('topbar.social-bar.logout')
+      - if user_signed_in?
+        = link_to t('topbar.social-bar.logout'),
+                  destroy_user_session_path,
+                  method: :delete,
+                  class: 'login'
       - elsif admin_signed_in?
-        a.login href="#{destroy_admin_session_path}"
-          = t('topbar.social-bar.logout')
+        = link_to t('topbar.social-bar.logout'),
+                  destroy_admin_session_path,
+                  method: :delete,
+                  class: 'login'
       - else
         a.login href="#{new_user_session_path}"
           = t('topbar.social-bar.login')
@@ -28,14 +32,21 @@
     nav.col-sm-8
       ul
         li
-          = link_to t('topbar.nav.home'), 'home'
+          = link_to t('topbar.nav.home'),
+                    'home'
         li
-          = link_to t('topbar.nav.activities'), 'home'
+          = link_to t('topbar.nav.activities'),
+                    events_path
         li
-          = link_to t('topbar.nav.friends'), 'home'
+          = link_to t('topbar.nav.friends'),
+                    users_path
         li
-          = link_to t('topbar.nav.about'), 'home'
+          = link_to t('topbar.nav.about'),
+                    'about'
         li
-          = link_to t('topbar.nav.blog'), 'home'
+          = link_to t('topbar.nav.blog'),
+                    'blog'
         li
-          = link_to t('topbar.nav.participate'), 'home', class: 'highlight'
+          = link_to t('topbar.nav.participate'),
+                    new_user_registration_path,
+                    class: 'highlight'

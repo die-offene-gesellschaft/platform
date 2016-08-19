@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     get '/users' => 'users#index'
     get '/faq' => 'application#faq'
     get '/contact' => 'application#contact'
+    get '/about' => 'application#about'
+    get '/blog' => 'application#blog'
     get '/imprint' => 'application#imprint'
     get '/privacy' => 'application#privacy'
   end
