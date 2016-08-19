@@ -12,6 +12,8 @@
       a href="/contact"
         = t('topbar.social-bar.contact')
       - if user_signed_in?
+        = link_to t('topbar.social-bar.profile'),
+                  edit_user_registration_path
         = link_to t('topbar.social-bar.logout'),
                   destroy_user_session_path,
                   method: :delete,
