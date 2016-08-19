@@ -1,0 +1,112 @@
+/*
+ *= require_self
+ */
+
+// general definitions
+@import 'variables';
+@import 'bootstrap-overwrites';
+
+// gems & dependencies
+@import 'bootstrap';
+@import 'font-awesome';
+
+// partial styling
+@import 'topbar-footer';
+@import 'home';
+@import 'comments';
+@import 'events';
+@import 'locations';
+@import 'pictures';
+@import 'users';
+@import 'venues';
+
+html,
+body {
+  color: $color-2;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: $color-0;
+  padding: $padding;
+}
+
+a {
+  cursor: pointer;
+}
+
+a:hover,
+a:active,
+a:focus {
+  background-color: $color-1;
+  outline: 0;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $color-2;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  color: $color-4;
+}
+
+h1 {
+  font-size: $h1-font-size;
+}
+
+h2 {
+  font-size: $h2-font-size;
+}
+
+h3 {
+  font-size: $h3-font-size;
+}
+
+h4 {
+  font-size: $h4-font-size;
+}
+
+h5 {
+  font-size: $h5-font-size;
+}
+
+h6 {
+  font-size: $h6-font-size;
+}
+
+p {
+  span {
+    display: block;
+  }
+}
+
+.turbolinks-progress-bar {
+  background: $color-4;
+  border-radius: 1px;
+  box-shadow: 0 0 2px $color-4;
+  height: 2px;
+  z-index: 99999;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.row-eq-height {
+  display: flex;
+  flex-wrap: wrap;
+
+  > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+  }
+}

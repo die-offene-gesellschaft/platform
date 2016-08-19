@@ -1,0 +1,4 @@
+de:
+  site-title:
+    default: 'Offene Gesellschaft'
+    schema: '%{title} · %{current_page}'

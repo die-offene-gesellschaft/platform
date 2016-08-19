@@ -1,0 +1,34 @@
+.topbar
+  .row.social-bar
+    .col-xs-12
+      a href="#{t('topbar.social-bar.facebook.href')}" title="#{t('topbar.social-bar.facebook.title')}" target='blank'
+        = fa_icon 'facebook-official'
+      a href="#{t('topbar.social-bar.youtube.href')}" title="#{t('topbar.social-bar.youtube.title')}" target='blank'
+        = fa_icon 'youtube-play'
+      a href="#{t('topbar.social-bar.twitter.href')}" title="#{t('topbar.social-bar.twitter.title')}" target='blank'
+        = fa_icon 'twitter'
+      a href="/faq"
+        = t('topbar.social-bar.faq')
+      a href="/contact"
+        = t('topbar.social-bar.contact')
+      a.login href="#{new_user_session_path}"
+        = t('topbar.social-bar.login')
+
+  .row.row-eq-height
+    .col-sm-4
+      a.logo href='/home' title="#{t('topbar.logo.title')}"
+        = image_tag('logo.png')
+    nav.col-sm-8
+      ul
+        li
+          = link_to t('topbar.nav.home'), 'home'
+        li
+          = link_to t('topbar.nav.activities'), 'home'
+        li
+          = link_to t('topbar.nav.friends'), 'home'
+        li
+          = link_to t('topbar.nav.about'), 'home'
+        li
+          = link_to t('topbar.nav.blog'), 'home'
+        li
+          = link_to t('topbar.nav.participate'), 'home', class: 'highlight'
