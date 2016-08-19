@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   root :to => redirect('/de')
 
+  devise_for :admins
+  devise_for :users
+
   scope "(:locale)", locale: /de|en/ do
     resources :events
-    devise_for :admins
-    devise_for :users
 
     resources :comments
     resources :locations

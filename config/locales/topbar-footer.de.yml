@@ -12,7 +12,8 @@ de:
         href: http://www.twitter.de
       faq: FAQ
       contact: Kontakt
-      login: login
+      login: Login
+      logout: Logout
     logo:
       title: 'Startseite der Offenen Gesellschaft'
     nav:

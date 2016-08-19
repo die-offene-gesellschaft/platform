@@ -11,8 +11,15 @@
         = t('topbar.social-bar.faq')
       a href="/contact"
         = t('topbar.social-bar.contact')
-      a.login href="#{new_user_session_path}"
-        = t('topbar.social-bar.login')
+      - if user_signed_in? || admin_signed_in?
+        a.login href="#{destroy_user_session_path}"
+          = t('topbar.social-bar.logout')
+      - elsif admin_signed_in?
+        a.login href="#{destroy_admin_session_path}"
+          = t('topbar.social-bar.logout')
+      - else
+        a.login href="#{new_user_session_path}"
+          = t('topbar.social-bar.login')
 
   .row.row-eq-height
     .col-sm-4
