@@ -26,7 +26,7 @@ $nav-item-margin: #{$general-margin * 2};
       }
 
       .fa {
-        font-size: $social-bar-icon-font-size
+        font-size: $social-bar-icon-font-size;
       }
     }
   }
@@ -46,12 +46,12 @@ $nav-item-margin: #{$general-margin * 2};
     position: relative;
 
     ul {
-      padding: 0;
-      margin-bottom: 0;
-      position: absolute;
       bottom: 0;
-      right: 0;
+      margin-bottom: 0;
       margin-right: #{$margin-horizontal + $bootstrap-margin};
+      padding: 0;
+      position: absolute;
+      right: 0;
 
       li {
         display: inline-block;
