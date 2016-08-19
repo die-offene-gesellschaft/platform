@@ -53,6 +53,11 @@ h5,
 h6 {
   color: $color-2;
   text-transform: uppercase;
+  margin-top: $heading-margin;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
 }
 
 h1,
@@ -109,5 +114,17 @@ p {
   > [class*='col-'] {
     display: flex;
     flex-direction: column;
+  }
+}
+
+.btn-row {
+  text-align: right;
+
+  .btn {
+    margin-left: $btn-row-margin;
+  }
+
+  .btn:first-of-type {
+    margin-left: 0;
   }
 }
