@@ -2,6 +2,10 @@ h2
   = "Edit #{resource_name.to_s.humanize}"
 
 .row
+  .col-xs-12.text-xs-center
+    = gravatar_image_tag(current_user.email, size: '128')
+
+.row
   .col-sm-6.general-settings
     h3
       | Profile settings
@@ -17,48 +21,35 @@ h2
     h3
       | Account settings
 
-    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-      = devise_error_messages!
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
 
-      .field
-        = f.label :email
-        br
-        = f.email_field :email,
-                        autofocus: true
+      .form-inputs
+        = f.input :email,
+                  required: true,
+                  autofocus: true
+        = f.input :password,
+                  autocomplete: 'off',
+                  hint: t('user-edit.password-blank-hint'),
+                  required: false
+        = f.input :password_confirmation,
+                  required: false
+        = f.input :current_password,
+                  hint: t('user-edit.necessary-password-for-confirmation'),
+                  required: true
 
-      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-        div
-          = "Currently waiting confirmation for: #{resource.unconfirmed_email}"
-
-      .field
-        = f.label :password
-        i
-          | (leave blank if you don't want to change it
-        br
-        = f.password_field :password,
-                           autocomplete: 'off'
-        - if @minimum_password_length
-          br
-          em
-            = "#{@minimum_password_length} characters minimum"
-
-      .field
-        = f.label :password_confirmation
-        br
-        = f.password_field :password_confirmation,
-                           autocomplete: 'off'
-
-      .field
-        = f.label :current_password
-        i
-          | (we need your current password to confirm your changes)
-        br
-        = f.password_field :current_password,
-                           autocomplete: 'off'
-
-      .actions.btn-row
-        = f.submit 'Update',
-                   class: 'btn btn-primary'
+      .row.btn-row
+        .col-xs-12
+          = render 'shared/button',
+                   type: 'danger',
+                   href: registration_path(resource_name),
+                   method: 'delete',
+                   icon: 'times',
+                   label: t('cancel-my-account'),
+                   confirm: t('delete-confirm')
+          = render 'shared/button',
+                   type: 'submit',
+                   icon: 'check',
+                   label: t('save')
 
 h2
   | Cancel my account
