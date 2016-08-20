@@ -1,6 +1,10 @@
-<h1>Editing Event</h1>
+h1
+  = t('events.title.edit')
 
-<%= render 'form', event: @event %>
+= render 'form',
+         event: @event
 
-<%= link_to 'Show', @event %> |
-<%= link_to 'Back', events_path %>
+= link_to 'Show',
+          @event
+= link_to 'Back',
+          events_path
