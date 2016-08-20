@@ -14,6 +14,7 @@ gem 'paperclip'
 gem 'puma'
 gem 'rails'
 gem 'sass-rails'
+gem 'simple_form'
 gem 'therubyracer'
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
