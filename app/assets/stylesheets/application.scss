@@ -121,10 +121,10 @@ p {
   text-align: right;
 
   .btn {
-    margin-left: $btn-row-margin;
+    margin: 0 $btn-row-margin;
   }
 
-  .btn:first-of-type {
-    margin-left: 0;
+  .btn:last-of-type {
+    margin-right: 0;
   }
 }

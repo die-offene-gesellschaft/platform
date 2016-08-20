@@ -1,4 +1,5 @@
 de:
+  delete-confirm: Bist du sicher?
   site-title:
     default: 'Offene Gesellschaft'
     schema: '%{title} · %{current_page}'
