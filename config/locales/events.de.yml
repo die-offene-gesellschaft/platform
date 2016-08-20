@@ -1,4 +1,6 @@
 de:
   events:
-    title: Aktionen
-    new: Lege eine neue Aktion an
+    title:
+      index: Aktionen
+      new: Lege eine neue Aktion an
+      edit:
