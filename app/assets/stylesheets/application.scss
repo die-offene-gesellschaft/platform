@@ -52,8 +52,8 @@ h4,
 h5,
 h6 {
   color: $color-2;
-  text-transform: uppercase;
   margin-top: $heading-margin;
+  text-transform: uppercase;
 
   &:first-of-type {
     margin-top: 0;
