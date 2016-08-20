@@ -17,7 +17,7 @@ RSpec.describe "GET routes", type: :request do
     routes = ROUTES.select { |r| r[:method] == 'GET' }
     routes.each do |route|
       path = route[:path]
-      de_path = path.gsub(/\(\/:locale\)/, '/de')
+      de_path = path.gsub(/\(\/:locale\)/, '/de').gsub(/\(:locale\)/, 'de')
       get de_path
       expect([200, 301, 302]).to include(response.status)
     end
