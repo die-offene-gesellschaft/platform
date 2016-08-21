@@ -31,7 +31,7 @@ group :development, :test do
   gem 'reek'
   gem 'rspec-rails'
   gem 'rubocop-rspec'
-  gem 'scss_lint'
+  gem 'scss-lint'
   gem 'shoulda-matchers'
   gem 'slim_lint'
   gem 'sqlite3'
