@@ -5,12 +5,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def set_locale
-    I18n.locale = params[:locale].to_sym
-  rescue
-    I18n.locale = :de
-  end
-
   def set_title
     @site_title = I18n.t('site-title.default')
     @site_title = I18n.t(
