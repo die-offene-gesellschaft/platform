@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :authenticate_user!
-  before_action :set_locale
   before_action :set_copyright_year
   before_action :set_title
 
@@ -25,10 +23,5 @@ class ApplicationController < ActionController::Base
   def set_copyright_year
     require 'date'
     @current_year = Time.zone.today.strftime('%Y')
-  end
-
-  # This method smells of :reek:UtilityFunction
-  def default_url_options(options = {})
-    { locale: I18n.locale }.merge options
   end
 end
