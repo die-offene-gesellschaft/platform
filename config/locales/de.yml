@@ -1,4 +1,9 @@
 de:
+  formats:
+    date:
+      short: '%d.%m.'
+    time:
+      short: '%H.%M Uhr'
   delete-confirm: Bist du sicher?
   site-title:
     default: 'Offene Gesellschaft'

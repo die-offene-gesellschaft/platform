@@ -1,5 +1,6 @@
 de:
   events:
+    event-type-and-active-members: '%{event_type} mit %{active_members}'
     subnavi:
       appointments:
         href: '?appointments'

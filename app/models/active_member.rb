@@ -3,4 +3,8 @@ class ActiveMember < ApplicationRecord
 
   validates :forename, :surname,
             presence: true
+
+  def full_name
+    "#{forename} #{surname}"
+  end
 end

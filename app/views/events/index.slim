@@ -9,54 +9,36 @@ ruby:
            active: archive ? 'archive' : 'appointments'
   = image_tag 'events/map-mockup.png'
 
-h1
-  = t('events.title.index')
+  - if appointments
+    table
+      tbody
+        - @events.each do |event|
+          tr
+            td
+              = event.begin_at.strftime(t('formats.date.short'))
+            td
+              p.title
+                = event.title
+              p.begin
+                = event.begin_at.strftime(t('formats.time.short'))
+              p.event-type-and-active-members
+                = t 'events.event-type-and-active-members',
+                    event_type: event.event_type,
+                    active_members: event.active_members.map(&:full_name).join(', ')
+            - if admin_signed_in?
+              td
+                = link_to 'Show',
+                          event
+                = link_to 'Edit',
+                          edit_event_path(event)
+                = link_to 'Destroy',
+                          event,
+                          method: :delete,
+                          data: { confirm: 'Are you sure?' }
 
-table
-  thead
-    tr
-      th Title
-      th Event type
-      th Begin at
-      th End at
-      th Active members
-      th Description
-      th Facebook identifier
-      th Locked
-      th colspan="3"
-
-  tbody
-    - @events.each do |event|
-      tr
-        td
-          = event.title
-        td
-          = event.event_type
-        td
-          = event.begin_at
-        td
-          = event.end_at
-        td
-          = event.active_members
-        td
-          = event.description
-        td
-          = event.facebook_identifier
-        td
-          = event.locked
-        td
-          = link_to 'Show',
-                    event
-        td
-          = link_to 'Edit',
-                    edit_event_path(event)
-        td
-          = link_to 'Destroy',
-                    event,
-                    method: :delete,
-                    data: { confirm: 'Are you sure?' }
-
-br
-
-= link_to 'New Event',
-          new_event_path
+    - if admin_signed_in?
+      br
+      = link_to 'New Event',
+                new_event_path
+  - else
+    | archive

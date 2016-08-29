@@ -7,7 +7,9 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    where_statement = 'end_at >= ?'
+    where_statement = 'end_at < ?' if request.query_parameters.keys.include?('archive')
+    @events = Event.all.where(where_statement, Time.zone.now).order(:begin_at)
   end
 
   # GET /events/1
