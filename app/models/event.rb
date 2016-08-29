@@ -14,8 +14,6 @@ class Event < ApplicationRecord
   validates :title, :event_type, :begin_at, :end_at, :description, :venue,
             presence: true
 
-  validates :picture,
-            attachment_presence: true
   validates_attachment_content_type :picture,
                                     content_type: %r{\Aimage\/.*\z}
 end

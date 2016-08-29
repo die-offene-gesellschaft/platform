@@ -1,0 +1,3 @@
+Event.seed(:id,
+  {}
+)
