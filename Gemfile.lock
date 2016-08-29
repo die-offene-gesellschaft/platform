@@ -92,6 +92,7 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.1.0)
     diff-lcs (1.2.5)
     equalizer (0.0.11)
     erubis (2.7.0)
@@ -320,6 +321,7 @@ DEPENDENCIES
   coffee-rails
   coffeelint
   devise
+  devise-i18n
   factory_girl_rails
   font-awesome-rails
   gravatar_image_tag
