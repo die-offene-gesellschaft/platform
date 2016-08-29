@@ -1,0 +1,25 @@
+h1 Listing active_members
+
+table
+  thead
+    tr
+      th Forename
+      th Surname
+      th Role
+      th
+      th
+      th
+
+  tbody
+    - @active_members.each do |active_member|
+      tr
+        td = active_member.forename
+        td = active_member.surname
+        td = active_member.role
+        td = link_to 'Show', active_member
+        td = link_to 'Edit', edit_active_member_path(active_member)
+        td = link_to 'Destroy', active_member, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Active member', new_active_member_path

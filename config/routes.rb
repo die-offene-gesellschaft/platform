@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :active_members
   root :to => redirect('/home')
 
   devise_for :admins

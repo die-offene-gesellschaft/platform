@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818145516) do
+ActiveRecord::Schema.define(version: 20160829125437) do
+
+  create_table "active_members", force: :cascade do |t|
+    t.string   "forename"
+    t.string   "surname"
+    t.string   "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "event_id"
+    t.index ["event_id"], name: "index_active_members_on_event_id"
+  end
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -52,7 +62,6 @@ ActiveRecord::Schema.define(version: 20160818145516) do
     t.string   "event_type"
     t.datetime "begin_at"
     t.datetime "end_at"
-    t.string   "active_members"
     t.text     "description"
     t.string   "facebook_identifier"
     t.boolean  "locked"
