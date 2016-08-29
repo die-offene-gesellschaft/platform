@@ -1,3 +1,14 @@
+ruby:
+  appointments = archive = false
+  appointments = true if request.query_parameters.keys.include?('appointments')
+  archive = true if request.query_parameters.keys.include?('archive')
+
+.events
+  = render 'shared/subnavi',
+           items: t('events.subnavi'),
+           active: archive ? 'archive' : 'appointments'
+  = image_tag 'events/map-mockup.png'
+
 h1
   = t('events.title.index')
 

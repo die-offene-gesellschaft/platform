@@ -1,5 +1,12 @@
 de:
   events:
+    subnavi:
+      appointments:
+        href: '?appointments'
+        label: 'Appointments'
+      archive:
+        href: '?archive'
+        label: 'Archive'
     title:
       index: Aktionen
       new: Lege eine neue Aktion an

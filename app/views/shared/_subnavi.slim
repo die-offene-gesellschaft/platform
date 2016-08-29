@@ -1,0 +1,9 @@
+.subnavi
+  - items.each do |key, item|
+    - if key.to_s == active
+      span
+        = item[:label]
+    - else
+      a href="#{item[:href]}"
+        = item[:label]
+

@@ -128,3 +128,14 @@ p {
     margin-right: 0;
   }
 }
+
+.subnavi {
+  background-color: $color-5-3;
+  text-align: right;
+  padding: 5px;
+
+  a,
+  span {
+    margin: 5px;
+  }
+}

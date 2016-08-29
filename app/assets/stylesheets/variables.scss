@@ -5,6 +5,9 @@ $color-2: #2b2b2a; // eternity; text color
 $color-3: #fe0000; // red; highlighs, borders, tiles
 $color-4: #d01f3a; // cardinal; highlights, special words, heading, buttons
 $color-5: #7c7c7c; // concord; secondary information links like imprint / privacy
+$color-5-1: lighten($color-5, 10);
+$color-5-2: lighten($color-5, 20);
+$color-5-3: lighten($color-5, 30);
 
 // distance definitions
 $bootstrap-margin: .9375rem;
