@@ -40,6 +40,7 @@ end
 
 group :development do
   gem 'better_errors'
+  gem 'letter_opener'
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
