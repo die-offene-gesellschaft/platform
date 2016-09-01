@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   resources :venues
 
   get '/' => redirect('/home')
-  get '/about' => 'application#about'
-  get '/blog' => 'application#blog'
+  get '/about' => 'about#show'
+  get '/blog' => 'blog#show'
   get '/contact' => 'application#contact'
   get '/faq' => 'application#faq'
   get '/home' => 'home#show'
