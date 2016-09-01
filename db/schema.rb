@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901145730) do
+ActiveRecord::Schema.define(version: 20160901155400) do
 
   create_table "active_members", force: :cascade do |t|
     t.string   "forename"
@@ -136,6 +136,7 @@ ActiveRecord::Schema.define(version: 20160901145730) do
     t.string   "role"
     t.string   "statement"
     t.boolean  "locked"
+    t.string   "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

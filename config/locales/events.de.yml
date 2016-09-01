@@ -4,10 +4,10 @@ de:
     subnavi:
       appointments:
         href: '?appointments'
-        label: 'Appointments'
+        label: 'Termine'
       archive:
         href: '?archive'
-        label: 'Archive'
+        label: 'Archiv'
     title:
       index: Aktionen
       new: Lege eine neue Aktion an

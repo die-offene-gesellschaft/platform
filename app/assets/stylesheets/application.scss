@@ -172,15 +172,30 @@ tr {
 }
 
 .tile {
-  &.size2x2 {
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+
+  &.size1x1 {
     height: 50vw;
-    overflow: hidden;
-    padding: 0;
-    position: relative;
 
     @include media-breakpoint-up(sm) {
-      height: 0;
+      padding: 0 0 16.66667%;
+    }
+  }
+
+  &.size2x2 {
+    height: 100vw;
+
+    @include media-breakpoint-up(sm) {
       padding: 0 0 33.33333%;
+    }
+  }
+
+  &.size1x1,
+  &.size2x2 {
+    @include media-breakpoint-up(sm) {
+      height: 0;
     }
   }
 }

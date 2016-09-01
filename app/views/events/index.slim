@@ -10,13 +10,13 @@ ruby:
   .row
     - if archive
         - @events.each do |year, events|
-          .col-xs-6.col-sm-4.tile.year.size2x2
+          .col-xs-12.col-sm-4.tile.year.size2x2
             = l(year, format: '%Y')
           - events.each do |event|
             ruby:
               type = 'blank'
               type = 'picture' if event.picture.path
-            a.col-xs-6.col-sm-4.tile.event.size2x2 class="#{type}" href="#{event_path(event)}" style="#{"background-image: url(#{asset_path(event.picture)})" if type == 'picture'}"
+            a.col-xs-12.col-sm-4.tile.event.size2x2 class="#{type}" href="#{event_path(event)}" style="#{"background-image: url(#{asset_path(event.picture)})" if type == 'picture'}"
               .date-and-title
                 = l(event.begin_at, format: '%d.%m.')
                 | &nbsp;

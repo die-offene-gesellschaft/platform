@@ -1,0 +1,9 @@
+de:
+  users:
+    subnavi:
+      pictures:
+        href: '?pictures'
+        label: 'Bilder'
+      list:
+        href: '?list'
+        label: 'Liste'

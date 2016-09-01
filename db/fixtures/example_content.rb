@@ -3,6 +3,18 @@ require 'active_support/core_ext/date/conversions'
 
 # user
 user = User.seed(id: 1, email: 'og@example.com', password: '12345678').first
+15.times do |i|
+  User.seed(
+    id: i + 2,
+    email: Faker::Internet.email,
+    password: '12345678',
+    name: Faker::Name.name,
+    statement: Faker::Hacker.say_something_smart,
+    role: Faker::StarWars.specie,
+    avatar: File.new("#{Rails.root}/db/fixtures/pictures/user#{i + 1}.jpg"),
+    locked: false
+  )
+end
 
 # venues
 die_staatstheater_stuttgart = Venue.seed(
