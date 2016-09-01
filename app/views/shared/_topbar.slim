@@ -35,7 +35,7 @@
       ul
         li
           = link_to t('topbar.nav.home'),
-                    'home',
+                    home_path,
                     class: ('active' if controller_name == 'home')
         li
           = link_to t('topbar.nav.events'),
@@ -47,11 +47,11 @@
                     class: ('active' if controller_name == 'users')
         li
           = link_to t('topbar.nav.about'),
-                    'about',
+                    about_path,
                     class: ('active' if controller_name == 'about')
         li
           = link_to t('topbar.nav.blog'),
-                    'blog',
+                    blog_path,
                     class: ('active' if controller_name == 'blog')
         li
           = link_to t('topbar.nav.participate'),
