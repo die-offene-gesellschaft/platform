@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(version: 20160901155400) do
     t.string   "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "event_id"
-    t.index ["event_id"], name: "index_active_members_on_event_id"
   end
 
   create_table "active_members_events", id: false, force: :cascade do |t|

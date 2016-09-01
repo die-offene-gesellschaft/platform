@@ -20,7 +20,7 @@ class User < ApplicationRecord
   has_many :pictures
 
   validates_attachment_content_type :avatar,
-                                    content_type: /\Aimage\/.*\z/
+                                    content_type: %r{\Aimage\/.*\z}
 
   validates :name,
             presence: true
