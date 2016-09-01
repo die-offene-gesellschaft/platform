@@ -36,23 +36,23 @@
         li
           = link_to t('topbar.nav.home'),
                     'home',
-                    class: "#{'active' if controller_name == 'home'}"
+                    class: ('active' if controller_name == 'home')
         li
           = link_to t('topbar.nav.events'),
                     events_path,
-                    class: "#{'active' if controller_name == 'events'}"
+                    class: ('active' if controller_name == 'events')
         li
           = link_to t('topbar.nav.users'),
                     users_path,
-                    class: "#{'active' if controller_name == 'users'}"
+                    class: ('active' if controller_name == 'users')
         li
           = link_to t('topbar.nav.about'),
                     'about',
-                    class: "#{'active' if controller_name == 'about'}"
+                    class: ('active' if controller_name == 'about')
         li
           = link_to t('topbar.nav.blog'),
                     'blog',
-                    class: "#{'active' if controller_name == 'blog'}"
+                    class: ('active' if controller_name == 'blog')
         li
           = link_to t('topbar.nav.participate'),
                     new_user_registration_path,
