@@ -4,7 +4,7 @@ class Event < ApplicationRecord
 
   has_many :comments, dependent: :destroy
   has_many :pictures, dependent: :destroy
-  has_many :active_members
+  has_and_belongs_to_many :active_members
 
   has_and_belongs_to_many :participants,
                           class_name: 'User',

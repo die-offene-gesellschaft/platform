@@ -7,7 +7,7 @@ RSpec.describe Event, type: :model do
 
   it { should have_many(:pictures).dependent(:destroy) }
 
-  it { should have_many(:active_members) }
+  it { should have_and_belong_to_many(:active_members) }
 
   it { should belong_to(:venue) }
 
