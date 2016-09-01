@@ -35,19 +35,24 @@
       ul
         li
           = link_to t('topbar.nav.home'),
-                    'home'
+                    'home',
+                    class: "#{'active' if controller_name == 'home'}"
         li
-          = link_to t('topbar.nav.activities'),
-                    events_path
+          = link_to t('topbar.nav.events'),
+                    events_path,
+                    class: "#{'active' if controller_name == 'events'}"
         li
           = link_to t('topbar.nav.friends'),
-                    users_path
+                    users_path,
+                    class: "#{'active' if controller_name == 'friends'}"
         li
           = link_to t('topbar.nav.about'),
-                    'about'
+                    'about',
+                    class: "#{'active' if controller_name == 'about'}"
         li
           = link_to t('topbar.nav.blog'),
-                    'blog'
+                    'blog',
+                    class: "#{'active' if controller_name == 'blog'}"
         li
           = link_to t('topbar.nav.participate'),
                     new_user_registration_path,

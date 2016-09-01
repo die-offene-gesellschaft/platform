@@ -11,7 +11,8 @@
 @import 'font-awesome';
 
 // partial styling
-@import 'topbar-footer';
+@import 'topbar';
+@import 'footer';
 @import 'alert';
 @import 'home';
 @import 'comments';
@@ -23,13 +24,13 @@
 
 html,
 body {
-  color: $color-2;
+  color: $black;
   height: 100%;
   width: 100%;
 }
 
 body {
-  background-color: $color-0;
+  background-color: $white;
   padding: $padding;
 }
 
@@ -40,7 +41,6 @@ a {
 a:hover,
 a:active,
 a:focus {
-  background-color: $color-1;
   outline: 0;
   text-decoration: none;
 }
@@ -129,13 +129,29 @@ p {
   }
 }
 
+.subnavi,
+nav {
+  a {
+    font-weight: bold;
+    padding: 0 5px;
+
+    &.active {
+      background-color: $yellow;
+    }
+  }
+}
+
 .subnavi {
-  background-color: $color-5-3;
+  background-color: $gray;
   padding: 5px;
   text-align: right;
 
   a,
   span {
-    margin: 5px;
+    color: $black;
+
+    &.active {
+      background-color: $yellow;
+    }
   }
 }

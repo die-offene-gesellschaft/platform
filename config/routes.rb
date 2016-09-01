@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :active_members
-  root :to => redirect('/home')
 
   devise_for :admins
   devise_for :users
@@ -11,12 +10,12 @@ Rails.application.routes.draw do
   resources :pictures
   resources :venues
 
-  get '/' => 'application#home'
+  get '/' => redirect('/home')
   get '/about' => 'application#about'
   get '/blog' => 'application#blog'
   get '/contact' => 'application#contact'
   get '/faq' => 'application#faq'
-  get '/home' => 'application#home'
+  get '/home' => 'home#show'
   get '/imprint' => 'application#imprint'
   get '/privacy' => 'application#privacy'
   get '/users' => 'users#index'

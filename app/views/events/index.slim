@@ -7,38 +7,44 @@ ruby:
   = render 'shared/subnavi',
            items: t('events.subnavi'),
            active: archive ? 'archive' : 'appointments'
-  = image_tag 'events/map-mockup.png'
 
-  - if appointments
+  - if archive
+    | archive
+  - else
     table
       tbody
-        - @events.each do |event|
+        - @events.each do |month, events|
           tr
-            td
-              = event.begin_at.strftime(t('formats.date.short'))
-            td
-              p.title
-                = event.title
-              p.begin
-                = event.begin_at.strftime(t('formats.time.short'))
-              p.event-type-and-active-members
-                = t 'events.event-type-and-active-members',
-                    event_type: event.event_type,
-                    active_members: event.active_members.map(&:full_name).join(', ')
-            - if admin_signed_in?
-              td
-                = link_to 'Show',
-                          event
-                = link_to 'Edit',
-                          edit_event_path(event)
-                = link_to 'Destroy',
-                          event,
-                          method: :delete,
-                          data: { confirm: 'Are you sure?' }
+            td.month colspan='2'
+              = month.strftime('%B')
+              | &nbsp;
+              = month.strftime('%Y')
+              = fa_icon 'chevron-up'
+          - events.each do |event|
+            tr.event
+              td.date
+                = event.begin_at.strftime(t('formats.date.short'))
+              td.details
+                p.title
+                  = event.title
+                p.begin
+                  = event.begin_at.strftime(t('formats.time.short'))
+                p.event-type-and-active-members
+                  = t 'events.event-type-and-active-members',
+                      event_type: event.event_type,
+                      active_members: event.active_members.map(&:full_name).join(', ')
+              - if admin_signed_in?
+                td
+                  = link_to 'Show',
+                            event
+                  = link_to 'Edit',
+                            edit_event_path(event)
+                  = link_to 'Destroy',
+                            event,
+                            method: :delete,
+                            data: { confirm: 'Are you sure?' }
 
     - if admin_signed_in?
       br
       = link_to 'New Event',
                 new_event_path
-  - else
-    | archive

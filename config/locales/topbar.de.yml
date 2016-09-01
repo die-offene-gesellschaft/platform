@@ -19,12 +19,8 @@ de:
       title: 'Startseite der Offenen Gesellschaft'
     nav:
       home: Home
-      activities: Aktionen
+      events: Aktionen
       friends: Freunde
       about: Über uns
       blog: Blog
       participate: Mitmachen
-  footer:
-    copyright: '&copy; Die Offene Gesellschaft, %{year}'
-    imprint: Impressum
-    privacy: Datenschutz

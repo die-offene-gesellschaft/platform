@@ -73,32 +73,3 @@ $nav-item-margin: #{$general-margin * 2};
     }
   }
 }
-
-.footer {
-  color: $color-5;
-  font-size: $sub-text-font-size;
-  font-weight: bold;
-  margin-top: $nav-item-margin;
-
-  .row {
-    margin: 0;
-
-    .copyright {
-      padding-left: $margin-horizontal;
-    }
-
-    .links {
-      padding-right: $margin-horizontal;
-      text-align: right;
-
-      a {
-        color: $color-5;
-        margin-right: $general-margin;
-
-        &:last-of-type {
-          margin-right: 0;
-        }
-      }
-    }
-  }
-}

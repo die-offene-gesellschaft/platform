@@ -6,4 +6,44 @@
   img {
     width: 100%;
   }
+
+  table {
+    width: 100%;
+
+    tr {
+      &.event {
+        &:nth-of-type(2n+1) {
+          background-color: $red;
+        }
+      }
+
+      td {
+        vertical-align: top;
+
+        &.month {
+          background-color: $black;
+          color: $white;
+          font-size: 5vw;
+          padding: 1vw 1vw 6vw;
+          position: relative;
+
+          i {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 3vw;
+          }
+        }
+
+        &.date {
+          font-size: 5vw;
+          width: 25vw;
+        }
+
+        &.details {
+
+        }
+      }
+    }
+  }
 }
