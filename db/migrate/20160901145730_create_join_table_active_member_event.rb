@@ -1,7 +1,5 @@
 class CreateJoinTableActiveMemberEvent < ActiveRecord::Migration[5.0]
   def change
-    remove_reference :active_members, :event_id, index: true, foreign_key: true
-
     create_join_table :active_members, :events do |t|
       t.index [:active_member_id, :event_id]
       t.index [:event_id, :active_member_id]
