@@ -31,7 +31,14 @@ body {
 
 body {
   background-color: $white;
-  padding: $padding;
+}
+
+.content-container {
+  min-height: calc(100% - 14rem);
+}
+
+.container-fluid {
+  max-width: 1280px;
 }
 
 a {
@@ -152,6 +159,28 @@ nav {
 
     &.active {
       background-color: $yellow;
+    }
+  }
+}
+
+tr {
+  &[data-href] {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.tile {
+  &.size2x2 {
+    height: 50vw;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+
+    @include media-breakpoint-up(sm) {
+      height: 0;
+      padding: 0 0 33.33333%;
     }
   }
 }

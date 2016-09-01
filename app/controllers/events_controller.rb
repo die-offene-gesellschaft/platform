@@ -11,12 +11,17 @@ class EventsController < ApplicationController
     if archive
       where_statement = 'end_at < ?'
       group_statement = :beginning_of_year
+      order_statement = { begin_at: :desc }
     else
       where_statement = 'end_at >= ?'
       group_statement = :beginning_of_month
+      order_statement = { begin_at: :asc }
     end
-    @events = Event.all.where(where_statement, Time.zone.now).order(:begin_at)
-    @events = @events.group_by { |event| event.begin_at.send(group_statement) }
+    @events = Event
+                .all
+                .where(where_statement, Time.zone.now)
+                .order(order_statement)
+                .group_by { |event| event.begin_at.send(group_statement) }
   end
 
   # GET /events/1

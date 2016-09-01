@@ -13,8 +13,10 @@ html
 
   body
     = render 'shared/flash'
-    .container.content-container
+    .container-fluid
       = render 'shared/topbar'
+    .container-fluid.content-container
       = yield
+    .container-fluid
       = render 'shared/footer',
                current_year: @current_year

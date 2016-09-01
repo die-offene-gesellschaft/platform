@@ -7,6 +7,36 @@
     width: 100%;
   }
 
+  .tile {
+    background-position: 50% 50%;
+    background-size: cover;
+    color: $white;
+    position: relative;
+
+    &.year {
+      background-color: $red;
+      font-size: 6vw;
+      font-weight: bold;
+      padding-left: 2vw;
+    }
+
+    &.blank {
+      background-color: $black;
+    }
+
+    &.picture {
+      text-shadow: 0 0 3px $black;
+    }
+
+    .date-and-title {
+      bottom: 1rem;
+      font-size: 0.75rem;
+      font-weight: bold;
+      left: 1rem;
+      position: absolute;
+    }
+  }
+
   table {
     width: 100%;
 
@@ -38,6 +68,26 @@
         &.date {
           font-size: 5vw;
           width: 25vw;
+        }
+
+        &.details {
+          p {
+            margin: 0;
+
+            &.title {
+              font-size: 1.25rem;
+              margin: 0 0 2rem;
+            }
+
+            &.begin {
+              font-weight: bold;
+            }
+
+            &.begin,
+            &.event-type-and-active-members {
+              font-size: .75rem;
+            }
+          }
         }
       }
     }

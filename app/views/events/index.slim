@@ -7,44 +7,54 @@ ruby:
   = render 'shared/subnavi',
            items: t('events.subnavi'),
            active: archive ? 'archive' : 'appointments'
-
-  - if archive
-    | archive
-  - else
-    table
-      tbody
-        - @events.each do |month, events|
-          tr
-            td.month colspan='2'
-              = month.strftime('%B')
-              | &nbsp;
-              = month.strftime('%Y')
-              = fa_icon 'chevron-up'
+  .row
+    - if archive
+        - @events.each do |year, events|
+          .col-xs-6.col-sm-4.tile.year.size2x2
+            = l(year, format: '%Y')
           - events.each do |event|
-            tr.event
-              td.date
-                = event.begin_at.strftime(t('formats.date.short'))
-              td.details
-                p.title
-                  = event.title
-                p.begin
-                  = event.begin_at.strftime(t('formats.time.short'))
-                p.event-type-and-active-members
-                  = t 'events.event-type-and-active-members',
-                      event_type: event.event_type,
-                      active_members: event.active_members.map(&:full_name).join(', ')
-              - if admin_signed_in?
-                td
-                  = link_to 'Show',
-                            event
-                  = link_to 'Edit',
-                            edit_event_path(event)
-                  = link_to 'Destroy',
-                            event,
-                            method: :delete,
-                            data: { confirm: 'Are you sure?' }
-
-    - if admin_signed_in?
-      br
-      = link_to 'New Event',
-                new_event_path
+            ruby:
+              type = 'blank'
+              type = 'picture' if event.picture.path
+            a.col-xs-6.col-sm-4.tile.event.size2x2 class="#{type}" href="#{event_path(event)}" style="#{"background-image: url(#{asset_path(event.picture)})" if type == 'picture'}"
+              .date-and-title
+                = l(event.begin_at, format: '%d.%m.')
+                | &nbsp;
+                = event.title
+    - else
+      - @events.each do |month, events|
+        table
+          tbody
+            tr
+              td.month colspan='2'
+                = l(month, format: '%B')
+                | &nbsp;
+                = l(month, format: '%Y')
+                = fa_icon 'chevron-up'
+            - events.each do |event|
+              tr.event data-href="#{event_path(event)}"
+                td.date
+                  = event.begin_at.strftime(t('formats.date.short'))
+                td.details
+                  p.title
+                    = event.title
+                  p.begin
+                    = event.begin_at.strftime(t('formats.time.short'))
+                  p.event-type-and-active-members
+                    = t 'events.event-type-and-active-members',
+                        event_type: event.event_type,
+                        active_members: event.active_members.map(&:full_name).join(', ')
+                - if admin_signed_in?
+                  td
+                    = link_to 'Show',
+                              event
+                    = link_to 'Edit',
+                              edit_event_path(event)
+                    = link_to 'Destroy',
+                              event,
+                              method: :delete,
+                              data: { confirm: 'Are you sure?' }
+      - if admin_signed_in?
+        br
+        = link_to 'New Event',
+                  new_event_path
