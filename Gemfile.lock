@@ -121,6 +121,9 @@ GEM
       thor (>= 0.14, < 2.0)
     json (2.0.2)
     kgio (2.10.0)
+    kramdown (1.11.1)
+    kramdown-rails (0.1.4)
+      kramdown
     launchy (2.4.3)
       addressable (~> 2.3)
     letter_opener (1.4.1)
@@ -333,6 +336,7 @@ DEPENDENCIES
   gravatar_image_tag
   jbuilder
   jquery-rails
+  kramdown-rails
   letter_opener
   listen
   mysql2
