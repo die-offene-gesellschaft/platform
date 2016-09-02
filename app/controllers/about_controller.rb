@@ -13,7 +13,7 @@ class AboutController < ApplicationController
       markdown = File.read("#{Rails.root}/app/views/about/_#{partial}.md")
       html = Kramdown::Document.new(markdown).to_html
       html.gsub!(/src="(.*)"/) do
-        "src=\"#{ActionController::Base.helpers.asset_path("about/#{Regexp.last_match[1]}")}\""
+        "src=\"#{ActionController::Base.helpers.asset_path("about#{Regexp.last_match[1]}")}\""
       end
       @markdown_partials[partial] = html
     end
