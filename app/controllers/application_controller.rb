@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     @contents.each do |content|
       html = Kramdown::Document.new(content.value).to_html
       html.gsub!(/src="(.*)"/) do
-        "src=\"#{ActionController::Base.helpers.asset_path("about#{Regexp.last_match[1]}")}\""
+        "src=\"#{ActionController::Base.helpers.asset_path(Regexp.last_match[1])}\""
       end
       content.value = html
     end

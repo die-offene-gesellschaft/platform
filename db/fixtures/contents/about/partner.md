@@ -11,72 +11,72 @@ Mail: [info@die-offene-gesellschaft.de](mailto:info@die-offene-gesellschaft.de)
 
 ## Medien
 
-- ![Deutschlandradio Kultur](deutschlandradio-kultur.svg)
-- ![Arte](arte.svg)
-- ![Philosophie Magazin](philosophie-magazin.svg)
-- ![Wir machen das](wir-machen-das.svg)
+- ![Deutschlandradio Kultur](about/deutschlandradio-kultur.svg)
+- ![Arte](about/arte.svg)
+- ![Philosophie Magazin](about/philosophie-magazin.svg)
+- ![Wir machen das](about/wir-machen-das.svg)
 
 ---
 
 ## Inhalte
 
-- ![Deutschlandradio Kultur](deutschlandradio-kultur.svg)
-- ![Arte](arte.svg)
-- ![Philosophie Magazin](philosophie-magazin.svg)
-- ![Wir machen das](wir-machen-das.svg)
-- ![Deutschlandradio Kultur](deutschlandradio-kultur.svg)
-- ![Arte](arte.svg)
-- ![Philosophie Magazin](philosophie-magazin.svg)
-- ![Wir machen das](wir-machen-das.svg)
+- ![Deutschlandradio Kultur](about/deutschlandradio-kultur.svg)
+- ![Arte](about/arte.svg)
+- ![Philosophie Magazin](about/philosophie-magazin.svg)
+- ![Wir machen das](about/wir-machen-das.svg)
+- ![Deutschlandradio Kultur](about/deutschlandradio-kultur.svg)
+- ![Arte](about/arte.svg)
+- ![Philosophie Magazin](about/philosophie-magazin.svg)
+- ![Wir machen das](about/wir-machen-das.svg)
 
 ---
 
 ## Kreation
 
-- ![Deutschlandradio Kultur](deutschlandradio-kultur.svg)
-- ![Arte](arte.svg)
-- ![Philosophie Magazin](philosophie-magazin.svg)
-- ![Wir machen das](wir-machen-das.svg)
+- ![Deutschlandradio Kultur](about/deutschlandradio-kultur.svg)
+- ![Arte](about/arte.svg)
+- ![Philosophie Magazin](about/philosophie-magazin.svg)
+- ![Wir machen das](about/wir-machen-das.svg)
 
 ---
 
 ## Event
 
-- ![Deutschlandradio Kultur](deutschlandradio-kultur.svg)
-- ![Arte](arte.svg)
-- ![Philosophie Magazin](philosophie-magazin.svg)
-- ![Wir machen das](wir-machen-das.svg)
-- ![Deutschlandradio Kultur](deutschlandradio-kultur.svg)
-- ![Arte](arte.svg)
-- ![Philosophie Magazin](philosophie-magazin.svg)
-- ![Wir machen das](wir-machen-das.svg)
-- ![Deutschlandradio Kultur](deutschlandradio-kultur.svg)
-- ![Arte](arte.svg)
-- ![Philosophie Magazin](philosophie-magazin.svg)
-- ![Wir machen das](wir-machen-das.svg)
-- ![Deutschlandradio Kultur](deutschlandradio-kultur.svg)
-- ![Arte](arte.svg)
-- ![Philosophie Magazin](philosophie-magazin.svg)
-- ![Wir machen das](wir-machen-das.svg)
-- ![Deutschlandradio Kultur](deutschlandradio-kultur.svg)
-- ![Arte](arte.svg)
-- ![Philosophie Magazin](philosophie-magazin.svg)
-- ![Wir machen das](wir-machen-das.svg)
-- ![Deutschlandradio Kultur](deutschlandradio-kultur.svg)
-- ![Arte](arte.svg)
-- ![Philosophie Magazin](philosophie-magazin.svg)
-- ![Wir machen das](wir-machen-das.svg)
+- ![Deutschlandradio Kultur](about/deutschlandradio-kultur.svg)
+- ![Arte](about/arte.svg)
+- ![Philosophie Magazin](about/philosophie-magazin.svg)
+- ![Wir machen das](about/wir-machen-das.svg)
+- ![Deutschlandradio Kultur](about/deutschlandradio-kultur.svg)
+- ![Arte](about/arte.svg)
+- ![Philosophie Magazin](about/philosophie-magazin.svg)
+- ![Wir machen das](about/wir-machen-das.svg)
+- ![Deutschlandradio Kultur](about/deutschlandradio-kultur.svg)
+- ![Arte](about/arte.svg)
+- ![Philosophie Magazin](about/philosophie-magazin.svg)
+- ![Wir machen das](about/wir-machen-das.svg)
+- ![Deutschlandradio Kultur](about/deutschlandradio-kultur.svg)
+- ![Arte](about/arte.svg)
+- ![Philosophie Magazin](about/philosophie-magazin.svg)
+- ![Wir machen das](about/wir-machen-das.svg)
+- ![Deutschlandradio Kultur](about/deutschlandradio-kultur.svg)
+- ![Arte](about/arte.svg)
+- ![Philosophie Magazin](about/philosophie-magazin.svg)
+- ![Wir machen das](about/wir-machen-das.svg)
+- ![Deutschlandradio Kultur](about/deutschlandradio-kultur.svg)
+- ![Arte](about/arte.svg)
+- ![Philosophie Magazin](about/philosophie-magazin.svg)
+- ![Wir machen das](about/wir-machen-das.svg)
 
 ---
 
 ## Sponsoren
 
-- ![Deutschlandradio Kultur](deutschlandradio-kultur.svg)
-- ![Arte](arte.svg)
-- ![Philosophie Magazin](philosophie-magazin.svg)
-- ![Wir machen das](wir-machen-das.svg)
-- ![Deutschlandradio Kultur](deutschlandradio-kultur.svg)
-- ![Arte](arte.svg)
+- ![Deutschlandradio Kultur](about/deutschlandradio-kultur.svg)
+- ![Arte](about/arte.svg)
+- ![Philosophie Magazin](about/philosophie-magazin.svg)
+- ![Wir machen das](about/wir-machen-das.svg)
+- ![Deutschlandradio Kultur](about/deutschlandradio-kultur.svg)
+- ![Arte](about/arte.svg)
 
 ---
 

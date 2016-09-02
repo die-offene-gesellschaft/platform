@@ -1,6 +1,6 @@
-![Hero](hero.jpg)
+![Hero](about/hero.jpg)
 
-![Welches Land wollen wir sein?](welches-land-wollen-wir-sein.svg)
+![Welches Land wollen wir sein?](about/welches-land-wollen-wir-sein.svg)
 
 # Die offene Gesellschaft ist unter Druck. Welches Land wollen wir sein?
 
@@ -25,4 +25,4 @@ Werden auch Sie eine Freundin oder ein Freund der Offenen Gesellschaft.
 Sprechen Sie uns an!
 </div>
 
-![Die offene Gesellschaft](die-offene-gesellschaft.svg)
+![Die offene Gesellschaft](about/die-offene-gesellschaft.svg)

@@ -1,6 +1,6 @@
 # Team
 
--	![Harald Welzer](harald-welzer.jpg)
+-	![Harald Welzer](about/harald-welzer.jpg)
 	
 	<h2>Harald Welzer</h2>
 	
@@ -9,7 +9,7 @@
 	Aenean massa.
 	
 	[Mehr](#mehr)
--	![Andre Wilkens](andre-wilkens.jpg)
+-	![Andre Wilkens](about/andre-wilkens.jpg)
 	
 	<h2>Andre Wilkens</h2>
 	
@@ -17,14 +17,14 @@
 	Gründungsmitglied
 	
 	[Mehr](#mehr)
--	![Stefan Wegner](stefan-wegner.jpg)
+-	![Stefan Wegner](about/stefan-wegner.jpg)
 	
 	<h2>Stefan Wegner</h2>
 	
 	Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 	
 	[Mehr](#mehr)
--	![Alexander Carius](alexander-carius.jpg)
+-	![Alexander Carius](about/alexander-carius.jpg)
 	
 	<h2>Alexander Carius</h2>
 	
@@ -32,7 +32,7 @@
 	Aenean commodo ligula eget dolor.
 	
 	[Mehr](#mehr)
--	![Alexander Wragge](alexander-wragge.jpg)
+-	![Alexander Wragge](about/alexander-wragge.jpg)
 	
 	<h2>Alexander Wragge</h2>
 	
@@ -40,7 +40,7 @@
 	Redakteur
 	
 	[Mehr](#mehr)
--	![Maike Carius](maike-carius.jpg)
+-	![Maike Carius](about/maike-carius.jpg)
 	
 	<h2>Maike Carius</h2>
 	
