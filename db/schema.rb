@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901155400) do
+ActiveRecord::Schema.define(version: 20160902134737) do
 
   create_table "active_members", force: :cascade do |t|
     t.string   "forename"
@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(version: 20160901155400) do
     t.integer  "event_id"
     t.index ["event_id"], name: "index_comments_on_event_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "contents", force: :cascade do |t|
+    t.string   "controller_action_name"
+    t.string   "key"
+    t.text     "value"
+    t.integer  "order"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "event_participations", id: false, force: :cascade do |t|

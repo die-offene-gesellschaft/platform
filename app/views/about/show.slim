@@ -1,4 +1,4 @@
 .about
-  - @markdown_partials.each do |key, partial|
-    div class="#{key}"
-      == partial
+  - @contents.each do |content|
+    div class="#{content.key}"
+      == content.value
