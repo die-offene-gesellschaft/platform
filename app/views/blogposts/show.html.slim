@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @blogpost.title
+p
+  strong Blogpost type:
+  = @blogpost.blogpost_type
+p
+  strong Introduction:
+  = @blogpost.introduction
+p
+  strong Content:
+  = @blogpost.content
+
+= link_to 'Edit', edit_blogpost_path(@blogpost)
+'|
+= link_to 'Back', blogposts_path

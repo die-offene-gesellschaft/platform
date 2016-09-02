@@ -50,9 +50,9 @@
                     about_path,
                     class: ('active' if controller_name == 'about')
         li
-          = link_to t('topbar.nav.blog'),
-                    blog_path,
-                    class: ('active' if controller_name == 'blog')
+          = link_to t('topbar.nav.blogposts'),
+                    blogposts_path,
+                    class: ('active' if controller_name == 'blogposts')
         li
           = link_to t('topbar.nav.participate'),
                     new_user_registration_path,

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902134737) do
+ActiveRecord::Schema.define(version: 20160902152230) do
 
   create_table "active_members", force: :cascade do |t|
     t.string   "forename"
@@ -40,8 +40,28 @@ ActiveRecord::Schema.define(version: 20160902134737) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "blogposts", force: :cascade do |t|
+    t.string   "title"
+    t.string   "blogpost_type"
+    t.text     "introduction"
+    t.text     "content"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "hero_file_name"
+    t.string   "hero_content_type"
+    t.integer  "hero_file_size"
+    t.datetime "hero_updated_at"
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
+    t.integer  "admin_id"
+    t.index ["admin_id"], name: "index_blogposts_on_admin_id"
   end
 
   create_table "comments", force: :cascade do |t|

@@ -1,0 +1,27 @@
+h1 Listing blogposts
+
+table
+  thead
+    tr
+      th Title
+      th Blogpost type
+      th Introduction
+      th Content
+      th
+      th
+      th
+
+  tbody
+    - @blogposts.each do |blogpost|
+      tr
+        td = blogpost.title
+        td = blogpost.blogpost_type
+        td = blogpost.introduction
+        td = blogpost.content
+        td = link_to 'Show', blogpost
+        td = link_to 'Edit', edit_blogpost_path(blogpost)
+        td = link_to 'Destroy', blogpost, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Blogpost', new_blogpost_path

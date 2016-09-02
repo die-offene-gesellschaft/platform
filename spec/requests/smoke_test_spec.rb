@@ -11,6 +11,7 @@ RSpec.describe "GET routes", type: :request do
     @picture = FactoryGirl.create :picture,
                                   user: @user,
                                   event: @event
+    @blogpost = FactoryGirl.create :blogpost
   end
 
   it 'should be error-free' do
