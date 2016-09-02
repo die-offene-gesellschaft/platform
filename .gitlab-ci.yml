@@ -4,7 +4,7 @@ cache:
   paths:
     - .bundle
     - vendor/
-  key: "4d4d41dc19e9accffbb2c014839012f4"
+  key: "fc1f989507a742048dcde82baf9ee1ac"
 
 before_script:
   - gem install bundler --no-ri --no-rdoc
