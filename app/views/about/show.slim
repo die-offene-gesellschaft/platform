@@ -1,2 +1,4 @@
 .about
-  h1 This is About!
+  - @markdown_partials.each do |key, partial|
+    div class="#{key}"
+      == partial
