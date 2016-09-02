@@ -26,6 +26,6 @@ class User < ApplicationRecord
             presence: true
 
   def full_name
-    self.name
+    name
   end
 end
