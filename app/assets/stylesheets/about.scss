@@ -4,7 +4,7 @@
   .partner,
   .press,
   .contact {
-    margin: 0 0 5rem 0;
+    margin: 0 0 5rem;
   }
 
   ul,
@@ -25,16 +25,16 @@
 
   .intro {
     [alt='Hero'] {
-      width: 100%;
       border: 1rem solid $red;
+      width: 100%;
     }
 
     h1 {
-      display: inline-block;
       color: $black;
+      display: inline-block;
 
       @include media-breakpoint-up(sm) {
-        width: 50%
+        width: 50%;
       }
     }
 
@@ -52,18 +52,18 @@
       display: inline-block;
 
       @include media-breakpoint-up(sm) {
-        width: 50%
+        width: 50%;
       }
     }
 
     [alt='Die offene Gesellschaft'] {
-      position: relative;
       margin: 3rem;
+      position: relative;
       width: 100%;
 
       @include media-breakpoint-up(sm) {
-        width: calc(25% - 6rem);
         margin: -30% 0 0 80%;
+        width: calc(25% - 6rem);
       }
     }
   }
@@ -72,9 +72,9 @@
     ul {
       li {
         height: 170px;
-        width: 100%;
         margin: .5rem 0;
         overflow: hidden;
+        width: 100%;
 
         @include media-breakpoint-up(sm) {
           width: 49%;
@@ -89,8 +89,8 @@
 
         img {
           float: left;
-          width: 170px;
           margin: 0 1rem 0 0;
+          width: 170px;
         }
       }
     }
@@ -104,16 +104,16 @@
 
     ul {
       li {
-        width: 50%;
         line-height: 13rem;
+        width: 50%;
 
         @include media-breakpoint-up(sm) {
           width: 24%;
         }
 
         img {
-          width: calc(100% - 4rem);
           margin: 2rem;
+          width: calc(100% - 4rem);
         }
       }
     }
@@ -133,8 +133,8 @@
   .contact {
     h2 {
       color: $black;
-      font-weight: normal;
       font-size: 1.25rem;
+      font-weight: normal;
     }
 
     ul {
@@ -150,8 +150,8 @@
 
         img {
           float: left;
-          width: 170px;
           margin: 0 1rem 0 0;
+          width: 170px;
         }
       }
     }
