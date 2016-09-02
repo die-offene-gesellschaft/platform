@@ -8,6 +8,17 @@ ruby:
            items: t('users.subnavi'),
            active: list ? 'list' : 'pictures'
   - if list
+    - %w(active_members users).each do |resources|
+      h1
+        = t("#{resources}.title")
+      p class="#{resources.tr('_', '-')}"
+        - instance_variable_get("@#{resources}").each do |resource|
+          span.name
+            = resource.full_name
+          | &nbsp;
+          span.role
+            = resource.role
+          | &nbsp;
   - else
     ruby:
       items = []

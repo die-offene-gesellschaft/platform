@@ -24,4 +24,8 @@ class User < ApplicationRecord
 
   validates :name,
             presence: true
+
+  def full_name
+    self.name
+  end
 end

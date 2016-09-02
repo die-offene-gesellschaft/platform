@@ -58,18 +58,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: $color-2;
-  margin-top: $heading-margin;
-  text-transform: uppercase;
-
-  &:first-of-type {
-    margin-top: 0;
-  }
-}
-
-h1,
-h2 {
-  color: $color-4;
+  color: $red;
 }
 
 h1 {
@@ -94,12 +83,6 @@ h5 {
 
 h6 {
   font-size: $h6-font-size;
-}
-
-p {
-  span {
-    display: block;
-  }
 }
 
 .turbolinks-progress-bar {

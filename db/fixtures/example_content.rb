@@ -10,7 +10,7 @@ user = User.seed(id: 1, email: 'og@example.com', password: '12345678').first
     password: '12345678',
     name: Faker::Name.name,
     statement: Faker::Hacker.say_something_smart,
-    role: Faker::StarWars.specie,
+    role: Faker::Name.title,
     avatar: File.new("#{Rails.root}/db/fixtures/pictures/user#{i + 1}.jpg"),
     locked: false
   )
@@ -49,10 +49,10 @@ deutsches_theater_goettingen = Venue.seed(
 ).first
 
 # active members
-harald_welzer = ActiveMember.seed(id: 1, forename: 'Harald', surname: 'Welzer').first
-joerg_armbruster = ActiveMember.seed(id: 2, forename: 'Jörg', surname: 'Armbruster').first
-gritt_gruettner = ActiveMember.seed(id: 3, forename: 'Gritt', surname: 'Grüttner').first
-wolfgang_kreuter = ActiveMember.seed(id: 4, forename: 'Wolfgang', surname: 'Kreuter').first
+harald_welzer = ActiveMember.seed(id: 1, forename: 'Harald', surname: 'Welzer', role: Faker::Name.title).first
+joerg_armbruster = ActiveMember.seed(id: 2, forename: 'Jörg', surname: 'Armbruster', role: Faker::Name.title).first
+gritt_gruettner = ActiveMember.seed(id: 3, forename: 'Gritt', surname: 'Grüttner', role: Faker::Name.title).first
+wolfgang_kreuter = ActiveMember.seed(id: 4, forename: 'Wolfgang', surname: 'Kreuter', role: Faker::Name.title).first
 
 # events
 Event.seed(:id,
