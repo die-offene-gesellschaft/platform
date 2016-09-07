@@ -2,18 +2,16 @@
  *= require_self
  */
 
-// general definitions
+// general
 @import 'variables';
 @import 'bootstrap-overwrites';
-
-// gems & dependencies
 @import 'bootstrap';
 @import 'font-awesome';
+@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700';
 
 // partial styling
 @import 'topbar';
 @import 'footer';
-@import 'alert';
 @import 'home';
 @import 'comments';
 @import 'events';
@@ -23,9 +21,289 @@
 @import 'venues';
 @import 'about';
 
+// styleguide
+// https://app.zeplin.io/project.html#pid=57caca57bc94281c06a4e3b2&styleguide
+
+.big-title {
+  color: $black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 46px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 2.6px;
+  text-align: left;
+}
+
+.events {
+  color: $black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 42px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1.9px;
+  text-align: left;
+}
+
+.city {
+  color: $black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 42px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  text-align: left;
+}
+
+.calendar {
+  color: $white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 42px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1.9px;
+  text-align: left;
+}
+
+.venue-title {
+  color: $black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 42px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 300;
+  text-align: left;
+}
+
+.headline-red {
+  color: $red;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: .8px;
+  text-align: left;
+}
+
+.headline-black {
+  color: $black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: .8px;
+  text-align: left;
+}
+
+.headline-white {
+  color: $white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: .8px;
+  text-align: left;
+}
+
+.time-title {
+  color: $black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 34px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 300;
+  text-align: left;
+}
+
+.venue-type {
+  color: $black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: .3px;
+  text-align: left;
+}
+
+.quote {
+  color: $anthracite;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 23px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: .5px;
+  line-height: 1.43;
+  text-align: left;
+}
+
+.box-article-title {
+  color: $black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 23px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: .5px;
+  text-align: left;
+}
+
+.link {
+  color: $red;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: .4px;
+  text-align: left;
+}
+
+.box-article-text {
+  color: $black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: .4px;
+  text-align: left;
+}
+
+.form {
+  color: $anthracite;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: .4px;
+  text-align: left;
+}
+
+.article-white {
+  color: $white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: .4px;
+  line-height: 1.47;
+  text-align: left;
+}
+
+.time {
+  color: $black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: .2px;
+  text-align: left;
+}
+
+.header {
+  color: $dark-blue;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.box-details {
+  color: $anthracite;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: .4px;
+  line-height: 1.17;
+  text-align: left;
+}
+
+.venue {
+  color: $black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 300;
+  text-align: left;
+}
+
+.name {
+  color: $red;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: .4px;
+  text-align: left;
+}
+
+.article-info {
+  color: $red;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: .2px;
+  text-align: left;
+}
+
+.role {
+  color: $black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: .4px;
+  text-align: left;
+}
+
+.footer {
+  color: $black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: .2px;
+  text-align: left;
+}
+
+.quote-role {
+  color: $anthracite;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: .3px;
+  line-height: 1.62;
+  text-align: left;
+}
+
+// basic styling
+
 html,
 body {
   color: $black;
+  font-family: 'Montserrat', sans-serif;
   height: 100%;
   width: 100%;
 }
@@ -42,10 +320,6 @@ body {
   max-width: 1280px;
 }
 
-a {
-  cursor: pointer;
-}
-
 a:hover,
 a:active,
 a:focus {
@@ -53,43 +327,10 @@ a:focus {
   text-decoration: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: $red;
-}
-
-h1 {
-  font-size: $h1-font-size;
-}
-
-h2 {
-  font-size: $h2-font-size;
-}
-
-h3 {
-  font-size: $h3-font-size;
-}
-
-h4 {
-  font-size: $h4-font-size;
-}
-
-h5 {
-  font-size: $h5-font-size;
-}
-
-h6 {
-  font-size: $h6-font-size;
-}
-
 .turbolinks-progress-bar {
-  background: $color-4;
+  background: $red;
   border-radius: 1px;
-  box-shadow: 0 0 2px $color-4;
+  box-shadow: 0 0 2px $red;
   height: 2px;
   z-index: 99999;
 }
@@ -105,18 +346,6 @@ h6 {
   > [class*='col-'] {
     display: flex;
     flex-direction: column;
-  }
-}
-
-.btn-row {
-  text-align: right;
-
-  .btn {
-    margin: 0 $btn-row-margin;
-  }
-
-  .btn:last-of-type {
-    margin-right: 0;
   }
 }
 

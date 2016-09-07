@@ -1,39 +1,8 @@
-// color definitions; color description / name; general use for
-$color-0: #fff; // plain white; general++ background
-$color-1: #f9fe02; // yellow; highlights, hover
-$color-2: #2b2b2a; // eternity; text color
-$color-3: #fe0000; // red; highlighs, borders, tiles
-$color-4: #d01f3a; // cardinal; highlights, special words, heading, buttons
-$color-5: #7c7c7c; // concord; secondary information links like imprint / privacy
-$color-5-1: lighten($color-5, 10);
-$color-5-2: lighten($color-5, 20);
-$color-5-3: lighten($color-5, 30);
-
+$anthracite: #1d1d1b;
 $black: #000;
-$white: #fff;
-$red: #fe0000;
+$dark-blue: #000207;
+$dark-gray: #6f6f6f;
 $gray: #e5e5e5;
-$yellow: #ffff02;
-
-// distance definitions
-$bootstrap-margin: .9375rem;
-$general-margin: .625rem;
-$container-padding: .9375rem;
-$padding: 1.125rem;
-$subcontent-margin: .125rem;
-$topbar-margin: 2.313rem;
-$heading-margin: 2.313rem;
-$btn-row-margin: $general-margin;
-
-// font-sizes
-$h1-font-size: 2.375rem;
-$h2-font-size: 2rem;
-$h2-icon-size: 2rem;
-$h3-font-size: 1.375rem;
-$h4-font-size: 1.125rem;
-$h5-font-size: 1rem;
-$h6-font-size: .875rem;
-$sub-text-font-size: .75rem;
-
-// durations
-$default-transition-duration: .5s;
+$red: #d20a11;
+$white: #fff;
+$yellow: #ffdd02;

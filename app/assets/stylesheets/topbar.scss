@@ -1,40 +1,17 @@
-$social-bar-icon-font-size: 1rem;
-$logo-width: 15rem;
-$margin-horizontal: 1.875rem;
-$social-bar-margin-bottom: 1.75rem;
-$nav-item-margin: #{$general-margin * 2};
-
 .topbar {
-  margin-bottom: $topbar-margin;
-
   .social-bar {
-    margin-bottom: $social-bar-margin-bottom;
     text-align: right;
     text-transform: uppercase;
 
     a {
-      color: $color-5;
-      font-size: $sub-text-font-size;
-      padding: 0 $general-margin;
-
-      &:last-of-type {
-        margin-right: #{$margin-horizontal - $general-margin};
-      }
-
       &.login {
         font-weight: bold;
-      }
-
-      .fa {
-        font-size: $social-bar-icon-font-size;
       }
     }
   }
 
   .logo {
     display: inline-block;
-    margin-left: $margin-horizontal;
-    width: $logo-width;
 
     img {
       width: 100%;
@@ -48,7 +25,6 @@ $nav-item-margin: #{$general-margin * 2};
     ul {
       bottom: 0;
       margin-bottom: 0;
-      margin-right: #{$margin-horizontal + $bootstrap-margin};
       padding: 0;
       position: absolute;
       right: 0;
@@ -56,18 +32,9 @@ $nav-item-margin: #{$general-margin * 2};
       li {
         display: inline-block;
         font-weight: bold;
-        margin-right: $nav-item-margin;
 
         &:last-of-type {
           margin-right: 0;
-        }
-
-        a {
-          color: $color-2;
-
-          &.highlight {
-            color: $color-4;
-          }
         }
       }
     }

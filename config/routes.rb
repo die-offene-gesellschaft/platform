@@ -20,4 +20,6 @@ Rails.application.routes.draw do
 
   get '/users' => 'users#index'
   get '/users/:id' => 'users#show', as: 'user'
+
+  get '/styleguide' => 'application#styleguide'
 end
