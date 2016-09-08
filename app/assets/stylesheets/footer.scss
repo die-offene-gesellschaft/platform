@@ -14,18 +14,18 @@ footer {
     font-stretch: normal;
     font-style: normal;
     font-weight: 600;
-    height: 15px;
     left: 13px;
     letter-spacing: .1px;
+    line-height: 15px;
     position: absolute;
     text-align: left;
 
     @media (min-width: 830px) {
       bottom: 134px;
       font-size: 16px;
-      height: 19px;
       left: 24px;
       letter-spacing: .2px;
+      line-height: 19px;
       text-align: left;
     }
   }
@@ -38,9 +38,9 @@ footer {
     font-stretch: normal;
     font-style: normal;
     font-weight: 600;
-    height: 23px;
     left: 13px;
     letter-spacing: .4px;
+    line-height: 23px;
     position: absolute;
     text-align: left;
 
@@ -57,8 +57,8 @@ footer {
     font-stretch: normal;
     font-style: normal;
     font-weight: 600;
-    height: 19px;
     letter-spacing: .2px;
+    line-height: 19px;
     position: absolute;
     right: 24px;
     text-align: left;
