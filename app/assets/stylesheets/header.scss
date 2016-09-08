@@ -1,6 +1,6 @@
 header {
-  height: 172px;
   background-color: $white;
+  height: 172px;
   position: relative;
 
   .logo-die-offene-gesellschaft {
@@ -21,11 +21,11 @@ header {
     height: 14px;
     letter-spacing: 0;
     position: absolute;
-    top: 20.2px;
     right: 38.3px;
+    top: 20.2px;
 
     a {
-      color: #4e5350;
+      color: $meta-nav-gray;
       margin: 0 5.5px;
       text-transform: uppercase;
 
@@ -54,8 +54,8 @@ header {
       margin: 0 1px;
 
       &.participate {
-        margin: 0 0 0 41px;
         border-bottom: 10px solid $yellow;
+        margin: 0 0 0 41px;
         position: relative;
         top: -10px;
 
