@@ -1,18 +1,52 @@
 header {
   background-color: $white;
-  height: 172px;
+  height: 55px;
   position: relative;
 
+  @media (min-width: 830px) {
+    height: 172px;
+  }
+
+  .menu {
+    color: $anthracite;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 600;
+    height: 22px;
+    left: 20px;
+    letter-spacing: 0;
+    position: absolute;
+    text-align: left;
+    top: 17px;
+
+    @media (min-width: 830px) {
+      display: none;
+    }
+
+    .fa {
+      color: $red;
+      margin: 0 10px 0 0;
+    }
+  }
+
   .logo-die-offene-gesellschaft {
+    display: none;
     height: 86px;
     left: 37px;
     object-fit: contain;
     position: absolute;
     top: 45px;
     width: 198px;
+
+    @media (min-width: 830px) {
+      display: inline-block;
+    }
   }
 
   .meta-nav {
+    display: none;
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
     font-stretch: normal;
@@ -23,6 +57,10 @@ header {
     position: absolute;
     right: 38.3px;
     top: 20.2px;
+
+    @media (min-width: 830px) {
+      display: block;
+    }
 
     a {
       color: $meta-nav-gray;
@@ -46,15 +84,26 @@ header {
     height: 22px;
     letter-spacing: 0;
     position: absolute;
-    right: 38px;
-    top: 119px;
+    right: 20px;
+    top: 17px;
+
+    @media (min-width: 830px) {
+      right: 38px;
+      top: 119px;
+    }
 
     a {
       color: $black;
+      display: none;
       margin: 0 1px;
+
+      @media (min-width: 830px) {
+        display: inline;
+      }
 
       &.participate {
         border-bottom: 10px solid $yellow;
+        display: inline;
         margin: 0 0 0 41px;
         position: relative;
         top: -10px;

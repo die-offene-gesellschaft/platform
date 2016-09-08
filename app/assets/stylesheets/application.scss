@@ -315,7 +315,11 @@ body {
 }
 
 .content-container {
-  min-height: calc(100% - 172px);
+  min-height: calc(100% - 151px);
+
+  @media (min-width: 830px) {
+    min-height: calc(100% - 344px);
+  }
 }
 
 .container-fluid {
