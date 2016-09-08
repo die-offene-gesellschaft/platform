@@ -1,9 +1,9 @@
-.footer
-  .row
-    .col-sm-8.copyright
-      == t('footer.copyright', year: current_year)
-    .col-sm-4.links
-      a href="imprint"
-        = t('footer.imprint')
-      a href="privacy"
-        = t('footer.privacy')
+footer.container-fluid
+  .copyright
+    == t 'footer.copyright',
+         year: current_year
+  .links
+    a href="imprint"
+      = t('footer.imprint')
+    a href="privacy"
+      = t('footer.privacy')

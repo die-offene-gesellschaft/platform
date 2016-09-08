@@ -16,6 +16,5 @@ html
     = render 'shared/flash'
     .container-fluid.content-container
       = yield
-    .container-fluid
-      = render 'shared/footer',
-               current_year: @current_year
+    = render 'shared/footer',
+             current_year: @current_year

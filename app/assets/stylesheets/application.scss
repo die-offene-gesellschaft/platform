@@ -11,9 +11,9 @@
 
 // partial styling
 @import 'header';
+@import 'footer';
 
 @import 'topbar';
-@import 'footer';
 @import 'home';
 @import 'comments';
 @import 'events';
@@ -315,7 +315,7 @@ body {
 }
 
 .content-container {
-  min-height: calc(100% - 14rem);
+  min-height: calc(100% - 172px);
 }
 
 .container-fluid {
