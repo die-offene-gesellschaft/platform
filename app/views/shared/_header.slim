@@ -1,0 +1,32 @@
+header.container-fluid
+  a.logo-die-offene-gesellschaft href='/'
+    = image_tag 'logo-die-offene-gesellschaft.svg'
+  .meta-nav
+    a href="#{faq_path}"
+      = t('header.meta-nav.faq')
+    a href="#{contact_path}"
+      = t('header.meta-nav.contact')
+    a href="#"
+      = t('header.meta-nav.my-profile')
+    a.logout href="#"
+      = t('header.meta-nav.logout')
+  nav
+    = link_to t('header.nav.home'),
+              home_path,
+              class: ('active' if controller_name == 'home')
+    = link_to t('header.nav.events'),
+              events_path,
+              class: ('active' if controller_name == 'events')
+    = link_to t('header.nav.users'),
+              users_path,
+              class: ('active' if controller_name == 'users')
+    = link_to t('header.nav.about'),
+              about_path,
+              class: ('active' if controller_name == 'about')
+    = link_to t('header.nav.blogposts'),
+              blogposts_path,
+              class: ('active' if controller_name == 'blogposts')
+    = link_to new_user_registration_path,
+              class: 'participate' do
+      span
+        = t('header.nav.participate')

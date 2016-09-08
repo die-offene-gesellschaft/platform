@@ -10,6 +10,8 @@
 @import 'https://fonts.googleapis.com/css?family=Montserrat:400,700';
 
 // partial styling
+@import 'header';
+
 @import 'topbar';
 @import 'footer';
 @import 'home';
@@ -317,7 +319,7 @@ body {
 }
 
 .container-fluid {
-  max-width: 1280px;
+  max-width: $max-viewport-width;
 }
 
 a:hover,

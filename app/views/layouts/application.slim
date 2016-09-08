@@ -12,9 +12,8 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
 
   body
+    = render 'shared/header'
     = render 'shared/flash'
-    .container-fluid
-      = render 'shared/topbar'
     .container-fluid.content-container
       = yield
     .container-fluid

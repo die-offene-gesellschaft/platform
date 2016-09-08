@@ -1,0 +1,14 @@
+de:
+  header:
+    nav:
+      home: Home
+      events: Aktionen
+      users: Freunde
+      about: Über uns
+      blogposts: Blog
+      participate: Mitmachen
+    meta-nav:
+      faq: FAQ
+      contact: Kontakt
+      my-profile: Mein Profil
+      logout: Logout
