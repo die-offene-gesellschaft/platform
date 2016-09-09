@@ -35,21 +35,29 @@ header.container-fluid id="header"
       - nav_items.each do |name, nav_item|
         li.nav-item
           - if nav_item[:children]
-            input type='checkbox' id="submenu#{name}"
+            input type='checkbox' id="submenu#{name}" checked=(controller_name == name.to_s)
             label for="submenu#{name}"
               = nav_item[:label]
             ul.children
-              - nav_item[:children].each do |_, nav_child_item|
+              - i = 0
+              - nav_item[:children].each do |child_name, nav_child_item|
                 li.nav-item.nav-child-item
+                  ruby:
+                    i += 1
+                    active_class = ''
+                    get_match = request.query_parameters.keys.include?(child_name.to_s)
+                    root_site = controller_name == name.to_s && i == 1
+                    active_class = 'active' if get_match || root_site
                   = link_to nav_child_item[:label],
-                            nav_child_item[:url]
+                            nav_child_item[:url],
+                            class: ('active' if request.query_parameters.keys.include?(child_name.to_s))
           - else
             = link_to nav_item[:label],
                       nav_item[:url],
                       class: ('active' if controller_name == name.to_s)
       li
         br
-      - meta_nav_items.each do |name, meta_nav_item|
+      - meta_nav_items.each do |_, meta_nav_item|
         li.meta-nav-item.uppercase
           = link_to meta_nav_item[:label],
                     meta_nav_item[:url]

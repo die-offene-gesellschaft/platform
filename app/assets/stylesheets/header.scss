@@ -83,9 +83,19 @@ header {
         }
       }
 
+      a {
+        left: -5px;
+        padding: 0 5px;
+        position: relative;
+
+        &.active {
+          background-color: $yellow;
+        }
+      }
+
       .nav-child-item {
         a {
-          padding: 0 0 0 30px;
+          padding: 0 5px 0 30px;
         }
       }
     }
