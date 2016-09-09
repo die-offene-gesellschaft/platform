@@ -4,7 +4,11 @@ de:
     nav:
       home: Home
       events: Aktionen
+      events_appointments: Termine
+      events_archive: Archiv
       users: Freunde
+      users_pictures: Bilder
+      users_list: Liste
       about: Über uns
       blogposts: Blog
       participate: Mitmachen

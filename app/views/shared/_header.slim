@@ -1,34 +1,65 @@
+ruby:
+  meta_nav_items = {
+    faq: { label: t('header.nav.faq'), url: faq_path },
+    contact: { label: t('header.nav.contact'), url: contact_path },
+    my_profile: { label: t('header.nav.my-profile'), url: '#' }
+  }
+  nav_items = {
+    home: { label: t('header.nav.home'), url: home_path },
+    events: {
+      label: t('header.nav.events'),
+      url: events_path,
+      children: {
+        appointments: { label: t('header.nav.events_appointments'), url: events_path(appointments: '') },
+        archive: { label: t('header.nav.events_archive'), url: events_path(archive: '') }
+      }
+    },
+    users: {
+      label: t('header.nav.users'),
+      url: users_path,
+      children: {
+        pictures: { label: t('header.nav.users_pictures'), url: users_path(pictures: '') },
+        list: { label: t('header.nav.users_list'), url: users_path(list: '') }
+      }
+    },
+    about: { label: t('header.nav.about'), url: about_path },
+    blogposts: { label: t('header.nav.blogposts'), url: blogposts_path }
+  }
 header.container-fluid id="header"
-  a.menu href='#'
-    = fa_icon 'bars'
-    = t('header.menu')
+  .menu
+    input#menu type='checkbox'
+    label.button for='menu'
+      = fa_icon 'bars'
+      = t('header.menu')
+    ul.nav-items
+      - nav_items.each do |name, nav_item|
+        li.nav-item
+          - if nav_item[:children]
+            input type='checkbox' id="submenu#{name}"
+            label for="submenu#{name}"
+              = nav_item[:label]
+            ul.children
+              - nav_item[:children].each do |_, nav_child_item|
+                li.nav-item.nav-child-item
+                  = link_to nav_child_item[:label],
+                            nav_child_item[:url]
+          - else
+            = link_to nav_item[:label],
+                      nav_item[:url],
+                      class: ('active' if controller_name == name.to_s)
   a.logo-die-offene-gesellschaft href='/'
     = image_tag 'logo-die-offene-gesellschaft.svg'
   .meta-nav
-    a href="#{faq_path}"
-      = t('header.meta-nav.faq')
-    a href="#{contact_path}"
-      = t('header.meta-nav.contact')
-    a href="#"
-      = t('header.meta-nav.my-profile')
+    - meta_nav_items.each do |_, meta_nav_item|
+      = link_to meta_nav_item[:label],
+                meta_nav_item[:url]
     a.logout href="#"
       = t('header.meta-nav.logout')
   nav
-    = link_to t('header.nav.home'),
-              home_path,
-              class: ('active' if controller_name == 'home')
-    = link_to t('header.nav.events'),
-              events_path,
-              class: ('active' if controller_name == 'events')
-    = link_to t('header.nav.users'),
-              users_path,
-              class: ('active' if controller_name == 'users')
-    = link_to t('header.nav.about'),
-              about_path,
-              class: ('active' if controller_name == 'about')
-    = link_to t('header.nav.blogposts'),
-              blogposts_path,
-              class: ('active' if controller_name == 'blogposts')
+    - nav_items.each do |name, nav_item|
+      = link_to nav_item[:label],
+                nav_item[:url],
+                class: ('active' if controller_name == name.to_s)
     = link_to new_user_registration_path,
               class: 'participate' do
       span

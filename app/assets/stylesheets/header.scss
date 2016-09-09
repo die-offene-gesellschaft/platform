@@ -8,18 +8,8 @@ header {
   }
 
   .menu {
-    color: $anthracite;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
-    font-stretch: normal;
-    font-style: normal;
-    font-weight: 600;
-    left: 20px;
-    letter-spacing: 0;
-    line-height: 22px;
-    position: absolute;
-    text-align: left;
-    top: 17px;
+    margin: 0 0 0 -15px;
+    width: calc(100% + 30px);
 
     @media (min-width: 830px) {
       display: none;
@@ -28,6 +18,73 @@ header {
     .fa {
       color: $red;
       margin: 0 10px 0 0;
+    }
+
+    input {
+      display: none;
+    }
+
+    label {
+      cursor: pointer;
+      margin: 0;
+    }
+
+    > label {
+      color: $anthracite;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: 600;
+      left: 20px;
+      letter-spacing: 0;
+      line-height: 22px;
+      position: absolute;
+      text-align: left;
+      top: 17px;
+    }
+
+    ul {
+      background-color: $mobile-menu-gray;
+      max-height: 0;
+      overflow: hidden;
+      padding: 0;
+      transition: max-height .5s;
+
+      .nav-item {
+        color: $black;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
+        font-stretch: normal;
+        font-style: normal;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 1.44;
+        list-style: none;
+        text-align: left;
+      }
+
+      .nav-child-item {
+        a {
+          padding: 0 0 0 30px;
+        }
+      }
+    }
+
+    > ul {
+      padding: 0 0 0 20px;
+      position: absolute;
+      top: 55px;
+      width: 100%;
+      z-index: 9;
+
+      > .nav-item:first-of-type {
+        margin-top: 16px;
+      }
+    }
+
+    [type='checkbox']:checked ~ label ~ ul {
+      max-height: 100vh;
     }
   }
 
