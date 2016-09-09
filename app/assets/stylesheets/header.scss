@@ -3,7 +3,7 @@ header {
   height: 55px;
   position: relative;
 
-  @media (min-width: 830px) {
+  @media (min-width: $mobile-breakpoint-width) {
     height: 172px;
   }
 
@@ -11,7 +11,7 @@ header {
     margin: 0 0 0 -15px;
     width: calc(100% + 30px);
 
-    @media (min-width: 830px) {
+    @media (min-width: $mobile-breakpoint-width) {
       display: none;
     }
 
@@ -130,7 +130,7 @@ header {
     top: 45px;
     width: 198px;
 
-    @media (min-width: 830px) {
+    @media (min-width: $mobile-breakpoint-width) {
       display: inline-block;
     }
   }
@@ -145,10 +145,10 @@ header {
     letter-spacing: 0;
     line-height: 14px;
     position: absolute;
-    right: 38.3px;
+    right: 42px;
     top: 20.2px;
 
-    @media (min-width: 830px) {
+    @media (min-width: $mobile-breakpoint-width) {
       display: block;
     }
 
@@ -177,8 +177,8 @@ header {
     right: 20px;
     top: 17px;
 
-    @media (min-width: 830px) {
-      right: 38px;
+    @media (min-width: $mobile-breakpoint-width) {
+      right: 36px;
       top: 119px;
     }
 
@@ -187,21 +187,14 @@ header {
       display: none;
       margin: 0 1px;
 
-      @media (min-width: 830px) {
+      @media (min-width: $mobile-breakpoint-width) {
         display: inline;
       }
 
       &.participate {
-        border-bottom: 10px solid $yellow;
+        color: $red;
         display: inline;
         margin: 0 0 0 41px;
-        position: relative;
-        top: -10px;
-
-        span {
-          position: relative;
-          top: 10px;
-        }
       }
     }
   }

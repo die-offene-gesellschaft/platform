@@ -2,7 +2,7 @@ footer {
   height: 96px;
   position: relative;
 
-  @media (min-width: 830px) {
+  @media (min-width: $mobile-breakpoint-width) {
     height: 172px;
   }
 
@@ -20,7 +20,7 @@ footer {
     position: absolute;
     text-align: left;
 
-    @media (min-width: 830px) {
+    @media (min-width: $mobile-breakpoint-width) {
       bottom: 134px;
       font-size: 16px;
       left: 24px;
@@ -44,7 +44,7 @@ footer {
     position: absolute;
     text-align: left;
 
-    @media (min-width: 830px) {
+    @media (min-width: $mobile-breakpoint-width) {
       display: none;
     }
   }
@@ -63,7 +63,7 @@ footer {
     right: 24px;
     text-align: left;
 
-    @media (min-width: 830px) {
+    @media (min-width: $mobile-breakpoint-width) {
       display: block;
     }
  

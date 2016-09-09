@@ -4,8 +4,8 @@ ruby:
   archive = true if request.query_parameters.keys.include?('archive')
 
 .events
-  = render 'shared/subnavi',
-           items: t('events.subnavi'),
+  = render 'shared/subnav',
+           items: t('events.subnav'),
            active: archive ? 'archive' : 'appointments'
   .row
     - if archive

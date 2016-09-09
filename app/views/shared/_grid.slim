@@ -1,9 +1,0 @@
-ruby:
-  size = (items.each.collect { |key, _| key[:size][:width] * key[:size][:height] }).reduce(:+)
-.row
-  - items.each do |item|
-    ruby:
-      classes = %w(col-xs-6 col-sm-2 size1x1)
-      classes = %w(col-xs-12 col-sm-4 size2x2) if item[:size][:width] == 2 && item[:size][:height] == 2
-    .tile class=classes
-      == item[:content]

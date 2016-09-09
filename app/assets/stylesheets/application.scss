@@ -317,13 +317,15 @@ body {
 .content-container {
   min-height: calc(100% - 151px);
 
-  @media (min-width: 830px) {
+  @media (min-width: $mobile-breakpoint-width) {
     min-height: calc(100% - 344px);
   }
 }
 
+header,
 .container-fluid {
   max-width: $max-viewport-width;
+  padding: 0;
 }
 
 a:hover,
@@ -355,7 +357,7 @@ a:focus {
   }
 }
 
-.subnavi,
+.subnav,
 nav {
   a {
     font-weight: bold;
@@ -367,14 +369,33 @@ nav {
   }
 }
 
-.subnavi {
+.subnav {
   background-color: $gray;
-  padding: 5px;
+  display: none;
+  height: 40px;
+  line-height: 40px;
   text-align: right;
+  width: 100%;
 
-  a,
-  span {
-    color: $black;
+  @media (min-width: $mobile-breakpoint-width) {
+    display: block;
+  }
+
+  a {
+    color: $anthracite;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 600;
+    height: 22px;
+    letter-spacing: 0;
+    margin: 0 6.5px;
+    text-align: right;
+
+    &:last-of-type {
+      margin-right: 36px;
+    }
 
     &.active {
       background-color: $yellow;
@@ -390,31 +411,22 @@ tr {
   }
 }
 
-.tile {
-  overflow: hidden;
-  padding: 0;
-  position: relative;
+.size1x1,
+.size2x2 {
+  background-color: $gray;
+  display: inline-block;
+}
 
-  &.size1x1 {
-    height: 50vw;
+.pull1 {
+  transform: translateY(-100%);
+}
 
-    @include media-breakpoint-up(sm) {
-      padding: 0 0 16.66667%;
-    }
-  }
+.size1x1 {
+  padding-bottom: calc(16.6667% - 24px);
+  width: 16.6667%;
+}
 
-  &.size2x2 {
-    height: 100vw;
-
-    @include media-breakpoint-up(sm) {
-      padding: 0 0 33.33333%;
-    }
-  }
-
-  &.size1x1,
-  &.size2x2 {
-    @include media-breakpoint-up(sm) {
-      height: 0;
-    }
-  }
+.size2x2 {
+  padding-bottom: calc(33.3333% - 24px);
+  width: 33.3333%;
 }

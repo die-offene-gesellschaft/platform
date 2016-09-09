@@ -5,7 +5,9 @@ footer.container-fluid
   a.top-link href='#header'
     = t('footer.top-link')
   .links
-    a href="imprint"
+    a href="#"
+      = t('footer.guideline')
+    a href="#{imprint_path}"
       = t('footer.imprint')
-    a href="privacy"
+    a href="#{privacy_path}"
       = t('footer.privacy')

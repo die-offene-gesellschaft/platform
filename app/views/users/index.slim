@@ -4,8 +4,8 @@ ruby:
   list = true if request.query_parameters.keys.include?('list')
 
 .users
-  = render 'shared/subnavi',
-           items: t('users.subnavi'),
+  = render 'shared/subnav',
+           items: t('users.subnav'),
            active: list ? 'list' : 'pictures'
   - if list
     - %w(active_members users).each do |resources|
@@ -20,13 +20,20 @@ ruby:
             = resource.role
           | &nbsp;
   - else
-    ruby:
-      items = []
-      @users.each do |user|
-        item = { size: { width: 1, height: 1 },
-                 content: "<a href=\"#{user_path(user)}\" style=\"position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-image: url(#{asset_url(user.avatar)}); background-size: cover;\"></a>" }
-        item[:size] = { width: 2, height: 2 } if user.id == 10
-        items << item
-      end
-    = render 'shared/grid',
-             items: items
+    - 6.times do |i|
+      .size1x1
+        = i + 1
+    - 2.times do |i|
+      .size1x1
+        = i + 7
+    .size2x2
+      | 9
+    - 2.times do |i|
+      .size1x1
+        = i + 10
+    - 2.times do |i|
+      .size1x1.pull1
+        = i + 12
+    - 2.times do |i|
+      .size1x1
+        = i + 14
