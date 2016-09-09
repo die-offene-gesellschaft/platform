@@ -51,6 +51,10 @@ header {
       padding: 0;
       transition: max-height .5s;
 
+      li {
+        list-style: none;
+      }
+
       .nav-item {
         color: $black;
         font-family: 'Montserrat', sans-serif;
@@ -60,8 +64,23 @@ header {
         font-weight: 600;
         letter-spacing: 0;
         line-height: 1.44;
-        list-style: none;
         text-align: left;
+      }
+
+      .meta-nav-item {
+        color: $black;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        font-stretch: normal;
+        font-style: normal;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 1.57;
+        text-align: left;
+
+        &.uppercase {
+          text-transform: uppercase;
+        }
       }
 
       .nav-child-item {
@@ -80,6 +99,10 @@ header {
 
       > .nav-item:first-of-type {
         margin-top: 16px;
+      }
+
+      > .meta-nav-item:last-of-type {
+        margin-bottom: 33px;
       }
     }
 

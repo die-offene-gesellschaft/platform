@@ -2,6 +2,9 @@ de:
   header:
     menu: Menü
     nav:
+      guideline: Leitfaden für Aktionen
+      imprint: Impressum
+      privacy: Datenschutz
       home: Home
       events: Aktionen
       events_appointments: Termine

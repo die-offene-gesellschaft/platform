@@ -31,7 +31,7 @@ header.container-fluid id="header"
     label.button for='menu'
       = fa_icon 'bars'
       = t('header.menu')
-    ul.nav-items
+    ul
       - nav_items.each do |name, nav_item|
         li.nav-item
           - if nav_item[:children]
@@ -47,6 +47,28 @@ header.container-fluid id="header"
             = link_to nav_item[:label],
                       nav_item[:url],
                       class: ('active' if controller_name == name.to_s)
+      li
+        br
+      - meta_nav_items.each do |name, meta_nav_item|
+        li.meta-nav-item.uppercase
+          = link_to meta_nav_item[:label],
+                    meta_nav_item[:url]
+      li
+        br
+      li.meta-nav-item
+        = link_to t('header.nav.guideline'),
+                  '#'
+      li.meta-nav-item
+        = link_to t('header.nav.imprint'),
+                  imprint_path
+      li.meta-nav-item
+        = link_to t('header.nav.privacy'),
+                  privacy_path
+      li
+        br
+      li.meta-nav-item.uppercase
+        a href="#"
+          = t('header.meta-nav.logout')
   a.logo-die-offene-gesellschaft href='/'
     = image_tag 'logo-die-offene-gesellschaft.svg'
   .meta-nav
