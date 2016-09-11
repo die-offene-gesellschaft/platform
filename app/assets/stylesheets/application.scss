@@ -328,6 +328,20 @@ header,
   padding: 0;
 }
 
+.row {
+  margin: 0;
+}
+
+iframe {
+  border: solid 20px $red;
+  height: 47.5vw;
+  width: 100%;
+
+  @media (min-width: $max-viewport-width) {
+    height: 560px;
+  }
+}
+
 a:hover,
 a:active,
 a:focus {
