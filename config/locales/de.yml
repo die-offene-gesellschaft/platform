@@ -1,23 +1,4 @@
 de:
-  formats:
-    month:
-      long:
-        - Januar
-        - Februar
-        - März
-        - April
-        - Mai
-        - Juni
-        - Juli
-        - August
-        - September
-        - Oktober
-        - November
-        - Dezember
-    date:
-      short: '%d.%m.'
-    time:
-      short: '%H.%M Uhr'
   delete-confirm: Bist du sicher?
   site-title:
     default: 'Offene Gesellschaft'

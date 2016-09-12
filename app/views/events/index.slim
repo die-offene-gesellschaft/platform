@@ -36,16 +36,19 @@ ruby:
             - events.each do |event|
               tr.event data-href="#{event_path(event)}"
                 td.date
-                  = event.begin_at.strftime(t('formats.date.short'))
+                  = l(event.begin_at, format: :short_date)
                 td.details
-                  p.title
-                    = event.title
-                  p.begin
-                    = event.begin_at.strftime(t('formats.time.short'))
+                  p.city
+                    - venue = event.venue
+                    = venue.city
                   p.event-type-and-active-members
                     = t 'events.event-type-and-active-members',
                         event_type: event.event_type,
                         active_members: event.active_members.map(&:full_name).join(', ')
+                  p.time
+                    = l(event.begin_at, format: :short_time)
+                  p.venue
+                    = venue.name
                 - if admin_signed_in?
                   td
                     = link_to 'Show',

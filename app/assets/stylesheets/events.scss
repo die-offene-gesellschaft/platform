@@ -52,7 +52,12 @@
       }
 
       td {
+        display: block;
         vertical-align: top;
+
+        @media (min-width: $mobile-breakpoint-width) {
+          display: table-cell;
+        }
 
         &.month {
           background-color: $black;
@@ -67,7 +72,6 @@
           padding: 20px 0 86px 20px;
           position: relative;
           text-align: left;
-          width: 723px;
 
           @media (min-width: $mobile-breakpoint-width) {
             font-size: 42px;
@@ -83,6 +87,7 @@
           i {
             bottom: 25px;
             cursor: pointer;
+            display: none;
             position: absolute;
             right: 25px;
 
@@ -97,39 +102,112 @@
         &.date {
           color: $black;
           font-family: 'Montserrat', sans-serif;
-          font-size: 42px;
+          font-size: 30px;
           font-stretch: normal;
           font-style: normal;
           font-weight: 600;
-          height: 52px;
-          letter-spacing: 1.9px;
-          padding: 19px 0 139px 24px;
+          height: 37px;
+          letter-spacing: 1.4px;
+          line-height: 1;
+          padding: 10px 13px 1px 16px;
           text-align: left;
+
+          @media (min-width: $mobile-breakpoint-width) {
+            font-size: 42px;
+            height: 52px;
+            letter-spacing: 1.9px;
+            padding: 19px 54px 139px 24px;
+            width: 377px;
+          }
         }
 
         &.details {
           p {
+            line-height: 1;
             margin: 0;
 
-            &.title {
-              font-size: 1.25rem;
-              margin: 0 0 2.5vw;
+            &.city {
+              color: $black;
+              font-family: 'Montserrat', sans-serif;
+              font-size: 33px;
+              font-stretch: normal;
+              font-style: normal;
+              font-weight: 600;
+              height: 40px;
+              line-height: 1.21;
+              margin: 0 14px 4px 15px;
+              text-align: left;
 
-              @media (min-width: 1280px) {
-                margin: 0 0 2rem;
+              @media (min-width: $mobile-breakpoint-width) {
+                font-size: 42px;
+                line-height: .95;
+                margin: 27px 43px 10px 0;
               }
             }
 
-            &.begin {
-              font-weight: bold;
+            &.event-type-and-active-members {
+              color: $black;
+              font-family: 'Montserrat', sans-serif;
+              font-size: 20px;
+              font-stretch: normal;
+              font-style: normal;
+              font-weight: 300;
+              letter-spacing: .2px;
+              line-height: 1.2;
+              margin: 0 13px 28px 16px;
+              text-align: left;
+
+              @media (min-width: $mobile-breakpoint-width) {
+                font-size: 25px;
+                height: 30px;
+                letter-spacing: .3px;
+                margin: 0 42px 35px 0;
+              }
             }
 
-            &.begin,
-            &.event-type-and-active-members {
-              font-size: .75rem;
+            &.time {
+              color: $black;
+              font-family: 'Montserrat', sans-serif;
+              font-size: 14px;
+              font-stretch: normal;
+              font-style: normal;
+              font-weight: 600;
+              height: 18px;
+              letter-spacing: .2px;
+              margin: 0 11px 7px 18px;
+              text-align: left;
+
+              @media (min-width: $mobile-breakpoint-width) {
+                font-size: 18px;
+                height: 22px;
+                margin: 0 42px 4px 0;
+              }
+            }
+
+            &.venue {
+              color: $black;
+              font-family: 'Montserrat', sans-serif;
+              font-size: 14px;
+              font-stretch: normal;
+              font-style: normal;
+              font-weight: 300;
+              line-height: 1.21;
+              margin: 0 11px 26px 18px;
+              text-align: left;
+
+              @media (min-width: $mobile-breakpoint-width) {
+                font-size: 18px;
+                height: 21px;
+                line-height: 1;
+                margin: 0 42px 21px 0;
+              }
             }
           }
         }
+      }
+
+      [colspan='2'] {
+        display: table-cell;
       }
     }
   }
