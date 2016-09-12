@@ -15,10 +15,10 @@ header {
     }
 
     .fa {
-      color: $red;
       margin: 0 10px 0 0;
     }
 
+    .fa-times,
     input {
       display: none;
     }
@@ -115,8 +115,18 @@ header {
       }
     }
 
-    [type='checkbox']:checked ~ label ~ ul {
-      max-height: 100vh;
+    [type='checkbox']:checked ~ label {
+      ~ ul {
+        max-height: 100vh;
+      }
+
+      .fa-bars {
+        display: none;
+      }
+
+      .fa-times {
+        display: inline-block;
+      }
     }
   }
 

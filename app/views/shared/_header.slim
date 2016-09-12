@@ -29,7 +29,8 @@ header.container-fluid id="header"
   .menu
     input#menu type='checkbox'
     label.button for='menu'
-      = fa_icon 'bars'
+      = fa_icon 'bars fw'
+      = fa_icon 'times fw'
       = t('header.menu')
     ul
       - nav_items.each do |name, nav_item|
