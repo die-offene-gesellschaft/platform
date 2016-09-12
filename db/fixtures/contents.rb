@@ -9,5 +9,6 @@ Content.seed(:id,
   { id: 6, controller_action_name: 'application#imprint', key: 'imprint', value: '# Impressum', order: 1 },
   { id: 7, controller_action_name: 'application#privacy', key: 'privacy', value: '# Datenschutz', order: 1 },
   { id: 8, controller_action_name: 'application#faq', key: 'faq', value: '# FAQ', order: 1 },
-  { id: 9, controller_action_name: 'application#contact', key: 'contact', value: '# Kontakt', order: 1 }
+  { id: 9, controller_action_name: 'application#contact', key: 'contact', value: '# Kontakt', order: 1 },
+  { id: 10, controller_action_name: 'application#guideline', key: 'guideline', value: '# Leitfaden für Aktionen', order: 1 }
 )

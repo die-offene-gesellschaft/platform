@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/home' => 'home#show'
   get '/imprint' => 'application#imprint'
   get '/privacy' => 'application#privacy'
+  get '/guideline' => 'application#guideline'
 
   get '/users' => 'users#index'
   get '/users/:id' => 'users#show', as: 'user'
