@@ -8,23 +8,29 @@ ruby:
            items: t('events.subnav'),
            active: archive ? 'archive' : 'appointments'
   .row
+    iframe frameborder='0' src='https://lucid-berlin.carto.com/viz/32514800-779d-11e6-8037-0e233c30368f/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen
     - if archive
-        - @events.each do |year, events|
-          .col-xs-12.col-sm-4.tile.year.size2x2
-            = l(year, format: '%Y')
-          - events.each do |event|
-            ruby:
-              type = 'blank'
-              type = 'picture' if event.picture.path
-            a.col-xs-12.col-sm-4.tile.event.size2x2 class="#{type}" href="#{event_path(event)}" style="#{"background-image: url(#{asset_path(event.picture)})" if type == 'picture'}"
-              .date-and-title
-                = l(event.begin_at, format: '%d.%m.')
-                | &nbsp;
-                = event.title
+      - @events.each do |year, events|
+        table.archive
+          tbody
+            tr
+              td.year colspan='3'
+                = l(year, format: '%Y')
+            - events.each_slice(3) do |slice|
+              tr.event
+                - slice.each do |event|
+                  td
+                    ruby:
+                      type = 'blank'
+                      type = 'picture' if event.picture.path
+                      type = 'statement' if event
+                    a class="#{type}" href="#{event_path(event)}" style="#{"background-image: url(#{asset_path(event.picture)})" if type == 'picture'}"
+                      = event.title
+                - (3 - slice.count).times do
+                  td.dummy
     - else
-      iframe frameborder='0' src='https://lucid-berlin.carto.com/viz/32514800-779d-11e6-8037-0e233c30368f/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen
       - @events.each do |month, events|
-        table
+        table.appointments
           tbody
             tr
               td.month colspan='2'

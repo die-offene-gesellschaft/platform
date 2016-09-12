@@ -1,3 +1,11 @@
+.container-fluid {
+  > div {
+    &.events {
+      padding: 0;
+    }
+  }
+}
+
 .events {
   iframe {
     display: none;
@@ -59,7 +67,8 @@
           display: table-cell;
         }
 
-        &.month {
+        &.month,
+        &.year {
           background-color: $black;
           color: $white;
           font-family: 'Montserrat', sans-serif;
@@ -206,8 +215,33 @@
         }
       }
 
-      [colspan='2'] {
+      [colspan] {
         display: table-cell;
+      }
+    }
+
+    &.archive {
+      tr {
+        td {
+          &:not(.year) {
+            background-color: $gray;
+            padding-bottom: calc(100% - 25px);
+            width: 100%;
+
+            @media (min-width: $mobile-breakpoint-width) {
+              padding-bottom: calc(33.3333% - 25px);
+              width: 33.3333%;
+            }
+
+            &.dummy {
+              display: none;
+
+              @media (min-width: $mobile-breakpoint-width) {
+                display: table-cell;
+              }
+            }
+          }
+        }
       }
     }
   }

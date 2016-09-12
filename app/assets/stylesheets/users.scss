@@ -1,3 +1,11 @@
+.container-fluid {
+  > div {
+    &.users {
+      padding: 0;
+    }
+  }
+}
+
 .users {
   .active-members,
   .users {

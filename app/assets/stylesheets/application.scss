@@ -326,6 +326,10 @@ header,
 .container-fluid {
   max-width: $max-viewport-width;
   padding: 0;
+
+  > div {
+    padding: 0 1rem;
+  }
 }
 
 .row {
