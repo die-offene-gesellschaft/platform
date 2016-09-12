@@ -16,10 +16,10 @@
 @import 'topbar';
 @import 'home';
 @import 'comments';
-@import 'events';
 @import 'locations';
 @import 'pictures';
 @import 'users';
+@import 'events';
 @import 'venues';
 @import 'about';
 
@@ -37,7 +37,7 @@
   text-align: left;
 }
 
-.events {
+.events-title {
   color: $black;
   font-family: 'Montserrat', sans-serif;
   font-size: 42px;

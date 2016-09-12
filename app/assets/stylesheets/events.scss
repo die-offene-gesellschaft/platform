@@ -1,8 +1,12 @@
-// Place all the styles related to the events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .events {
+  iframe {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
+  }
+
   img {
     width: 100%;
   }
@@ -53,34 +57,54 @@
         &.month {
           background-color: $black;
           color: $white;
-          font-size: 5vw;
-          font-weight: bold;
-          padding: 1vw 1vw 6vw;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 30px;
+          font-stretch: normal;
+          font-style: normal;
+          font-weight: 600;
+          height: 52px;
+          letter-spacing: 1.9px;
+          padding: 20px 0 86px 20px;
           position: relative;
+          text-align: left;
+          width: 723px;
 
-          @media (min-width: 1200px) {
-            font-size: 4rem;
-            padding: .8rem .8rem 4.8rem;
+          @media (min-width: $mobile-breakpoint-width) {
+            font-size: 42px;
+            padding: 21px 0 137px 24px;
+          }
+
+          br {
+            @media (min-width: $mobile-breakpoint-width) {
+              display: none;
+            }
           }
 
           i {
+            bottom: 25px;
+            cursor: pointer;
             position: absolute;
-            right: 3vw;
-            top: 50%;
-            transform: translateY(-50%);
+            right: 25px;
+
+            @media (min-width: $mobile-breakpoint-width) {
+              bottom: 50%;
+              right: 60px;
+              transform: translateY(50%);
+            }
           }
         }
 
         &.date {
-          font-size: 5vw;
-          font-weight: bold;
-          width: 25vw;
-
-          @media (min-width: 1280px) {
-            font-size: 4rem;
-            width: 20rem;
-          }
-
+          color: $black;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 42px;
+          font-stretch: normal;
+          font-style: normal;
+          font-weight: 600;
+          height: 52px;
+          letter-spacing: 1.9px;
+          padding: 19px 0 139px 24px;
+          text-align: left;
         }
 
         &.details {

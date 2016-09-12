@@ -30,8 +30,9 @@ ruby:
               td.month colspan='2'
                 = l(month, format: '%B')
                 | &nbsp;
+                br
                 = l(month, format: '%Y')
-                = fa_icon 'chevron-up'
+                = fa_icon 'chevron-down 2x'
             - events.each do |event|
               tr.event data-href="#{event_path(event)}"
                 td.date
