@@ -7,12 +7,13 @@
 }
 
 .users {
+  h1 {
+    margin: 66px 0 11px 37px;
+  }
+
   .active-members,
   .users {
-    .name {
-      color: $red;
-      font-weight: bold;
-    }
+    padding: 33px 0 33px 37px;
   }
 
   .grid {
