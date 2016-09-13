@@ -223,6 +223,8 @@
     &.archive {
       tr {
         td {
+          position: relative;
+
           &:not(.year) {
             background-color: $gray;
             padding-bottom: calc(100% - 25px);
@@ -239,6 +241,76 @@
               @media (min-width: $mobile-breakpoint-width) {
                 display: table-cell;
               }
+            }
+          }
+
+          .date-and-venue {
+            bottom: 18px;
+            color: $anthracite;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-stretch: normal;
+            font-style: normal;
+            font-weight: 600;
+            left: 28px;
+            letter-spacing: .4px;
+            line-height: 1.17;
+            position: absolute;
+            right: 28px;
+            text-align: left;
+          }
+
+          .statement {
+            bottom: 27%;
+            color: $anthracite;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 23px;
+            font-stretch: normal;
+            font-style: normal;
+            font-weight: normal;
+            left: 28px;
+            letter-spacing: .5px;
+            line-height: 1.43;
+            overflow: hidden;
+            position: absolute;
+            right: 28px;
+            text-align: left;
+            top: 28px;
+
+            &::before {
+              content: '„';
+            }
+
+            &::after {
+              content: '“';
+            }
+          }
+
+          a {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+
+            &.picture {
+              background-position: 50% 50%;
+              background-size: cover;
+            }
+
+            &.blank {
+              background-color: $red;
+            }
+          }
+
+          .picture {
+            .date-and-venue {
+              background-color: rgba(255, 255, 255, .5);
+              bottom: 0;
+              left: 0;
+              padding: 18px 28px;
+              right: 0;
             }
           }
         }
