@@ -14,4 +14,12 @@
       font-weight: bold;
     }
   }
+
+  .grid {
+    height: 200vw;
+
+    @media (min-width: $max-viewport-width) {
+      height: 2400px;
+    }
+  }
 }
