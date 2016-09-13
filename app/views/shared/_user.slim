@@ -1,1 +1,13 @@
-a.user href="#{user_path(user)}" style="background-image: url(#{asset_url(user.avatar)});"
+ruby:
+  picture = defined?(picture) && picture == false ? false : true
+  statement = defined?(statement) && statement ? true : false
+  picture = false if statement
+a.user href="#{user_path(user)}" style="#{"background-image: url(#{asset_url(user.avatar)});" if picture}"
+  - if statement
+    p.statement.quote
+      = user.statement
+    .name-and-role
+      p.box-details
+        = user.name
+      p.quote-role
+        = user.role
