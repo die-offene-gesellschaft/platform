@@ -429,22 +429,51 @@ tr {
   }
 }
 
-.size1x1,
-.size2x2 {
-  background-color: $gray;
-  display: inline-block;
-}
 
-.pull1 {
-  transform: translateY(-100%);
-}
+.grid {
+  @mixin x($x) {
+    #{'.x' + $x} {
+      left: #{100 / 6 * ($x - 1) + '%'};
+    }
+  }
 
-.size1x1 {
-  padding-bottom: calc(16.6667% - 24px);
-  width: 16.6667%;
-}
+  @mixin y($y) {
+    #{'.y' + $y} {
+      top: #{16.6 * ($y - 1) + 'vw'};
 
-.size2x2 {
-  padding-bottom: calc(33.3333% - 24px);
-  width: 33.3333%;
+      @media (min-width: $max-viewport-width) {
+        top: #{200 * ($y - 1) + 'px'};
+      }
+    }
+  }
+
+  @mixin size($x, $y) {
+    #{'.size' + $x + 'x' + $y} {
+      padding-bottom: calc(#{100 / 6 * $y}% - 24px);
+      width: calc(#{100 / 6 * $x}% + 1px);
+    }
+  }
+
+  @for $i from 1 through 6 {
+    @include x($i);
+  }
+
+  @for $i from 1 through 20 {
+    @include y($i);
+  }
+
+  @include size(1, 1);
+  @include size(2, 2);
+  @include size(4, 2);
+  @include size(2, 3);
+
+  height: 100%;
+  position: relative;
+  width: 100%;
+
+  > div {
+    background-color: $gray;
+    display: inline-block;
+    position: absolute;
+  }
 }

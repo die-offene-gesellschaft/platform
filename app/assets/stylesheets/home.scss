@@ -1,0 +1,15 @@
+.container-fluid {
+  > div {
+    &.home {
+      padding: 0;
+    }
+  }
+}
+
+.home {
+  height: 200vw;
+
+  @media (min-width: $max-viewport-width) {
+    height: 2400px;
+  }
+}
