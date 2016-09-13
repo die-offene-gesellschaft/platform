@@ -449,7 +449,7 @@ tr {
 
   @mixin size($x, $y) {
     #{'.size' + $x + 'x' + $y} {
-      padding-bottom: calc(#{100 / 6 * $y}% - 24px);
+      padding-bottom: calc(#{100 / 6 * $y}% + 1px);
       width: calc(#{100 / 6 * $x}% + 1px);
     }
   }
@@ -474,6 +474,7 @@ tr {
   > div {
     background-color: $gray;
     display: inline-block;
+    overflow: hidden;
     position: absolute;
   }
 }

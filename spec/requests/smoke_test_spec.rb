@@ -12,6 +12,7 @@ RSpec.describe "GET routes", type: :request do
                                   user: @user,
                                   event: @event
     @blogpost = FactoryGirl.create :blogpost
+    FactoryGirl.create(:user, email: 'jane.doe@example.com', password: '12345678')
   end
 
   it 'should be error-free' do

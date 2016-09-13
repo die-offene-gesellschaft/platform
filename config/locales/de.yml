@@ -1,4 +1,8 @@
 de:
+  blogpost:
+    type:
+      article: 'Artikel'
+      interview: 'Interview'
   delete-confirm: Bist du sicher?
   site-title:
     default: 'Offene Gesellschaft'

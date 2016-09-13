@@ -1,3 +1,11 @@
+.container-fluid {
+  > div {
+    &.menu {
+      padding: 0;
+    }
+  }
+}
+
 header {
   background-color: $white;
   height: 55px;

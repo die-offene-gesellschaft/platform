@@ -130,3 +130,21 @@ Event.seed(:id,
     venue: deutsches_theater_goettingen
   }
 )
+
+# blogposts
+Blogpost.seed(:id,
+  {
+    id: 1,
+    title: 'Mit uns in Aktion treten, ein Leitfaden',
+    blogpost_type: 'article',
+    introduction: Faker::Lorem.sentences(4).join(' '),
+    content: Faker::Lorem.sentences(20).join(' ')
+  },
+  {
+    id: 2,
+    title: 'Fragen und Antworten',
+    blogpost_type: 'article',
+    introduction: Faker::Lorem.sentences(4).join(' '),
+    content: Faker::Lorem.sentences(20).join(' ')
+  }
+)

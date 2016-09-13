@@ -1,95 +1,106 @@
 .home
   .grid
     .size1x1.x1.y1
-      | 1
+      = render 'shared/user', user: @users[0 % @users.count]
     .size1x1.x2.y1
-      | 2
+      = render 'shared/user', user: @users[1 % @users.count]
     .size1x1.x3.y1
-      | 3
+      = render 'shared/user', user: @users[2 % @users.count]
     .size1x1.x4.y1
-      | 4
+      = render 'shared/event', event: @events[0 % @events.count]
     .size1x1.x5.y1
-      | 5
+      = render 'shared/user', user: @users[4 % @users.count]
     .size1x1.x6.y1
-      | 6
+      = render 'shared/user', user: @users[5 % @users.count]
 
     .size1x1.x1.y2
-      | 7
+      a.call-to-action href="#"
+        span
+          = t('home.registration')
     .size1x1.x2.y2
-      | 8
+      = render 'shared/user', user: @users[6 % @users.count]
     .size4x2.x3.y2
-      | 9
+      .statement
+        | Demokratie und Freiheit müssen täglich neu erkämpft und verteidigt werden.
 
     .size1x1.x1.y3
-      | 10
+      = render 'shared/user', user: @users[7 % @users.count]
     .size1x1.x2.y3
-      | 11
+      = render 'shared/event', event: @events[1 % @events.count]
 
     .size2x2.x1.y4
-      | 12
+      = render 'shared/blogpost', blogpost: @blogposts[0 % @blogposts.count]
     .size1x1.x3.y4
-      | 13
+      = render 'shared/user', user: @users[8 % @users.count]
     .size1x1.x4.y4
-      | 14
+      = render 'shared/user', user: @users[9 % @users.count]
     .size1x1.x5.y4
-      | 15
+      = render 'shared/user', user: @users[10 % @users.count]
     .size1x1.x6.y4
-      | 16
+      = render 'shared/event', event: @events[2 % @events.count]
 
     .size1x1.x3.y5
-      | 17
+      = render 'shared/user', user: @users[11 % @users.count]
     .size1x1.x4.y5
-      | 18
+      = render 'shared/event', event: @events[3 % @events.count]
     .size2x2.x5.y5
-      | 19
+      = render 'shared/user', user: @users[12 % @users.count]
 
     .size1x1.x1.y6
-      | 20
+      = render 'shared/user', user: @users[13 % @users.count]
     .size1x1.x2.y6
-      | 21
+      = render 'shared/user', user: @users[14 % @users.count]
     .size1x1.x3.y6
-      | 22
+      = render 'shared/user', user: @users[15 % @users.count]
     .size1x1.x4.y6
-      | 23
+      a.call-to-action href="#"
+        span
+          = t('home.participate')
 
     .size1x1.x1.y7
-      | 24
+      = render 'shared/event', event: @events[4 % @events.count]
     .size2x2.x2.y7
-      | 25
+      = render 'shared/user', user: @users[16 % @users.count]
     .size1x1.x4.y7
-      | 26
+      = render 'shared/user', user: @users[17 % @users.count]
     .size1x1.x5.y7
-      | 27
+      = render 'shared/user', user: @users[18 % @users.count]
     .size1x1.x6.y7
-      | 28
+      = render 'shared/event', event: @events[5 % @events.count]
 
     .size1x1.x1.y8
-      | 29
+      a.call-to-action href="#"
+        span
+          = t('home.start-own-event')
     .size1x1.x4.y8
-      | 30
+      = render 'shared/event', event: @events[6 % @events.count]
     .size2x3.x5.y8
-      | 31
+      a.about href="#{about_path}"
+        = image_tag('logo-die-offene-gesellschaft-blip.svg')
+        span
+          = t('home.about')
 
     .size2x2.x1.y9
-      | 32
+      = render 'shared/blogpost', blogpost: @blogposts[1 % @blogposts.count]
     .size1x1.x3.y9
-      | 33
+      = render 'shared/user', user: @users[19 % @users.count]
     .size1x1.x4.y9
-      | 34
+      = render 'shared/user', user: @users[20 % @users.count]
 
     .size1x1.x3.y10
-      | 35
+      = render 'shared/event', event: @events[7 % @events.count]
     .size1x1.x4.y10
-      | 36
+      = render 'shared/user', user: @users[21 % @users.count]
 
     .size4x2.x1.y11
-      | 37
+      .statement
+        | Stillstand ist der Tod.
     .size1x1.x5.y11
-      | 38
+      = render 'shared/user', user: @users[22 % @users.count]
     .size1x1.x6.y11
-      | 39
+      = render 'shared/event', event: @events[8 % @events.count]
 
     .size1x1.x5.y12
-      | 40
+      = render 'shared/user', user: @users[23 % @users.count]
     .size1x1.x6.y12
-      | 41
+      = render 'shared/user', user: @users[24 % @users.count]

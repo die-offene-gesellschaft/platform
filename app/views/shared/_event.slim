@@ -1,0 +1,6 @@
+a.event href="#"
+  .date.calendar
+    = l(event.begin_at, format: :short_date)
+  .venue
+    - venue = event.venue
+    = venue.name
