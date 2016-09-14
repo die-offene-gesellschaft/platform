@@ -8,7 +8,7 @@ Content.seed(:id,
   { id: 5, controller_action_name: 'about#show', key: 'contact', value: File.read("#{Rails.root}/db/fixtures/contents/about/contact.md"), order: 5 },
   { id: 6, controller_action_name: 'application#imprint', key: 'imprint', value: File.read("#{Rails.root}/db/fixtures/contents/imprint.md"), order: 1 },
   { id: 7, controller_action_name: 'application#privacy', key: 'privacy', value: '# Datenschutz', order: 1 },
-  { id: 8, controller_action_name: 'application#faq', key: 'faq', value: '# FAQ', order: 1 },
+  { id: 8, controller_action_name: 'application#faq', key: 'faq', value: File.read("#{Rails.root}/db/fixtures/contents/faq.md"), order: 1 },
   { id: 9, controller_action_name: 'application#contact', key: 'contact', value: '# Kontakt', order: 1 },
-  { id: 10, controller_action_name: 'application#guideline', key: 'guideline', value: '# Leitfaden für Aktionen', order: 1 }
+  { id: 10, controller_action_name: 'application#guideline', key: 'guideline', value: File.read("#{Rails.root}/db/fixtures/contents/guideline.md"), order: 1 }
 )
