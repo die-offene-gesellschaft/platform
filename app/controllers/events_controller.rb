@@ -11,7 +11,7 @@ class EventsController < ApplicationController
   def index
     respond_to do |format|
       format.html do
-        if request.query_parameters.keys & %w(appointments list) == []
+        if request.query_parameters.keys & %w(appointments archive) == []
           return redirect_to(events_path(appointments: ''))
         end
         render :index
