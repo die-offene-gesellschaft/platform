@@ -86,13 +86,13 @@ class EventsController < ApplicationController
   def set_appointment_events
     @events = Event.where('end_at >= ?', Time.zone.now)
                    .order(begin_at: :asc)
-                   .group_by  { |event| event.begin_at.send(:beginning_of_month) }
+                   .group_by { |event| event.begin_at.send(:beginning_of_month) }
   end
 
   def set_archive_events
     @events = Event.where('end_at < ?', Time.zone.now)
                    .order(begin_at: :desc)
-                   .group_by  { |event| event.begin_at.send(:beginning_of_year) }
+                   .group_by { |event| event.begin_at.send(:beginning_of_year) }
   end
 
   def set_event
