@@ -74,16 +74,25 @@ class EventsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_events
-    where_statement = 'end_at >= ?'
-    group_statement = :beginning_of_month
-    order_statement = { begin_at: :asc }
-    if request.query_parameters.keys.include?('archive')
-      where_statement = 'end_at < ?'
-      group_statement = :beginning_of_year
-      order_statement = { begin_at: :desc }
+    if request.query_parameters.keys.include?('appointments')
+      set_appointment_events
+    elsif request.query_parameters.keys.include?('archive')
+      set_archive_events
+    else
+      @events = Event.all
     end
-    @events = Event.all.where(where_statement, Time.zone.now).order(order_statement)
-                   .group_by { |event| event.begin_at.send(group_statement) }
+  end
+
+  def set_appointment_events
+    @events = Event.where('end_at >= ?', Time.zone.now)
+                   .order(begin_at: :asc)
+                   .group_by  { |event| event.begin_at.send(:beginning_of_month) }
+  end
+
+  def set_archive_events
+    @events = Event.where('end_at < ?', Time.zone.now)
+                   .order(begin_at: :desc)
+                   .group_by  { |event| event.begin_at.send(:beginning_of_year) }
   end
 
   def set_event

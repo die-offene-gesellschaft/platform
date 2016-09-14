@@ -8,7 +8,7 @@ ruby:
     home: { label: t('header.nav.home'), url: home_path },
     events: {
       label: t('header.nav.events'),
-      url: events_path,
+      url: events_path(appointments: ''),
       children: {
         appointments: { label: t('header.nav.events_appointments'), url: events_path(appointments: '') },
         archive: { label: t('header.nav.events_archive'), url: events_path(archive: '') }
