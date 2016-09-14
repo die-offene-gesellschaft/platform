@@ -5,11 +5,19 @@ class VenuesController < ApplicationController
   # GET /venues.json
   def index
     @venues = Venue.all
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @venues }
+    end
   end
 
   # GET /venues/1
   # GET /venues/1.json
   def show
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @venue }
+    end
   end
 
   # GET /venues/new
