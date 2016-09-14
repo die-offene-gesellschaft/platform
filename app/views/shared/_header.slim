@@ -16,7 +16,7 @@ ruby:
     },
     users: {
       label: t('header.nav.users'),
-      url: users_path,
+      url: users_path(pictures: ''),
       children: {
         pictures: { label: t('header.nav.users_pictures'), url: users_path(pictures: '') },
         list: { label: t('header.nav.users_list'), url: users_path(list: '') }

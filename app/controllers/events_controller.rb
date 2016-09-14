@@ -10,7 +10,12 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     respond_to do |format|
-      format.html { render :index }
+      format.html do
+        if request.query_parameters.keys & %w(appointments list) == []
+          return redirect_to(events_path(appointments: ''))
+        end
+        render :index
+      end
       format.json { render json: @events }
     end
   end
