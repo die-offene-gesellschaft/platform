@@ -5,7 +5,7 @@ class ContentsController < ApplicationController
   def index
     @contents = Content.all
     respond_to do |format|
-      format.html { render :nothing }
+      format.html { render nothing: true, status: 200 }
       format.json { render json: @contents }
     end
   end
@@ -13,7 +13,7 @@ class ContentsController < ApplicationController
   # GET /contents/1.json
   def show
     respond_to do |format|
-      format.html { render :nothing }
+      format.html { render nothing: true, status: 200 }
       format.json { render json: @content }
     end
   end
