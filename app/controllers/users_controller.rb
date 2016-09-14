@@ -11,13 +11,7 @@ class UsersController < ApplicationController
         end
         render :index
       end
-      format.json do
-        return render json: {
-                        active_members: @active_members,
-                        users: @users
-                      } if @active_members
-        render json: @users
-      end
+      format.json { index_json }
     end
   end
 
@@ -31,11 +25,12 @@ class UsersController < ApplicationController
   private
 
   def set_users
-    if request.query_parameters.keys.include?('pictures')
+    get_params = request.query_parameters.keys
+    if get_params.include?('pictures')
       @users = User.where(locked: false)
-    elsif request.query_parameters.keys.include?('list')
+    elsif get_params.include?('list')
       @users = User.where(locked: false)
-      @active_members = ActiveMember.all if request.query_parameters.keys.include?('list')
+      @active_members = ActiveMember.all
     else
       @users = User.all
     end
@@ -43,5 +38,11 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def index_json
+    return render json: { active_members: @active_members,
+                          users: @users } if @active_members
+    render json: @users
   end
 end
