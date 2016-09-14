@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :locations
   resources :pictures
   resources :venues
+  resources :contents, only: [:index, :show]
 
   devise_for :admins
   devise_for :users
