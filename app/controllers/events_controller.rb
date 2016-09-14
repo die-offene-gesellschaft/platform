@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :set_events,
+                only: [:index]
   before_action :set_event,
                 only: [:show, :edit, :update, :destroy]
   before_action :set_user,
@@ -7,21 +9,19 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    where_statement = 'end_at >= ?'
-    group_statement = :beginning_of_month
-    order_statement = { begin_at: :asc }
-    if request.query_parameters.keys.include?('archive')
-      where_statement = 'end_at < ?'
-      group_statement = :beginning_of_year
-      order_statement = { begin_at: :desc }
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @events }
     end
-    @events = Event.all.where(where_statement, Time.zone.now).order(order_statement)
-                   .group_by { |event| event.begin_at.send(group_statement) }
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @event }
+    end
   end
 
   # GET /events/new
@@ -73,6 +73,19 @@ class EventsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
+  def set_events
+    where_statement = 'end_at >= ?'
+    group_statement = :beginning_of_month
+    order_statement = { begin_at: :asc }
+    if request.query_parameters.keys.include?('archive')
+      where_statement = 'end_at < ?'
+      group_statement = :beginning_of_year
+      order_statement = { begin_at: :desc }
+    end
+    @events = Event.all.where(where_statement, Time.zone.now).order(order_statement)
+                   .group_by { |event| event.begin_at.send(group_statement) }
+  end
+
   def set_event
     @event = Event.find(params[:id])
   end
