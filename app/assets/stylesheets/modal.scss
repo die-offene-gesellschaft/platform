@@ -66,15 +66,33 @@
     }
 
     .user-quote {
-      margin: 15px 22px 0;
+      font-size: 4vw;
+      margin: 3vw 22px 0;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 23px;
+        margin: 15px 22px 0;
+      }
     }
 
     .user-name {
-      margin: 25px 22px 0;
+      font-size: 3vw;
+      margin: 4vw 22px 0;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 18px;
+        margin: 25px 22px 0;
+      }
     }
 
     .user-role {
-      margin: 7px 22px 0;
+      font-size: 2.2vw;
+      margin: 0.5vw 22px 0;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 13px;
+        margin: 7px 22px 0;
+      }
     }
 
     a {
@@ -82,16 +100,25 @@
     }
 
     .links {
-      bottom: 28px;
+      bottom: 4vw;
       color: $red;
       margin: 0 22px 0;
       position: absolute;
       width: 100%;
 
+      @include media-breakpoint-up(lg) {
+        bottom: 28px;
+      }
+
       .share-links,
       .link-small {
         display: inline-block;
+        font-size: 3.16vw;
         width: calc(50% - 22px);
+
+        @include media-breakpoint-up(lg) {
+          font-size: 16px;
+        }
       }
 
       .share-links {
