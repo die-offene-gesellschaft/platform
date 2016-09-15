@@ -8,3 +8,15 @@ de:
       list:
         href: '?list'
         label: 'Liste'
+    friends:
+      all:
+        href: '#'
+        label: Alle Freunde
+      become-friends:
+        href: '#'
+        label: Freund werden
+    social-media-links:
+      facebook: '#'
+      twitter: '#'
+      instagram: '#'
+      pinterest: '#'

@@ -22,115 +22,144 @@ ruby:
   - else
     .grid
       .size1x1.x1.y1
-        = render 'shared/user', user: @users[0 % @users.count]
+        = render 'shared/user/tile', user: @users[0 % @users.count]
       .size1x1.x2.y1
-        = render 'shared/user', user: @users[1 % @users.count]
+        = render 'shared/user/tile', user: @users[1 % @users.count]
       .size1x1.x3.y1
-        = render 'shared/user', user: @users[2 % @users.count]
+        = render 'shared/user/tile', user: @users[2 % @users.count]
       .size1x1.x4.y1
-        = render 'shared/user', user: @users[3 % @users.count]
+        = render 'shared/user/tile', user: @users[3 % @users.count]
       .size1x1.x5.y1
-        = render 'shared/user', user: @users[4 % @users.count]
+        = render 'shared/user/tile', user: @users[4 % @users.count]
       .size1x1.x6.y1
-        = render 'shared/user', user: @users[5 % @users.count]
+        = render 'shared/user/tile', user: @users[5 % @users.count]
 
       .size1x1.x1.y2
-        = render 'shared/user', user: @users[6 % @users.count]
+        = render 'shared/user/tile', user: @users[6 % @users.count]
       .size1x1.x2.y2
-        = render 'shared/user', user: @users[7 % @users.count]
+        = render 'shared/user/tile', user: @users[7 % @users.count]
       .size2x2.x3.y2
-        = render 'shared/user', user: @users[8 % @users.count]
+        = render 'shared/user/tile', user: @users[8 % @users.count]
       .size1x1.x5.y2
-        = render 'shared/user', user: @users[9 % @users.count]
+        = render 'shared/user/tile', user: @users[9 % @users.count]
       .size1x1.x6.y2
-        = render 'shared/user', user: @users[10 % @users.count]
+        = render 'shared/user/tile', user: @users[10 % @users.count]
 
       .size1x1.x1.y3
-        = render 'shared/user', user: @users[11 % @users.count]
+        = render 'shared/user/tile', user: @users[11 % @users.count]
       .size1x1.x2.y3
-        = render 'shared/user', user: @users[12 % @users.count]
+        = render 'shared/user/tile', user: @users[12 % @users.count]
       .size2x2.x5.y3
-        = render 'shared/user', user: @users[13 % @users.count], statement: true
+        = render 'shared/user/tile', user: @users[13 % @users.count], statement: true
 
       .size2x2.x1.y4
-        = render 'shared/user', user: @users[14 % @users.count], statement: true
+        = render 'shared/user/tile', user: @users[14 % @users.count], statement: true
       .size1x1.x3.y4
-        = render 'shared/user', user: @users[15 % @users.count]
+        = render 'shared/user/tile', user: @users[15 % @users.count]
       .size1x1.x4.y4
-        = render 'shared/user', user: @users[16 % @users.count]
+        = render 'shared/user/tile', user: @users[16 % @users.count]
 
       .size1x1.x3.y5
-        = render 'shared/user', user: @users[17 % @users.count]
+        = render 'shared/user/tile', user: @users[17 % @users.count]
       .size1x1.x4.y5
-        = render 'shared/user', user: @users[18 % @users.count]
+        = render 'shared/user/tile', user: @users[18 % @users.count]
       .size2x2.x5.y5
-        = render 'shared/user', user: @users[19 % @users.count]
+        = render 'shared/user/tile', user: @users[19 % @users.count]
 
       .size1x1.x1.y6
-        = render 'shared/user', user: @users[20 % @users.count]
+        = render 'shared/user/tile', user: @users[20 % @users.count]
       .size1x1.x2.y6
-        = render 'shared/user', user: @users[21 % @users.count]
+        = render 'shared/user/tile', user: @users[21 % @users.count]
       .size1x1.x3.y6
-        = render 'shared/user', user: @users[22 % @users.count]
+        = render 'shared/user/tile', user: @users[22 % @users.count]
       .size1x1.x4.y6
-        = render 'shared/user', user: @users[23 % @users.count]
+        = render 'shared/user/tile', user: @users[23 % @users.count]
 
       .size1x1.x1.y7
-        = render 'shared/user', user: @users[24 % @users.count]
+        = render 'shared/user/tile', user: @users[24 % @users.count]
       .size2x2.x2.y7
-        = render 'shared/user', user: @users[25 % @users.count]
+        = render 'shared/user/tile', user: @users[25 % @users.count]
       .size1x1.x4.y7
-        = render 'shared/user', user: @users[26 % @users.count]
+        = render 'shared/user/tile', user: @users[26 % @users.count]
       .size1x1.x5.y7
-        = render 'shared/user', user: @users[27 % @users.count]
+        = render 'shared/user/tile', user: @users[27 % @users.count]
       .size1x1.x6.y7
-        = render 'shared/user', user: @users[28 % @users.count]
+        = render 'shared/user/tile', user: @users[28 % @users.count]
 
       .size1x1.x1.y8
-        = render 'shared/user', user: @users[29 % @users.count]
+        = render 'shared/user/tile', user: @users[29 % @users.count]
       .size1x1.x4.y8
-        = render 'shared/user', user: @users[30 % @users.count]
+        = render 'shared/user/tile', user: @users[30 % @users.count]
       .size1x1.x5.y8
-        = render 'shared/user', user: @users[31 % @users.count]
+        = render 'shared/user/tile', user: @users[31 % @users.count]
       .size1x1.x6.y8
-        = render 'shared/user', user: @users[32 % @users.count]
+        = render 'shared/user/tile', user: @users[32 % @users.count]
 
       .size1x1.x1.y9
-        = render 'shared/user', user: @users[33 % @users.count]
+        = render 'shared/user/tile', user: @users[33 % @users.count]
       .size1x1.x2.y9
-        = render 'shared/user', user: @users[34 % @users.count]
+        = render 'shared/user/tile', user: @users[34 % @users.count]
       .size1x1.x3.y9
-        = render 'shared/user', user: @users[35 % @users.count]
+        = render 'shared/user/tile', user: @users[35 % @users.count]
       .size1x1.x4.y9
-        = render 'shared/user', user: @users[36 % @users.count]
+        = render 'shared/user/tile', user: @users[36 % @users.count]
       .size2x2.x5.y9
-        = render 'shared/user', user: @users[37 % @users.count], statement: true
+        = render 'shared/user/tile', user: @users[37 % @users.count], statement: true
 
       .size1x1.x1.y10
-        = render 'shared/user', user: @users[38 % @users.count]
+        = render 'shared/user/tile', user: @users[38 % @users.count]
       .size1x1.x2.y10
-        = render 'shared/user', user: @users[39 % @users.count]
+        = render 'shared/user/tile', user: @users[39 % @users.count]
       .size1x1.x3.y10
-        = render 'shared/user', user: @users[40 % @users.count]
+        = render 'shared/user/tile', user: @users[40 % @users.count]
       .size1x1.x4.y10
-        = render 'shared/user', user: @users[41 % @users.count]
+        = render 'shared/user/tile', user: @users[41 % @users.count]
 
       .size2x2.x1.y11
-        = render 'shared/user', user: @users[42 % @users.count]
+        = render 'shared/user/tile', user: @users[42 % @users.count]
       .size1x1.x3.y11
-        = render 'shared/user', user: @users[43 % @users.count]
+        = render 'shared/user/tile', user: @users[43 % @users.count]
       .size1x1.x4.y11
-        = render 'shared/user', user: @users[44 % @users.count]
+        = render 'shared/user/tile', user: @users[44 % @users.count]
       .size1x1.x5.y11
-        = render 'shared/user', user: @users[45 % @users.count]
+        = render 'shared/user/tile', user: @users[45 % @users.count]
       .size1x1.x6.y11
-        = render 'shared/user', user: @users[46 % @users.count]
+        = render 'shared/user/tile', user: @users[46 % @users.count]
 
       .size1x1.x3.y12
-        = render 'shared/user', user: @users[47 % @users.count]
+        = render 'shared/user/tile', user: @users[47 % @users.count]
       .size1x1.x4.y12
-        = render 'shared/user', user: @users[48 % @users.count]
+        = render 'shared/user/tile', user: @users[48 % @users.count]
       .size1x1.x5.y12
-        = render 'shared/user', user: @users[49 % @users.count]
+        = render 'shared/user/tile', user: @users[49 % @users.count]
       .size1x1.x6.y12
-        = render 'shared/user', user: @users[50 % @users.count]
+        = render 'shared/user/tile', user: @users[50 % @users.count]
+
+    .modal-staging
+      - @users.each do |user|
+        .modal.fade id="user-id-#{user.id}" tabindex="-1" role="dialog" aria-labelledby="user-id-#{user.id}" aria-hidden="true"
+          .modal-dialog role="document"
+            .modal-content
+              button.close type="button" data-dismiss="modal" aria-label="Close"
+                span aria-hidden="true"
+                  = fa_icon 'times'
+              .modal-body.user-modal
+                .container-fluid.bd-example-row
+                  - if false #user.double_image_size
+                    .row.user-double-image
+                      .col-xs-12
+                        .image style="background-image: url('#{asset_url(user.avatar)}')"
+                    .row
+                      .col-xs-12.details
+                        = render 'shared/user/modal_details',
+                                 user: user
+                  - else
+                    .row.user-default-image
+                      .col-lg-6
+                        .image style="background-image: url('#{asset_url(user.avatar)}')"
+                      .col-lg-6.details
+                        = render 'shared/user/modal_details',
+                                 user: user
+
+      coffee:
+        window.modalManager = new window.ModalManager()

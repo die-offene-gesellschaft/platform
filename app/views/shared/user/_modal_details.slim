@@ -1,0 +1,22 @@
+- if user.statement
+  p.quote.user-quote
+    = user.statement
+.box-details.user-name
+  = user.name
+.quote-role.user-role
+  = user.role
+.links
+  - if user_image_size = 'double'
+    a.link-small href="#{t('users.friends.all.href')}"
+      = t('users.friends.all.label')
+  a.link-small href="#{t('users.friends.become-friends.href')}"
+    = t('users.friends.become-friends.label')
+  .share-links
+    a.share href="#{t('users.social-media-links.facebook')}"
+      = fa_icon 'facebook-square'
+    a.share href="#{t('users.social-media-links.twitter')}"
+      = fa_icon 'twitter-square'
+    a.share href="#{t('users.social-media-links.instagram')}"
+      = fa_icon 'instagram'
+    a.share href="#{t('users.social-media-links.pinterest')}"
+      = fa_icon 'pinterest-square'

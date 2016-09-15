@@ -1,0 +1,101 @@
+.modal {
+  padding: 0;
+
+  .modal-dialog {
+    margin: 8vw auto;
+    width: 66.6vw;
+    max-width: 100%;
+  }
+
+  .modal-body,
+  .row,
+  .col-lg-6 {
+    padding: 0;
+  }
+}
+
+.close {
+  color: $white;
+  font-size: 6vw;
+  opacity: 1;
+  position: absolute;
+  right: -6vw;
+  top: -6vw;
+
+  &:hover {
+    color: $white;
+    opacity: 1;
+  }
+}
+
+.user-modal {
+  .image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 66.6vw;
+    width: 100%;
+
+    @include media-breakpoint-up(lg) {
+      height: 33.3vw;
+    }
+  }
+
+  .user-default-image {
+    .image {
+
+    }
+  }
+
+  .user-double-image {
+    .image {
+
+    }
+  }
+
+  .details {
+    position: relative;
+    height: 66.6vw;
+    width: 50%;
+
+    @include media-breakpoint-up(lg) {
+      height: 33.3vw;
+    }
+
+    .user-quote {
+      margin: 15px 22px 0;
+    }
+
+    .user-name {
+      margin: 25px 22px 0;
+    }
+
+    .user-role {
+      margin: 7px 22px 0;
+    }
+
+    .links {
+      bottom: 28px;
+      color: $red;
+      margin: 0 22px 0;
+      position: absolute;
+      width: 100%;
+
+      .share-links,
+      .link-small {
+        display: inline-block;
+        width: calc(50% - 22px);
+      }
+
+      .share-links {
+        float: right;
+        text-align: right;
+
+        .share {
+          color: $red;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}

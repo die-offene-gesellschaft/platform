@@ -1,5 +1,6 @@
 /*
  *= require_self
+ *= require fancybox
  */
 
 // general
@@ -12,6 +13,7 @@
 // partial styling
 @import 'header';
 @import 'footer';
+@import 'modal';
 
 @import 'topbar';
 @import 'home';
