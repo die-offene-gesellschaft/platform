@@ -4,7 +4,7 @@
   .modal-dialog {
     margin: 8vw auto;
     width: 66.6vw;
-    max-width: 100%;
+    max-width: $max-modal-width;
   }
 
   .modal-body,
@@ -38,6 +38,7 @@
 
     @include media-breakpoint-up(lg) {
       height: 33.3vw;
+      max-height: $max-modal-height;
     }
   }
 
@@ -56,10 +57,12 @@
   .details {
     position: relative;
     height: 66.6vw;
-    width: 50%;
+    width: 100%;
 
     @include media-breakpoint-up(lg) {
       height: 33.3vw;
+      max-height: $max-modal-height;
+      width: 50%;
     }
 
     .user-quote {
@@ -72,6 +75,10 @@
 
     .user-role {
       margin: 7px 22px 0;
+    }
+
+    a {
+      position: relative;
     }
 
     .links {

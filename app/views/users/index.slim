@@ -135,31 +135,5 @@ ruby:
       .size1x1.x6.y12
         = render 'shared/user/tile', user: @users[50 % @users.count]
 
-    .modal-staging
-      - @users.each do |user|
-        .modal.fade id="user-id-#{user.id}" tabindex="-1" role="dialog" aria-labelledby="user-id-#{user.id}" aria-hidden="true"
-          .modal-dialog role="document"
-            .modal-content
-              button.close type="button" data-dismiss="modal" aria-label="Close"
-                span aria-hidden="true"
-                  = fa_icon 'times'
-              .modal-body.user-modal
-                .container-fluid.bd-example-row
-                  - if false #user.double_image_size
-                    .row.user-double-image
-                      .col-xs-12
-                        .image style="background-image: url('#{asset_url(user.avatar)}')"
-                    .row
-                      .col-xs-12.details
-                        = render 'shared/user/modal_details',
-                                 user: user
-                  - else
-                    .row.user-default-image
-                      .col-lg-6
-                        .image style="background-image: url('#{asset_url(user.avatar)}')"
-                      .col-lg-6.details
-                        = render 'shared/user/modal_details',
-                                 user: user
-
       coffee:
         window.modalManager = new window.ModalManager()
