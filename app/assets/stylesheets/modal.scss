@@ -3,8 +3,8 @@
 
   .modal-dialog {
     margin: 8vw auto;
-    width: 66.6vw;
     max-width: $max-modal-width;
+    width: 66.6vw;
   }
 
   .modal-body,
@@ -30,10 +30,19 @@
 }
 
 .user-modal {
+  @include media-breakpoint-up(lg) {
+    .user-double-image {
+      .image {
+        height: 37.5vw;
+        max-height: #{$max-viewport-width * .375};
+      }
+    }
+  }
+
   .image {
+    background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 50% 50%;
     height: 66.6vw;
     width: 100%;
 
@@ -43,18 +52,9 @@
     }
   }
 
-  @include media-breakpoint-up(lg) {
-    .user-double-image {
-      .image {
-        height: 37.5vw;
-        max-height: #{$max-viewport-width * 0.375};
-      }
-    }
-  }
-
   .details {
-    position: relative;
     height: 66.6vw;
+    position: relative;
     width: 100%;
 
     @include media-breakpoint-up(lg) {
@@ -92,7 +92,7 @@
 
     .user-role {
       font-size: 2.2vw;
-      margin: 0.5vw 22px 0;
+      margin: .5vw 22px 0;
 
       @include media-breakpoint-up(lg) {
         font-size: 13px;
@@ -107,7 +107,7 @@
     .links {
       bottom: 4vw;
       color: $red;
-      margin: 0 22px 0;
+      margin: 0 22px;
       position: absolute;
       width: 100%;
 
