@@ -6,7 +6,8 @@
 .quote-role.user-role
   = user.role
 .links
-  - if user_image_size = 'double'
+  / - if user.has_large_image?
+  - if false
     a.link-small href="#{t('users.friends.all.href')}"
       = t('users.friends.all.label')
   a.link-small href="#{t('users.friends.become-friends.href')}"
