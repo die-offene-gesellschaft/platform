@@ -104,3 +104,6 @@
       = render 'shared/user/tile', user: @users[23 % @users.count]
     .size1x1.x6.y12
       = render 'shared/user/tile', user: @users[24 % @users.count]
+
+    coffee:
+      window.modalManager = new window.ModalManager()
