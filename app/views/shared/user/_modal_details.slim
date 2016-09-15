@@ -1,5 +1,4 @@
-/ - if user.statement && !if user.has_large_image?
-- if user.statement && false
+- if user.statement && !large_user_image
   p.quote.user-quote
     = user.statement
 .box-details.user-name
@@ -8,8 +7,7 @@
   = user.role
 .links
   .link-small
-    / - if user.has_large_image?
-    - if true
+    - if large_user_image
       a href="#{t('users.friends.all.href')}"
         = t('users.friends.all.label')
     a href="#{t('users.friends.become-friends.href')}"

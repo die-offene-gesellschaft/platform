@@ -43,16 +43,12 @@
     }
   }
 
-  .user-default-image {
-    .image {
-
-    }
-  }
-
-  .user-double-image {
-    .image {
-      height: 37.5vw;
-      max-height: #{$max-viewport-width * 0.375};
+  @include media-breakpoint-up(lg) {
+    .user-double-image {
+      .image {
+        height: 37.5vw;
+        max-height: #{$max-viewport-width * 0.375};
+      }
     }
   }
 
@@ -123,7 +119,6 @@
       .link-small {
         display: inline-block;
         font-size: 3.16vw;
-        width: calc(50% - 22px);
 
         @include media-breakpoint-up(lg) {
           font-size: 16px;
@@ -131,13 +126,17 @@
       }
 
       .link-small {
+        width: calc(60% - 22px);
+
         a {
+          display: block;
           margin-right: 33px;
         }
       }
 
       .share-links {
         text-align: right;
+        width: calc(40% - 22px);
 
         .share {
           color: $red;

@@ -13,6 +13,7 @@ a.user href="#user-id-#{user.id}" style="#{"background-image: url(#{asset_url(us
       p.quote-role
         = user.role
 
+- user_has_large_image = false # read from record flag
 .modal.fade id="user-id-#{user.id}" tabindex="-1" role="dialog" aria-labelledby="user-id-#{user.id}" aria-hidden="true"
   .modal-dialog role="document"
     .modal-content
@@ -21,19 +22,14 @@ a.user href="#user-id-#{user.id}" style="#{"background-image: url(#{asset_url(us
           = fa_icon 'times'
       .modal-body.user-modal
         .container-fluid
-          / - if user.has_large_image?
-          - if true
-            .row.user-double-image
-              .col-xs-12
-                .image style="background-image: url('#{asset_url(user.avatar)}')"
-            .row
-              .col-xs-12.details
-                = render 'shared/user/modal_details',
-                         user: user
-          - else
-            .row.user-default-image
-              .col-lg-6
-                .image style="background-image: url('#{asset_url(user.avatar)}')"
-              .col-lg-6.details
-                = render 'shared/user/modal_details',
-                         user: user
+          - additional_class = 'user-default-image'
+          - additional_class = 'user-double-image' if user_has_large_image
+          .row class="#{additional_class}"
+            - additional_class = ''
+            - additional_class = 'col-lg-6' unless user_has_large_image
+            .col-xs-12 class="#{additional_class}"
+              .image style="background-image: url('#{asset_url(user.avatar)}')"
+            .col-xs-12.details class="#{additional_class}"
+              = render 'shared/user/modal_details',
+                       user: user,
+                       large_user_image: user_has_large_image
