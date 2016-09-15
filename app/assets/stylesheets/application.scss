@@ -29,12 +29,16 @@
 .big-title {
   color: $black;
   font-family: 'Montserrat', sans-serif;
-  font-size: 46px;
+  font-size: 3.75vw;
   font-stretch: normal;
   font-style: normal;
   font-weight: 600;
   letter-spacing: 2.6px;
   text-align: left;
+
+  @media (min-width: $max-viewport-width) {
+    font-size: 46px;
+  }
 }
 
 .events-title {
@@ -61,12 +65,20 @@
 .calendar {
   color: $white;
   font-family: 'Montserrat', sans-serif;
-  font-size: 42px;
+  font-size: 10.5vw;
   font-stretch: normal;
   font-style: normal;
   font-weight: 600;
   letter-spacing: 1.9px;
   text-align: left;
+
+  @media (min-width: $mobile-breakpoint-width) {
+    font-size: 3.5vw;
+  }
+
+  @media (min-width: $max-viewport-width) {
+    font-size: 42px;
+  }
 }
 
 .venue-title {
@@ -136,24 +148,40 @@
 .quote {
   color: $anthracite;
   font-family: 'Montserrat', sans-serif;
-  font-size: 23px;
+  font-size: 5.75vw;
   font-stretch: normal;
   font-style: normal;
   font-weight: normal;
   letter-spacing: .5px;
   line-height: 1.43;
   text-align: left;
+
+  @media (min-width: $mobile-breakpoint-width) {
+    font-size: 1.9167vw;
+  }
+
+  @media (min-width: $max-viewport-width) {
+    font-size: 23px;
+  }
 }
 
 .box-article-title {
   color: $black;
   font-family: 'Montserrat', sans-serif;
-  font-size: 23px;
+  font-size: 5.75vw;
   font-stretch: normal;
   font-style: normal;
   font-weight: normal;
   letter-spacing: .5px;
   text-align: left;
+
+  @media (min-width: $mobile-breakpoint-width) {
+    font-size: 1.9167vw;
+  }
+
+  @media (min-width: $max-viewport-width) {
+    font-size: 23px;
+  }
 }
 
 .link {
@@ -170,12 +198,20 @@
 .box-article-text {
   color: $black;
   font-family: 'Montserrat', sans-serif;
-  font-size: 19px;
+  font-size: 4.75vw;
   font-stretch: normal;
   font-style: normal;
   font-weight: 300;
   letter-spacing: .4px;
   text-align: left;
+
+  @media (min-width: $mobile-breakpoint-width) {
+    font-size: 1.5833vw;
+  }
+
+  @media (min-width: $max-viewport-width) {
+    font-size: 19px;
+  }
 }
 
 .form {
@@ -225,13 +261,21 @@
 .box-details {
   color: $anthracite;
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 4.5vw;
   font-stretch: normal;
   font-style: normal;
   font-weight: 600;
   letter-spacing: .4px;
   line-height: 1.17;
   text-align: left;
+
+  @media (min-width: $mobile-breakpoint-width) {
+    font-size: 1.5vw;
+  }
+
+  @media (min-width: $max-viewport-width) {
+    font-size: 18px;
+  }
 }
 
 .venue {
@@ -291,13 +335,21 @@
 .quote-role {
   color: $anthracite;
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
+  font-size: 3.25vw;
   font-stretch: normal;
   font-style: normal;
   font-weight: 300;
   letter-spacing: .3px;
   line-height: 1.62;
   text-align: left;
+
+  @media (min-width: $mobile-breakpoint-width) {
+    font-size: 1.0833vw;
+  }
+
+  @media (min-width: $max-viewport-width) {
+    font-size: 13px;
+  }
 }
 
 // basic styling
@@ -433,24 +485,45 @@ tr {
 .grid {
   @mixin x($x) {
     #{'.x' + $x} {
-      left: #{100 / 6 * ($x - 1) + '%'};
+      left: #{(100 / 2) * ($x - 1) + '%'};
+    }
+
+    @media (min-width: $mobile-breakpoint-width) {
+      #{'.desktop-x' + $x} {
+        left: #{(100 / 6) * ($x - 1) + '%'};
+      }
     }
   }
 
   @mixin y($y) {
-    #{'.y' + $y} {
-      top: #{16.6 * ($y - 1) + 'vw'};
+    @media (max-width: $mobile-breakpoint-width) {
+      #{'.y' + $y} {
+        top: #{(100 / 2) * ($y - 1) + 'vw'};
+      }
+    }
 
-      @media (min-width: $max-viewport-width) {
-        top: #{200 * ($y - 1) + 'px'};
+    @media (min-width: $mobile-breakpoint-width) {
+      #{'.desktop-y' + $y} {
+        top: #{(100 / 6) * ($y - 1) + 'vw'};
+
+        @media (min-width: $max-viewport-width) {
+          top: #{(1200 / 6) * ($y - 1) + 'px'};
+        }
       }
     }
   }
 
   @mixin size($x, $y) {
     #{'.size' + $x + 'x' + $y} {
-      padding-bottom: calc(#{100 / 6 * $y}% + 1px);
-      width: calc(#{100 / 6 * $x}% + 1px);
+      padding-bottom: calc(#{100 / 2 * $y}% + 1px);
+      width: calc(#{100 / 2 * $x}% + 1px);
+    }
+
+    @media (min-width: $mobile-breakpoint-width) {
+      #{'.desktop-size' + $x + 'x' + $y} {
+        padding-bottom: calc(#{100 / 6 * $y}% + 1px);
+        width: calc(#{100 / 6 * $x}% + 1px);
+      }
     }
   }
 
@@ -458,11 +531,12 @@ tr {
     @include x($i);
   }
 
-  @for $i from 1 through 20 {
+  @for $i from 1 through 40 {
     @include y($i);
   }
 
   @include size(1, 1);
+  @include size(2, 1);
   @include size(2, 2);
   @include size(4, 2);
   @include size(2, 3);
@@ -476,6 +550,22 @@ tr {
     display: inline-block;
     overflow: hidden;
     position: absolute;
+
+    &.mobile-hidden {
+      display: none;
+
+      @media (min-width: $mobile-breakpoint-width) {
+        display: inline-block;
+      }
+    }
+
+    &.desktop-hidden {
+      display: inline-block;
+
+      @media (min-width: $mobile-breakpoint-width) {
+        display: none;
+      }
+    }
   }
 
   .user {
@@ -505,6 +595,7 @@ tr {
   }
 
   div {
+    > span,
     > a {
       bottom: 0;
       left: 0;

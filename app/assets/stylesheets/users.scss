@@ -17,7 +17,11 @@
   }
 
   .grid {
-    height: 200vw;
+    height: 1800vw;
+
+    @media (min-width: $mobile-breakpoint-width) {
+      height: 200vw;
+    }
 
     @media (min-width: $max-viewport-width) {
       height: 2400px;
