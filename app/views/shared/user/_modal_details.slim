@@ -1,4 +1,5 @@
-- if user.statement
+/ - if user.statement && !if user.has_large_image?
+- if user.statement && false
   p.quote.user-quote
     = user.statement
 .box-details.user-name
@@ -6,12 +7,13 @@
 .quote-role.user-role
   = user.role
 .links
-  / - if user.has_large_image?
-  - if false
-    a.link-small href="#{t('users.friends.all.href')}"
-      = t('users.friends.all.label')
-  a.link-small href="#{t('users.friends.become-friends.href')}"
-    = t('users.friends.become-friends.label')
+  .link-small
+    / - if user.has_large_image?
+    - if true
+      a href="#{t('users.friends.all.href')}"
+        = t('users.friends.all.label')
+    a href="#{t('users.friends.become-friends.href')}"
+      = t('users.friends.become-friends.label')
   .share-links
     a.share href="#{t('users.social-media-links.facebook')}"
       = fa_icon 'facebook-square'

@@ -9,7 +9,8 @@
 
   .modal-body,
   .row,
-  .col-lg-6 {
+  .col-lg-6,
+  .col-xs-12 {
     padding: 0;
   }
 }
@@ -50,7 +51,8 @@
 
   .user-double-image {
     .image {
-
+      height: 37.5vw;
+      max-height: #{$max-viewport-width * 0.375};
     }
   }
 
@@ -60,9 +62,16 @@
     width: 100%;
 
     @include media-breakpoint-up(lg) {
-      height: 33.3vw;
-      max-height: $max-modal-height;
-      width: 50%;
+      &.col-xs-12 {
+        height: 15vw;
+        max-height: #{$max-viewport-width * .15};
+      }
+
+      &.col-lg-6 {
+        height: 33.3vw;
+        max-height: $max-modal-height;
+        width: 50%;
+      }
     }
 
     .user-quote {
@@ -118,6 +127,12 @@
 
         @include media-breakpoint-up(lg) {
           font-size: 16px;
+        }
+      }
+
+      .link-small {
+        a {
+          margin-right: 33px;
         }
       }
 

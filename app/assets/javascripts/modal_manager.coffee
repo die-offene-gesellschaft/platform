@@ -22,8 +22,7 @@ class ModalManager
   removeModalIdFromLocationHashOnModalClose: ->
     $(this.currentModalIdentifier).on('hidden.bs.modal', ->
       _this.currentModalIdentifier = undefined
-      currentLocationHash = window.location.hash
-      window.location.hash = currentLocationHash.replace(/show\(#[-\w]+\)/, '')
+      window.location.hash = window.location.hash.replace(/show\(#[-\w]+\)/, '')
     )
 
   openModalFromUrl: ->

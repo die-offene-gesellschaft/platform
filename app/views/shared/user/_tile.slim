@@ -20,8 +20,9 @@ a.user href="#user-id-#{user.id}" style="#{"background-image: url(#{asset_url(us
         span aria-hidden="true"
           = fa_icon 'times'
       .modal-body.user-modal
-        .container-fluid.bd-example-row
-          - if false #user.double_image_size
+        .container-fluid
+          / - if user.has_large_image?
+          - if true
             .row.user-double-image
               .col-xs-12
                 .image style="background-image: url('#{asset_url(user.avatar)}')"
