@@ -148,13 +148,21 @@
 .quote {
   color: $anthracite;
   font-family: 'Montserrat', sans-serif;
-  font-size: 23px;
+  font-size: 5.75vw;
   font-stretch: normal;
   font-style: normal;
   font-weight: normal;
   letter-spacing: .5px;
   line-height: 1.43;
   text-align: left;
+
+  @media (min-width: $mobile-breakpoint-width) {
+    font-size: 1.9167vw;
+  }
+
+  @media (min-width: $max-viewport-width) {
+    font-size: 23px;
+  }
 }
 
 .box-article-title {
@@ -253,13 +261,21 @@
 .box-details {
   color: $anthracite;
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 4.5vw;
   font-stretch: normal;
   font-style: normal;
   font-weight: 600;
   letter-spacing: .4px;
   line-height: 1.17;
   text-align: left;
+
+  @media (min-width: $mobile-breakpoint-width) {
+    font-size: 1.5vw;
+  }
+
+  @media (min-width: $max-viewport-width) {
+    font-size: 18px;
+  }
 }
 
 .venue {
@@ -319,13 +335,21 @@
 .quote-role {
   color: $anthracite;
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
+  font-size: 3.25vw;
   font-stretch: normal;
   font-style: normal;
   font-weight: 300;
   letter-spacing: .3px;
   line-height: 1.62;
   text-align: left;
+
+  @media (min-width: $mobile-breakpoint-width) {
+    font-size: 1.0833vw;
+  }
+
+  @media (min-width: $max-viewport-width) {
+    font-size: 13px;
+  }
 }
 
 // basic styling
@@ -507,7 +531,7 @@ tr {
     @include x($i);
   }
 
-  @for $i from 1 through 30 {
+  @for $i from 1 through 40 {
     @include y($i);
   }
 
