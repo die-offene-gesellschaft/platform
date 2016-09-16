@@ -1,0 +1,161 @@
+.modal {
+  padding: 0;
+
+  .modal-dialog {
+    margin: 8vh auto;
+    max-width: $max-modal-width;
+    width: 66.6vw;
+  }
+
+  .modal-body,
+  .row,
+  .col-lg-6,
+  .col-xs-12 {
+    padding: 0;
+  }
+}
+
+.close {
+  color: $white;
+  font-size: 33.2px;
+  opacity: 1;
+  position: absolute;
+  right: -33.2px;
+  top: -41.5px;
+
+  @media (min-width: $mobile-breakpoint-width) {
+    font-size: 4vw;
+    right: -4vw;
+    top: -5vw;
+  }
+
+  @media (min-width: $max-viewport-width) {
+    font-size: 48px;
+    right: -48px;
+    top: -60px;
+  }
+
+
+  &:hover {
+    color: $white;
+    opacity: 1;
+  }
+}
+
+.user-modal {
+  @include media-breakpoint-up(lg) {
+    .user-double-image {
+      .image {
+        height: 37.5vw;
+        max-height: #{$max-viewport-width * .375};
+      }
+    }
+  }
+
+  .image {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 66.6vw;
+    width: 100%;
+
+    @include media-breakpoint-up(lg) {
+      height: 33.3vw;
+      max-height: $max-modal-height;
+    }
+  }
+
+  .details {
+    height: 66.6vw;
+    position: relative;
+    width: 100%;
+
+    @include media-breakpoint-up(lg) {
+      &.col-xs-12 {
+        height: 15vw;
+        max-height: #{$max-viewport-width * .15};
+      }
+
+      &.col-lg-6 {
+        height: 33.3vw;
+        max-height: $max-modal-height;
+        width: 50%;
+      }
+    }
+
+    .user-quote {
+      font-size: 4vw;
+      margin: 3vw 22px 0;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 23px;
+        margin: 15px 22px 0;
+      }
+    }
+
+    .user-name {
+      font-size: 3vw;
+      margin: 4vw 22px 0;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 18px;
+        margin: 25px 22px 0;
+      }
+    }
+
+    .user-role {
+      font-size: 2.2vw;
+      margin: .5vw 22px 0;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 13px;
+        margin: 7px 22px 0;
+      }
+    }
+
+    a {
+      position: relative;
+    }
+
+    .links {
+      bottom: 4vw;
+      color: $red;
+      margin: 0 22px;
+      position: absolute;
+      width: 100%;
+
+      @include media-breakpoint-up(lg) {
+        bottom: 28px;
+      }
+
+      .share-links,
+      .link-small {
+        display: inline-block;
+        font-size: 3.16vw;
+
+        @include media-breakpoint-up(lg) {
+          font-size: 16px;
+        }
+      }
+
+      .link-small {
+        width: calc(60% - 22px);
+
+        a {
+          display: block;
+          margin-right: 33px;
+        }
+      }
+
+      .share-links {
+        text-align: right;
+        width: calc(40% - 22px);
+
+        .share {
+          color: $red;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}

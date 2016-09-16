@@ -12,6 +12,7 @@
 // partial styling
 @import 'header';
 @import 'footer';
+@import 'modal';
 
 @import 'topbar';
 @import 'home';
@@ -321,6 +322,18 @@
   text-align: left;
 }
 
+.link-small {
+  color: $red;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: .4px;
+
+  a {
+    color: $red;
+  }
+}
+
 .footer {
   color: $black;
   font-family: 'Montserrat', sans-serif;
@@ -484,8 +497,10 @@ tr {
 
 .grid {
   @mixin x($x) {
-    #{'.x' + $x} {
-      left: #{(100 / 2) * ($x - 1) + '%'};
+    @media (max-width: $mobile-breakpoint-width) {
+      #{'.x' + $x} {
+        left: #{(100 / 2) * ($x - 1) + '%'};
+      }
     }
 
     @media (min-width: $mobile-breakpoint-width) {

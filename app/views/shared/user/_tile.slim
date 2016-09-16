@@ -1,0 +1,35 @@
+ruby:
+  picture = defined?(picture) && picture == false ? false : true
+  statement = defined?(statement) && statement ? true : false
+  picture = false if statement
+
+a.user href="#user-id-#{user.id}" style="#{"background-image: url(#{asset_url(user.avatar)});" if picture}" data-toggle='modal' data-target="#user-id-#{user.id}"
+  - if statement
+    p.statement.quote
+      = user.statement
+    .name-and-role
+      p.box-details
+        = user.name
+      p.quote-role
+        = user.role
+
+- user_has_large_image = false # read from record flag
+.modal.fade id="user-id-#{user.id}" tabindex="-1" role="dialog" aria-labelledby="user-id-#{user.id}" aria-hidden="true"
+  .modal-dialog role="document"
+    .modal-content
+      button.close type="button" data-dismiss="modal" aria-label="Close"
+        span aria-hidden="true"
+          = fa_icon 'times'
+      .modal-body.user-modal
+        .container-fluid
+          - additional_class = 'user-default-image'
+          - additional_class = 'user-double-image' if user_has_large_image
+          .row class="#{additional_class}"
+            - additional_class = ''
+            - additional_class = 'col-lg-6' unless user_has_large_image
+            .col-xs-12 class="#{additional_class}"
+              .image style="background-image: url('#{asset_url(user.avatar)}')"
+            .col-xs-12.details class="#{additional_class}"
+              = render 'shared/user/modal_details',
+                       user: user,
+                       large_user_image: user_has_large_image
