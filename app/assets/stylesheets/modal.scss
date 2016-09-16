@@ -2,7 +2,7 @@
   padding: 0;
 
   .modal-dialog {
-    margin: 8vw auto;
+    margin: 8vh auto;
     max-width: $max-modal-width;
     width: 66.6vw;
   }
@@ -17,11 +17,24 @@
 
 .close {
   color: $white;
-  font-size: 6vw;
+  font-size: 33.2px;
   opacity: 1;
   position: absolute;
-  right: -6vw;
-  top: -6vw;
+  right: -33.2px;
+  top: -41.5px;
+
+  @media (min-width: $mobile-breakpoint-width) {
+    font-size: 4vw;
+    right: -4vw;
+    top: -5vw;
+  }
+
+  @media (min-width: $max-viewport-width) {
+    font-size: 48px;
+    right: -48px;
+    top: -60px;
+  }
+
 
   &:hover {
     color: $white;
