@@ -42,6 +42,99 @@
   }
 }
 
+.event-modal {
+  .details {
+    min-height: 400px;
+    padding: 27px 24px;
+    position: relative;
+
+    .title {
+      color: $black;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 42px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: 600;
+      line-height: .95;
+      margin: 0 0 21px;
+      text-align: left;
+    }
+
+    .location-date-and-time {
+      color: $black;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: .2px;
+      margin: 0 0 3px;
+      text-align: left;
+    }
+
+    p {
+      .fa {
+        color: $dark-gray;
+        margin: 0 0 0 10px;
+      }
+    }
+
+    .venue {
+      color: $black;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: 300;
+      margin: 0 0 33px;
+      text-align: left;
+    }
+
+    .type {
+      color: $red;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 19px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: normal;
+      letter-spacing: .4px;
+      line-height: 1.47;
+      margin: 0 0 2px;
+      text-align: left;
+    }
+
+    .active-members {
+      color: $black;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 19px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: 300;
+      letter-spacing: .4px;
+      line-height: 1.47;
+      text-align: left;
+    }
+
+    .link-small {
+      bottom: 27px;
+      left: 24px;
+      position: absolute;
+    }
+
+    .share-links {
+      bottom: 27px;
+      font-size: 20px;
+      position: absolute;
+      right: 21.5px;
+
+      a {
+        color: $red;
+        margin: 0 2.5px;
+      }
+    }
+  }
+}
+
 .user-modal {
   @include media-breakpoint-up(lg) {
     .user-double-image {

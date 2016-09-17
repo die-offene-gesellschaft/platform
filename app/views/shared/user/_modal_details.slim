@@ -1,23 +1,34 @@
-- if user.statement && !large_user_image
-  p.quote.user-quote
-    = user.statement
-.box-details.user-name
-  = user.name
-.quote-role.user-role
-  = user.role
-.links
-  .link-small
-    - if large_user_image
-      a href="#{t('users.friends.all.href')}"
-        = t('users.friends.all.label')
-    a href="#{t('users.friends.become-friends.href')}"
-      = t('users.friends.become-friends.label')
-  .share-links
-    a.share href="#{t('users.social-media-links.facebook')}"
-      = fa_icon 'facebook-square'
-    a.share href="#{t('users.social-media-links.twitter')}"
-      = fa_icon 'twitter-square'
-    a.share href="#{t('users.social-media-links.instagram')}"
-      = fa_icon 'instagram'
-    a.share href="#{t('users.social-media-links.pinterest')}"
-      = fa_icon 'pinterest-square'
+ruby:
+  large_user_image = false unless defined?(large_user_image)
+.container-fluid
+  - additional_class = 'user-default-image'
+  - additional_class = 'user-double-image' if large_user_image
+  .row class="#{additional_class}"
+    - additional_class = ''
+    - additional_class = 'col-lg-6' unless large_user_image
+    .col-xs-12 class="#{additional_class}"
+      .image style="background-image: url('#{asset_url(user.avatar)}')"
+    .col-xs-12.details class="#{additional_class}"
+      - if user.statement && !large_user_image
+        p.quote.user-quote
+          = user.statement
+      .box-details.user-name
+        = user.name
+      .quote-role.user-role
+        = user.role
+      .links
+        .link-small
+          - if large_user_image
+            a href="#{users_path}"
+              = t('users.all-friends')
+          a href="#"
+            = t('users.become-friends')
+        .share-links
+          a.share href="#"
+            = fa_icon 'facebook-square'
+          a.share href="#"
+            = fa_icon 'twitter-square'
+          a.share href="#"
+            = fa_icon 'instagram'
+          a.share href="#"
+            = fa_icon 'pinterest-square'
