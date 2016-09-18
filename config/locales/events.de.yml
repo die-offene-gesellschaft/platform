@@ -1,5 +1,6 @@
 de:
   events:
+    with: mit
     event-type-and-active-members: '%{event_type} mit %{active_members}'
     subnav:
       appointments:
@@ -12,3 +13,5 @@ de:
       index: Aktionen
       new: Lege eine neue Aktion an
       edit:
+    upcoming-events: Kommende Aktionen
+    event-archive: Aktionen Archiv
