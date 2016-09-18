@@ -1,4 +1,8 @@
 .container-fluid
+  - if event.picture.path
+    .row
+      .col-xs-12
+        .image style="background-image: url('#{asset_url(event.picture)}')"
   .row
     .col-xs-12.details
       h1.title
@@ -6,19 +10,17 @@
       p.location-date-and-time
         - venue = event.venue
         = venue.city
-        | &nbsp;|&nbsp;
+        span.pipe
         = l event.begin_at, format: :short_year_date
-        | &nbsp;|&nbsp;
+        span.pipe
         = l event.begin_at, format: :short_time
         = fa_icon 'calendar-o'
       p.venue
         = venue.name
         br
         = venue.street
-        | &nbsp;|&nbsp;
-        = venue.zip_code
-        | &nbsp;
-        = venue.city
+        span.pipe
+        = "#{venue.zip_code} #{venue.city}"
         = fa_icon 'map-marker'
       h2.type
         = event.event_type
@@ -43,3 +45,6 @@
             = fa_icon 'instagram'
           a.share href="#"
             = fa_icon 'pinterest-square'
+  .row
+    .col-xs-12.description
+      = event.description
