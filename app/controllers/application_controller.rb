@@ -9,11 +9,20 @@ class ApplicationController < ActionController::Base
 
   def set_title
     @site_title = I18n.t('site-title.default')
+    current_page = translate "site-title.controller.#{controller_name}"
+    current_page = translate "site-title.action.#{action_name}" unless current_page
     @site_title = I18n.t(
       'site-title.schema',
-      title: @site_title,
-      current_page: action_name.capitalize
-    )
+      title: I18n.t('site-title.default'),
+      current_page: current_page
+    ) if current_page
+  end
+
+  def translate(key)
+    I18n.t key,
+           raise: true
+  rescue
+    nil
   end
 
   def set_copyright_year
