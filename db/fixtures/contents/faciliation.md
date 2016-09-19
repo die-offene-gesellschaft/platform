@@ -1,6 +1,6 @@
-![Hero](faq/hero.jpg)
+![Hero](faciliation/hero.jpg)
 
-# Fragen und Antworten zur Offenen Gesellschaft
+# Förderung beantragen
 
 ## Wer sind wir?
 
