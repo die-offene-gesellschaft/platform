@@ -131,6 +131,16 @@ Event.seed(:id,
   }
 )
 
+# admin
+admin = Admin.seed(:id,
+  {
+    id: 1,
+    email: Faker::Internet.email,
+    password: '12345678',
+    name: Faker::Name.name
+  }
+).first
+
 # blogposts
 Blogpost.seed(:id,
   {
@@ -138,13 +148,29 @@ Blogpost.seed(:id,
     title: 'Mit uns in Aktion treten, ein Leitfaden',
     blogpost_type: 'article',
     introduction: Faker::Lorem.sentences(4).join(' '),
-    content: Faker::Lorem.sentences(20).join(' ')
+    content: Faker::Lorem.sentences(20).join(' '),
+    hero: File.new("#{Rails.root}/db/fixtures/pictures/blogpost-hero.jpg"),
+    thumbnail: File.new("#{Rails.root}/db/fixtures/pictures/blogpost-hero.jpg"),
+    admin: admin
   },
   {
     id: 2,
     title: 'Fragen und Antworten',
     blogpost_type: 'article',
     introduction: Faker::Lorem.sentences(4).join(' '),
-    content: Faker::Lorem.sentences(20).join(' ')
+    content: Faker::Lorem.sentences(20).join(' '),
+    hero: File.new("#{Rails.root}/db/fixtures/pictures/blogpost-hero.jpg"),
+    thumbnail: File.new("#{Rails.root}/db/fixtures/pictures/blogpost-hero.jpg"),
+    admin: admin
+  },
+  {
+    id: 3,
+    title: 'Der öffentliche Raum als Spielwiese für seine Bürger',
+    blogpost_type: 'article',
+    introduction: Faker::Lorem.sentences(4).join(' '),
+    content: Faker::Lorem.sentences(20).join(' '),
+    hero: File.new("#{Rails.root}/db/fixtures/pictures/blogpost-hero.jpg"),
+    thumbnail: File.new("#{Rails.root}/db/fixtures/pictures/blogpost-hero.jpg"),
+    admin: admin
   }
 )

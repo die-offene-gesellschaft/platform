@@ -9,6 +9,7 @@ de:
     schema: '%{title} · %{current_page}'
     controller:
       about: 'Über uns'
+      blogposts: 'Blog'
       events: 'Aktionen'
       home: 'Home'
       users: 'Freunde'
