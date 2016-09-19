@@ -1,6 +1,6 @@
 de:
   users:
-    title: 'Online Freunde'
+    title: 'Freunde'
     subnav:
       pictures:
         href: '?pictures'
@@ -8,5 +8,5 @@ de:
       list:
         href: '?list'
         label: 'Liste'
-    all-friends: Alle Freunde
-    become-friends: Freund werden
+    all-friends: 'Alle Freunde'
+    become-friends: 'Freund/in werden'
