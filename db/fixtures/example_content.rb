@@ -150,7 +150,7 @@ Blogpost.seed(:id,
     introduction: Faker::Lorem.sentences(4).join(' '),
     content: Faker::Lorem.sentences(20).join(' '),
     hero: File.new("#{Rails.root}/db/fixtures/pictures/blogpost-hero.jpg"),
-    thumbnail: File.new("#{Rails.root}/db/fixtures/pictures/blogpost-hero.jpg"),
+    thumbnail: File.new("#{Rails.root}/db/fixtures/pictures/blogpost-thumbnail.jpg"),
     admin: admin
   },
   {
@@ -160,7 +160,7 @@ Blogpost.seed(:id,
     introduction: Faker::Lorem.sentences(4).join(' '),
     content: Faker::Lorem.sentences(20).join(' '),
     hero: File.new("#{Rails.root}/db/fixtures/pictures/blogpost-hero.jpg"),
-    thumbnail: File.new("#{Rails.root}/db/fixtures/pictures/blogpost-hero.jpg"),
+    thumbnail: File.new("#{Rails.root}/db/fixtures/pictures/blogpost-thumbnail.jpg"),
     admin: admin,
     reference: Faker::Company.name
   },
@@ -171,7 +171,7 @@ Blogpost.seed(:id,
     introduction: Faker::Lorem.sentences(4).join(' '),
     content: Faker::Lorem.sentences(20).join(' '),
     hero: File.new("#{Rails.root}/db/fixtures/pictures/blogpost-hero.jpg"),
-    thumbnail: File.new("#{Rails.root}/db/fixtures/pictures/blogpost-hero.jpg"),
+    thumbnail: File.new("#{Rails.root}/db/fixtures/pictures/blogpost-thumbnail.jpg"),
     admin: admin
   }
 )
