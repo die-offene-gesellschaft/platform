@@ -7,3 +7,14 @@ de:
   site-title:
     default: 'Offene Gesellschaft'
     schema: '%{title} · %{current_page}'
+    controller:
+      about: 'Über uns'
+      events: 'Aktionen'
+      home: 'Home'
+      users: 'Freunde'
+    action:
+      contact: 'Kontakt'
+      faciliation: 'Förderung beantragen'
+      guideline: 'Leitfaden für Aktionen'
+      imprint: 'Impressum'
+      privacy: 'Datenschutz'
