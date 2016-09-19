@@ -20,6 +20,8 @@ module ApplicationHelper
       link = "https://twitter.com/home?status=#{URI.escape(event_url(resource))}"
     elsif resource.is_a? User
       link = "https://twitter.com/home?status=#{URI.escape(user_url(resource))}"
+    elsif resource.is_a? Blogpost
+      link = "https://twitter.com/home?status=#{URI.escape(blogpost_url(resource))}"
     end
     link
   end
@@ -30,6 +32,8 @@ module ApplicationHelper
       link = "https://www.facebook.com/sharer.php?u=#{URI.escape(event_url(resource))}"
     elsif resource.is_a? User
       link = "https://www.facebook.com/sharer.php?u=#{URI.escape(user_url(resource))}"
+    elsif resource.is_a? Blogpost
+      link = "https://www.facebook.com/sharer.php?u=#{URI.escape(blogpost_url(resource))}"
     end
     link
   end

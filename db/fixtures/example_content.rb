@@ -161,7 +161,8 @@ Blogpost.seed(:id,
     content: Faker::Lorem.sentences(20).join(' '),
     hero: File.new("#{Rails.root}/db/fixtures/pictures/blogpost-hero.jpg"),
     thumbnail: File.new("#{Rails.root}/db/fixtures/pictures/blogpost-hero.jpg"),
-    admin: admin
+    admin: admin,
+    reference: Faker::Company.name
   },
   {
     id: 3,
