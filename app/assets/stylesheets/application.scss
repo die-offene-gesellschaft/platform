@@ -530,13 +530,13 @@ tr {
 
   @mixin size($x, $y) {
     #{'.size' + $x + 'x' + $y} {
-      padding-bottom: calc(#{100 / 2 * $y}% + 1px);
+      padding-bottom: calc(#{100 / 2 * $y}% + 6px);
       width: calc(#{100 / 2 * $x}% + 1px);
     }
 
     @media (min-width: $mobile-breakpoint-width) {
       #{'.desktop-size' + $x + 'x' + $y} {
-        padding-bottom: calc(#{100 / 6 * $y}% + 1px);
+        padding-bottom: calc(#{100 / 6 * $y}% + 6px);
         width: calc(#{100 / 6 * $x}% + 1px);
       }
     }
@@ -557,6 +557,7 @@ tr {
   @include size(2, 3);
 
   height: 100%;
+  overflow: hidden;
   position: relative;
   width: 100%;
 
