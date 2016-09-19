@@ -10,7 +10,7 @@
     .desktop-size1x1.desktop-x3.desktop-y1.size1x1.x1.y4
       = render 'shared/user/tile', user: @users[2 % @users.count]
     .desktop-size1x1.desktop-x4.desktop-y1.size1x1.x2.y4
-      = render 'shared/event', event: @events[0 % @events.count]
+      = render 'shared/event/tile', event: @events[0 % @events.count]
     .desktop-size1x1.desktop-x5.desktop-y1.size1x1.x1.y6
       = render 'shared/user/tile', user: @users[4 % @users.count]
     .desktop-size1x1.desktop-x6.desktop-y1.size1x1.x2.y6
@@ -29,7 +29,7 @@
     .desktop-size1x1.desktop-x1.desktop-y3.mobile-hidden
       = render 'shared/user/tile', user: @users[7 % @users.count]
     .desktop-size1x1.desktop-x2.desktop-y3.size1x1.x2.y7
-      = render 'shared/event', event: @events[1 % @events.count]
+      = render 'shared/event/tile', event: @events[1 % @events.count]
 
     .desktop-size2x2.desktop-x1.desktop-y4.size2x2.x1.y8
       = render 'shared/blogpost', blogpost: @blogposts[0 % @blogposts.count]
@@ -40,12 +40,12 @@
     .desktop-size1x1.desktop-x5.desktop-y4.mobile-hidden
       = render 'shared/user/tile', user: @users[10 % @users.count]
     .desktop-size1x1.desktop-x6.desktop-y4.size1x1.x1.y10
-      = render 'shared/event', event: @events[2 % @events.count]
+      = render 'shared/event/tile', event: @events[2 % @events.count]
 
     .desktop-size1x1.desktop-x3.desktop-y5.mobile-hidden
       = render 'shared/user/tile', user: @users[11 % @users.count]
     .desktop-size1x1.desktop-x4.desktop-y5.size1x1.x2.y13
-      = render 'shared/event', event: @events[3 % @events.count]
+      = render 'shared/event/tile', event: @events[3 % @events.count]
     .desktop-size2x2.desktop-x5.desktop-y5.size2x2.x1.y11
       = render 'shared/user/tile', user: @users[12 % @users.count]
 
@@ -61,7 +61,7 @@
           = t('home.participate')
 
     .desktop-size1x1.desktop-x1.desktop-y7.size1x1.x1.y14
-      = render 'shared/event', event: @events[4 % @events.count]
+      = render 'shared/event/tile', event: @events[4 % @events.count]
     .desktop-size2x2.desktop-x2.desktop-y7.mobile-hidden
       = render 'shared/user/tile', user: @users[16 % @users.count]
     .desktop-size1x1.desktop-x4.desktop-y7.size1x1.x1.y15
@@ -69,14 +69,14 @@
     .desktop-size1x1.desktop-x5.desktop-y7.size1x1.x2.y16
       = render 'shared/user/tile', user: @users[18 % @users.count]
     .desktop-size1x1.desktop-x6.desktop-y7.size1x1.x2.y15
-      = render 'shared/event', event: @events[5 % @events.count]
+      = render 'shared/event/tile', event: @events[5 % @events.count]
 
     .desktop-size1x1.desktop-x1.desktop-y8.size1x1.x2.y14
       a.call-to-action href="#"
         span
           = t('home.start-own-event')
     .desktop-size1x1.desktop-x4.desktop-y8.size1x1.x1.y16
-      = render 'shared/event', event: @events[6 % @events.count]
+      = render 'shared/event/tile', event: @events[6 % @events.count]
     .desktop-size2x3.desktop-x5.desktop-y8.size2x3.x1.y22
       a.about href="#{about_path}"
         = image_tag('logo-die-offene-gesellschaft-blip.svg')
@@ -91,7 +91,7 @@
       = render 'shared/user/tile', user: @users[20 % @users.count]
 
     .desktop-size1x1.desktop-x3.desktop-y10.size1x1.x1.y19
-      = render 'shared/event', event: @events[7 % @events.count]
+      = render 'shared/event/tile', event: @events[7 % @events.count]
     .desktop-size1x1.desktop-x4.desktop-y10.size1x1.x2.y19
       = render 'shared/user/tile', user: @users[21 % @users.count]
 
@@ -101,7 +101,7 @@
     .desktop-size1x1.desktop-x5.desktop-y11.size1x1.x1.y20
       = render 'shared/user/tile', user: @users[22 % @users.count]
     .desktop-size1x1.desktop-x6.desktop-y11.size1x1.x2.y20
-      = render 'shared/event', event: @events[8 % @events.count]
+      = render 'shared/event/tile', event: @events[8 % @events.count]
 
     .desktop-size1x1.desktop-x5.desktop-y12.mobile-hidden
       = render 'shared/user/tile', user: @users[23 % @users.count]

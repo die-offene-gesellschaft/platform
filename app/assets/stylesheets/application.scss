@@ -581,6 +581,15 @@ tr {
         display: none;
       }
     }
+
+    > span,
+    > a {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
   }
 
   .user {
@@ -606,17 +615,6 @@ tr {
       p {
         margin: 0;
       }
-    }
-  }
-
-  div {
-    > span,
-    > a {
-      bottom: 0;
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
     }
   }
 }

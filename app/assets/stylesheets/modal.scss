@@ -2,7 +2,7 @@
   padding: 0;
 
   .modal-dialog {
-    margin: 8vh auto;
+    margin: 10vh auto;
     max-width: $max-modal-width;
     width: 66.6vw;
   }
@@ -12,6 +12,47 @@
   .col-lg-6,
   .col-xs-12 {
     padding: 0;
+  }
+
+  .links {
+    bottom: 4vw;
+    color: $red;
+    left: 22px;
+    position: absolute;
+    width: calc(100% - 44px);
+
+    @include media-breakpoint-up(lg) {
+      bottom: 28px;
+    }
+
+    .link-small {
+      width: 60%;
+
+      a {
+        display: block;
+        margin-right: 33px;
+      }
+    }
+
+    .share-links,
+    .link-small {
+      display: inline-block;
+      font-size: 3.16vw;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 16px;
+      }
+    }
+
+    .share-links {
+      text-align: right;
+      width: 40%;
+
+      a {
+        color: $red;
+        margin: 0 0 0 5px;
+      }
+    }
   }
 }
 
@@ -39,6 +80,108 @@
   &:hover {
     color: $white;
     opacity: 1;
+  }
+}
+
+.event-modal {
+  .description,
+  .details {
+    padding: 27px 24px;
+  }
+
+  .details {
+    min-height: 400px;
+    position: relative;
+
+    .title {
+      color: $black;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 42px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: 600;
+      line-height: .95;
+      margin: 0 0 21px;
+      text-align: left;
+    }
+
+    .location-date-and-time {
+      color: $black;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: .2px;
+      margin: 0 0 3px;
+      text-align: left;
+    }
+
+    p {
+      .fa {
+        color: $dark-gray;
+        margin: 0 0 0 10px;
+      }
+    }
+
+    .venue {
+      color: $black;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: 300;
+      margin: 0 0 33px;
+      text-align: left;
+    }
+
+    .type {
+      color: $red;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 19px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: normal;
+      letter-spacing: .4px;
+      line-height: 1.47;
+      margin: 0 0 2px;
+      text-align: left;
+    }
+
+    .active-members {
+      color: $black;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 19px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: 300;
+      letter-spacing: .4px;
+      line-height: 1.47;
+      margin: 0 0 86px;
+      text-align: left;
+    }
+
+    .link-small {
+      display: inline-block;
+      text-align: left;
+      width: 50%;
+    }
+
+    .pipe {
+      display: block;
+
+      @media (min-width: $max-viewport-width) {
+        display: inline;
+      }
+
+      &::after {
+        content: '';
+
+        @media (min-width: $max-viewport-width) {
+          content: ' | ';
+        }
+      }
+    }
   }
 }
 
@@ -115,47 +258,6 @@
 
     a {
       position: relative;
-    }
-
-    .links {
-      bottom: 4vw;
-      color: $red;
-      margin: 0 22px;
-      position: absolute;
-      width: 100%;
-
-      @include media-breakpoint-up(lg) {
-        bottom: 28px;
-      }
-
-      .share-links,
-      .link-small {
-        display: inline-block;
-        font-size: 3.16vw;
-
-        @include media-breakpoint-up(lg) {
-          font-size: 16px;
-        }
-      }
-
-      .link-small {
-        width: calc(60% - 22px);
-
-        a {
-          display: block;
-          margin-right: 33px;
-        }
-      }
-
-      .share-links {
-        text-align: right;
-        width: calc(40% - 22px);
-
-        .share {
-          color: $red;
-          margin-left: 5px;
-        }
-      }
     }
   }
 }
