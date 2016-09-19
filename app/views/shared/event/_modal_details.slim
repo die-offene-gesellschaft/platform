@@ -37,9 +37,9 @@
             a href="#{events_path(archive: '')}"
               = t('events.event-archive')
         .share-links
-          a.share href="#"
+          a.share href="#{facebook_share_link(event)}" target='_blank'
             = fa_icon 'facebook-square'
-          a.share href="#"
+          a.share href="#{twitter_share_link(event)}" target='_blank'
             = fa_icon 'twitter-square'
   .row
     .col-xs-12.description

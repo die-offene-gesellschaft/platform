@@ -24,7 +24,7 @@ ruby:
           a href="#"
             = t('users.become-friends')
         .share-links
-          a.share href="#"
+          a.share href="#{facebook_share_link(user)}" target='_blank'
             = fa_icon 'facebook-square'
-          a.share href="#"
+          a.share href="#{twitter_share_link(user)}" target='_blank'
             = fa_icon 'twitter-square'
