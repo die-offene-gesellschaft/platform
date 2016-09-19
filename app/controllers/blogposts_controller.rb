@@ -5,11 +5,23 @@ class BlogpostsController < ApplicationController
   # GET /blogposts.json
   def index
     @blogposts = Blogpost.all
+    respond_to do |format|
+      format.html do
+        @blogposts = @blogposts.to_a
+        @hero_blogpost = @blogposts.shift
+        render :index
+      end
+      format.json { render json: @blogposts }
+    end
   end
 
   # GET /blogposts/1
   # GET /blogposts/1.json
   def show
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @blogpost }
+    end
   end
 
   # GET /blogposts/new

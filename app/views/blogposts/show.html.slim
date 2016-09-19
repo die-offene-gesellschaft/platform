@@ -1,18 +1,27 @@
-p#notice = notice
-
-p
-  strong Title:
-  = @blogpost.title
-p
-  strong Blogpost type:
-  = @blogpost.blogpost_type
-p
-  strong Introduction:
-  = @blogpost.introduction
-p
-  strong Content:
-  = @blogpost.content
-
-= link_to 'Edit', edit_blogpost_path(@blogpost)
-'|
-= link_to 'Back', blogposts_path
+.blogposts
+  .hero style="background-image: url(#{@blogpost.hero(:normal)});"
+  .row.post
+    .col-xs-12.col-md-8.push-md-2
+      h2
+        = t "blogposts.types.#{@blogpost.blogpost_type}"
+        span.pipe
+        = l @blogpost.created_at, format: :normal_date
+        - if @blogpost.reference && !@blogpost.reference.empty?
+          span.reference
+            = t 'blogposts.reference',
+                reference: @blogpost.reference
+        - elsif @blogpost.admin
+          span.pipe
+          span.author
+            - admin = @blogpost.admin
+            = t 'blogposts.from',
+                author: admin.name
+      .share-links
+        a.share href="#{facebook_share_link(@blogpost)}" target='_blank'
+          = fa_icon 'facebook-square'
+        a.share href="#{twitter_share_link(@blogpost)}" target='_blank'
+          = fa_icon 'twitter-square'
+      h1
+        = @blogpost.title
+      .content
+        = @blogpost.content

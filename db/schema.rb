@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902152230) do
+ActiveRecord::Schema.define(version: 20160919204704) do
 
   create_table "active_members", force: :cascade do |t|
     t.string   "forename"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20160902152230) do
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
     t.integer  "admin_id"
+    t.string   "reference"
     t.index ["admin_id"], name: "index_blogposts_on_admin_id"
   end
 

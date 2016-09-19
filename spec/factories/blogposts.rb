@@ -4,5 +4,6 @@ FactoryGirl.define do
     blogpost_type "MyString"
     introduction "MyText"
     content "MyText"
+    admin { FactoryGirl.create(:admin) }
   end
 end
