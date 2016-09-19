@@ -1,14 +1,5 @@
-p
-  = image_tag(@event.picture) if @event.picture.path
-p
-  = @event.title
-p
-  = @event.event_type
-p
-  = @event.begin_at
-p
-  = @event.end_at
-p
-  = @event.active_members.map(&:full_name).join(', ')
-p
-  = @event.description
+.events
+  = render 'shared/event/modal_details',
+           event: @event
+  javascript:
+    window.location.href = '#{events_path(appointments: '')}#show(#event-id-#{@event.id})'
