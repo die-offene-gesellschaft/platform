@@ -16,20 +16,20 @@ module ApplicationHelper
 
   def twitter_share_link(resource)
     link = '#'
-    if resource.kind_of?(Event)
-      link = "https://twitter.com/home?status=#{URI::escape(event_url(resource))}"
-    elsif resource.kind_of(User)
-      link = "https://twitter.com/home?status=#{URI::escape(user_url(resource))}"
+    if resource.is_a? Event
+      link = "https://twitter.com/home?status=#{URI.escape(event_url(resource))}"
+    elsif resource.is_a? User
+      link = "https://twitter.com/home?status=#{URI.escape(user_url(resource))}"
     end
     link
   end
 
   def facebook_share_link(resource)
     link = '#'
-    if resource.kind_of?(Event)
-      link = "https://www.facebook.com/sharer.php?u=#{URI::escape(event_url(resource))}"
-    elsif resource.kind_of(User)
-      link = "https://www.facebook.com/sharer.php?u=#{URI::escape(user_url(resource))}"
+    if resource.is_a? Event
+      link = "https://www.facebook.com/sharer.php?u=#{URI.escape(event_url(resource))}"
+    elsif resource.is_a? User
+      link = "https://www.facebook.com/sharer.php?u=#{URI.escape(user_url(resource))}"
     end
     link
   end
