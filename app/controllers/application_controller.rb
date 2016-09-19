@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
     ) if current_page
   end
 
+  # this method smells of :reek:UtilityFunction
   def translate(key)
     I18n.t key,
            raise: true
