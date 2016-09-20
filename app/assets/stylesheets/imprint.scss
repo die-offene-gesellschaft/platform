@@ -1,0 +1,24 @@
+.container-fluid {
+  > div {
+    &.imprint {
+      padding: 0;
+    }
+  }
+}
+
+.imprint {
+  img {
+    width: 100%;
+  }
+
+  [alt='Hero'] {
+    border: 1rem solid $red;
+    margin: 0 -1rem;
+    width: calc(100% + 2rem);
+
+    @include media-breakpoint-up(md) {
+      margin: 0 calc(-25% - 1.5rem);
+      width: calc(150% + 3rem);
+    }
+  }
+}
