@@ -1,0 +1,7 @@
+de:
+  blogposts:
+    more: 'Mehr'
+    from: 'von %{author}'
+    reference: 'Quelle: %{reference}'
+    types:
+      article: 'Artikel'

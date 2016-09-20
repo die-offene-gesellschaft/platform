@@ -10,7 +10,8 @@ class Event < ApplicationRecord
                           class_name: 'User',
                           join_table: 'event_participations'
 
-  has_attached_file :picture
+  has_attached_file :picture,
+                    styles: { normal: ['800x', :jpg] }
 
   validates :title, :event_type, :begin_at, :end_at, :description, :venue,
             presence: true

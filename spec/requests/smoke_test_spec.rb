@@ -4,6 +4,7 @@ RSpec.describe "GET routes", type: :request do
   before(:each) do
     @event = FactoryGirl.create(:event)
     @user = @event.user
+    @admin = FactoryGirl.create(:admin)
     @venue = @event.venue
     @comment = FactoryGirl.create :comment,
                                   user: @user,
@@ -11,7 +12,10 @@ RSpec.describe "GET routes", type: :request do
     @picture = FactoryGirl.create :picture,
                                   user: @user,
                                   event: @event
-    @blogpost = FactoryGirl.create :blogpost
+    @blogposts = [
+                   FactoryGirl.create(:blogpost, admin: @admin),
+                   FactoryGirl.create(:blogpost, admin: @admin)
+                 ]
     @content = FactoryGirl.create :content
     FactoryGirl.create(:user, email: 'jane.doe@example.com', password: '12345678')
   end
