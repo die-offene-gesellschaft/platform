@@ -13,12 +13,12 @@
 
   [alt='Hero'] {
     border: 1rem solid $red;
-    width: calc(100% + 2rem);
     margin: 0 -1rem;
+    width: calc(100% + 2rem);
 
     @include media-breakpoint-up(md) {
-      width: calc(150% + 3rem);
       margin: 0 calc(-25% - 1.5rem);
+      width: calc(150% + 3rem);
     }
   }
 }
