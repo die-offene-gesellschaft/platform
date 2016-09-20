@@ -20,7 +20,7 @@ def create_venue_from_event(event)
 end
 
 # set to true is resource should be the web; false will use the legacy/files
-if false
+if true
   address = "http://die-offene-gesellschaft.de/data/#{@end_point}/json"
   json_resource = Net::HTTP.get(URI(address))
 else

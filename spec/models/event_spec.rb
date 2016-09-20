@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe Event, type: :model do
   it { should belong_to(:user) }
 
+  it { should have_many(:press_reviews) }
+
   it { should have_many(:comments).dependent(:destroy) }
 
   it { should have_many(:pictures).dependent(:destroy) }
