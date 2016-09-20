@@ -1,0 +1,6 @@
+de:
+  simple_form:
+    placeholders:
+      participate:
+        name: 'Name'
+        email: 'E-Mail'

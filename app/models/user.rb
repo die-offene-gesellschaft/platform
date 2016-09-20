@@ -13,7 +13,8 @@ class User < ApplicationRecord
                           foreign_key: :friend_id,
                           class_name: 'User'
 
-  has_attached_file :avatar
+  has_attached_file :avatar,
+                    styles: { normal: ['400x', :jpg] }
 
   has_many :events
   has_many :comments

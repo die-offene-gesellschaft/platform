@@ -1,0 +1,9 @@
+de:
+  participate:
+    send: 'Absenden'
+    options:
+      newsletter: 'Halten Sie mich über Neuigkeiten, Mitmach-Möglichkeiten und Aktionen auf dem Laufenden.'
+      terms-of-use: 'Ich zeige hier Gesicht und akzeptiere die %{link}.'
+      terms-of-use-label: 'Nutzungsbedingungen'
+    become-friend: 'Freund/in werden'
+    introduction: 'Überall in Europa nehmen Ausgrenzungswünsche, Hass und Hetze zu. Die Offene Gesellschaft braucht Menschen, die für sie eintreten. Werden Sie Freundin oder Freund der Initiative Offene Gesellschaft und setzen Sie ein Zeichen.'

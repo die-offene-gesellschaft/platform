@@ -15,13 +15,16 @@ Rails.application.routes.draw do
   get '/about' => 'about#show'
   get '/contact' => 'application#contact'
   get '/faciliation' => 'application#faciliation'
-  get '/home' => 'home#show'
   get '/imprint' => 'application#imprint'
   get '/privacy' => 'application#privacy'
   get '/guideline' => 'application#guideline'
 
+  get '/home' => 'home#show'
+
   get '/users' => 'users#index'
   get '/users/:id' => 'users#show', as: 'user'
+
+  get '/participate' => 'participate#show'
 
   get '/styleguide' => 'application#styleguide'
 end

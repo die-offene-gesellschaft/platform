@@ -1,0 +1,28 @@
+.participate
+  = simple_form_for :participate, url: participate_path do |f|
+    .row
+      input.terms-of-use type="checkbox" name='participate[terms-of-use]' id='terms-of-use'
+      .col-xs-12.col-md-6.name-form
+        h1.headline-white.title
+          = t('participate.become-friend')
+        p.article-white.introduction
+          = t('participate.introduction')
+        .inputs
+          = f.input :name
+          = f.input :email
+          input type="checkbox" name='participate[newsletter]' id='newsletter'
+          label.boolean for='newsletter'
+            span.box
+            span.text
+              = t 'participate.options.newsletter'
+          label.boolean for='terms-of-use'
+            span.box
+            span.text
+              == t 'participate.options.terms-of-use',
+                   link: link_to(t('participate.options.terms-of-use-label'), '#')
+          = f.submit t('participate.send')
+      .col-xs-12.col-md-6.extended-form
+        | extended form
+      .col-xs-12.col-md-6.avatars
+        - @users.each do |user|
+          .image style="background-image: url(#{asset_url(user.avatar(:normal))});"
