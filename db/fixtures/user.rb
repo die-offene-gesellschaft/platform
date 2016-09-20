@@ -1,12 +1,18 @@
-# require 'open-uri'
 require 'json'
 require 'date'
 require 'uri'
 
-# resource = open('http://die-offene-gesellschaft.de/data/profil/json')
-resource = File.read("#{Rails.root}/db/fixtures/legacy/profil.json")
-parsed_json = JSON.load(resource)
+@end_point = 'profil'
 
+# set to true is resource should be the web; false will use the legacy/files
+if true
+  address = "http://die-offene-gesellschaft.de/data/#{@end_point}/json"
+  json_resource = Net::HTTP.get(URI(address))
+else
+  json_resource = File.read("#{Rails.root}/db/fixtures/legacy/#{@end_point}.json")
+end
+
+parsed_json = JSON.load(json_resource)
 parsed_json['content'].each do |id, user|
   ap "processing id #{id}"
 
@@ -21,8 +27,8 @@ parsed_json['content'].each do |id, user|
     file_name = user['field_veranstaltung_img']['und'][0]['filename']
     file_path = "http://die-offene-gesellschaft.de/sites/default/files/#{file_name}"
     escaped_file_path = URI.escape(file_path)
-    local_file_path = Rails.root.join('public', 'fixture_download', file_name)
     net_response = Net::HTTP.get(URI(escaped_file_path))
+    local_file_path = Rails.root.join('public', 'fixture_download', file_name)
 
     File.open(local_file_path, 'wb') do |file|
       file.write(net_response)

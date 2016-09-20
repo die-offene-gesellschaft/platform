@@ -1,10 +1,16 @@
-require 'open-uri'
 require 'json'
 
-resource = open('http://die-offene-gesellschaft.de/data/medienspiegel/json/')
-# resource = File.read("#{Rails.root}/db/fixtures/legacy/medienspiegel.json")
-parsed_json = JSON.load(resource)
+@end_point = 'medienspiegel'
 
+# set to true is resource should be the web; false will use the legacy/files
+if true
+  address = "http://die-offene-gesellschaft.de/data/#{@end_point}/json"
+  json_resource = Net::HTTP.get(URI(address))
+else
+  json_resource = File.read("#{Rails.root}/db/fixtures/legacy/#{@end_point}.json")
+end
+
+parsed_json = JSON.load(json_resource)
 parsed_json['content'].each do |id, press_review|
   if press_review['field_medienspiegel_link'].any?
     link = press_review['field_medienspiegel_link']['und'][0]['url']

@@ -1,11 +1,17 @@
-require 'open-uri'
 require 'json'
 require 'date'
 
-# resource = open('http://die-offene-gesellschaft.de/data/mitwirkende/json')
-resource = File.read("#{Rails.root}/db/fixtures/legacy/mitwirkende.json")
-parsed_json = JSON.load(resource)
+@end_point = 'mitwirkende'
 
+# set to true is resource should be the web; false will use the legacy/files
+if true
+  address = "http://die-offene-gesellschaft.de/data/#{@end_point}/json"
+  json_resource = Net::HTTP.get(URI(address))
+else
+  json_resource = File.read("#{Rails.root}/db/fixtures/legacy/#{@end_point}.json")
+end
+
+parsed_json = JSON.load(json_resource)
 parsed_json['content'].each do |id, active_member|
   if active_member['field_mitwirkende_post'].any?
     role = active_member['field_mitwirkende_post']['und'][0]['value']
