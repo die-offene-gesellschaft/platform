@@ -24,7 +24,7 @@
       = render 'shared/user/tile', user: @users[6 % @users.count]
     .desktop-size4x2.desktop-x3.desktop-y2.size2x1.x1.y5
       .statement.big-title
-        | Demokratie und Freiheit müssen täglich neu erkämpft und verteidigt werden.
+        = t('home.statements').first
 
     .desktop-size1x1.desktop-x1.desktop-y3.mobile-hidden
       = render 'shared/user/tile', user: @users[7 % @users.count]
@@ -97,7 +97,7 @@
 
     .desktop-size4x2.desktop-x1.desktop-y11.size2x1.x1.y21
       .statement.big-title
-        | Stillstand ist der Tod.
+        = t('home.statements').second
     .desktop-size1x1.desktop-x5.desktop-y11.size1x1.x1.y20
       = render 'shared/user/tile', user: @users[22 % @users.count]
     .desktop-size1x1.desktop-x6.desktop-y11.size1x1.x2.y20
