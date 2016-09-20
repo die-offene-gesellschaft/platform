@@ -1,6 +1,6 @@
 a.event href="#event-id-#{event.id}" data-toggle='modal' data-target="#event-id-#{event.id}"
   .date.calendar
-    = l(event.begin_at, format: :short_date)
+    = l(event.begin_at, format: :short_date) unless event.planned
   .venue
     - venue = event.venue
     = venue.name

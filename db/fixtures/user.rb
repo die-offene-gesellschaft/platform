@@ -20,22 +20,26 @@ parsed_json['content'].each do |id, user|
   name = user['field_vorname']['und'][0]['value']
   name = "#{name} #{user['title']}"
   email = user['field_profil_email']['und'][0]['email']
-  next if User.find_by(email: email)
 
   # image
+  avatar_file = nil
   if user['field_veranstaltung_img'].any?
     file_name = user['field_veranstaltung_img']['und'][0]['filename']
     file_path = "http://die-offene-gesellschaft.de/sites/default/files/#{file_name}"
     escaped_file_path = URI.escape(file_path)
-    net_response = Net::HTTP.get(URI(escaped_file_path))
-    local_file_path = Rails.root.join('public', 'fixture_download', file_name)
+    net_response = Net::HTTP.get_response(URI(escaped_file_path))
 
-    File.open(local_file_path, 'wb') do |file|
-      file.write(net_response)
+    case net_response
+    when Net::HTTPSuccess
+      local_file_path = Rails.root.join('public', 'fixture_download', file_name)
+      File.open(local_file_path, 'wb') do |file|
+        file.write(net_response.body)
+      end
+      avatar_file = File.new(local_file_path)
+    else
+      ap "image '#{file_name}' can't be downloaded"
+      ap escaped_file_path
     end
-    avatar_file = File.new(local_file_path)
-  else
-    avatar_file = nil
   end
 
   data = {
@@ -49,5 +53,5 @@ parsed_json['content'].each do |id, user|
     name: name
   }
 
-  User.seed(:id, :email, data)
+  User.seed(:id, :email, data) unless email == 'Prime@web.de'
 end
