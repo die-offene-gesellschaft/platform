@@ -9,9 +9,9 @@
 .about {
   [alt='Hero'] {
     border: 1rem solid $red;
+    height: 60vw;
     margin: 0 -1rem;
     width: calc(100% + 2rem);
-    height: 60vw;
 
     @include media-breakpoint-up(md) {
       margin: 0 calc(-25% - 1.5rem);
@@ -31,7 +31,10 @@
     margin: 0 0 2rem;
   }
 
-  .team {
+  .team,
+  .partner,
+  .press,
+  .contact {
     ul,
     li {
       list-style: none;
@@ -76,78 +79,32 @@
       }
     }
   }
+
+  .partner {
+    h2 {
+      color: $black;
+      font-weight: normal;
+    }
+
+    ul {
+      li {
+        line-height: 13rem;
+        width: 49%;
+
+        @media (min-width: $mobile-breakpoint-width) {
+          width: 24%;
+        }
+
+        img {
+          margin: 2rem;
+          width: calc(100% - 4rem);
+        }
+      }
+    }
+  }
 }
 
 //.about {
-//  .intro {
-//    [alt='Hero'] {
-//      border: 1rem solid $red;
-//      margin: 0 -1rem;
-//      width: calc(100% + 2rem);
-//    }
-//
-//    h1 {
-//      color: $black;
-//      display: inline-block;
-//
-//      @media (min-width: $mobile-breakpoint-width) {
-//        width: 50%;
-//      }
-//    }
-//
-//    [alt='Welches Land wollen wir sein?'] {
-//      float: left;
-//      margin: 3rem;
-//      width: calc(100% - 6rem);
-//
-//      @media (min-width: $mobile-breakpoint-width) {
-//        width: calc(25% - 6rem);
-//      }
-//    }
-//
-//    .text {
-//      display: inline-block;
-//
-//      @media (min-width: $mobile-breakpoint-width) {
-//        width: 50%;
-//      }
-//    }
-//
-//    [alt='Die offene Gesellschaft'] {
-//      margin: 3rem;
-//      position: relative;
-//      width: calc(100% - 6rem);
-//
-//      @media (min-width: $mobile-breakpoint-width) {
-//        margin: -30% 0 0 80%;
-//        width: calc(25% - 6rem);
-//      }
-//    }
-//  }
-
-
-//  .partner {
-//    h2 {
-//      color: $black;
-//      font-weight: normal;
-//    }
-//
-//    ul {
-//      li {
-//        line-height: 13rem;
-//        width: 49%;
-//
-//        @media (min-width: $mobile-breakpoint-width) {
-//          width: 24%;
-//        }
-//
-//        img {
-//          margin: 2rem;
-//          width: calc(100% - 4rem);
-//        }
-//      }
-//    }
-//  }
 //
 //  .press {
 //    h2 {
