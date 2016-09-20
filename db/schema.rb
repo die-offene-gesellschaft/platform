@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920174044) do
+ActiveRecord::Schema.define(version: 20160920181213) do
 
   create_table "active_members", force: :cascade do |t|
     t.string   "forename"
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20160920174044) do
     t.integer  "venue_id"
     t.string   "link"
     t.boolean  "planned"
+    t.text     "post_description"
     t.index ["user_id"], name: "index_events_on_user_id"
     t.index ["venue_id"], name: "index_events_on_venue_id"
   end
@@ -155,6 +156,16 @@ ActiveRecord::Schema.define(version: 20160920174044) do
     t.datetime "updated_at",   null: false
     t.integer  "event_id"
     t.index ["event_id"], name: "index_press_reviews_on_event_id"
+  end
+
+  create_table "statements", force: :cascade do |t|
+    t.string   "question"
+    t.string   "content"
+    t.string   "author"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "event_id"
+    t.index ["event_id"], name: "index_statements_on_event_id"
   end
 
   create_table "users", force: :cascade do |t|

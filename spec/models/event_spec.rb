@@ -5,6 +5,8 @@ RSpec.describe Event, type: :model do
 
   it { should have_many(:press_reviews) }
 
+  it { should have_many(:statements) }
+
   it { should have_many(:comments).dependent(:destroy) }
 
   it { should have_many(:pictures).dependent(:destroy) }

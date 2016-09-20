@@ -35,7 +35,7 @@ parsed_json['content'].each do |id, press_review|
     title: press_review['title'],
     description: press_review['body']['und'][0]['value'],
     link: link,
-    event_id: related_event_id,
+    event_id: related_event.id,
     created_at: date
   }
 
