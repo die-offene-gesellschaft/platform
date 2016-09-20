@@ -1,4 +1,5 @@
 .about
-  - @contents.each do |content|
-    div class="#{content.key}"
-      == content.value
+  .row
+    - @contents.each do |content|
+      .col-xs-12.col-md-8.push-md-2 class="#{content.key}"
+        == content.value

@@ -1,49 +1,54 @@
 # Team
 
--	![Harald Welzer](about/harald-welzer.jpg)
+-	![Harald Welzer](about/team/Harald-Welzer.jpg)
 	
 	<h2>Harald Welzer</h2>
 	
-	Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-	Aenean commodo ligula eget dolor.
-	Aenean massa.
-	
-	[Mehr](#mehr)
--	![Andre Wilkens](about/andre-wilkens.jpg)
-	
-	<h2>Andre Wilkens</h2>
-	
-	Weltverbesserer und Autor
-	Gründungsmitglied
-	
-	[Mehr](#mehr)
--	![Stefan Wegner](about/stefan-wegner.jpg)
-	
-	<h2>Stefan Wegner</h2>
-	
-	Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-	
-	[Mehr](#mehr)
--	![Alexander Carius](about/alexander-carius.jpg)
+	Sozialpsychologe  
+	Vorstand  
+	Direktor von *FUTURZWEI*. Stiftung Zukunftsfähigkeit  
+	Mitbegründer der Initiative  
+-	![Alexander Carius](about/team/Alexander-Carius.jpg)
 	
 	<h2>Alexander Carius</h2>
 	
-	Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-	Aenean commodo ligula eget dolor.
+	Vorstand  
+	Politikwissenschaftler  
+	Gründer und Geschäftsführer von adelphi  
+	Mitbegründer der Initiative
+-	![Stefan Wegner](about/team/Stefan-Wegner.jpg)
 	
-	[Mehr](#mehr)
--	![Alexander Wragge](about/alexander-wragge.jpg)
+	<h2>Stefan Wegner</h2>
 	
-	<h2>Alexander Wragge</h2>
+	Vorstand  
+	Kommunikationsberater  
+	Partner und Geschäftsführer von Scholz & Friends  
+	Mitbegründer der Initiative  
 	
-	Journalist  
-	Redakteur
+-	![Andre Wilkens](about/team/Andre-Wilkens.jpg)
 	
-	[Mehr](#mehr)
--	![Maike Carius](about/maike-carius.jpg)
+	<h2>Andre Wilkens</h2>
+	
+	Vorstand  
+	Autor  
+	Mitbegründer der Initiative
+-	![Maike Carius](about/team/Maike-Carius.jpg)
 	
 	<h2>Maike Carius</h2>
 	
-	Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+	Koordination und Veranstaltungsmanagement
+-	![Alexander Wragge](about/team/Alexander-Wragge.jpg)
 	
-	[Mehr](#mehr)
+	<h2>Alexander Wragge</h2>
+	
+	Koordination und Redaktion
+-	![Di Huyen Vo Dieu](about/team/Di-Hu-Yen-Vo-Dieu.jpg)
+	
+	<h2>Di Huyen Vo Dieu</h2>
+	
+	Projektassistenz
+-	![Lena Kaupmann](about/team/Lena_Kaupmann.jpg)
+	
+	<h2>Lena Kaupmann</h2>
+	
+	Projektassistenz

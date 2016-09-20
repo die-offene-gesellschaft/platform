@@ -413,14 +413,21 @@ iframe {
   }
 }
 
-a {
-  color: $red;
+.content-container {
+  a {
+    color: $red;
+  }
+
+  a:hover,
+  a:active,
+  a:focus {
+    color: $red;
+  }
 }
 
 a:hover,
 a:active,
 a:focus {
-  color: $red;
   outline: 0;
   text-decoration: none;
 }
