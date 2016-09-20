@@ -1,7 +1,7 @@
 .about
   .row
     - @contents.each do |content|
-      - if content.key == 'contact'&& @press_reviews.any?
+      - if content.key == 'contact' && @press_reviews.any?
         .col-xs-12.col-md-8.push-md-2.press-reviews
           h1
             = t 'about.press-reviews'
@@ -9,7 +9,7 @@
             - @press_reviews.each do |press_review|
               li
                 h3
-                  = "#{l(press_review.created_at, format: :normal_date)}"
+                  = l press_review.created_at, format: :normal_date
                   span.reference
                     = t 'about.reference',
                         reference: press_review.source_title

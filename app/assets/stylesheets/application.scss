@@ -387,6 +387,16 @@ body {
   @media (min-width: $mobile-breakpoint-width) {
     min-height: calc(100% - 344px);
   }
+
+  a {
+    color: $red;
+  }
+
+  a:hover,
+  a:active,
+  a:focus {
+    color: $red;
+  }
 }
 
 header,
@@ -410,18 +420,6 @@ iframe {
 
   @media (min-width: $max-viewport-width) {
     height: 560px;
-  }
-}
-
-.content-container {
-  a {
-    color: $red;
-  }
-
-  a:hover,
-  a:active,
-  a:focus {
-    color: $red;
   }
 }
 
