@@ -22,6 +22,7 @@
 @import 'pictures';
 @import 'users';
 @import 'venues';
+@import 'faciliation';
 
 // styleguide
 // https://app.zeplin.io/project.html#pid=57caca57bc94281c06a4e3b2&styleguide
@@ -410,9 +411,14 @@ iframe {
   }
 }
 
+a {
+  color: $red;
+}
+
 a:hover,
 a:active,
 a:focus {
+  color: $red;
   outline: 0;
   text-decoration: none;
 }
