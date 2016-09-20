@@ -26,14 +26,14 @@
   .intro,
   .team,
   .partner,
-  .press,
+  .press-reviews,
   .contact {
     margin: 0 0 2rem;
   }
 
   .team,
   .partner,
-  .press,
+  .press-reviews,
   .contact {
     ul,
     li {
@@ -102,45 +102,43 @@
       }
     }
   }
-}
 
-//.about {
-//
-//  .press {
-//    h2 {
-//      color: $black;
-//      font-weight: normal;
-//    }
-//
-//    h3 {
-//      font-size: 1rem;
-//    }
-//  }
-//
-//  .contact {
-//    h2 {
-//      color: $black;
-//      font-size: 1.25rem;
-//      font-weight: normal;
-//    }
-//
-//    ul {
-//      li {
-//        height: 170px;
-//        margin: .5rem 0;
-//        overflow: hidden;
-//        width: 100%;
-//
-//        @media (min-width: $mobile-breakpoint-width) {
-//          width: 49%;
-//        }
-//
-//        img {
-//          float: left;
-//          margin: 0 1rem 0 0;
-//          width: 170px;
-//        }
-//      }
-//    }
-//  }
-//}
+  .press-reviews {
+    h2 {
+      color: $black;
+      font-weight: normal;
+    }
+
+    h3 {
+      font-size: 1rem;
+
+      .reference {
+        margin: 0 0 0 2rem;
+        color: $dark-gray;
+      }
+    }
+  }
+
+  .contact {
+    h2 {
+      color: $black;
+      font-size: 1.25rem;
+      font-weight: normal;
+    }
+
+    ul {
+      li {
+        height: 170px;
+        margin: .5rem 0;
+        overflow: hidden;
+        width: 100%;
+
+        img {
+          float: left;
+          margin: 0 1rem 0 0;
+          width: 170px;
+        }
+      }
+    }
+  }
+}

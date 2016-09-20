@@ -1,0 +1,5 @@
+de:
+  about:
+    event: 'Aktion: %{event}'
+    reference: 'Quelle: %{reference}'
+    press-reviews: Medienspiegel
