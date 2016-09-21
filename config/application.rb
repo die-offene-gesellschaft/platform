@@ -15,5 +15,7 @@ module OffeneGesellschaft
     config.i18n.default_locale = :de
     config.i18n.fallbacks = true
     config.i18n.fallbacks = [:de]
+
+    config.time_zone = 'Berlin'
   end
 end
