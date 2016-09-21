@@ -65,10 +65,12 @@ ruby:
                     - venue = event.venue
                     = venue.city
                   p.event-type-and-active-members
-                    - event_type = t("events.event-type.#{event.event_type}")
-                    = t 'events.event-type-and-active-members',
-                        event_type: event_type,
-                        active_members: event.active_members.map(&:full_name).join(', ')
+                    - if event.active_members.any?
+                      = t 'events.event-type-and-active-members',
+                          event_type: t("events.event-type.#{event.event_type}"),
+                          active_members: event.active_members.map(&:full_name).join(', ')
+                    - else
+                      = t("events.event-type.#{event.event_type}")
                   p.time
                     = l(event.begin_at, format: :short_time)
                   p.venue
@@ -84,6 +86,7 @@ ruby:
                           .row
                             = render 'shared/event/modal_details',
                                      event: event
+
       - if admin_signed_in?
         br
         = link_to 'New Event',
