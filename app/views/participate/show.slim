@@ -1,28 +1,41 @@
 .participate
-  = simple_form_for :participate, url: participate_path do |f|
-    .row
-      input.terms-of-use type="checkbox" name='participate[terms-of-use]' id='terms-of-use'
-      .col-xs-12.col-md-6.name-form
-        h1.headline-white.title
-          = t('participate.become-friend')
-        p.article-white.introduction
-          = t('participate.introduction')
-        .inputs
-          = f.input :name
-          = f.input :email
-          input type="checkbox" name='participate[newsletter]' id='newsletter'
-          label.boolean for='newsletter'
-            span.box
-            span.text
-              = t 'participate.options.newsletter'
-          label.boolean for='terms-of-use'
-            span.box
-            span.text
-              == t 'participate.options.terms-of-use',
-                   link: link_to(t('participate.options.terms-of-use-label'), '#')
-          = f.submit t('participate.send')
-      .col-xs-12.col-md-6.extended-form
-        | extended form
-      .col-xs-12.col-md-6.avatars
-        - @users.each do |user|
-          .image style="background-image: url(#{asset_url(user.avatar(:normal))});"
+  - unless flash[:success]
+    = simple_form_for :participate, url: participate_path do |f|
+      .row
+        - checked_attribute = {}
+        - checked_attribute = { checked: true } if @terms_of_use
+        input.terms-of-use type="checkbox" name='participate[terms_of_use]' id='terms-of-use' *checked_attribute
+        .col-xs-12.col-md-6.name-form
+          h1.headline-white.title
+            = t('participate.become-friend')
+          p.article-white.introduction
+            = t('participate.introduction')
+          .inputs
+            = f.input :name, input_html: { value: @user.name }
+            = f.input :email, input_html: { value: @user.email }
+            - checked_attribute = {}
+            - checked_attribute = { checked: true } if @newsletter
+            input type="checkbox" name='participate[newsletter]' id='newsletter' *checked_attribute
+            label.boolean for='newsletter'
+              span.box
+              span.text
+                = t 'participate.options.newsletter'
+            label.boolean for='terms-of-use'
+              span.box
+              span.text
+                == t 'participate.options.terms-of-use',
+                     link: link_to(t('participate.options.terms-of-use-label'), "#{imprint_path}#nutzungsbedingungen")
+            = f.submit t('participate.send')
+        .col-xs-12.col-md-6.extended-form
+          .inputs
+            = f.input :avatar, as: :file, input_html: { accept: '.jpg,.jpeg,.gif,.png' }
+            = f.input :password, as: :password, input_html: { value: @user.password }
+            = f.input :password_repeat, as: :password
+            = f.input :role, input_html: { value: @user.role }
+            = f.input :statement, as: :text, input_html: { value: @user.statement }
+            = f.submit t('participate.send')
+        .col-xs-12.col-md-6.avatars
+          - @users.each do |user|
+            .image style="background-image: url(#{asset_url(user.avatar(:normal))});"
+  .row
+    .col-xs-12

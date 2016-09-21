@@ -40,7 +40,24 @@
   .extended-form,
   .avatars {
     background-color: $red;
+    min-height: 66vw;
+    overflow: hidden;
     padding: 0;
+
+    @include media-breakpoint-up(md) {
+      height: 83vw;
+      min-height: 0;
+    }
+
+    @media (min-width: 1000px) {
+      height: 66vw;
+      min-height: 0;
+    }
+
+    @media (min-width: $max-viewport-width) {
+      height: 792px;
+      min-height: 0;
+    }
   }
 
   .name-form,
@@ -105,8 +122,13 @@
 
   .form-group {
     margin: 30px 0;
+
+    &.file {
+      overflow: hidden;
+    }
   }
 
+  textarea,
   input {
     background-color: $white;
     border-radius: 0;
@@ -137,6 +159,25 @@
     }
   }
 
+  textarea {
+    height: 147px;
+  }
+
+  [type='file'] {
+    font-size: 16px;
+    padding: 0;
+  }
+
+  .extended-form {
+    display: none;
+    margin: -6rem 0 0;
+
+    @include media-breakpoint-up(md) {
+      margin: 0;
+    }
+  }
+
+
   [type='checkbox'] {
     display: none;
   }
@@ -151,8 +192,19 @@
     }
   }
 
-  .extended-form {
-    display: none;
+  [name='commit'] {
+    background-color: $white;
+    border: 0;
+    bottom: 40px;
+    color: $red;
+    font-weight: 600;
+    height: auto;
+    padding: 14px 0;
+    position: absolute;
+    right: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 223px;
   }
 
   .terms-of-use:checked {
@@ -173,19 +225,11 @@
     ~ .avatars {
       display: none;
     }
-  }
 
-  [name='commit'] {
-    background-color: $white;
-    border: 0;
-    bottom: 40px;
-    color: $red;
-    height: auto;
-    padding: 14px 0;
-    position: absolute;
-    right: 40px;
-    text-align: center;
-    text-transform: uppercase;
-    width: 223px;
+    ~ .name-form {
+      [name='commit'] {
+        display: none;
+      }
+    }
   }
 }

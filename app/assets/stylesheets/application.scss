@@ -296,3 +296,22 @@ tr {
     }
   }
 }
+
+.alert {
+  border-radius: 0;
+  font-weight: bold;
+
+  .col-xs-12 {
+    text-align: center;
+  }
+
+  &.alert-danger {
+    background-color: $red;
+    color: $white;
+  }
+
+  &.alert-success {
+    background-color: $yellow;
+    color: $black;
+  }
+}

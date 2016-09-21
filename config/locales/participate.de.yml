@@ -1,5 +1,7 @@
 de:
   participate:
+    error: 'Eines oder mehrere Felder sind fehlerhaft'
+    success: 'Die Anmeldung war erfolgreich'
     send: 'Absenden'
     options:
       newsletter: 'Halten Sie mich über Neuigkeiten, Mitmach-Möglichkeiten und Aktionen auf dem Laufenden.'
