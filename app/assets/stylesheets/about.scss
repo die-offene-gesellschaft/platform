@@ -96,8 +96,13 @@
         }
 
         img {
-          margin: 2rem;
-          width: calc(100% - 4rem);
+          margin: .5rem;
+          width: calc(100% - 1rem);
+
+          @media (min-width: $mobile-breakpoint-width) {
+            margin: 2rem;
+            width: calc(100% - 4rem);
+          }
         }
       }
     }
