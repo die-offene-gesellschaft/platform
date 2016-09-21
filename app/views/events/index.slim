@@ -22,9 +22,10 @@ ruby:
                   td
                     ruby:
                       type = 'blank'
-                      type = 'picture' if event.picture.path
+                      type = 'logo' if event.picture.path
+                      # type = 'picture' if event.picture.path
                       # type = 'statement' if event.statement
-                    a class="#{type}" style="#{"background-image: url(#{asset_path(event.picture)})" if false && type == 'picture'}" href="#event-id-#{event.id}" data-toggle='modal' data-target="#event-id-#{event.id}"
+                    a class="#{type}" style="#{"background-image: url(#{asset_path(event.picture)})" if type == 'picture' || type == 'logo'}" href="#event-id-#{event.id}" data-toggle='modal' data-target="#event-id-#{event.id}"
                       - if type == 'statement'
                         .statement
                           = event.statement

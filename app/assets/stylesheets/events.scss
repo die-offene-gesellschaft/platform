@@ -296,6 +296,13 @@
             right: 0;
             top: 0;
 
+            &.logo {
+              background-color: $white;
+              background-position: 50% 50%;
+              background-repeat: no-repeat;
+              background-size: 66%;
+            }
+
             &.picture {
               background-color: $white;
               background-position: 50% 50%;
