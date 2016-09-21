@@ -165,7 +165,6 @@ ActiveRecord::Schema.define(version: 20160920183732) do
     t.string   "author"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.         "event"
     t.integer  "event_id"
     t.index ["event_id"], name: "index_statements_on_event_id"
   end
