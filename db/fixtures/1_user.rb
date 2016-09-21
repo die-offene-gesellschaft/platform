@@ -14,7 +14,7 @@ end
 
 parsed_json = JSON.load(json_resource)
 parsed_json['content'].each do |id, user|
-  ap "processing id #{id}"
+  puts "processing id #{id}"
 
   date = Time.at(user['created'].to_i).to_datetime
   name = user['field_vorname']['und'][0]['value']
@@ -37,8 +37,8 @@ parsed_json['content'].each do |id, user|
       end
       avatar_file = File.new(local_file_path)
     else
-      ap "image '#{file_name}' can't be downloaded"
-      ap escaped_file_path
+      puts "image '#{file_name}' can't be downloaded"
+      puts escaped_file_path
     end
   end
 

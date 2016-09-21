@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920183732) do
+ActiveRecord::Schema.define(version: 20160921143702) do
 
   create_table "active_members", force: :cascade do |t|
     t.string   "forename"
@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 20160920183732) do
     t.datetime "picture_updated_at"
     t.integer  "user_id"
     t.integer  "venue_id"
-    t.string   "link"
+    t.text     "link"
     t.boolean  "planned"
     t.text     "post_description"
     t.string   "post_description_source"
@@ -166,6 +166,7 @@ ActiveRecord::Schema.define(version: 20160920183732) do
     t.string   "author"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.         "event"
     t.integer  "event_id"
     t.index ["event_id"], name: "index_statements_on_event_id"
   end
