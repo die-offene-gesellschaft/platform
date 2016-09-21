@@ -110,11 +110,18 @@
     }
 
     h3 {
+      color: $red;
       font-size: 1rem;
 
       .reference {
         color: $dark-gray;
         margin: 0 0 0 2rem;
+      }
+    }
+
+    ul {
+      li {
+        margin: 1rem 0;
       }
     }
   }
