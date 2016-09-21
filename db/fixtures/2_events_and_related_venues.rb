@@ -29,7 +29,7 @@ end
 
 parsed_json = JSON.load(json_resource)
 parsed_json['content'].each do |id, event|
-  ap "processing id #{id}"
+  puts "processing id #{id}"
 
   if event['field_veranstaltung_date'].any?
     begin_date_time = DateTime.parse(event['field_veranstaltung_date']['und'][0]['value'])
@@ -79,8 +79,8 @@ parsed_json['content'].each do |id, event|
       end
       picture_file = File.new(local_file_path)
     else
-      ap "image '#{file_name}' can't be downloaded"
-      ap escaped_file_path
+      puts "image '#{file_name}' can't be downloaded"
+      puts escaped_file_path
     end
   end
 
