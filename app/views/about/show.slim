@@ -1,28 +1,27 @@
 .about
   .row
-    - @contents.each do |content|
-      - if content.key == 'contact' && @press_reviews.any?
-        .col-xs-12.col-md-8.push-md-2.press-reviews
-          h1
-            = t 'about.press-reviews'
-          ul
-            - @press_reviews.each do |press_review|
-              li
-                h3
-                  = l press_review.created_at, format: :normal_date
-                  span.reference
-                    = t 'about.reference',
-                        reference: press_review.source_title
-                = link_to press_review.link do
-                  h2
-                    = press_review.title
-                p
-                  = press_review.description
-                - if press_review.event
-                  - event = press_review.event
-                  p
-                    == t 'about.event',
-                         event: link_to(event.title, event_path(event))
-
-      .col-xs-12.col-md-8.push-md-2 class="#{content.key}"
-        == content.value
+    .col-xs-12.col-md-8.push-md-2.intro
+      == @contents[0].value
+    .col-xs-12.team
+      == @contents[1].value
+    .col-xs-12.partner
+      == @contents[2].value
+    - if @press_reviews.any?
+      .col-xs-12.press-reviews
+        h1
+          = t 'about.press-reviews'
+        ul
+          - @press_reviews.each do |press_review|
+            li
+              h3
+                = l press_review.created_at, format: :normal_date
+                span.reference
+                  = t 'about.reference',
+                      reference: press_review.source_title
+              = link_to press_review.link do
+                h2
+                  = press_review.title
+              p
+                = press_review.description
+    .col-xs-12.contact
+      == @contents[3].value

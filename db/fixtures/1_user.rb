@@ -5,8 +5,9 @@ require 'uri'
 @end_point = 'profil'
 
 # set to true is resource should be the web; false will use the legacy/files
+base_address = "http://lucid-berlin.de/web_developement/05_die_offene_gesellschaft_dog.lucid.berlin"
 if true
-  address = "http://die-offene-gesellschaft.de/data/#{@end_point}/json"
+  address = "#{base_address}/data/#{@end_point}/json"
   json_resource = Net::HTTP.get(URI(address))
 else
   json_resource = File.read("#{Rails.root}/db/fixtures/legacy/#{@end_point}.json")
@@ -25,7 +26,7 @@ parsed_json['content'].each do |id, user|
   avatar_file = nil
   if user['field_veranstaltung_img'].any?
     file_name = user['field_veranstaltung_img']['und'][0]['filename']
-    file_path = "http://die-offene-gesellschaft.de/sites/default/files/#{file_name}"
+    file_path = "#{base_address}/sites/default/files/#{file_name}"
     escaped_file_path = URI.escape(file_path)
     net_response = Net::HTTP.get_response(URI(escaped_file_path))
 
@@ -42,13 +43,17 @@ parsed_json['content'].each do |id, user|
     end
   end
 
+  # statement
+  statement = user['field_kurzstatement']['und'][0]['value']
+  statement = nil if statement == 'Kurzstatement'
+
   data = {
     id: (id.to_i * (-1)),
     email: email,
     created_at: date,
     avatar: avatar_file,
     role: user['field_beschreibung']['und'][0]['value'],
-    statement: user['field_kurzstatement']['und'][0]['value'],
+    statement: statement,
     locked: false,
     name: name
   }
