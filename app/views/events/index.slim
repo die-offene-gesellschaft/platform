@@ -21,11 +21,20 @@ ruby:
                 - slice.each do |event|
                   td
                     ruby:
+                      style = ''
                       type = 'blank'
-                      type = 'logo' if event.picture.path
-                      # type = 'picture' if event.picture.path
                       # type = 'statement' if event.statement
-                    a class="#{type}" style="#{"background-image: url(#{asset_path(event.picture)})" if type == 'picture' || type == 'logo'}" href="#event-id-#{event.id}" data-toggle='modal' data-target="#event-id-#{event.id}"
+
+                      if event.pictures.any?
+                        type = 'picture'
+                        asset = event.pictures.first.picture(:normal)
+                      elsif event.picture.path
+                        type = 'logo'
+                        asset = event.picture(:logo)
+                        style = "background-color: #{event.color}" if event.color
+                      end
+
+                    a class="#{type}" style="#{"background-image: url(#{asset_path(asset)});" if type == 'picture' || type == 'logo'} #{style}" href="#event-id-#{event.id}" data-toggle='modal' data-target="#event-id-#{event.id}"
                       - if type == 'statement'
                         .statement
                           = event.statement
@@ -46,6 +55,9 @@ ruby:
                                          event: event
                 - (3 - slice.count).times do
                   td.dummy
+
+      coffee:
+        window.modalManager = new window.ModalManager()
     - else
       - @events.each do |month, events|
         table.appointments
