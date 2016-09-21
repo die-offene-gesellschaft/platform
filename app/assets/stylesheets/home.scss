@@ -30,7 +30,7 @@
       }
     }
 
-    .blogpost {
+    .content {
       background-color: $white;
 
       .title {
@@ -42,9 +42,11 @@
       }
 
       span {
+        background-color: $white;
         bottom: 17px;
         left: 28px;
         position: absolute;
+        width: 100%;
       }
     }
 
