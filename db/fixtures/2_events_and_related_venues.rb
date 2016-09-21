@@ -40,11 +40,11 @@ parsed_json['content'].each do |id, event|
     time_with_zone = ActiveSupport::TimeZone[zone].parse(time_string)
     begin_date_time = time_with_zone.to_datetime
     end_date_time = begin_date_time + 2.hours
-    planed = false
+    planned = false
   else
     begin_date_time = nil
     end_date_time = nil
-    planed = true
+    planned = true
   end
 
   if event['field_veranstaltung_link'].any?
@@ -105,7 +105,7 @@ parsed_json['content'].each do |id, event|
     user_id: nil,
     venue_id: venue.id,
     active_members: active_members,
-    planed: planed
+    planned: planned
   }
 
   Event.seed(:id, data)
