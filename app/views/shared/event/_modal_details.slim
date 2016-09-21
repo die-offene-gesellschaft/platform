@@ -23,11 +23,12 @@
         = "#{venue.zip_code} #{venue.city}"
         = fa_icon 'map-marker'
       h2.type
-        = event.event_type
-      p.active-members
-        = t('events.with')
-        | &nbsp;
-        = event.active_members.map(&:full_name).join(', ')
+        = t("events.event-type.#{event.event_type}")
+      - if event.active_members.any?
+        p.active-members
+          = t('events.with')
+          | &nbsp;
+          = event.active_members.map(&:full_name).join(', ')
       .links
         .link-small
           - if !event.planned && event.end_at > Time.zone.now
