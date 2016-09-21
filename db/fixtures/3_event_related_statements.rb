@@ -16,76 +16,44 @@ parsed_json = JSON.load(json_resource)
 parsed_json['content'].each do |id, event|
   puts "processing id #{id}"
 
-  if event['field_veranstaltung_date'].any?
-    begin_date_time = DateTime.parse(event['field_veranstaltung_date']['und'][0]['value'])
-    end_date_time = begin_date_time + 2.hours
-    planned = false
-  else
-    begin_date_time = nil
-    end_date_time = nil
-    planned = true
+  # get related event ID
+  event_id = nil
+  if event['field_veranstaltung'].any?
+    event_id = event['field_veranstaltung']['und'][0]['target_id'].to_i * (-1)
+  end
+  event_record = Event.find_by(id: event_id)
+  if event_id.nil? || event_record.nil?
+    puts 'event record not recognized!'
+    next
   end
 
-  if event['field_veranstaltung_link'].any?
-    link = event['field_veranstaltung_link']['und'][0]['url']
-  else
-    link = nil
-  end
-
+  # statement
+  statement = nil
   if event['body'].any?
-    description = event['body']['und'][0]['value']
-  else
-    description = nil
+    statement = event['body']['und'][0]['value']
+  end
+  if statement.nil?
+    puts 'no statement!'
+    next
   end
 
-  venue = create_venue_from_event(event)
-
-  # active members
-  active_members = []
-  event['field_veranstaltung_mitwirkende']['und'].each do |active_member|
-    member_id = active_member['target_id'].to_i * (-1)
-    active_member_record = ActiveMember.find_by(id: member_id)
-    active_members << active_member_record if active_member_record
-  end if event['field_veranstaltung_mitwirkende'].any?
-
-  # image
-  picture_file = nil
-  if event['field_veranstaltung_img'].any?
-    file_name = event['field_veranstaltung_img']['und'][0]['filename']
-    file_path = "http://die-offene-gesellschaft.de/sites/default/files/#{file_name}"
-    escaped_file_path = URI.escape(file_path)
-    net_response = Net::HTTP.get_response(URI(escaped_file_path))
-
-    case net_response
-    when Net::HTTPSuccess
-      local_file_path = Rails.root.join('public', 'fixture_download', file_name)
-      File.open(local_file_path, 'wb') do |file|
-        file.write(net_response.body)
-      end
-      picture_file = File.new(local_file_path)
-    else
-      puts "image '#{file_name}' can't be downloaded"
-      puts escaped_file_path
-    end
+  # source / author
+  author = nil
+  if event['field_veranstaltung_doku_quelle'].any?
+    author = event['field_veranstaltung_doku_quelle']['und'][0]['value']
   end
+
+  # created_at
+  date = Time.at(event['created'].to_i).to_datetime
 
   data = {
     id: (id.to_i * (-1)),
-    title: "#{venue.name} #{venue.city}",
-    event_type: 'debate',
-    begin_at: begin_date_time,
-    end_at: end_date_time,
-    link: link,
-    description: description,
-    facebook_identifier: nil,
-    locked: false,
-    created_at: Time.at(event['created'].to_i).to_datetime,
-    picture: picture_file,
-    user_id: nil,
-    venue_id: venue.id,
-    active_members: active_members,
-    planned: planned
+    question: nil,
+    content: statement,
+    author: author,
+    created_at: date,
+    event_id: event_id
   }
 
-  Event.seed(:id, data)
+  Statement.seed(:id, data)
 end
