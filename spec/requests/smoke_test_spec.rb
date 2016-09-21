@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "GET routes", type: :request do
   before(:each) do
+    `rails db:seed_fu FILTER=contents`
     @event = FactoryGirl.create(:event)
     @user = @event.user
     @admin = FactoryGirl.create(:admin)
