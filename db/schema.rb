@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921143702) do
+ActiveRecord::Schema.define(version: 20160921173757) do
 
   create_table "active_members", force: :cascade do |t|
     t.string   "forename"
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 20160921143702) do
     t.integer  "user_id"
     t.integer  "venue_id"
     t.text     "link"
-    t.boolean  "planned"
+    t.boolean  "planed"
     t.text     "post_description"
     t.string   "post_description_source"
     t.index ["user_id"], name: "index_events_on_user_id"

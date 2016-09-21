@@ -95,7 +95,8 @@ class EventsController < ApplicationController
   end
 
   def set_archive_events
-    @events = Event.where('end_at < ?', Time.zone.now)
+    @events = Event.where.not(begin_at: nil)
+                   .where('end_at < ?', Time.zone.now)
                    .order(begin_at: :desc)
                    .group_by { |event| event.begin_at.send(:beginning_of_year) }
   end

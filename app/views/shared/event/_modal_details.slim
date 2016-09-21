@@ -11,9 +11,9 @@
         - venue = event.venue
         = venue.city
         span.pipe
-        = l event.begin_at, format: :short_year_date unless event.planned
+        = l event.begin_at, format: :short_year_date unless event.planed
         span.pipe
-        = l event.begin_at, format: :short_time unless event.planned
+        = l event.begin_at, format: :short_time unless event.planed
         = fa_icon 'calendar-o'
       p.venue
         = venue.name
@@ -31,7 +31,7 @@
           = event.active_members.map(&:full_name).join(', ')
       .links
         .link-small
-          - if !event.planned && event.end_at > Time.zone.now
+          - if !event.planed && event.end_at > Time.zone.now
             a href="#{events_path(appointments: '')}"
               = t('events.upcoming-events')
           - else

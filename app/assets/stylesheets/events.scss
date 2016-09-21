@@ -170,7 +170,7 @@
 
               @media (min-width: $mobile-breakpoint-width) {
                 font-size: 25px;
-                height: 30px;
+                min-height: 30px;
                 letter-spacing: .3px;
                 margin: 0 42px 35px 0;
               }
