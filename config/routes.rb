@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/users/:id' => 'users#show', as: 'user'
 
   get '/participate' => 'participate#show'
+  post '/participate' => 'participate#create'
 
   get '/styleguide' => 'application#styleguide'
 end

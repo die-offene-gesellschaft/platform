@@ -5,6 +5,11 @@ class ParticipateController < ApplicationController
   def show
   end
 
+  # POST /participate
+  def create
+    render nothing: true
+  end
+
   private
 
   def set_users
