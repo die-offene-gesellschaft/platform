@@ -65,8 +65,9 @@ ruby:
                     - venue = event.venue
                     = venue.city
                   p.event-type-and-active-members
+                    - event_type = t("events.event-type.#{event.event_type}")
                     = t 'events.event-type-and-active-members',
-                        event_type: event.event_type,
+                        event_type: event_type,
                         active_members: event.active_members.map(&:full_name).join(', ')
                   p.time
                     = l(event.begin_at, format: :short_time)
