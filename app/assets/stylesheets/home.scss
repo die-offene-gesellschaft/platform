@@ -50,6 +50,14 @@
       }
     }
 
+    .user {
+      opacity: .7;
+
+      &:hover {
+        opacity: 1.0;
+      }
+    }
+
     .about {
       background-color: $white;
 
