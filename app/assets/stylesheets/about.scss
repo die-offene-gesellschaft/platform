@@ -96,8 +96,13 @@
         }
 
         img {
-          margin: 2rem;
-          width: calc(100% - 4rem);
+          margin: .5rem;
+          width: calc(100% - 1rem);
+
+          @media (min-width: $mobile-breakpoint-width) {
+            margin: 2rem;
+            width: calc(100% - 4rem);
+          }
         }
       }
     }
@@ -110,11 +115,18 @@
     }
 
     h3 {
+      color: $red;
       font-size: 1rem;
 
       .reference {
         color: $dark-gray;
         margin: 0 0 0 2rem;
+      }
+    }
+
+    ul {
+      li {
+        margin: 1rem 0;
       }
     }
   }

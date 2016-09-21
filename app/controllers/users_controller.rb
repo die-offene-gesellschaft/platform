@@ -25,14 +25,25 @@ class UsersController < ApplicationController
   private
 
   def set_users
+    @users = User.where(locked: false)
+
     get_params = request.query_parameters.keys
     if get_params.include?('pictures')
-      @users = User.where(locked: false).where.not(avatar_file_name: nil)
+      set_statements
+      @users = @users.where.not(avatar_file_name: nil)
     elsif get_params.include?('list')
-      @users = User.where(locked: false)
       @active_members = ActiveMember.all
-    else
-      @users = User.all
+    end
+  end
+
+  def set_statements
+    @statement_users = @users.where(avatar_file_name: nil)
+                             .where.not(statement: nil)
+                             .limit(3)
+
+    if @statement_users.count < 3
+      @statement_users = @users.where.not(statement: nil)
+                               .limit(3)
     end
   end
 

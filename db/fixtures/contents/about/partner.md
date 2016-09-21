@@ -4,6 +4,8 @@ Eine Bewegung kann sich nicht alleine weiterentwickeln.
 Es braucht Partner, die den Weg begleiten.
 Wir bedanken uns für die Unterstützung.
 
+---
+
 ## Inhalte
 
 - ![adelphi](about/partner/adelphi.jpg)
@@ -46,3 +48,5 @@ Wir bedanken uns für die Unterstützung.
 - ![Open Society Foundation](about/partner/Förderer_Open Society Foundations.png)
 - ![Robert Bosch Stiftung](about/partner/FördererBoschStiftungCDToolbox_rbs_logo_rgb.png)
 - ![Bertelsmann Stiftung](about/partner/Förderer_Bertelsmann Stiftung.png)
+
+---

@@ -23,14 +23,14 @@
 
       img {
         margin: 0 25%;
-        position: relative;
+        position: absolute;
         top: 50%;
         transform: translateY(-50%);
         width: 50%;
       }
     }
 
-    .blogpost {
+    .content {
       background-color: $white;
 
       .title {
@@ -42,9 +42,19 @@
       }
 
       span {
+        background-color: $white;
         bottom: 17px;
         left: 28px;
         position: absolute;
+        width: 100%;
+      }
+    }
+
+    .user {
+      opacity: .7;
+
+      &:hover {
+        opacity: 1;
       }
     }
 
@@ -53,7 +63,7 @@
 
       img {
         margin: 0 25%;
-        position: relative;
+        position: absolute;
         top: 50%;
         transform: translateY(-50%);
         width: 50%;

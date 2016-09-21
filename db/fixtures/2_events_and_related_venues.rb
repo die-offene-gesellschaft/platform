@@ -3,6 +3,7 @@ require 'date'
 require 'uri'
 
 @end_point = 'veranstaltung'
+@base_url = 'http://lucid-berlin.de/web_developement/05_die_offene_gesellschaft_dog.lucid.berlin'
 
 def create_venue_from_event(event)
   city = event['field_veranstaltung_city']['und'][0]
@@ -21,7 +22,7 @@ end
 
 # set to true is resource should be the web; false will use the legacy/files
 if true
-  address = "http://die-offene-gesellschaft.de/data/#{@end_point}/json"
+  address = "#{@base_url}/data/#{@end_point}/json"
   json_resource = Net::HTTP.get(URI(address))
 else
   json_resource = File.read("#{Rails.root}/db/fixtures/legacy/#{@end_point}.json")
@@ -31,8 +32,13 @@ parsed_json = JSON.load(json_resource)
 parsed_json['content'].each do |id, event|
   puts "processing id #{id}"
 
-  if event['field_veranstaltung_date'].any?
-    begin_date_time = DateTime.parse(event['field_veranstaltung_date']['und'][0]['value'])
+  if event['field_veranstaltung_date'].any? && event['field_verantaltung_zeit'].any?
+    date = Date.parse(event['field_veranstaltung_date']['und'][0]['value'])
+    time = Time.parse(event['field_verantaltung_zeit']['und'][0]['value'])
+    zone = event['field_verantaltung_zeit']['und'][0]['timezone']
+    time_string = "#{date.strftime('%Y-%m-%d')} #{time.strftime('%H:%M:%S')}"
+    time_with_zone = ActiveSupport::TimeZone[zone].parse(time_string)
+    begin_date_time = time_with_zone.to_datetime + 1.hour
     end_date_time = begin_date_time + 2.hours
     planned = false
   else
@@ -67,7 +73,7 @@ parsed_json['content'].each do |id, event|
   picture_file = nil
   if event['field_veranstaltung_img'].any?
     file_name = event['field_veranstaltung_img']['und'][0]['filename']
-    file_path = "http://die-offene-gesellschaft.de/sites/default/files/#{file_name}"
+    file_path = "#{@base_url}/sites/default/files/#{file_name}"
     escaped_file_path = URI.escape(file_path)
     net_response = Net::HTTP.get_response(URI(escaped_file_path))
 

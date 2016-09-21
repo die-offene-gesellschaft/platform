@@ -32,7 +32,18 @@
       = render 'shared/event/tile', event: @events[1 % @events.count]
 
     .desktop-size2x2.desktop-x1.desktop-y4.size2x2.x1.y8
-      /= render 'shared/blogpost', blogpost: @blogposts[0 % @blogposts.count]
+      ruby:
+        content = @contents.first
+        controller, action = content.controller_action_name.split('#')
+        html = Kramdown::Document.new(content.value).to_html
+        %r{<h1.*>(?<title>.+)<\/h1>\s*<p>(?<introduction>.+)<\/p>} =~ html
+      a.content href="#{url_for(controller: controller, action: action)}"
+        h2.title.box-article-title
+          = title
+        p.introduction.box-article-text
+          = introduction
+        span.link
+          = t('home.article')
     .desktop-size1x1.desktop-x3.desktop-y4.mobile-hidden
       = render 'shared/user/tile', user: @users[8 % @users.count]
     .desktop-size1x1.desktop-x4.desktop-y4.mobile-hidden
@@ -84,7 +95,18 @@
           = t('home.about')
 
     .desktop-size2x2.desktop-x1.desktop-y9.size2x2.x1.y17
-      /= render 'shared/blogpost', blogpost: @blogposts[1 % @blogposts.count]
+      ruby:
+        content = @contents.second
+        controller, action = content.controller_action_name.split('#')
+        html = Kramdown::Document.new(content.value).to_html
+        %r{<h1.*>(?<title>.+)<\/h1>\s*<h2.*\/h2>\s*<p>(?<introduction>.+)<\/p>.*} =~ html
+      a.content href="#{url_for(controller: controller, action: action)}"
+        h2.title.box-article-title
+          = title
+        p.introduction.box-article-text
+          == introduction
+        span.link
+          = t('home.article')
     .desktop-size1x1.desktop-x3.desktop-y9.mobile-hidden
       = render 'shared/user/tile', user: @users[19 % @users.count]
     .desktop-size1x1.desktop-x4.desktop-y9.mobile-hidden
