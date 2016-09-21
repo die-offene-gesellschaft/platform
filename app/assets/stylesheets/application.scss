@@ -549,6 +549,14 @@ tr {
     }
   }
 
+  @mixin z-index($y) {
+    @media (max-width: $mobile-breakpoint-width) {
+      #{'.y' + $y} {
+        z-index: $y;
+      }
+    }
+  }
+
   @mixin size($x, $y) {
     #{'.size' + $x + 'x' + $y} {
       padding-bottom: calc(#{100 / 2 * $y}% + 6px);
@@ -569,6 +577,7 @@ tr {
 
   @for $i from 1 through 40 {
     @include y($i);
+    @include z-index($i);
   }
 
   @include size(1, 1);
