@@ -47,12 +47,16 @@ parsed_json['content'].each do |id, user|
   statement = user['field_kurzstatement']['und'][0]['value']
   statement = nil if statement == 'Kurzstatement'
 
+  # role
+  role = user['field_beschreibung']['und'][0]['value']
+  role = nil if role == 'z.B. Dichter & Denker, Busfahrer, Professorin für…'
+
   data = {
     id: (id.to_i * (-1)),
     email: email,
     created_at: date,
     avatar: avatar_file,
-    role: user['field_beschreibung']['und'][0]['value'],
+    role: role,
     statement: statement,
     locked: false,
     name: name
