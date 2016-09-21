@@ -65,12 +65,12 @@ ruby:
                     - venue = event.venue
                     = venue.city
                   p.event-type-and-active-members
-                    - unless event.active_members.any?
-                      = t("events.event-type.#{event.event_type}")
-                    - else
+                    - if event.active_members.any?
                       = t 'events.event-type-and-active-members',
                           event_type: t("events.event-type.#{event.event_type}"),
                           active_members: event.active_members.map(&:full_name).join(', ')
+                    - else
+                      = t("events.event-type.#{event.event_type}")
                   p.time
                     = l(event.begin_at, format: :short_time)
                   p.venue
