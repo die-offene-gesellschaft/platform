@@ -461,6 +461,10 @@ nav {
     &.active {
       background-color: $yellow;
     }
+
+    &:hover {
+      color: $black;
+    }
   }
 }
 
@@ -499,7 +503,8 @@ nav {
 }
 
 tr {
-  &[data-href] {
+  &[data-href],
+  &[data-modal] {
     &:hover {
       cursor: pointer;
     }
