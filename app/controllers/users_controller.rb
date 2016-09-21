@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   def set_users
     get_params = request.query_parameters.keys
     if get_params.include?('pictures')
-      @users = User.where(locked: false)
+      @users = User.where(locked: false).where.not(avatar_file_name: nil)
     elsif get_params.include?('list')
       @users = User.where(locked: false)
       @active_members = ActiveMember.all
