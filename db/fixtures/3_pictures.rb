@@ -2,14 +2,22 @@ require 'json'
 require 'date'
 require 'uri'
 
-@end_point = 'veranstaltung_doku_media'
+@end_point = 'veranstaltung_doku_medien'
 @base_url = 'http://lucid-berlin.de/web_developement/05_die_offene_gesellschaft_dog.lucid.berlin'
 
 def get_file_name_from_fid(fid)
-  address = "#{@base_url}/data/fileid/json"
+  address = "#{@base_url}/data/file/json"
   json_resource = Net::HTTP.get(URI(address))
   parsed_json = JSON.load(json_resource)
-  parsed_json['content']
+  file_name = parsed_json['content'][fid.to_s]['filename']
+  file_mime = parsed_json['content'][fid.to_s]['filemime']
+
+  unless file_mime['image']
+    puts "not an image! #{file_name} - skip"
+    return nil
+  end
+
+  file_name
 end
 
 # set to true is resource should be the web; false will use the legacy/files
@@ -22,7 +30,7 @@ end
 
 parsed_json = JSON.load(json_resource)
 parsed_json['content'].each do |id, picture|
-  ap "processing id #{id}"
+  puts "processing id #{id}"
 
   # get related event ID
   event_id = nil
@@ -31,7 +39,7 @@ parsed_json['content'].each do |id, picture|
   end
   event_record = Event.find_by(id: event_id)
   if event_id.nil? || event_record.nil?
-    ap 'event record not recognized!'
+    puts "event record not recognized!"
     next
   end
 
@@ -42,13 +50,15 @@ parsed_json['content'].each do |id, picture|
   end
 
   # created_at
-  date = Time.at(user['created'].to_i).to_datetime
+  date = Time.at(picture['created'].to_i).to_datetime
 
   # image
   picture_file = nil
-  if event['field_veranstaltung_doku_media'].any?
-    fid = event['field_veranstaltung_doku_media']['und'][0]['fid']
+  if picture['field_veranstaltung_doku_media'].any?
+    fid = picture['field_veranstaltung_doku_media']['und'][0]['fid']
     file_name = get_file_name_from_fid(fid)
+    next unless file_name
+
     file_path = "#{@base_url}/sites/default/files/#{file_name}"
     escaped_file_path = URI.escape(file_path)
     net_response = Net::HTTP.get_response(URI(escaped_file_path))
@@ -61,13 +71,13 @@ parsed_json['content'].each do |id, picture|
       end
       picture_file = File.new(local_file_path)
     else
-      ap "image '#{file_name}' can't be downloaded"
-      ap escaped_file_path
+      puts "image '#{file_name}' can't be downloaded"
+      puts escaped_file_path
       next
     end
   end
   if picture_file.nil?
-    ap 'no image file!'
+    puts 'no image file!'
     next
   end
 
@@ -81,5 +91,5 @@ parsed_json['content'].each do |id, picture|
     user_id: nil
   }
 
-  Pictures.seed(:id, data)
+  Picture.seed(:id, data)
 end
