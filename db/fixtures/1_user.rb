@@ -6,7 +6,7 @@ require 'uri'
 
 # set to true is resource should be the web; false will use the legacy/files
 if true
-  address = "http://die-offene-gesellschaft.de/data/#{@end_point}/json"
+  address = "http://lucid-berlin.de/web_developement/05_die_offene_gesellschaft_dog.lucid.berlin/data/#{@end_point}/json"
   json_resource = Net::HTTP.get(URI(address))
 else
   json_resource = File.read("#{Rails.root}/db/fixtures/legacy/#{@end_point}.json")
@@ -42,13 +42,17 @@ parsed_json['content'].each do |id, user|
     end
   end
 
+  # statement
+  statement = user['field_kurzstatement']['und'][0]['value']
+  statement = nil if statement == 'Kurzstatement'
+
   data = {
     id: (id.to_i * (-1)),
     email: email,
     created_at: date,
     avatar: avatar_file,
     role: user['field_beschreibung']['und'][0]['value'],
-    statement: user['field_kurzstatement']['und'][0]['value'],
+    statement: statement,
     locked: false,
     name: name
   }
