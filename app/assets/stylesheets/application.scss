@@ -32,12 +32,16 @@
 .big-title {
   color: $black;
   font-family: 'Montserrat', sans-serif;
-  font-size: 3.75vw;
+  font-size: 5.5422vw;
   font-stretch: normal;
   font-style: normal;
   font-weight: 600;
   letter-spacing: 2.6px;
   text-align: left;
+
+  @media (min-width: $mobile-breakpoint-width) {
+    font-size: 3.8333vw;
+  }
 
   @media (min-width: $max-viewport-width) {
     font-size: 46px;
