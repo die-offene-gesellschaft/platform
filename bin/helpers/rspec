@@ -1,4 +1,5 @@
 #!/bin/bash
 
 ./bin/helpers/message "RSPEC"
+
 bundle exec rspec

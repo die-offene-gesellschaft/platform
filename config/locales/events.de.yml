@@ -13,5 +13,7 @@ de:
       index: Aktionen
       new: Lege eine neue Aktion an
       edit:
+    event-type:
+      debate: Debatte
     upcoming-events: Kommende Aktionen
     event-archive: Aktionen Archiv

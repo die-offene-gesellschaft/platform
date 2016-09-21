@@ -1,9 +1,9 @@
 ruby:
   meta_nav_items = {
     faciliation: { label: t('header.meta-nav.faciliation'), url: faciliation_path },
-    contact: { label: t('header.meta-nav.contact'), url: contact_path },
-    my_profile: { label: t('header.meta-nav.my-profile'), url: '#' }
+    contact: { label: t('header.meta-nav.contact'), url: "#{about_path}##{t('header.meta-nav.contact').downcase}" }
   }
+  meta_nav_items[:my_profile] = '#' if user_signed_in?
   nav_items = {
     home: { label: t('header.nav.home'), url: home_path },
     events: {
@@ -23,7 +23,7 @@ ruby:
       }
     },
     about: { label: t('header.nav.about'), url: about_path },
-    blogposts: { label: t('header.nav.blogposts'), url: blogposts_path }
+    # blogposts: { label: t('header.nav.blogposts'), url: blogposts_path }
   }
 header.container-fluid id="header"
   .menu
@@ -72,25 +72,27 @@ header.container-fluid id="header"
                   imprint_path
       li.meta-nav-item
         = link_to t('header.nav.privacy'),
-                  privacy_path
+                  "#{imprint_path}##{t('header.nav.privacy').downcase}"
       li
         br
       li.meta-nav-item.uppercase
-        a href="#"
-          = t('header.meta-nav.logout')
+        - if user_signed_in?
+          a href="#"
+            = t('header.meta-nav.logout')
   a.logo-die-offene-gesellschaft href='/'
     = image_tag 'logo-die-offene-gesellschaft.svg'
   .meta-nav
     - meta_nav_items.each do |_, meta_nav_item|
       = link_to meta_nav_item[:label],
                 meta_nav_item[:url]
-    a.logout href="#"
-      = t('header.meta-nav.logout')
+    - if user_signed_in?
+      a.logout href="#"
+        = t('header.meta-nav.logout')
   nav
     - nav_items.each do |name, nav_item|
       = link_to nav_item[:label],
                 nav_item[:url],
                 class: ('active' if controller_name == name.to_s)
-    = link_to participate_path,
+    /= link_to participate_path,
               class: 'participate' do
       = t('header.nav.participate')

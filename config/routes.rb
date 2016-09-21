@@ -13,10 +13,8 @@ Rails.application.routes.draw do
 
   get '/' => redirect('/home')
   get '/about' => 'about#show'
-  get '/contact' => 'application#contact'
   get '/faciliation' => 'application#faciliation'
   get '/imprint' => 'application#imprint'
-  get '/privacy' => 'application#privacy'
   get '/guideline' => 'application#guideline'
 
   get '/home' => 'home#show'

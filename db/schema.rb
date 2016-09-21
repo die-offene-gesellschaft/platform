@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160919204704) do
+ActiveRecord::Schema.define(version: 20160921143702) do
 
   create_table "active_members", force: :cascade do |t|
     t.string   "forename"
@@ -100,14 +100,18 @@ ActiveRecord::Schema.define(version: 20160919204704) do
     t.text     "description"
     t.string   "facebook_identifier"
     t.boolean  "locked"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.integer  "user_id"
     t.integer  "venue_id"
+    t.text     "link"
+    t.boolean  "planned"
+    t.text     "post_description"
+    t.string   "post_description_source"
     t.index ["user_id"], name: "index_events_on_user_id"
     t.index ["venue_id"], name: "index_events_on_venue_id"
   end
@@ -142,6 +146,28 @@ ActiveRecord::Schema.define(version: 20160919204704) do
     t.integer  "user_id"
     t.index ["event_id"], name: "index_pictures_on_event_id"
     t.index ["user_id"], name: "index_pictures_on_user_id"
+  end
+
+  create_table "press_reviews", force: :cascade do |t|
+    t.string   "source_url"
+    t.string   "source_title"
+    t.string   "title"
+    t.text     "description"
+    t.string   "link"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "event_id"
+    t.index ["event_id"], name: "index_press_reviews_on_event_id"
+  end
+
+  create_table "statements", force: :cascade do |t|
+    t.string   "question"
+    t.string   "content"
+    t.string   "author"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "event_id"
+    t.index ["event_id"], name: "index_statements_on_event_id"
   end
 
   create_table "users", force: :cascade do |t|
