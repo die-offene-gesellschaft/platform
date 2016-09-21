@@ -24,7 +24,7 @@ ruby:
                       type = 'blank'
                       type = 'picture' if event.picture.path
                       # type = 'statement' if event.statement
-                    a class="#{type}" href="#{event_path(event)}" style="#{"background-image: url(#{asset_path(event.picture)})" if type == 'picture'}"
+                    a class="#{type}" style="#{"background-image: url(#{asset_path(event.picture)})" if type == 'picture'}" href="#event-id-#{event.id}" data-toggle='modal' data-target="#event-id-#{event.id}"
                       - if type == 'statement'
                         .statement
                           = event.statement
@@ -32,6 +32,17 @@ ruby:
                         = l(event.begin_at, format: :short_date)
                         | &nbsp;
                         = event.title
+                    .modal.fade id="event-id-#{event.id}" tabindex="-1" role="dialog" aria-labelledby="event-id-#{event.id}" aria-hidden="true"
+                      .modal-dialog role="document"
+                        .modal-content
+                          button.close type="button" data-dismiss="modal" aria-label="Close"
+                            span aria-hidden="true"
+                              = fa_icon 'times'
+                          .modal-body.event-modal
+                            .container-fluid
+                              .row
+                                = render 'shared/event/modal_details',
+                                         event: event
                 - (3 - slice.count).times do
                   td.dummy
     - else
@@ -46,7 +57,7 @@ ruby:
                 = l(month, format: '%Y')
                 = fa_icon 'chevron-down 2x'
             - events.each do |event|
-              tr.event data-href="#{event_path(event)}"
+              tr.event data-modal="event-id-#{event.id}"
                 td.date
                   = l(event.begin_at, format: :short_date)
                 td.details
@@ -61,16 +72,17 @@ ruby:
                     = l(event.begin_at, format: :short_time)
                   p.venue
                     = venue.name
-                - if admin_signed_in?
-                  td
-                    = link_to 'Show',
-                              event
-                    = link_to 'Edit',
-                              edit_event_path(event)
-                    = link_to 'Destroy',
-                              event,
-                              method: :delete,
-                              data: { confirm: 'Are you sure?' }
+                .modal.fade id="event-id-#{event.id}" tabindex="-1" role="dialog" aria-labelledby="event-id-#{event.id}" aria-hidden="true"
+                  .modal-dialog role="document"
+                    .modal-content
+                      button.close type="button" data-dismiss="modal" aria-label="Close"
+                        span aria-hidden="true"
+                          = fa_icon 'times'
+                      .modal-body.event-modal
+                        .container-fluid
+                          .row
+                            = render 'shared/event/modal_details',
+                                     event: event
       - if admin_signed_in?
         br
         = link_to 'New Event',
