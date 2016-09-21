@@ -53,5 +53,5 @@ parsed_json['content'].each do |id, user|
     name: name
   }
 
-  User.seed(:id, :email, data) unless email == 'Prime@web.de'
+  User.seed(:email, data) unless email == 'Prime@web.de'
 end
