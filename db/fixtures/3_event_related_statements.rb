@@ -3,10 +3,11 @@ require 'date'
 require 'uri'
 
 @end_point = 'veranstaltung_doku_text'
+@base_url = 'http://lucid-berlin.de/web_developement/05_die_offene_gesellschaft_dog.lucid.berlin'
 
 # set to true is resource should be the web; false will use the legacy/files
 if false
-  address = "http://die-offene-gesellschaft.de/data/#{@end_point}/json"
+  address = "#{@base_url}/data/#{@end_point}/json"
   json_resource = Net::HTTP.get(URI(address))
 else
   json_resource = File.read("#{Rails.root}/db/fixtures/legacy/#{@end_point}.json")

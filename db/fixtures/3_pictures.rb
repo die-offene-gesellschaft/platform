@@ -3,9 +3,10 @@ require 'date'
 require 'uri'
 
 @end_point = 'veranstaltung_doku_media'
+@base_url = 'http://lucid-berlin.de/web_developement/05_die_offene_gesellschaft_dog.lucid.berlin'
 
 def get_file_name_from_fid(fid)
-  address = 'http://die-offene-gesellschaft.de/data/fileid/json'
+  address = "#{@base_url}/data/fileid/json"
   json_resource = Net::HTTP.get(URI(address))
   parsed_json = JSON.load(json_resource)
   parsed_json['content']
@@ -13,7 +14,7 @@ end
 
 # set to true is resource should be the web; false will use the legacy/files
 if true
-  address = "http://die-offene-gesellschaft.de/data/#{@end_point}/json"
+  address = "#{@base_url}/data/#{@end_point}/json"
   json_resource = Net::HTTP.get(URI(address))
 else
   json_resource = File.read("#{Rails.root}/db/fixtures/legacy/#{@end_point}.json")
@@ -48,7 +49,7 @@ parsed_json['content'].each do |id, picture|
   if event['field_veranstaltung_doku_media'].any?
     fid = event['field_veranstaltung_doku_media']['und'][0]['fid']
     file_name = get_file_name_from_fid(fid)
-    file_path = "http://die-offene-gesellschaft.de/sites/default/files/#{file_name}"
+    file_path = "#{@base_url}/sites/default/files/#{file_name}"
     escaped_file_path = URI.escape(file_path)
     net_response = Net::HTTP.get_response(URI(escaped_file_path))
 
