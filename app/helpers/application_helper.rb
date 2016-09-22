@@ -14,27 +14,24 @@ module ApplicationHelper
     return 'exclamation' if flash_type.eql?('alert')
   end
 
-  def twitter_share_link(resource)
-    link = '#'
-    if resource.is_a? Event
-      link = "https://twitter.com/home?status=#{URI.escape(event_url(resource))}"
-    elsif resource.is_a? User
-      link = "https://twitter.com/home?status=#{URI.escape(user_url(resource))}"
-    elsif resource.is_a? Blogpost
-      link = "https://twitter.com/home?status=#{URI.escape(blogpost_url(resource))}"
-    end
-    link
+  # this method smells of :reek:ControlParameter
+  # this method smells of :reek:TooManyStatements
+  # rubocop:disable Metrics/CyclomaticComplexity
+  def network_share_link(network, resource = '')
+    base_uri = 'https://twitter.com/home?status=' if network == :twitter
+    base_uri = 'https://www.facebook.com/sharer.php?u=' if network == :facebook
+    resource_uri = request.original_url if resource == ''
+    resource_uri = event_url(resource) if resource.is_a? Event
+    resource_uri = user_url(resource) if resource.is_a? User
+    resource_uri = blogpost_url(resource) if resource.is_a? Blogpost
+    "#{base_uri}#{URI.escape(resource_uri)}"
   end
 
-  def facebook_share_link(resource)
-    link = '#'
-    if resource.is_a? Event
-      link = "https://www.facebook.com/sharer.php?u=#{URI.escape(event_url(resource))}"
-    elsif resource.is_a? User
-      link = "https://www.facebook.com/sharer.php?u=#{URI.escape(user_url(resource))}"
-    elsif resource.is_a? Blogpost
-      link = "https://www.facebook.com/sharer.php?u=#{URI.escape(blogpost_url(resource))}"
-    end
-    link
+  def twitter_share_link(resource = '')
+    network_share_link(:twitter, resource)
+  end
+
+  def facebook_share_link(resource = '')
+    network_share_link(:facebook, resource)
   end
 end

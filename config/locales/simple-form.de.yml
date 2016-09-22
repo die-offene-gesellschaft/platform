@@ -1,0 +1,11 @@
+de:
+  simple_form:
+    placeholders:
+      participate:
+        avatar: 'Bild'
+        name: 'Name'
+        email: 'E-Mail'
+        password: 'Passwort'
+        password_repeat: 'Passwort (wiederholen)'
+        role: 'Über mich'
+        statement: 'Mein Statement zur Offenen Gesellschaft'

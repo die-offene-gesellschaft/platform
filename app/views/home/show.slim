@@ -17,7 +17,7 @@
       = render 'shared/user/tile', user: @users[5 % @users.count]
 
     .desktop-size1x1.desktop-x1.desktop-y2.size1x1.x1.y7
-      a.call-to-action href="#"
+      a.call-to-action href="#{participate_path}"
         span
           = t('home.registration')
     .desktop-size1x1.desktop-x2.desktop-y2.mobile-hidden
@@ -67,7 +67,7 @@
     .desktop-size1x1.desktop-x3.desktop-y6.size1x1.x2.y10
       = render 'shared/user/tile', user: @users[15 % @users.count]
     .desktop-size1x1.desktop-x4.desktop-y6.size1x1.x1.y13
-      a.call-to-action href="#"
+      a.call-to-action href="#{participate_path}"
         span
           = t('home.participate')
 
@@ -83,7 +83,7 @@
       = render 'shared/event/tile', event: @events[5 % @events.count]
 
     .desktop-size1x1.desktop-x1.desktop-y8.size1x1.x2.y14
-      a.call-to-action href="#"
+      a.call-to-action href="#{participate_path}"
         span
           = t('home.start-own-event')
     .desktop-size1x1.desktop-x4.desktop-y8.size1x1.x1.y16

@@ -14,12 +14,16 @@ Rails.application.routes.draw do
   get '/' => redirect('/home')
   get '/about' => 'about#show'
   get '/faciliation' => 'application#faciliation'
-  get '/home' => 'home#show'
   get '/imprint' => 'application#imprint'
   get '/guideline' => 'application#guideline'
 
+  get '/home' => 'home#show'
+
   get '/users' => 'users#index'
   get '/users/:id' => 'users#show', as: 'user'
+
+  get '/participate' => 'participate#show'
+  post '/participate' => 'participate#create'
 
   get '/styleguide' => 'application#styleguide'
 end

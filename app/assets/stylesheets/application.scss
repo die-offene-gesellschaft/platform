@@ -19,6 +19,7 @@
 @import 'home';
 @import 'locations';
 @import 'modal';
+@import 'participate';
 @import 'pictures';
 @import 'users';
 @import 'venues';
@@ -26,352 +27,7 @@
 @import 'guideline';
 @import 'imprint';
 
-// styleguide
-// https://app.zeplin.io/project.html#pid=57caca57bc94281c06a4e3b2&styleguide
-
-.big-title {
-  color: $black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 5.5422vw;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: 2.6px;
-  text-align: left;
-
-  @media (min-width: $mobile-breakpoint-width) {
-    font-size: 3.8333vw;
-  }
-
-  @media (min-width: $max-viewport-width) {
-    font-size: 46px;
-  }
-}
-
-.events-title {
-  color: $black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 42px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: 1.9px;
-  text-align: left;
-}
-
-.city {
-  color: $black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 42px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 600;
-  text-align: left;
-}
-
-.calendar {
-  color: $white;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10.5vw;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: 1.9px;
-  text-align: left;
-
-  @media (min-width: $mobile-breakpoint-width) {
-    font-size: 3.5vw;
-  }
-
-  @media (min-width: $max-viewport-width) {
-    font-size: 42px;
-  }
-}
-
-.venue-title {
-  color: $black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 42px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 300;
-  text-align: left;
-}
-
-.headline-red {
-  color: $red;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 35px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: .8px;
-  text-align: left;
-}
-
-.headline-black {
-  color: $black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 35px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: .8px;
-  text-align: left;
-}
-
-.headline-white {
-  color: $white;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 35px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: .8px;
-  text-align: left;
-}
-
-.time-title {
-  color: $black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 34px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 300;
-  text-align: left;
-}
-
-.venue-type {
-  color: $black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 25px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 300;
-  letter-spacing: .3px;
-  text-align: left;
-}
-
-.quote {
-  color: $anthracite;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 5.75vw;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: normal;
-  letter-spacing: .5px;
-  line-height: 1.43;
-  text-align: left;
-
-  @media (min-width: $mobile-breakpoint-width) {
-    font-size: 1.9167vw;
-  }
-
-  @media (min-width: $max-viewport-width) {
-    font-size: 23px;
-  }
-}
-
-.box-article-title {
-  color: $black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 5.75vw;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: normal;
-  letter-spacing: .5px;
-  text-align: left;
-
-  @media (min-width: $mobile-breakpoint-width) {
-    font-size: 1.9167vw;
-  }
-
-  @media (min-width: $max-viewport-width) {
-    font-size: 23px;
-  }
-}
-
-.link {
-  color: $red;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 19px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: .4px;
-  text-align: left;
-}
-
-.box-article-text {
-  color: $black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 4.75vw;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 300;
-  letter-spacing: .4px;
-  text-align: left;
-
-  @media (min-width: $mobile-breakpoint-width) {
-    font-size: 1.5833vw;
-  }
-
-  @media (min-width: $max-viewport-width) {
-    font-size: 19px;
-  }
-}
-
-.form {
-  color: $anthracite;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 19px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 300;
-  letter-spacing: .4px;
-  text-align: left;
-}
-
-.article-white {
-  color: $white;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 19px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 300;
-  letter-spacing: .4px;
-  line-height: 1.47;
-  text-align: left;
-}
-
-.time {
-  color: $black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: .2px;
-  text-align: left;
-}
-
-.header {
-  color: $dark-blue;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: 0;
-}
-
-.box-details {
-  color: $anthracite;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 4.5vw;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: .4px;
-  line-height: 1.17;
-  text-align: left;
-
-  @media (min-width: $mobile-breakpoint-width) {
-    font-size: 1.5vw;
-  }
-
-  @media (min-width: $max-viewport-width) {
-    font-size: 18px;
-  }
-}
-
-.venue {
-  color: $black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 300;
-  text-align: left;
-}
-
-.name {
-  color: $red;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 17px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: .4px;
-  text-align: left;
-}
-
-.article-info {
-  color: $red;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 17px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: normal;
-  letter-spacing: .2px;
-  text-align: left;
-}
-
-.role {
-  color: $black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 17px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 300;
-  letter-spacing: .4px;
-  text-align: left;
-}
-
-.link-small {
-  color: $red;
-  font-family: Montserrat;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: .4px;
-
-  a {
-    color: $red;
-  }
-}
-
-.footer {
-  color: $black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: .2px;
-  text-align: left;
-}
-
-.quote-role {
-  color: $anthracite;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 3.25vw;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 300;
-  letter-spacing: .3px;
-  line-height: 1.62;
-  text-align: left;
-
-  @media (min-width: $mobile-breakpoint-width) {
-    font-size: 1.0833vw;
-  }
-
-  @media (min-width: $max-viewport-width) {
-    font-size: 13px;
-  }
-}
-
-// basic styling
+@import 'styleguide';
 
 html,
 body {
@@ -647,5 +303,24 @@ tr {
         margin: 0;
       }
     }
+  }
+}
+
+.alert {
+  border-radius: 0;
+  font-weight: bold;
+
+  .col-xs-12 {
+    text-align: center;
+  }
+
+  &.alert-danger {
+    background-color: $red;
+    color: $white;
+  }
+
+  &.alert-success {
+    background-color: $yellow;
+    color: $black;
   }
 }
