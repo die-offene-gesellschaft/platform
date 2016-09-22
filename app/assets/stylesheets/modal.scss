@@ -223,19 +223,17 @@
   }
 
   .details {
-    height: 66.6vw;
+    min-height: 66.6vw;
     position: relative;
     width: 100%;
 
     @include media-breakpoint-up(lg) {
       &.col-xs-12 {
-        height: 15vw;
-        max-height: #{$max-viewport-width * .15};
+        min-height: 15vw;
       }
 
       &.col-lg-6 {
-        height: 33.3vw;
-        max-height: $max-modal-height;
+        min-height: 33.3vw;
         width: 50%;
       }
     }
@@ -262,11 +260,11 @@
 
     .user-role {
       font-size: 2.2vw;
-      margin: .5vw 22px 0;
+      margin: .5vw 22px 81px;
 
       @include media-breakpoint-up(lg) {
         font-size: 13px;
-        margin: 7px 22px 0;
+        margin: 7px 22px 81px;
       }
     }
 
