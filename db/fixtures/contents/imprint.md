@@ -92,7 +92,7 @@ Die durch den Cookie erzeugten Informationen über die Benutzung dieser Website 
 
 Wenn Sie mit der Speicherung und Nutzung Ihrer Daten nicht einverstanden sind, können Sie die Speicherung und Nutzung hier deaktivieren. In diesem Fall wird in Ihrem Browser ein Opt-Out-Cookie hinterlegt der verhindert, dass Piwik Nutzungsdaten speichert. Wenn Sie Ihre Cookies löschen hat dies zur Folge, dass auch das Piwik Opt-Out-Cookie gelöscht wird. Das Opt-Out muss bei einem erneuten Besuch unserer Seite wieder aktiviert werden.
 
-<iframe style="border: 0; height: 200px; width: 600px;" src="http://piwik.adelphi.de/index.php?module=CoreAdminHome&action=optOut&language=de"></iframe>
+<iframe style="border: 0; height: 200px; width: 100%;" src="https://piwik.adelphi.de/index.php?module=CoreAdminHome&action=optOut&language=de"></iframe>
 
 ### 6. Datenschutzerklärung für die Nutzung von Twitter
 
@@ -184,7 +184,7 @@ Als registrierter Nutzer haben Sie auf www.die-offene-gesellschaft.de die Mögli
 
 Ein Anspruch Ihrerseits auf die Verfügbarkeit und den Zugriff auf die Funktionen von www.die-offene-gesellschaft.de besteht nicht.
 
-### § 4 Ausreichende Rechte an Inhalten 
+### § 4 Ausreichende Rechte an Inhalten
 
 1. Sie sind selbst dafür verantwortlich, dass Sie über ausreichende Rechte an den Inhalten verfügen, die Sie auf www.die-offene-gesellschaft.de veröffentlichen und garantieren, dass die Inhalte frei von Rechten Dritter sind und auch keine Rechte Dritter durch Ihre veröffentlichten Kommentare verletzt werden.
 2. Die Initiative Offene Gesellschaft weist Sie darauf hin, keine Inhalte zu verwenden, die Urheberrechten Dritter unterliegen oder an denen Dritte ein sonstiges Recht innehaben, welches der Veröffentlichung auf www.die-offene-gesellschaft.de entgegensteht.

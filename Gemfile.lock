@@ -159,6 +159,10 @@ GEM
       mimemagic (~> 0.3.0)
     parser (2.3.1.2)
       ast (~> 2.2)
+    piwik_analytics (1.0.2)
+      actionpack
+      activesupport
+      rails (>= 3.0.0)
     pkg-config (1.1.7)
     powerpack (0.1.1)
     puma (3.6.0)
@@ -341,6 +345,7 @@ DEPENDENCIES
   listen
   mysql2
   paperclip
+  piwik_analytics
   puma
   rails
   rails_best_practices
