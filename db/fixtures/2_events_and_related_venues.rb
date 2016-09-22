@@ -90,6 +90,13 @@ parsed_json['content'].each do |id, event|
     end
   end
 
+  # background color for white logos
+  color = nil
+  white_logos = [492, 220, 358, 100, 5, 49, 2]
+  if white_logos.include? id.to_i
+    color = '#ffdd02'
+  end
+
   data = {
     id: (id.to_i * (-1)),
     title: "#{venue.name} #{venue.city}",
@@ -105,7 +112,8 @@ parsed_json['content'].each do |id, event|
     user_id: nil,
     venue_id: venue.id,
     active_members: active_members,
-    planned: planned
+    planned: planned,
+    color: color
   }
 
   Event.seed(:id, data)

@@ -2,7 +2,8 @@ class Picture < ApplicationRecord
   belongs_to :user
   belongs_to :event
 
-  has_attached_file :picture
+  has_attached_file :picture,
+                    styles: { normal: ['400x', :jpg] }
 
   validates :picture,
             attachment_presence: true
