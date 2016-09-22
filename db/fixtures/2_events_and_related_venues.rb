@@ -38,7 +38,7 @@ parsed_json['content'].each do |id, event|
     zone = event['field_verantaltung_zeit']['und'][0]['timezone']
     time_string = "#{date.strftime('%Y-%m-%d')} #{time.strftime('%H:%M:%S')}"
     time_with_zone = ActiveSupport::TimeZone[zone].parse(time_string)
-    begin_date_time = time_with_zone.to_datetime + 1.hour
+    begin_date_time = time_with_zone.to_datetime + 1.hour - 1.day
     end_date_time = begin_date_time + 2.hours
     planned = false
   else
