@@ -8,3 +8,5 @@ TooManyStatements:
   max_statements: 10
 InstanceVariableAssumption:
   enabled: false
+TooManyInstanceVariables:
+  max_instance_variables: 6
