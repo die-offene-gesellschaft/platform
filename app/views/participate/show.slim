@@ -37,5 +37,16 @@
         .col-xs-12.col-md-6.avatars
           - @users.each do |user|
             .image style="background-image: url(#{asset_url(user.avatar(:normal))});"
-  .row
+  .row.support
     .col-xs-12
+      ruby:
+        facebook_link = link_to fa_icon('facebook-square'), facebook_share_link
+        twitter_link = link_to fa_icon('twitter-square'), twitter_share_link
+        transfer_link = sms_link = paypal_link = ''
+        content = @contents.first.value
+                           .gsub(/%{facebook_share_link}/, facebook_link)
+                           .gsub(/%{twitter_share_link}/, twitter_link)
+                           .gsub(/%{transfer_link}/, transfer_link)
+                           .gsub(/%{sms_link}/, sms_link)
+                           .gsub(/%{paypal_link}/, paypal_link)
+      == content

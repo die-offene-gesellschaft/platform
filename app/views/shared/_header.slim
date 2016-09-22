@@ -93,6 +93,6 @@ header.container-fluid id="header"
       = link_to nav_item[:label],
                 nav_item[:url],
                 class: ('active' if controller_name == name.to_s)
-    /= link_to participate_path,
+    = link_to participate_path,
               class: 'participate' do
       = t('header.nav.participate')

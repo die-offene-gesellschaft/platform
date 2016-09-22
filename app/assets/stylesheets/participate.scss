@@ -232,4 +232,80 @@
       }
     }
   }
+
+
+  .support {
+    .col-xs-12 {
+      padding: 37px 40px;
+    }
+
+    h2 {
+      color: $black;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 35px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: .8px;
+      margin: 0 0 6px;
+      text-align: left;
+    }
+
+    h3 {
+      color: $black;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 23px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: normal;
+      letter-spacing: .5px;
+      margin: 80px 0 6px;
+      text-align: left;
+    }
+
+    p {
+      color: $black;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 19px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: 300;
+      letter-spacing: .4px;
+      line-height: 1.47;
+      text-align: left;
+    }
+
+    a {
+      background-color: $red;
+      color: $white;
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 19px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: .4px;
+      line-height: 1.5;
+      margin: 0 1px 6px 0;
+      padding: 12px 20px;
+      position: relative;
+      text-align: center;
+      text-transform: uppercase;
+      top: 10px;
+
+      &:hover {
+        color: $white;
+      }
+
+      &[href*='facebook'],
+      &[href*='twitter'] {
+        background-color: transparent;
+        color: $red;
+        font-size: 3rem;
+        line-height: 1;
+        padding: 0;
+        top: 0;
+      }
+    }
+  }
 }
