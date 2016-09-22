@@ -1,3 +1,11 @@
+.event {
+  .modal {
+    .modal-dialog {
+      width: 80vw;
+    }
+  }
+}
+
 .modal {
   padding: 0;
 
@@ -96,13 +104,17 @@
     .title {
       color: $black;
       font-family: 'Montserrat', sans-serif;
-      font-size: 42px;
+      font-size: 24px;
       font-stretch: normal;
       font-style: normal;
       font-weight: 600;
       line-height: .95;
       margin: 0 0 21px;
       text-align: left;
+    }
+
+    h2 {
+      font-size: 16px;
     }
 
     .location-date-and-time {
@@ -118,6 +130,8 @@
     }
 
     p {
+      font-size: 14px;
+
       .fa {
         color: $dark-gray;
         margin: 0 0 0 10px;
