@@ -230,12 +230,10 @@
     @include media-breakpoint-up(lg) {
       &.col-xs-12 {
         min-height: 15vw;
-        // max-height: #{$max-viewport-width * .15};
       }
 
       &.col-lg-6 {
         min-height: 33.3vw;
-        // max-height: $max-modal-height;
         width: 50%;
       }
     }
