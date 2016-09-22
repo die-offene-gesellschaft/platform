@@ -1,6 +1,8 @@
 class ParticipateController < ApplicationController
   before_action :set_user, only: [:show, :create]
   before_action :set_users, only: [:show, :create]
+  before_action :set_contents, only: [:show, :create]
+  before_action :process_contents, only: [:show, :create]
 
   # GET /participate
   def show
@@ -71,5 +73,19 @@ class ParticipateController < ApplicationController
     if !flash.now[:error] && (participate_params[:newsletter] || participate_params[:terms_of_use])
       flash.now[:success] = t('participate.success')
     end
+  end
+
+  def set_contents
+    @contents = Content.where(controller_action_name: "#{controller_name}#show")
+                       .order(:order)
+  end
+
+  def process_contents
+    @contents.each do |content|
+      html = Kramdown::Document.new(content.value).to_html
+      content.value = html
+    end
+    @content = ''
+    @content = @contents.first.value if @contents.any?
   end
 end
