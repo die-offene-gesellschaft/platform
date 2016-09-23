@@ -1,24 +1,21 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
-  # GET /comments
-  # GET /comments.json
+  # GET /events/1/comments.json
   def index
     @comments = Comment.all
+    respond_to do |format|
+      format.html { render nothing: true }
+      format.json { render json: @comments }
+    end
   end
 
-  # GET /comments/1
-  # GET /comments/1.json
+  # GET /events/1/comments/1.json
   def show
-  end
-
-  # GET /comments/new
-  def new
-    @comment = Comment.new
-  end
-
-  # GET /comments/1/edit
-  def edit
+    respond_to do |format|
+      format.html { render nothing: true }
+      format.json { render json: @comment }
+    end
   end
 
   # POST /comments

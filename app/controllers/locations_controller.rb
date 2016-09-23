@@ -5,11 +5,19 @@ class LocationsController < ApplicationController
   # GET /locations.json
   def index
     @locations = Location.all
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @locations }
+    end
   end
 
   # GET /locations/1
   # GET /locations/1.json
   def show
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @location }
+    end
   end
 
   # GET /locations/new
