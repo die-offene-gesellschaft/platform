@@ -1,24 +1,21 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
 
-  # GET /pictures
-  # GET /pictures.json
+  # GET /events/1/pictures.json
   def index
     @pictures = Picture.all
+    respond_to do |format|
+      format.html { render nothing: true }
+      format.json { render json: @pictures }
+    end
   end
 
-  # GET /pictures/1
-  # GET /pictures/1.json
+  # GET /events/1/pictures/1.json
   def show
-  end
-
-  # GET /pictures/new
-  def new
-    @picture = Picture.new
-  end
-
-  # GET /pictures/1/edit
-  def edit
+    respond_to do |format|
+      format.html { render nothing: true }
+      format.json { render json: @picture }
+    end
   end
 
   # POST /pictures

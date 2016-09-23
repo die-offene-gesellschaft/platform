@@ -1,24 +1,21 @@
 class ActiveMembersController < ApplicationController
-  before_action :set_active_member, only: [:show, :edit, :update, :destroy]
+  before_action :set_active_member, only: [:show, :update, :destroy]
 
-  # GET /active_members
   # GET /active_members.json
   def index
     @active_members = ActiveMember.all
+    respond_to do |format|
+      format.html { render nothing: true }
+      format.json { render json: @active_members.to_json }
+    end
   end
 
-  # GET /active_members/1
   # GET /active_members/1.json
   def show
-  end
-
-  # GET /active_members/new
-  def new
-    @active_member = ActiveMember.new
-  end
-
-  # GET /active_members/1/edit
-  def edit
+    respond_to do |format|
+      format.html { render nothing: true }
+      format.json { render json: @active_members.to_json }
+    end
   end
 
   # POST /active_members

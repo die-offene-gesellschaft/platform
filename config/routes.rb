@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  resources :blogposts
-  resources :active_members
-  resources :comments
-  resources :events
-  resources :locations
-  resources :pictures
-  resources :venues
+  resources :blogposts, only: [:index, :show]
+  resources :active_members, only: [:index, :show]
+  resources :events, only: [:index, :show] do
+    resources :comments, only: [:index, :show]
+    resources :pictures, only: [:index, :show]
+  end
+  resources :locations, only: [:index, :show, :edit, :new]
+  resources :venues, only: [:index, :show, :edit, :new]
   resources :contents, only: [:index, :show]
 
   devise_for :admins
