@@ -14,7 +14,6 @@ stages:
   - linting
   - code_analysis
   - testing
-  - deployment_staging
   - deployment_production
 
 code_analysis_job:
@@ -32,16 +31,10 @@ test_job:
   script:
     - bin/test
 
-deployment_staging_job:
-  stage: deployment_staging
-  script:
-    - bin/deploy "staging"
-  only:
-    - master
-
 deployment_production_job:
+  environment: production
   stage: deployment_production
   script:
     - bin/deploy "production"
   only:
-    - tags
+    - master
