@@ -324,3 +324,12 @@ tr {
     color: $black;
   }
 }
+
+[name*='contents'] {
+  color: $black;
+  font-family: monospace;
+
+  &:focus {
+    color: $black;
+  }
+}
