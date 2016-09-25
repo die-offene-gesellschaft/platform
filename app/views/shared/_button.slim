@@ -2,14 +2,28 @@ ruby:
   type = 'secondary' unless defined?(type) && type
   href = '#' unless defined?(href) && href
   label = '' unless defined?(label) && label
+  aria_label = '' unless defined?(aria_label) && aria_label
   confirm = '' unless defined?(confirm) && confirm
   method = 'get' unless defined?(method) && method
   tooltip = false unless defined?(tooltip) && tooltip
   icon = nil unless defined?(icon) && icon
   data = {} unless defined?(data) && data
+  class_name = '' unless defined?(class_name) && class_name
+  turbolinks = true unless defined?(turbolinks) && turbolinks == false
   button_content = render 'shared/button_content',
                           icon: icon,
                           label: label
+
+  if type == 'submit' || (defined?(disable_with) && disable_with == true)
+    disable_with = render 'shared/button_content',
+                          icon: 'spinner',
+                          label: label
+  end
+
+  if defined?(disable_with) && disable_with
+    data[:disable_with] = disable_with.tr('"', "'")
+  end
+
   title = ''
   if tooltip
     title = tooltip
@@ -17,31 +31,37 @@ ruby:
     data[:placement] = 'bottom'
   end
 
-- if type == 'submit'
-  - disable_with = render('shared/button_content', icon: 'spinner', label: label).tr!('"', "'")
+  data[:confirm] = confirm if confirm != ''
+  data[:method] = method if method != 'get'
+  data[:turbolinks] = false unless turbolinks
 
-  - if href == '#'
-    button name='button' type='submit' class='btn btn-primary' data-disable-with="#{disable_with}" data=data
-      == button_content
+  attributes = {}
+  attributes[:rel] = 'nofollow' unless method == 'get'
+  attributes[:title] = title unless title == ''
 
-  - else
-    a.btn class='btn-primary' href="#{href}" data-disable-with="#{disable_with}" data=data title="#{title}" data-method="#{method}"
-      == button_content
+  class_name += 'btn'
+
+- if defined?(group)
+  .btn-group role='group' aria-label="#{aria_label}"
+    - group.each do |button|
+      = render partial: 'shared/button', locals: button
+
+- elsif type == 'submit'
+    - if href == '#'
+      button.btn.btn-primary class="#{class_name}" name='button' type='submit' data=data
+        == button_content
+
+    - else
+      a.btn.btn-primary class="#{class_name}" href="#{href}" data=data *attributes
+        == button_content
 
 - elsif type == 'back'
-  a.btn.btn-secondary href='javascript:history.back()' data=data
+  a.btn.btn-secondary class="#{class_name}" href='javascript:history.back()' data=data
     == render 'shared/button_content',
               icon: 'chevron-left',
               label: t('back')
 
-- elsif method != 'get'
-  a.btn class="btn-#{type}" href="#{href}" data-confirm="#{confirm}" data-method="#{method}" data=data rel='nofollow' title="#{title}"
-    == button_content
-
 - else
-  a.btn class="btn-#{type}" href="#{href}" data=data title="#{title}"
+  a.btn class="btn-#{type} #{class_name}" href="#{href}" data=data *attributes
     == button_content
 
-- if tooltip
-  coffee:
-    $('[data-toggle="tooltip"]').tooltip()

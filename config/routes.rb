@@ -9,14 +9,17 @@ Rails.application.routes.draw do
   resources :venues, only: [:index, :show, :edit, :new]
   resources :contents, only: [:index, :show]
 
-  devise_for :admins
-  devise_for :users
-
   get '/' => redirect('/home')
+
   get '/about' => 'about#show'
   get '/faciliation' => 'application#faciliation'
   get '/imprint' => 'application#imprint'
   get '/guideline' => 'application#guideline'
+
+  %w(about faciliation imprint guideline).each do |content_resource|
+    get "/#{content_resource}/edit" => 'application#content_edit'
+    patch "/#{content_resource}" => 'application#content_update'
+  end
 
   get '/home' => 'home#show'
 
@@ -27,4 +30,8 @@ Rails.application.routes.draw do
   post '/participate' => 'participate#create'
 
   get '/styleguide' => 'application#styleguide'
+
+
+  devise_for :admins
+  devise_for :users
 end
