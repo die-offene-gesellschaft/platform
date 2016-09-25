@@ -5,14 +5,12 @@ class ApplicationController < ActionController::Base
   before_action :set_content_key
   before_action :set_contents
   before_action :process_contents, except: [:content_edit, :content_update]
-  # before_action :authenticate_admin!, only: [:content_edit]
+  before_action :authenticate_admin!, only: [:content_edit]
 
   def content_edit
   end
 
   def content_update
-    @contents = Content.where(controller_action_name: "#{controller_name}##{@content_key}")
-    @contents = Content.where(controller_action_name: "#{@content_key}#show") unless @contents.any?
     @contents.each do |content|
       content.value = params[:contents][content.key]
       content.save!
@@ -48,16 +46,13 @@ class ApplicationController < ActionController::Base
   end
 
   def set_content_key
-    @content_key = request.path[/\/(\w+)\/edit/, 1] || request.path[/\/(\w+)/, 1]
+    @content_key = request.path[%r{\/(\w+)\/edit}, 1] || request.path[%r{\/(\w+)}, 1]
   end
 
   def set_contents
-    @contents = Content.where(controller_action_name: "#{controller_name}##{action_name}")
-                       .order(:order)
-    @contents = Content.where(controller_action_name: "#{controller_name}##{@content_key}")
-                       .order(:order) unless @contents.any?
-    @contents = Content.where(controller_action_name: "#{@content_key}#show")
-                       .order(:order) unless @contents.any?
+    @contents = Content.from_controller_action_or_key controller_name: controller_name,
+                                                      action_name: action_name,
+                                                      content_key: @content_key
   end
 
   def process_contents

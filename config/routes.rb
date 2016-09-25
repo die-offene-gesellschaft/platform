@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  scope '/auth' do
+    devise_for :admins
+    devise_for :users
+  end
+
   resources :blogposts, only: [:index, :show]
   resources :active_members, only: [:index, :show]
   resources :events, only: [:index, :show] do
@@ -31,7 +36,4 @@ Rails.application.routes.draw do
 
   get '/styleguide' => 'application#styleguide'
 
-
-  devise_for :admins
-  devise_for :users
 end
