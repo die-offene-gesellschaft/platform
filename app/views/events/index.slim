@@ -99,8 +99,3 @@ ruby:
                           .row
                             = render 'shared/event/modal_details',
                                      event: event
-
-      - if admin_signed_in?
-        br
-        = link_to 'New Event',
-                  new_event_path
