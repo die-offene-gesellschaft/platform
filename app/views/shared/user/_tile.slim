@@ -9,7 +9,7 @@ a.user href="#user-id-#{user.id}" style="#{"background-image: url(#{asset_url(us
       = user.statement
     .name-and-role
       p.box-details
-        = user.name
+        = "#{user.forename} #{user.surname}"
       p.quote-role
         = user.role
 - content_for :modals do
