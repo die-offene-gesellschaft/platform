@@ -69,7 +69,7 @@ class ParticipateController < ApplicationController
   def register_platform
     @terms_of_use = true
     if @user.save
-      UserWelcomeMailer.user_welcome_email(@user).deliver
+      UserWelcomeMailer.user_welcome_email(@user).deliver_later
     else
       flash.now[:error] = t('participate.error')
     end
