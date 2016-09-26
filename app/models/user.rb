@@ -31,6 +31,6 @@ class User < ApplicationRecord
             presence: true
 
   def full_name
-    name
+    "#{forename} #{surname}"
   end
 end
