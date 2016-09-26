@@ -51,7 +51,7 @@
   }
 
   .avatars {
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(sm) {
       height: 133vw;
     }
   }
@@ -127,6 +127,7 @@
   textarea,
   input {
     background-color: $white;
+    border: 0;
     border-radius: 0;
     color: $dark-gray;
     display: inline-block;

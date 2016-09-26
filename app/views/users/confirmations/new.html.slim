@@ -1,0 +1,17 @@
+.row
+  .col-xs-12
+    h2
+      = t('devise.confirmations.new.resend_confirmation_instructions')
+    = simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+      = f.error_notification
+      = f.full_error :confirmation_token
+      .form-inputs
+        = f.input :email, required: true, autofocus: true
+      .form-actions
+        = render 'shared/button',
+                 type: 'submit',
+                 label: t('devise.confirmations.new.resend_confirmation_instructions'),
+                 icon: 'sign-in'
+.row
+  .col-xs-12
+    = render "users/shared/links"

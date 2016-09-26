@@ -1,4 +1,4 @@
 class Newsletter < ApplicationRecord
-  validates :name, :email,
+  validates :forename, :surname, :email,
             presence: true
 end

@@ -333,3 +333,36 @@ tr {
     color: $black;
   }
 }
+
+input {
+  &.string,
+  &.password {
+    background-color: $white;
+    border-color: $dark-gray;
+    border-radius: 0;
+    color: $black;
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13.1417px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 300;
+    height: 49px;
+    letter-spacing: .4px;
+    padding: 14px 17px 12px;
+    text-align: left;
+    width: 100%;
+
+    &:focus {
+      background-color: $white;
+      border-color: $dark-gray;
+      color: $black;
+    }
+  }
+}
+
+.alert {
+  .close {
+    display: none;
+  }
+}

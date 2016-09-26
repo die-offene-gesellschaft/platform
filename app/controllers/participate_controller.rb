@@ -29,7 +29,7 @@ class ParticipateController < ApplicationController
 
   def participate_params
     params.require(:participate).permit(
-      :name, :email,
+      :forename, :surname, :email,
       :newsletter,
       :terms_of_use,
       :avatar,
@@ -47,14 +47,16 @@ class ParticipateController < ApplicationController
 
   def newsletter_params
     {
-      name: participate_params[:name],
+      forename: participate_params[:forename],
+      surname: participate_params[:surname],
       email: participate_params[:email]
     }
   end
 
   def user_params
     {
-      name: participate_params[:name],
+      forename: participate_params[:forename],
+      surname: participate_params[:surname],
       email: participate_params[:email],
       password: participate_params[:password],
       avatar: participate_params[:avatar],
