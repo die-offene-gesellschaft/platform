@@ -24,7 +24,7 @@ class ParticipateController < ApplicationController
   end
 
   def set_users
-    @users = User.where(locked: false).where.not(avatar_file_name: nil).sample(15)
+    @users = User.where(locked: false).where.not(avatar_file_name: nil).sample(18)
   end
 
   def participate_params
