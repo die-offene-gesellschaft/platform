@@ -1,0 +1,5 @@
+<%= t('mails.user_welcome.greeting', recipient: @user.forename) %>
+
+<%= t('mails.user_welcome.text', event_link: "#{t('mails.user_welcome.event_link_label')} (#{events_url})") %>
+
+<%= t('mails.user_welcome.goodbye') %>
