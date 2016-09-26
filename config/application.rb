@@ -17,5 +17,7 @@ module OffeneGesellschaft
     config.i18n.fallbacks = [:de]
 
     config.time_zone = 'Berlin'
+
+    config.active_job.queue_adapter = :delayed_job
   end
 end

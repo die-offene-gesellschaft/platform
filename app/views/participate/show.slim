@@ -11,7 +11,8 @@
           p.article-white.introduction
             = t('participate.introduction')
           .inputs
-            = f.input :name, input_html: { value: @user.name }
+            = f.input :forename, input_html: { value: @user.forename }
+            = f.input :surname, input_html: { value: @user.surname }
             = f.input :email, input_html: { value: @user.email }
             - checked_attribute = {}
             - checked_attribute = { checked: true } if @newsletter

@@ -18,8 +18,8 @@ parsed_json['content'].each do |id, user|
   puts "processing id #{id}"
 
   date = Time.at(user['created'].to_i).to_datetime
-  name = user['field_vorname']['und'][0]['value']
-  name = "#{name} #{user['title']}"
+  forename = user['field_vorname']['und'][0]['value']
+  surname = user['title']
   email = user['field_profil_email']['und'][0]['email']
 
   # image
@@ -59,7 +59,8 @@ parsed_json['content'].each do |id, user|
     role: role,
     statement: statement,
     locked: false,
-    name: name
+    forename: forename,
+    surname: surname
   }
 
   User.seed(:email, data) unless email == 'Prime@web.de'

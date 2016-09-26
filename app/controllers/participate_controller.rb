@@ -24,12 +24,12 @@ class ParticipateController < ApplicationController
   end
 
   def set_users
-    @users = User.where(locked: false).where.not(avatar_file_name: nil).sample(15)
+    @users = User.where(locked: false).where.not(avatar_file_name: nil).sample(18)
   end
 
   def participate_params
     params.require(:participate).permit(
-      :name, :email,
+      :forename, :surname, :email,
       :newsletter,
       :terms_of_use,
       :avatar,
@@ -47,14 +47,16 @@ class ParticipateController < ApplicationController
 
   def newsletter_params
     {
-      name: participate_params[:name],
+      forename: participate_params[:forename],
+      surname: participate_params[:surname],
       email: participate_params[:email]
     }
   end
 
   def user_params
     {
-      name: participate_params[:name],
+      forename: participate_params[:forename],
+      surname: participate_params[:surname],
       email: participate_params[:email],
       password: participate_params[:password],
       avatar: participate_params[:avatar],
@@ -66,7 +68,11 @@ class ParticipateController < ApplicationController
 
   def register_platform
     @terms_of_use = true
-    flash.now[:error] = t('participate.error') unless @user.save
+    if @user.save
+      UserWelcomeMailer.user_welcome_email(@user).deliver
+    else
+      flash.now[:error] = t('participate.error')
+    end
   end
 
   def handle_flash

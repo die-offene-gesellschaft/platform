@@ -1,15 +1,25 @@
-en:
+de:
   simple_form:
-    "yes": 'Yes'
-    "no": 'No'
+    placeholders:
+      participate:
+        avatar: 'Bild'
+        forename: 'Vorname'
+        surname: 'Nachname'
+        email: 'E-Mail'
+        password: 'Passwort'
+        password_repeat: 'Passwort (wiederholen)'
+        role: 'Über mich'
+        statement: 'Mein Statement zur Offenen Gesellschaft'
+    "yes": 'Ja'
+    "no": 'Nein'
     required:
-      text: 'required'
+      text: 'notwendig'
       mark: '*'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Please review the problems below:"
+      default_message: "Bitte beheben Sie die untenstehenden Probleme:"
     # Examples
     # labels:
     #   defaults:

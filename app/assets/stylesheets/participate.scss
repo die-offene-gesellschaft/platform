@@ -26,14 +26,6 @@
 
   .name-form {
     position: relative;
-
-    @media (min-width: $mobile-breakpoint-width) {
-      height: calc(67vw - 5px);
-    }
-
-    @media (min-width: $max-viewport-width) {
-      height: 798px;
-    }
   }
 
   .name-form,
@@ -45,18 +37,22 @@
     padding: 0;
 
     @include media-breakpoint-up(md) {
-      height: 83vw;
+      height: calc(99vw + 5px);
       min-height: 0;
     }
 
-    @media (min-width: 1000px) {
-      height: 66vw;
-      min-height: 0;
+    @media (min-width: $mobile-breakpoint-width) {
+      height: calc(82vw + 8px);
     }
 
     @media (min-width: $max-viewport-width) {
-      height: 792px;
-      min-height: 0;
+      height: 798px;
+    }
+  }
+
+  .avatars {
+    @include media-breakpoint-down(sm) {
+      height: 133vw;
     }
   }
 
@@ -131,6 +127,7 @@
   textarea,
   input {
     background-color: $white;
+    border: 0;
     border-radius: 0;
     color: $dark-gray;
     display: inline-block;
