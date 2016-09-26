@@ -71,7 +71,7 @@ class ParticipateController < ApplicationController
     if @user.save
       UserWelcomeMailer.user_welcome_email(@user).deliver
     else
-      flash.now[:error] = t('participate.error') 
+      flash.now[:error] = t('participate.error')
     end
   end
 
