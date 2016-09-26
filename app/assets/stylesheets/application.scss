@@ -323,6 +323,10 @@ tr {
     background-color: $yellow;
     color: $black;
   }
+
+  .close {
+    display: none;
+  }
 }
 
 [name*='contents'] {
@@ -358,11 +362,5 @@ input {
       border-color: $dark-gray;
       color: $black;
     }
-  }
-}
-
-.alert {
-  .close {
-    display: none;
   }
 }

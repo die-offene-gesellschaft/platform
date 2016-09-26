@@ -7,5 +7,5 @@ h2
     = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
     = f.input :password_confirmation, required: true
   .form-actions
-    = f.button :submit, "Sign up"
-= render "users/shared/links"
+    = f.button :submit, 'Sign up'
+= render 'users/shared/links'
