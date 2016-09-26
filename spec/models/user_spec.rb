@@ -20,5 +20,7 @@ RSpec.describe User, type: :model do
       .with_foreign_key('friend_id')
   end
 
-  it { should validate_presence_of(:name) }
+  it { should validate_presence_of(:forename) }
+
+  it { should validate_presence_of(:surname) }
 end
