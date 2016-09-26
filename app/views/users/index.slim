@@ -13,12 +13,10 @@ ruby:
         = t("#{resources}.title")
       p class="#{resources.tr('_', '-')}"
         - instance_variable_get("@#{resources}").each do |resource|
-          span.name
+          span.name>
             = resource.full_name
-          | &nbsp;
-          span.role
+          span.role>
             = resource.role
-          | &nbsp;
   - else
     .grid
       .desktop-size1x1.desktop-x1.desktop-y1.size1x1.x1.y1
