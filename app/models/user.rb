@@ -46,7 +46,7 @@ class User < ApplicationRecord
   end
 
   def send_user_welcome_mail
-    UserWelcomeMailer.user_welcome_email(@user).deliver_later
+    UserWelcomeMailer.user_welcome_email(self).deliver_later
   end
 
   def sync_to_mailchimp
