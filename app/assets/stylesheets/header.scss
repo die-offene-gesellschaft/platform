@@ -176,6 +176,7 @@ header {
       margin: 0 5.5px;
       text-transform: uppercase;
 
+      &.login,
       &.logout {
         color: $black;
         font-weight: 600;

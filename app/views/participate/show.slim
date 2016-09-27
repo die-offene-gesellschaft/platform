@@ -1,10 +1,10 @@
 .participate
   - unless flash[:success]
-    = simple_form_for :participate, url: participate_path do |f|
+    = simple_form_for @user, url: participate_path do |f|
       .row
         - checked_attribute = {}
-        - checked_attribute = { checked: true } if @terms_of_use
-        input.terms-of-use type="checkbox" name='participate[terms_of_use]' id='terms-of-use' *checked_attribute
+        - checked_attribute = { checked: true } if @user.terms_of_use
+        input.terms-of-use type="checkbox" name='user[terms_of_use]' id='terms-of-use' *checked_attribute
         .col-xs-12.col-md-6.name-form
           h1.headline-white.title
             = t('participate.become-friend')
@@ -15,8 +15,8 @@
             = f.input :surname, input_html: { value: @user.surname }
             = f.input :email, input_html: { value: @user.email }
             - checked_attribute = {}
-            - checked_attribute = { checked: true } if @newsletter
-            input type="checkbox" name='participate[newsletter]' id='newsletter' *checked_attribute
+            - checked_attribute = { checked: true } if @user.newsletter
+            input type="checkbox" name='user[newsletter]' id='newsletter' *checked_attribute
             label.boolean for='newsletter'
               span.box
               span.text
@@ -25,12 +25,12 @@
               span.box
               span.text
                 == t 'participate.options.terms-of-use',
-                     link: link_to(t('participate.options.terms-of-use-label'), "#{imprint_path}#nutzungsbedingungen")
+                     link: link_to(t('participate.options.terms-of-use-label'), "#{imprint_path}#nutzungsbedingungen", target: '_blank')
             = f.submit t('participate.send')
         .col-xs-12.col-md-6.extended-form
           .inputs
-            = f.input :avatar, as: :file, input_html: { accept: '.jpg,.jpeg,.gif,.png' }
-            = f.input :password, as: :password, input_html: { value: @user.password }
+            = f.input :avatar, as: :file, input_html: { accept: '.jpg,.jpeg,.gif,.png' }, hint: t('participate.hints.avatar')
+            = f.input :password, as: :password, input_html: { value: @user.password }, hint: t('participate.hints.password')
             = f.input :password_repeat, as: :password
             = f.input :role, input_html: { value: @user.role }
             = f.input :statement, as: :text, input_html: { value: @user.statement }

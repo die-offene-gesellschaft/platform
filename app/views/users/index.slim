@@ -133,6 +133,19 @@ ruby:
       .desktop-size1x1.desktop-x6.desktop-y12.size1x1.x2.y36
         = render 'shared/user/tile', user: @users[47 % @users.count]
 
-      coffee:
-        window.modalManager = new window.ModalManager()
+      - if member_signed_in?
+        - content_for :modals do
+          .modal.fade id="user-id-#{current_user.id}" tabindex="-1" role="dialog" aria-labelledby="user-id-#{current_user.id}" aria-hidden="true"
+            .modal-dialog role="document"
+              .modal-content
+                button.close type="button" data-dismiss="modal" aria-label="Close"
+                  span aria-hidden="true"
+                    = fa_icon 'times'
+                .modal-body.user-modal
+                    = render 'shared/user/modal_details',
+                             user: current_user,
+                             large_user_image: false
+
   = content_for :modals
+  coffee:
+    window.modalManager = new window.ModalManager()

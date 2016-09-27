@@ -34,4 +34,8 @@ module ApplicationHelper
   def facebook_share_link(resource = '')
     network_share_link(:facebook, resource)
   end
+
+  def member_signed_in?
+    user_signed_in? && current_user.terms_of_use
+  end
 end

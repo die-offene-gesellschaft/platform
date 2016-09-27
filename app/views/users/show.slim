@@ -1,5 +1,5 @@
 .users
   = render 'shared/user/modal_details',
            user: @user
-  javascript:
-    window.location.href = '#{users_path(pictures: '')}#show(#user-id-#{@user.id})'
+javascript:
+  window.location.href = '#{users_path(pictures: '')}#show(#user-id-#{@user.id})'
