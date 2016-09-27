@@ -8,5 +8,7 @@ FactoryGirl.define do
     surname 'Doe'
     avatar { File.new("#{Rails.root}/spec/fixtures/images/test.jpg") }
     locked false
+    newsletter true
+    terms_of_use true
   end
 end

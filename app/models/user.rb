@@ -30,7 +30,38 @@ class User < ApplicationRecord
   validates :forename, :surname,
             presence: true
 
+  def after_confirmation
+    sync_to_mailchimp if newsletter
+    send_user_welcome_mail if terms_of_use
+  end
+
   def full_name
     "#{forename} #{surname}"
+  end
+
+  private
+
+  def sync_to_mailchimp_later
+    delay.sync_to_mailchimp
+  end
+
+  def send_user_welcome_mail
+    UserWelcomeMailer.user_welcome_email(@user).deliver_later
+  end
+
+  def sync_to_mailchimp
+    gb = Gibbon::API.new
+    gb.lists.subscribe mailchimp_hash
+  rescue Gibbon::MailChimpError
+    true
+  end
+
+  def mailchimp_hash
+    {
+      id: ENV['MAILCHIMP_LIST_ID'],
+      email: { email: email },
+      merge_vars: { FNAME: forename, LNAME: surname },
+      double_optin: false
+    }
   end
 end
