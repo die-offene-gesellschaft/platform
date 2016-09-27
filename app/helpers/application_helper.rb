@@ -38,4 +38,10 @@ module ApplicationHelper
   def member_signed_in?
     user_signed_in? && current_user.terms_of_use
   end
+
+  # this method smells of :reek:ControlParameter
+  def icon_from(boolean)
+    return fa_icon 'check' if boolean
+    fa_icon 'times'
+  end
 end

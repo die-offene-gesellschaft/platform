@@ -1,17 +1,14 @@
 class UsersController < ApplicationController
+  before_action :authenticate_admin!, only: [:edit, :update]
+
   before_action :set_users, only: [:index]
-  before_action :set_user, only: [:show, :destroy]
+  before_action :set_user, only: [:show, :destroy, :edit, :update]
 
   # GET /users
   def index
     respond_to do |format|
-      format.html do
-        if request.query_parameters.keys & %w(pictures list) == []
-          return redirect_to(users_path(pictures: ''))
-        end
-        render :index
-      end
-      format.json { index_json }
+      format.html { render :index }
+      format.json { render json: @users }
     end
   end
 
@@ -19,6 +16,23 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @user }
+    end
+  end
+
+  def edit
+  end
+
+  # PATCH/PUT /users/1
+  # PATCH/PUT /users/1.json
+  def update
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to users_path, notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -37,9 +51,17 @@ class UsersController < ApplicationController
   private
 
   def set_users
-    @users = User.where(locked: false)
-
+    @users = User.all
     get_params = request.query_parameters.keys
+    if get_params & %w(pictures list) == []
+      authenticate_admin!
+    else
+      @users = @users.where(locked: false)
+    end
+    filter_user_from get_params
+  end
+
+  def filter_user_from(get_params)
     if get_params.include?('pictures')
       set_statements
       @users = @users.where.not(avatar_file_name: nil)
@@ -61,11 +83,12 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+    authenticate_admin! if @user.locked
   end
 
-  def index_json
-    return render json: { active_members: @active_members,
-                          users: @users } if @active_members
-    render json: @users
+  def user_params
+    params.require(:user).permit(
+      :locked
+    )
   end
 end

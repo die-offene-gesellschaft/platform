@@ -1,9 +1,9 @@
 ruby:
-  resources = %w(admin content)
+  resources = %w(admin content user)
 .row
   .col-xs-12
     ul.nav.nav-tabs
       - resources.each do |resource|
         li.nav-item
           a.nav-link href="#{url_for(controller: resource.pluralize, action: :index)}" class="#{'active' if resource == active.to_s}"
-            = resource.capitalize
+            = resource.pluralize.capitalize
