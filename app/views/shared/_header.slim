@@ -76,7 +76,7 @@ header.container-fluid id="header"
       li
         br
       li.meta-nav-item.uppercase
-        - if user_signed_in?
+        - if member_signed_in?
           = link_to destroy_user_session_path,
                     method: 'delete',
                     class: 'logout' do
@@ -90,7 +90,7 @@ header.container-fluid id="header"
     - meta_nav_items.each do |_, meta_nav_item|
       = link_to meta_nav_item[:label],
                 meta_nav_item[:url]
-    - if user_signed_in?
+    - if member_signed_in?
       = link_to destroy_user_session_path,
                 method: 'delete',
                 class: 'logout' do
