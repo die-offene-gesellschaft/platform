@@ -1,0 +1,22 @@
+.contents
+  = render 'shared/admin_tabs', active: :content
+  .row
+    .col-xs-12
+      table.table.table-striped.table-hover
+        thead
+          tr
+            td
+              = t('contents.url')
+            td
+              = t('contents.value')
+        tbody
+          - @contents.group_by(&:controller_action_name).each do |content_group|
+            ruby:
+              content = content_group.second.first
+              controller, action = content.controller_action_name.split('#')
+              url = url_for(controller: controller, action: action)
+            tr data-href="#{url}/edit"
+              td
+                = url
+              td
+                = content.value[0..200]

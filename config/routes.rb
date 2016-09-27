@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :venues, only: [:index, :show, :edit, :new]
   resources :contents, only: [:index, :show]
   resources :admins
-  resources :users
+  resources :users, only: [:show, :index]
 
   get '/' => redirect('/home')
   get '/home' => 'home#show'

@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
       content.save!
     end
     flash[:success] = t('contents.update.success')
-    redirect_to "/#{@content_key}/edit"
+    redirect_to contents_path
   end
 
   private

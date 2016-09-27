@@ -373,3 +373,17 @@ input {
     margin: 0 0 0 1rem;
   }
 }
+
+.nav-tabs {
+  margin: 0 0 1rem;
+
+  .nav-link {
+    &.active {
+      color: $red;
+
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+}
