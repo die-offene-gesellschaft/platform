@@ -21,8 +21,15 @@ ruby:
           - if large_user_image
             a href="#{users_path}"
               = t('users.all-friends')
-          a href="#"
-            = t('users.become-friends')
+          - if member_signed_in?
+            - if user == current_user
+              = link_to user_path(current_user),
+                method: 'delete',
+                data: { confirm: t('confirm') } do
+                = t('users.action.delete-profile')
+          - else
+            a href="#{participate_path}"
+              = t('users.become-friends')
         .share-links
           a.share href="#{facebook_share_link(user)}" target='_blank'
             = fa_icon 'facebook-square'
