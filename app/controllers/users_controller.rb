@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_users, only: [:index]
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :destroy]
 
   # GET /users
   def index
@@ -19,6 +19,18 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @user }
+    end
+  end
+
+  def destroy
+    authenticate_admin! unless user_signed_in?
+    if admin_signed_in?
+      @user.destroy
+      redirect_to users_path
+    else
+      current_user.destroy
+      flash[:success] = t('users.success.delete-profile')
+      redirect_to home_path
     end
   end
 

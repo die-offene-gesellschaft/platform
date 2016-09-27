@@ -70,7 +70,7 @@ ruby:
                 = l(month, format: '%Y')
                 = fa_icon 'chevron-down 2x'
             - events.each do |event|
-              tr.event data-modal="event-id-#{event.id}"
+              tr.event data-modal="event-id-#{event.id}" data-toggle='modal' data-target_alt="#event-id-#{event.id}"
                 td.date
                   = l(event.begin_at, format: :short_date)
                 td.details
@@ -99,3 +99,5 @@ ruby:
                           .row
                             = render 'shared/event/modal_details',
                                      event: event
+  coffee:
+    window.modalManager = new window.ModalManager()
