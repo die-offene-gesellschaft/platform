@@ -3,7 +3,7 @@ ruby:
     faciliation: { label: t('header.meta-nav.faciliation'), url: faciliation_path },
     contact: { label: t('header.meta-nav.contact'), url: "#{about_path}##{t('header.meta-nav.contact').downcase}" }
   }
-  meta_nav_items[:my_profile] = { label: t('header.meta-nav.my-profile'), url: user_path(current_user) } if member_signed_in?
+  meta_nav_items[:my_profile] = { label: t('header.meta-nav.my-profile'), url: "#{users_path(pictures: '')}#show(#user-id-#{current_user.id})" } if member_signed_in?
   nav_items = {
     home: { label: t('header.nav.home'), url: home_path },
     events: {
