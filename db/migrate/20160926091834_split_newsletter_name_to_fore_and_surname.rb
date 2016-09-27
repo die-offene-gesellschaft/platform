@@ -10,6 +10,6 @@ class SplitNewsletterNameToForeAndSurname < ActiveRecord::Migration[5.0]
         newsletter.surname = surname
         newsletter.save
       end
-    end
+    end if defined?(Newsletter)
   end
 end
