@@ -76,18 +76,28 @@ header.container-fluid id="header"
       li
         br
       li.meta-nav-item.uppercase
-        /- if user_signed_in?
-          a href="#"
+        - if user_signed_in?
+          = link_to destroy_user_session_path,
+                    method: 'delete',
+                    class: 'logout' do
             = t('header.meta-nav.logout')
+        - else
+          a.login href="#{new_user_session_path}"
+            = t('header.meta-nav.login')
   a.logo-die-offene-gesellschaft href='/'
     = image_tag 'logo-die-offene-gesellschaft.svg'
   .meta-nav
     - meta_nav_items.each do |_, meta_nav_item|
       = link_to meta_nav_item[:label],
                 meta_nav_item[:url]
-    /- if user_signed_in?
-      a.logout href="#"
+    - if user_signed_in?
+      = link_to destroy_user_session_path,
+                method: 'delete',
+                class: 'logout' do
         = t('header.meta-nav.logout')
+    - else
+      a.login href="#{new_user_session_path}"
+        = t('header.meta-nav.login')
   nav
     - nav_items.each do |name, nav_item|
       = link_to nav_item[:label],
