@@ -10,10 +10,10 @@ class DropNewsletterModel < ActiveRecord::Migration[5.0]
                         email: newsletter.email,
                         password: SecureRandom.hex,
                         newsletter: true,
-                        terms_of_use: true
+                        terms_of_use: false
       end
       user.save
-    end
+    end if defined?(Newsletter)
 
     drop_table :newsletters
   end

@@ -31,7 +31,7 @@ class User < ApplicationRecord
             presence: true
 
   def after_confirmation
-    sync_to_mailchimp if newsletter
+    sync_to_mailchimp_later if newsletter
     send_user_welcome_mail if terms_of_use
   end
 
