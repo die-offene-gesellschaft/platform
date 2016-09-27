@@ -29,8 +29,8 @@
             = f.submit t('participate.send')
         .col-xs-12.col-md-6.extended-form
           .inputs
-            = f.input :avatar, as: :file, input_html: { accept: '.jpg,.jpeg,.gif,.png' }
-            = f.input :password, as: :password, input_html: { value: @user.password }
+            = f.input :avatar, as: :file, input_html: { accept: '.jpg,.jpeg,.gif,.png' }, hint: t('participate.hints.avatar')
+            = f.input :password, as: :password, input_html: { value: @user.password }, hint: t('participate.hints.password')
             = f.input :password_repeat, as: :password
             = f.input :role, input_html: { value: @user.role }
             = f.input :statement, as: :text, input_html: { value: @user.statement }
