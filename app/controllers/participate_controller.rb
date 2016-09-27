@@ -30,7 +30,7 @@ class ParticipateController < ApplicationController
   end
 
   def participate_params
-    params.require(:participate).permit(
+    params.require(:user).permit(
       :forename, :surname, :email,
       :newsletter,
       :terms_of_use,
