@@ -133,6 +133,6 @@ ruby:
       .desktop-size1x1.desktop-x6.desktop-y12.size1x1.x2.y36
         = render 'shared/user/tile', user: @users[47 % @users.count]
 
-      coffee:
-        window.modalManager = new window.ModalManager()
   = content_for :modals
+  coffee:
+    window.modalManager = new window.ModalManager()
