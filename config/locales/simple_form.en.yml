@@ -1,7 +1,7 @@
 de:
   simple_form:
     placeholders:
-      participate:
+      user:
         avatar: 'Bild'
         forename: 'Vorname'
         surname: 'Nachname'
