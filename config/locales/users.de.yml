@@ -1,8 +1,16 @@
 de:
   users:
+    attributes:
+      id: '#'
+      forename: 'Vorname'
+      surname: 'Nachname'
+      email: 'E-Mail-Adresse'
+      password: 'Passwort'
+      locked: 'Gesperrt'
     success:
       delete-profile: 'Das Profil wurde erfolgreich gelöscht'
-    action:
+    actions:
+      new: 'Neuen User erstellen'
       delete-profile: 'Profil löschen'
     title: 'Freunde'
     subnav:

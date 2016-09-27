@@ -1,0 +1,9 @@
+- %w(active_members users).each do |resources|
+  h1.headline-red
+    = t("#{resources}.title")
+  p class="#{resources.tr('_', '-')}"
+    - binding.local_variable_get(resources).each do |resource|
+      span.name>
+        = resource.full_name
+      span.role>
+        = resource.role

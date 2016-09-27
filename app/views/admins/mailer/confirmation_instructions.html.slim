@@ -1,0 +1,10 @@
+= t('devise.mailer.confirmation_instructions.greeting', recipient: @resource.forename)
+br
+br
+== t('devise.mailer.confirmation_instructions.instruction').gsub("\n\n", '<br /><br />')
+br
+br
+= link_to t('devise.mailer.confirmation_instructions.action'), confirmation_url(@resource, confirmation_token: @token)
+br
+br
+== t('devise.mailer.confirmation_instructions.goodbye').gsub("\n\n", '<br /><br />')

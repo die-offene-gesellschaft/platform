@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   resources :locations, only: [:index, :show, :edit, :new]
   resources :venues, only: [:index, :show, :edit, :new]
   resources :contents, only: [:index, :show]
-  resources :users, only: [:show, :destroy, :index]
+  resources :admins
+  resources :users, except: [:new, :create]
 
   get '/' => redirect('/home')
   get '/home' => 'home#show'
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
   get '/imprint' => 'application#imprint'
   get '/guideline' => 'application#guideline'
 
-  %w(about faciliation imprint guideline).each do |content_resource|
+  %w(about faciliation imprint guideline participate).each do |content_resource|
     get "/#{content_resource}/edit" => 'application#content_edit'
     patch "/#{content_resource}" => 'application#content_update'
   end

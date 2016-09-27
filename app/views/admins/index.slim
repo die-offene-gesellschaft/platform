@@ -1,0 +1,32 @@
+.admins
+  = render 'shared/admin_tabs', active: :admin
+  .row
+    .col-xs-12
+      table.table.table-striped.table-hover
+        thead
+          tr
+            td
+              = t('admins.attributes.id')
+            td
+              = t('admins.attributes.name')
+            td
+              = t('admins.attributes.email')
+            td
+              = t('admins.attributes.password')
+        tbody
+          - @admins.each do |admin|
+            tr data-href="#{edit_admin_path(admin)}"
+              td
+                = admin.id
+              td
+                = admin.name
+              td
+                = admin.email
+              td
+                | ••••••••
+  .button-row
+    .col-xs-12
+      = render 'shared/button',
+               label: t('admins.actions.new'),
+               icon: 'plus',
+               href: new_admin_path

@@ -1,0 +1,9 @@
+de:
+  admins:
+    actions:
+      new: 'Neuen Admin erstellen'
+    attributes:
+      id: '#'
+      name: 'Name'
+      email: 'E-Mail-Adresse'
+      password: 'Passwort'
