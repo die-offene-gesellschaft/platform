@@ -59,9 +59,3 @@ ruby:
                   = icon_from(user.newsletter)
                 td
                   = icon_from(user.terms_of_use)
-    .button-row
-      .col-xs-12
-        = render 'shared/button',
-                 label: t('users.actions.new'),
-                 icon: 'plus',
-                 href: new_user_path
