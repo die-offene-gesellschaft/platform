@@ -11,9 +11,11 @@ class ParticipateController < ApplicationController
   # POST /participate
   def create
     @user = User.new(user_params)
-    register_newsletter if participate_params[:newsletter]
-    register_platform if participate_params[:terms_of_use]
-    handle_flash
+    if @user.save
+      flash.now[:success] = t('participate.success')
+    else
+      flash.now[:error] = t('participate.error')
+    end
     render :show
   end
 
@@ -40,20 +42,18 @@ class ParticipateController < ApplicationController
     )
   end
 
-  def register_newsletter
-    @newsletter = Newsletter.new(newsletter_params)
-    flash.now[:error] = t('participate.error') unless @newsletter.save
-  end
-
-  def newsletter_params
-    {
-      forename: participate_params[:forename],
-      surname: participate_params[:surname],
-      email: participate_params[:email]
-    }
-  end
-
   def user_params
+    u_params = general_user_params
+    u_params[:newsletter] = true if participate_params[:newsletter]
+    if participate_params[:terms_of_use]
+      u_params[:terms_of_use] = true
+    else
+      u_params[:password] = SecureRandom.hex
+    end
+    u_params
+  end
+
+  def general_user_params
     {
       forename: participate_params[:forename],
       surname: participate_params[:surname],
@@ -64,21 +64,6 @@ class ParticipateController < ApplicationController
       statement: participate_params[:statement],
       locked: true
     }
-  end
-
-  def register_platform
-    @terms_of_use = true
-    if @user.save
-      UserWelcomeMailer.user_welcome_email(@user).deliver_later
-    else
-      flash.now[:error] = t('participate.error')
-    end
-  end
-
-  def handle_flash
-    if !flash.now[:error] && (participate_params[:newsletter] || participate_params[:terms_of_use])
-      flash.now[:success] = t('participate.success')
-    end
   end
 
   def set_contents
