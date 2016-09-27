@@ -1,5 +1,7 @@
 de:
   save: 'Speichern'
+  delete: 'Löschen'
+  confirm: 'Sind Sie sicher?'
   blogpost:
     type:
       article: 'Artikel'

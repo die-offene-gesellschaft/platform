@@ -364,3 +364,12 @@ input {
     }
   }
 }
+
+.button-row {
+  text-align: right;
+
+  a,
+  button {
+    margin: 0 0 0 1rem;
+  }
+}

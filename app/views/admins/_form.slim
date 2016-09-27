@@ -1,0 +1,19 @@
+= simple_form_for admin do |f|
+  .row
+    .col-xs-12
+      .inputs
+        = f.input :name
+        = f.input :email
+        = f.input :password
+  .row.button-row
+    .col-xs-12
+      = render 'shared/button',
+               label: t('delete'),
+               icon: 'times',
+               confirm: t('confirm'),
+               method: 'delete',
+               href: admin_path(admin) if admin.id
+      = render 'shared/button',
+               type: 'submit',
+               label: t('save'),
+               icon: 'check'
