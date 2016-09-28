@@ -27,8 +27,12 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar,
                                     content_type: %r{\Aimage\/.*\z}
 
-  validates :forename, :surname,
+  validates :forename,
+            :surname,
             presence: true
+
+  validates :password,
+            confirmation: true
 
   def after_confirmation
     send_user_welcome_mail if terms_of_use

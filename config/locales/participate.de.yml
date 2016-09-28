@@ -3,6 +3,8 @@ de:
     hints:
       avatar: 'max. 4 MB, erlaubte Formate: jpg, gif und png'
       password: 'mind. 8 Zeichen lang'
+    placeholder:
+      password-confirmation: 'Passwort bestätigen'
     error: 'Beim Registrieren ist ein Fehler aufgetreten'
     success: 'Die Anmeldung war erfolgreich'
     send: 'Absenden'
