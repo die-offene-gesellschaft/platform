@@ -51,7 +51,7 @@ class UsersController < ApplicationController
   private
 
   def set_users
-    @users = User.all
+    @users = User.where(newsletter: false)
     get_params = request.query_parameters.keys
     if get_params & %w(pictures list) == []
       authenticate_admin!
