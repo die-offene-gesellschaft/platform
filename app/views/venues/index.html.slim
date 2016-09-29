@@ -1,19 +1,35 @@
-h1 Listing venues
-
-table
-  thead
-    tr
-      th
-      th
-      th
-
-  tbody
-    - @venues.each do |venue|
-      tr
-        td = link_to 'Show', venue
-        td = link_to 'Edit', edit_venue_path(venue)
-        td = link_to 'Destroy', venue, data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
-= link_to 'New Venue', new_venue_path
+= render 'shared/admin_tabs', active: :venue
+.row
+  .col-xs-12
+    table.table.table-striped.table-hover
+      thead
+        tr
+          td
+            = t('venues.attributes.name')
+          td
+            = t('venues.attributes.street')
+          td
+            = t('venues.attributes.zip_code')
+          td
+            = t('venues.attributes.city')
+          td
+            = t('venues.attributes.locked')
+      tbody
+        - @venues.order(created_at: :desc).each do |venue|
+          tr data-href="#{edit_venue_path(venue)}"
+            td
+              = venue.name
+            td
+              = venue.street
+            td
+              = venue.zip_code
+            td
+              = venue.city
+            td
+              = icon_from(venue.locked)
+  .button-row
+    .col-xs-12
+      = render 'shared/button',
+               label: t('venues.actions.new'),
+               icon: 'plus',
+               href: new_venue_path

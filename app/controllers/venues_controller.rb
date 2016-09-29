@@ -1,10 +1,11 @@
 class VenuesController < ApplicationController
+  before_action :authenticate_admin!, only: [:edit, :update, :create, :new, :destroy]
+  before_action :set_venues, only: [:index, :update]
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
 
   # GET /venues
   # GET /venues.json
   def index
-    @venues = Venue.all
     respond_to do |format|
       format.html { render :index }
       format.json { render json: @venues }
@@ -36,7 +37,7 @@ class VenuesController < ApplicationController
 
     respond_to do |format|
       if @venue.save
-        format.html { redirect_to @venue, notice: 'Venue was successfully created.' }
+        format.html { redirect_to venues_path, notice: 'Venue was successfully created.' }
         format.json { render :show, status: :created, location: @venue }
       else
         format.html { render :new }
@@ -50,7 +51,7 @@ class VenuesController < ApplicationController
   def update
     respond_to do |format|
       if @venue.update(venue_params)
-        format.html { redirect_to @venue, notice: 'Venue was successfully updated.' }
+        format.html { redirect_to venues_path, notice: 'Venue was successfully updated.' }
         format.json { render :show, status: :ok, location: @venue }
       else
         format.html { render :edit }
@@ -74,6 +75,10 @@ class VenuesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_venue
     @venue = Venue.find(params[:id])
+  end
+
+  def set_venues
+    @venues = Venue.all
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

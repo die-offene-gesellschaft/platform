@@ -1,0 +1,36 @@
+.events
+  = render 'shared/admin_tabs', active: :event
+  .row
+    .col-xs-12
+      table.table.table-striped.table-hover
+        thead
+          tr
+            td
+              = t('events.attributes.begin_at')
+            td
+              = t('events.attributes.title')
+            td
+              = t('events.attributes.event_type')
+            td
+              = t('events.attributes.locked')
+            td
+              = t('events.attributes.planned')
+        tbody
+          - @events.order(begin_at: :desc).each do |event|
+            tr data-href="#{edit_event_path(event)}"
+              td
+                = event.begin_at
+              td
+                = event.title
+              td
+                = event.event_type
+              td
+                = icon_from(event.locked)
+              td
+                = icon_from(event.planned)
+  .button-row
+    .col-xs-12
+      = render 'shared/button',
+               label: t('events.actions.new'),
+               icon: 'plus',
+               href: new_event_path
