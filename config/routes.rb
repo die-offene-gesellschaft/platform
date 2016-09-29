@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :pictures, only: [:index, :show]
   end
   resources :locations, only: [:index, :show, :edit, :new]
-  resources :venues, only: [:index, :show, :create, :update, :edit, :new]
+  resources :venues
   resources :contents, only: [:index, :show]
   resources :admins
   resources :users, except: [:new, :create]

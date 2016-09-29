@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_admin!, only: [:edit, :update, :new]
+  before_action :authenticate_admin!, only: [:edit, :update, :create, :new, :destroy]
   before_action :set_events,
                 only: [:index, :admin_index]
   before_action :set_event,
@@ -48,8 +48,6 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to admin_index_path, notice: 'Event was successfully created.'
     else
-      ap 'ERROR!'
-      ap @event.errors
       flash[:error] = 'Es wurden nicht alle Felder korrekt ausgefüllt:'
       render :new
     end

@@ -1,5 +1,5 @@
 class VenuesController < ApplicationController
-  before_action :authenticate_admin!, only: [:edit, :update, :new]
+  before_action :authenticate_admin!, only: [:edit, :update, :create, :new, :destroy]
   before_action :set_venues, only: [:index, :update]
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
 
