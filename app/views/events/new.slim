@@ -1,8 +1,4 @@
-h1
-  = t('events.title.new')
-
-= render 'form',
-         event: @event
-
-= link_to 'Back',
-         events_path(appointments: '')
+.admins
+  = render 'shared/admin_tabs', active: :event
+  = render 'form',
+           event: @event

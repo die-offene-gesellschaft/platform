@@ -1,7 +1,22 @@
 = simple_form_for venue do |f|
-  = f.error_notification
-
-  .form-inputs
-
-  .form-actions
-    = f.button :submit
+  .row
+    .col-xs-12
+      .inputs
+        = f.input :name
+        = f.input :street
+        = f.input :zip_code
+        = f.input :city
+        = f.input :description
+        = f.input :locked
+  .row.button-row
+    .col-xs-12
+      = render 'shared/button',
+               label: t('delete'),
+               icon: 'times',
+               confirm: t('confirm'),
+               method: 'delete',
+               href: venue_path(venue) if venue.id
+      = render 'shared/button',
+               type: 'submit',
+               icon: 'check',
+               label: t('save')

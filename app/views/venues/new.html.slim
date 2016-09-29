@@ -1,6 +1,4 @@
-h1 New venue
-
-== render 'form',
-          venue: @venue
-
-= link_to 'Back', venues_path
+.venues
+  = render 'shared/admin_tabs', active: :venue
+  = render 'form',
+           venue: @venue

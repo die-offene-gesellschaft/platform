@@ -6,12 +6,12 @@ Rails.application.routes.draw do
 
   resources :blogposts, only: [:index, :show]
   resources :active_members, only: [:index, :show]
-  resources :events, only: [:index, :show] do
+  resources :events do
     resources :comments, only: [:index, :show]
     resources :pictures, only: [:index, :show]
   end
   resources :locations, only: [:index, :show, :edit, :new]
-  resources :venues, only: [:index, :show, :edit, :new]
+  resources :venues, only: [:index, :show, :create, :update, :edit, :new]
   resources :contents, only: [:index, :show]
   resources :admins
   resources :users, except: [:new, :create]
@@ -30,6 +30,10 @@ Rails.application.routes.draw do
 
   get '/participate' => 'participate#show'
   post '/participate' => 'participate#create'
+
+  get '/events_admin_index',
+      to: 'events#admin_index',
+      as: 'admin_index'
 
   get '/styleguide' => 'application#styleguide'
 end
