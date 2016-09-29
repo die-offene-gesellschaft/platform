@@ -4,6 +4,10 @@ AllCops:
   DisplayCopNames: true
 Metrics/LineLength:
   Max: 100
+Metrics/MethodLength:
+  Max: 15
+Metrics/AbcSize:
+  Max: 16
 Rails/HasAndBelongsToMany:
   Description: 'Prefer has_many :through to has_and_belongs_to_many.'
   Enabled: false

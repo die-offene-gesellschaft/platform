@@ -31,7 +31,7 @@
           .inputs
             = f.input :avatar, as: :file, input_html: { accept: '.jpg,.jpeg,.gif,.png' }, hint: t('participate.hints.avatar')
             = f.input :password, as: :password, input_html: { value: @user.password }, hint: t('participate.hints.password')
-            = f.input :password_repeat, as: :password
+            = f.input :password_confirmation, as: :password, validate: true, input_html: { placeholder: t('participate.placeholder.password-confirmation') }
             = f.input :role, input_html: { value: @user.role }
             = f.input :statement, as: :text, input_html: { value: @user.statement }
             = f.submit t('participate.send')
