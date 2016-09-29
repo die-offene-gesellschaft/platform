@@ -51,7 +51,8 @@ class UsersController < ApplicationController
   private
 
   def set_users
-    @users = User.where(newsletter: false)
+    newsletter_only_ids = User.where(newsletter: true, terms_of_use: false).map(&:id)
+    @users = User.where('id NOT IN (?)', newsletter_only_ids)
     get_params = request.query_parameters.keys
     if get_params & %w(pictures list) == []
       authenticate_admin!
