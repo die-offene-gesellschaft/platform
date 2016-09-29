@@ -19,7 +19,7 @@
           - @events.order(begin_at: :desc).each do |event|
             tr data-href="#{edit_event_path(event)}"
               td
-                = event.begin_at
+                = event.begin_at.strftime("%d.%m.%Y - %H:%M")
               td
                 = event.title
               td
