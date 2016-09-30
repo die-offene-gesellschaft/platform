@@ -22,8 +22,9 @@
         span.pipe
         = "#{venue.zip_code} #{venue.city}"
         = fa_icon 'map-marker'
-      h2.type
-        = t("events.event-type.#{event.event_type}")
+      - if event.event_type == 'debate'
+        h2.type
+          = t("events.event-type.#{event.event_type}")
       - if event.active_members.any?
         p.active-members
           = t('events.with')

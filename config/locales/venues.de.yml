@@ -1,4 +1,14 @@
 de:
   venues:
+    attributes:
+      name: Name
+      street: Straße
+      zip_code: PLZ
+      city: Stadt
+      events: '# Veranstaltungen'
     actions:
       new: Neuen Veranstaltungsort erstellen
+    list:
+      events:
+        title: Veranstaltungen an diesem Ort
+        blank-slate: Keine Veranstaltung an diesem Ort.

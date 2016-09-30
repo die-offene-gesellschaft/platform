@@ -1,9 +1,50 @@
-h1 Editing venue
+.venues
+  = render 'shared/admin_tabs', active: :venue
+  = render 'form',
+           venue: @venue
 
-== render 'form',
-          venue: @venue
+.row.related-events
+  .col-xs-12
+    h2
+      = t('venues.list.events.title')
 
-= link_to 'Show', @venue
-'|
-= link_to 'Back', venues_path
-
+- if @venue.events.any?
+  .row
+    .col-xs-12
+      table.table.table-striped.table-hover
+        thead
+          tr
+            td
+              = t('events.attributes.begin_at')
+            td
+              = t('events.attributes.title')
+            td
+              = t('events.attributes.event_type')
+            td
+              = t('events.attributes.locked')
+            td
+              = t('events.attributes.planned')
+        tbody
+          - @venue.events.order(begin_at: :desc).each do |event|
+            tr data-href="#{edit_event_path(event)}"
+              td
+                = event.begin_at.strftime('%d.%m.%Y - %H:%M') if event.begin_at
+              td
+                = event.title
+              td
+                = event.event_type
+              td
+                = icon_from(event.locked)
+              td
+                = icon_from(event.planned)
+- else
+  .row
+    .col-xs-12
+      p
+        = t('venues.list.events.blank-slate')
+  .button-row
+    .col-xs-12
+      = render 'shared/button',
+               label: t('events.actions.new'),
+               icon: 'plus',
+               href: new_event_path

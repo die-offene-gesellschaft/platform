@@ -92,6 +92,7 @@ class EventsController < ApplicationController
 
   def set_appointment_events
     @events = Event.where('end_at >= ?', Time.zone.now)
+                   .where(planned: false)
                    .order(begin_at: :asc)
                    .group_by { |event| event.begin_at.send(:beginning_of_month) }
   end

@@ -13,7 +13,7 @@
           td
             = t('venues.attributes.city')
           td
-            = t('venues.attributes.locked')
+            = t('venues.attributes.events')
       tbody
         - @venues.order(created_at: :desc).each do |venue|
           tr data-href="#{edit_venue_path(venue)}"
@@ -26,7 +26,7 @@
             td
               = venue.city
             td
-              = icon_from(venue.locked)
+              = venue.events.count
   .button-row
     .col-xs-12
       = render 'shared/button',
