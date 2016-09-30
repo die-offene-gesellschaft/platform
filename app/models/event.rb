@@ -15,7 +15,12 @@ class Event < ApplicationRecord
   has_attached_file :picture,
                     styles: { normal: ['800x', :jpg], logo: ['250x', :png] }
 
-  validates :title, :event_type, :begin_at, :end_at, :description, :venue,
+  validates :title,
+            :event_type,
+            :begin_at,
+            :end_at,
+            :description,
+            :venue,
             presence: true
 
   validates_attachment_content_type :picture,
