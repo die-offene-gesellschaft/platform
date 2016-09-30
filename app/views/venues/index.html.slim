@@ -15,7 +15,7 @@
           td
             = t('venues.attributes.events')
       tbody
-        - @venues.order(created_at: :desc).each do |venue|
+        - @venues.order(:name).each do |venue|
           tr data-href="#{edit_venue_path(venue)}"
             td
               = venue.name
