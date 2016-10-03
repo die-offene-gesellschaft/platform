@@ -14,7 +14,8 @@ class ParticipateController < ApplicationController
     if @user.save
       flash.now[:success] = t('participate.success')
     else
-      flash.now[:error] = t('participate.error', error_description: @user.errors.full_messages.to_sentence)
+      flash.now[:error] = t('participate.error',
+                            error_description: @user.errors.full_messages.to_sentence)
     end
     render :show
   end

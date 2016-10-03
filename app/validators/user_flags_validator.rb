@@ -1,5 +1,4 @@
 class UserFlagsValidator < ActiveModel::Validator
-
   def initialize(_model)
   end
 

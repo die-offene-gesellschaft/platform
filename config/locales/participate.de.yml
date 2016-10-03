@@ -5,8 +5,8 @@ de:
       password: 'mind. 8 Zeichen lang'
     placeholder:
       password-confirmation: 'Passwort bestätigen'
-    error: 'Beim Registrieren folgendes Problem aufgetreten: %{error_description}'
-    success: 'Die Anmeldung war erfolgreich.'
+    error: 'Bei der Registrierung ist folgendes Problem aufgetreten: %{error_description}'
+    success: 'Die Anmeldung war erfolgreich'
     send: 'Absenden'
     options:
       newsletter: 'Halten Sie mich über Neuigkeiten, Mitmach-Möglichkeiten und Aktionen auf dem Laufenden.'
