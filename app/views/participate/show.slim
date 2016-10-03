@@ -1,5 +1,12 @@
 .participate
-  - unless flash[:success]
+  - if flash[:success]
+    / show an onboarding text
+    .row.support
+      .col-xs-12
+        == @contents[:what_next].value
+
+  - else
+    / show the participate form
     = simple_form_for @user, url: participate_path do |f|
       .row
         - checked_attribute = {}
@@ -38,16 +45,18 @@
         .col-xs-12.col-md-6.avatars
           - @users.each do |user|
             .image style="background-image: url(#{asset_url(user.avatar(:normal))});"
+
+  / general how-to-support text
   .row.support
     .col-xs-12
       ruby:
         facebook_link = link_to fa_icon('facebook-square'), facebook_share_link
         twitter_link = link_to fa_icon('twitter-square'), twitter_share_link
         transfer_link = sms_link = paypal_link = ''
-        content = @contents.first.value
-                           .gsub(/%{facebook_share_link}/, facebook_link)
-                           .gsub(/%{twitter_share_link}/, twitter_link)
-                           .gsub(/%{transfer_link}/, transfer_link)
-                           .gsub(/%{sms_link}/, sms_link)
-                           .gsub(/%{paypal_link}/, paypal_link)
+        content = @contents[:support].value
+                                     .gsub(/%{facebook_share_link}/, facebook_link)
+                                     .gsub(/%{twitter_share_link}/, twitter_link)
+                                     .gsub(/%{transfer_link}/, transfer_link)
+                                     .gsub(/%{sms_link}/, sms_link)
+                                     .gsub(/%{paypal_link}/, paypal_link)
       == content

@@ -33,13 +33,13 @@ ruby:
               td
                 = t('users.attributes.email')
               td
-                = t('users.attributes.password')
+                == t('users.attributes.email-confirmed')
               td
                 = t('users.attributes.locked')
               td
                 = t('users.attributes.newsletter')
               td
-                = t('users.attributes.terms-of-use')
+                == t('users.attributes.terms-of-use')
           tbody
             - @users.order(created_at: :desc).each do |user|
               tr data-href="#{edit_user_path(user)}"
@@ -52,7 +52,7 @@ ruby:
                 td
                   = user.email
                 td
-                  | ••••••••
+                  = icon_from(user.confirmed?)
                 td
                   = icon_from(user.locked)
                 td

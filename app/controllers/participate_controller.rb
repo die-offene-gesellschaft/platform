@@ -14,7 +14,7 @@ class ParticipateController < ApplicationController
     if @user.save
       flash.now[:success] = t('participate.success')
     else
-      flash.now[:error] = t('participate.error')
+      flash.now[:error] = t('participate.error', error_description: @user.errors.full_messages.to_sentence)
     end
     render :show
   end
@@ -30,17 +30,26 @@ class ParticipateController < ApplicationController
   end
 
   def set_contents
-    @contents = Content.where(controller_action_name: "#{controller_name}#show")
-                       .order(:order)
+    @contents = {}
+    [:what_next, :support, :diy].each do |key|
+      @contents[key] = get_content_for_key key
+    end
+  end
+
+  def get_content_for_key (key)
+    Content.where(controller_action_name: "#{controller_name}#show")
+           .where(key: key)
+           .limit(1)
+           .first
   end
 
   def process_contents
-    @contents.each do |content|
+    @contents.each do |key, content|
       html = Kramdown::Document.new(content.value).to_html
       content.value = html
     end
-    @content = ''
-    @content = @contents.first.value if @contents.any?
+    # @content = ''
+    # @content = @contents.first.value if @contents.any?
   end
 
   def user_params
