@@ -7,99 +7,24 @@ ruby:
   = render 'shared/subnav',
            items: t('events.subnav'),
            active: archive ? 'archive' : 'appointments'
+
   .row
     iframe frameborder='0' src='https://lucid-berlin.carto.com/viz/32514800-779d-11e6-8037-0e233c30368f/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen
     - if archive
       - @events.each do |year, events|
-        table.archive
-          tbody
-            tr
-              td.year colspan='3'
-                = l(year, format: '%Y')
-            - events.each_slice(3) do |slice|
-              tr.event
-                - slice.each do |event|
-                  td
-                    ruby:
-                      style = ''
-                      type = 'blank'
-                      # type = 'statement' if event.statement
+        = render 'events/archive',
+                 events: events,
+                 year: year
 
-                      if event.pictures.any?
-                        type = 'picture'
-                        asset = event.pictures.first.picture(:normal)
-                      elsif event.picture.path
-                        type = 'logo'
-                        asset = event.picture(:logo)
-                        style = "background-color: #{event.color}" if event.color
-                      end
-
-                    a class="#{type}" style="#{"background-image: url(#{asset_path(asset)});" if type == 'picture' || type == 'logo'} #{style}" href="#event-id-#{event.id}" data-toggle='modal' data-target="#event-id-#{event.id}"
-                      - if type == 'statement'
-                        .statement
-                          = event.statement
-                      .date-and-venue
-                        = l(event.begin_at, format: :short_date)
-                        | &nbsp;
-                        = event.title
-                    .modal.fade id="event-id-#{event.id}" tabindex="-1" role="dialog" aria-labelledby="event-id-#{event.id}" aria-hidden="true"
-                      .modal-dialog role="document"
-                        .modal-content
-                          button.close type="button" data-dismiss="modal" aria-label="Close"
-                            span aria-hidden="true"
-                              = fa_icon 'times'
-                          .modal-body.event-modal
-                            .container-fluid
-                              .row
-                                = render 'shared/event/modal_details',
-                                         event: event
-                - (3 - slice.count).times do
-                  td.dummy
-
-      coffee:
-        window.modalManager = new window.ModalManager()
     - else
       - @events.each do |month, events|
-        table.appointments
-          tbody
-            tr
-              td.month colspan='2'
-                = l(month, format: '%B')
-                | &nbsp;
-                br
-                = l(month, format: '%Y')
-                = fa_icon 'chevron-down 2x'
-            - events.each do |event|
-              tr.event data-modal="event-id-#{event.id}" data-toggle='modal' data-target_alt="#event-id-#{event.id}"
-                td.date
-                  = l(event.begin_at, format: :short_date)
-                td.details
-                  p.city
-                    - venue = event.venue
-                    = venue.city
-                  p.event-type-and-active-members
-                    - event_type = ''
-                    - event_type = t("events.event-type.#{event.event_type}") if event.event_type == 'debate'
-                    - if event.active_members.any?
-                      = t 'events.event-type-and-active-members',
-                          event_type: event_type,
-                          active_members: event.active_members.map(&:full_name).join(', ')
-                    - elsif event.event_type == 'debate'
-                      = t("events.event-type.#{event.event_type}")
-                  p.time
-                    = l(event.begin_at, format: :short_time)
-                  p.venue
-                    = venue.name
-                .modal.fade id="event-id-#{event.id}" tabindex="-1" role="dialog" aria-labelledby="event-id-#{event.id}" aria-hidden="true"
-                  .modal-dialog role="document"
-                    .modal-content
-                      button.close type="button" data-dismiss="modal" aria-label="Close"
-                        span aria-hidden="true"
-                          = fa_icon 'times'
-                      .modal-body.event-modal
-                        .container-fluid
-                          .row
-                            = render 'shared/event/modal_details',
-                                     event: event
+        = render 'events/appointments',
+                 events: events,
+                 month: month
+
+      - if @planned_events.any?
+        = render 'events/planned_appointments',
+                 events: @planned_events
+
   coffee:
     window.modalManager = new window.ModalManager()

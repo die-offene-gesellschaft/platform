@@ -4,14 +4,14 @@ default: &default
   timeout: 5000
 
 development:
-  <<: *default
-  database: db/development.sqlite3
-  # adapter: mysql2
-  # encoding: utf8
-  # host: localhost
-  # database: offenege
-  # username: offenege
-  # password: Eiy4ahngoih3sie
+  # <<: *default
+  # database: db/development.sqlite3
+  adapter: mysql2
+  encoding: utf8
+  host: localhost
+  database: offenege
+  username: offenege
+  password: Eiy4ahngoih3sie
 
 test:
   <<: *default

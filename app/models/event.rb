@@ -16,7 +16,6 @@ class Event < ApplicationRecord
                     styles: { normal: ['800x', :jpg], logo: ['250x', :png] }
 
   validates :title,
-            :event_type,
             :begin_at,
             :end_at,
             :description,
