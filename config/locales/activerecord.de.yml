@@ -1,0 +1,12 @@
+de:
+  activerecord:
+    attributes:
+      user:
+        email: E-Mail-Adresse
+        role: Über mich
+        statement: Statement
+        locked: gesperrt
+        forename: Vorname
+        surname: Nachname
+        newsletter: Newsletter
+        terms_of_use: Nutzungsbedingungen
