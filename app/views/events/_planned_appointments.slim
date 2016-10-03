@@ -12,14 +12,12 @@ table.appointments
             - venue = event.venue
             = venue.city
           p.event-type-and-active-members
-            - event_type = ''
-            - event_type = t("events.event-type.#{event.event_type}") if event.event_type == 'debate'
             - if event.active_members.any?
               = t 'events.event-type-and-active-members',
-                  event_type: event_type,
+                  event_type: event.event_type,
                   active_members: event.active_members.map(&:full_name).join(', ')
-            - elsif event.event_type == 'debate'
-              = t("events.event-type.#{event.event_type}")
+            - else
+              = event.event_type
           p.time
 
           p.venue
