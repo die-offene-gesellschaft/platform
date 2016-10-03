@@ -1,0 +1,35 @@
+table.archive
+  tbody
+    tr
+      td.year colspan='3'
+        = l(year, format: '%Y')
+    - events.each_slice(3) do |slice|
+      tr.event
+        - slice.each do |event|
+          td
+            ruby:
+              style = ''
+              type = 'blank'
+              # type = 'statement' if event.statement
+
+              if event.pictures.any?
+                type = 'picture'
+                asset = event.pictures.first.picture(:normal)
+              elsif event.picture.path
+                type = 'logo'
+                asset = event.picture(:logo)
+                style = "background-color: #{event.color}" if event.color
+              end
+
+            a class="#{type}" style="#{"background-image: url(#{asset_path(asset)});" if type == 'picture' || type == 'logo'} #{style}" href="#event-id-#{event.id}" data-toggle='modal' data-target="#event-id-#{event.id}"
+              - if type == 'statement'
+                .statement
+                  = event.statement
+              .date-and-venue
+                = l(event.begin_at, format: :short_date)
+                | &nbsp;
+                = event.title
+            = render 'shared/event/modal',
+                     event: event
+        - (3 - slice.count).times do
+          td.dummy

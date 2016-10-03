@@ -16,6 +16,7 @@ de:
     event-type:
       debate: Debatte
     upcoming-events: Kommende Aktionen
+    planned-events: Geplante Aktionen
     event-archive: Aktionen Archiv
     actions:
       new: Neues Event erstellen

@@ -1,0 +1,32 @@
+table.appointments
+  tbody
+    tr
+      td.month colspan='2'
+        = l(month, format: '%B')
+        | &nbsp;
+        br
+        = l(month, format: '%Y')
+        = fa_icon 'chevron-down 2x'
+    - events.each do |event|
+      tr.event data-modal="event-id-#{event.id}" data-toggle='modal' data-target_alt="#event-id-#{event.id}"
+        td.date
+          = l(event.begin_at, format: :short_date)
+        td.details
+          p.city
+            - venue = event.venue
+            = venue.city
+          p.event-type-and-active-members
+            - event_type = ''
+            - event_type = t("events.event-type.#{event.event_type}") if event.event_type == 'debate'
+            - if event.active_members.any?
+              = t 'events.event-type-and-active-members',
+                  event_type: event_type,
+                  active_members: event.active_members.map(&:full_name).join(', ')
+            - elsif event.event_type == 'debate'
+              = t("events.event-type.#{event.event_type}")
+          p.time
+            = l(event.begin_at, format: :short_time)
+          p.venue
+            = venue.name
+        = render 'shared/event/modal',
+                 event: event

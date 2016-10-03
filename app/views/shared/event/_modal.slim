@@ -1,0 +1,11 @@
+.modal.fade id="event-id-#{event.id}" tabindex="-1" role="dialog" aria-labelledby="event-id-#{event.id}" aria-hidden="true"
+  .modal-dialog role="document"
+    .modal-content
+      button.close type="button" data-dismiss="modal" aria-label="Close"
+        span aria-hidden="true"
+          = fa_icon 'times'
+      .modal-body.event-modal
+        .container-fluid
+          .row
+            = render 'shared/event/modal_details',
+                     event: event
