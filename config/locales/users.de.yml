@@ -6,7 +6,9 @@ de:
       surname: 'Nachname'
       email: 'E-Mail-Adresse'
       password: 'Passwort'
+      email-confirmed: 'E-Mail<wbr />bestätigt'
       locked: 'Gesperrt'
+      terms-of-use: 'AGB'
     success:
       delete-profile: 'Das Profil wurde erfolgreich gelöscht'
     actions:
@@ -22,3 +24,5 @@ de:
         label: 'Liste'
     all-friends: 'Alle Freunde'
     become-friends: 'Freund/in werden'
+    errors:
+      no-terms-of-use: '(Bitte akzeptiere unsere Nutzungsbedingungen um ein/e Freund/In der Offenen Gesellschaft zu werden.)'

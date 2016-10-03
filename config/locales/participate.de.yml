@@ -5,7 +5,7 @@ de:
       password: 'mind. 8 Zeichen lang'
     placeholder:
       password-confirmation: 'Passwort bestätigen'
-    error: 'Beim Registrieren ist ein Fehler aufgetreten'
+    error: 'Bei der Registrierung ist folgendes Problem aufgetreten: %{error_description}'
     success: 'Die Anmeldung war erfolgreich'
     send: 'Absenden'
     options:

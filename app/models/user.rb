@@ -34,6 +34,10 @@ class User < ApplicationRecord
   validates :password,
             confirmation: true
 
+  validate do |user|
+    UserFlagsValidator.validate_terms_of_use(user)
+  end
+
   def after_confirmation
     send_user_welcome_mail if terms_of_use
     sync_to_mailchimp_later if newsletter
