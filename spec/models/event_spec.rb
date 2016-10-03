@@ -23,8 +23,6 @@ RSpec.describe Event, type: :model do
 
   it { should validate_presence_of(:title) }
 
-  it { should validate_presence_of(:event_type) }
-
   it { should validate_presence_of(:begin_at) }
 
   it { should validate_presence_of(:end_at) }
