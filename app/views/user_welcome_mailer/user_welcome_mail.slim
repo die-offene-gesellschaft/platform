@@ -1,9 +1,22 @@
 = t('mails.user_welcome.greeting', recipient: @user.forename)
 br
 br
-== t('mails.user_welcome.text',
-     profile_link: link_to(t('mails.user_welcome.profile_link_label'), "#{users_url(pictures: '')}#show(#user-id-#{@user.id})"),
-     event_link: link_to(t('mails.user_welcome.event_link_label'), events_url)).gsub("\n\n", '<br /><br />')
+
+ruby:
+  label = t('mails.user_welcome.profile_link_label')
+  url = "#{users_url(pictures: '')}#show(#user-id-#{@user.id})"
+  profile_link = link_to(label, url)
+
+  label = t('mails.user_welcome.event_link_label')
+  event_link = link_to(label, events_url)
+
+  welcome_text = t('mails.user_welcome.text',
+                   profile_link: profile_link,
+                   event_link: event_link)
+
+== welcome_text.gsub("\n\n", '<br /><br />')
+
 br
 br
+
 == t('mails.user_welcome.goodbye').gsub("\n\n", '<br /><br />')

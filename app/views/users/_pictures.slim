@@ -1,117 +1,229 @@
-.grid
-  .desktop-size1x1.desktop-x1.desktop-y1.size1x1.x1.y1
-    = render 'shared/user/tile', user: users[0 % users.count]
-  .desktop-size1x1.desktop-x2.desktop-y1.size1x1.x2.y1
-    = render 'shared/user/tile', user: users[1 % users.count]
-  .desktop-size1x1.desktop-x3.desktop-y1.size1x1.x1.y2
-    = render 'shared/user/tile', user: users[2 % users.count]
-  .desktop-size1x1.desktop-x4.desktop-y1.size1x1.x2.y2
-    = render 'shared/user/tile', user: users[3 % users.count]
-  .desktop-size1x1.desktop-x5.desktop-y1.size1x1.x1.y3
-    = render 'shared/user/tile', user: users[4 % users.count]
-  .desktop-size1x1.desktop-x6.desktop-y1.size1x1.x2.y3
-    = render 'shared/user/tile', user: users[5 % users.count]
+ruby:
+  user_grid = [
+    {
+      classes: 'desktop-size1x1 desktop-x1 desktop-y1 size1x1 x1 y1',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x2 desktop-y1 size1x1 x2 y1',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x3 desktop-y1 size1x1 x1 y2',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x4 desktop-y1 size1x1 x2 y2',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x5 desktop-y1 size1x1 x1 y3',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x6 desktop-y1 size1x1 x2 y3',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x1 desktop-y2 size1x1 x1 y4',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x2 desktop-y2 size1x1 x2 y4',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size2x2 desktop-x3 desktop-y2 size2x2 x1 y5',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x5 desktop-y2 size1x1 x1 y7',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x6 desktop-y2 size1x1 x2 y7',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x1 desktop-y3 size1x1 x1 y8',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x2 desktop-y3 size1x1 x2 y8',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size2x2 desktop-x5 desktop-y3 size2x2 x1 y9',
+      type: :statement
+    },
+    {
+      classes: 'desktop-size2x2 desktop-x1 desktop-y4 size2x2 x1 y12',
+      type: :statement
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x3 desktop-y4 size1x1 x1 y11',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x4 desktop-y4 size1x1 x2 y11',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x3 desktop-y5 size1x1 x1 y14',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x4 desktop-y5 size1x1 x2 y14',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size2x2 desktop-x5 desktop-y5 size2x2 x1 y15',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x1 desktop-y6 size1x1 x1 y17',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x2 desktop-y6 size1x1 x2 y17',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x3 desktop-y6 size1x1 x1 y18',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x4 desktop-y6 size1x1 x2 y18',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x1 desktop-y7 size1x1 x1 y19',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size2x2 desktop-x2 desktop-y7 size2x2 x1 y20',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x4 desktop-y7 size1x1 x2 y19',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x5 desktop-y7 size1x1 x1 y22',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x6 desktop-y7 size1x1 x2 y22',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x1 desktop-y8 size1x1 x1 y23',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x4 desktop-y8 size1x1 x2 y23',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x5 desktop-y8 size1x1 x1 y24',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x6 desktop-y8 size1x1 x2 y24',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x1 desktop-y9 size1x1 x1 y25',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x2 desktop-y9 size1x1 x2 y25',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x3 desktop-y9 size1x1 x1 y26',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x4 desktop-y9 size1x1 x2 y26',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size2x2 desktop-x5 desktop-y9 size2x2 x1 y27',
+      type: :statement
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x1 desktop-y10 size1x1 x1 y29',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x2 desktop-y10 size1x1 x2 y29',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x3 desktop-y10 size1x1 x1 y30',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x4 desktop-y10 size1x1 x2 y30',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size2x2 desktop-x1 desktop-y11 size2x2 x1 y31',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x3 desktop-y11 size1x1 x1 y33',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x4 desktop-y11 size1x1 x2 y33',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x5 desktop-y11 size1x1 x1 y34',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x6 desktop-y11 size1x1 x2 y34',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x3 desktop-y12 size1x1 x1 y35',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x4 desktop-y12 size1x1 x2 y35',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x5 desktop-y12 size1x1 x1 y36',
+      type: :picture
+    },
+    {
+      classes: 'desktop-size1x1 desktop-x6 desktop-y12 size1x1 x2 y36',
+      type: :picture
+    }
+  ]
 
-  .desktop-size1x1.desktop-x1.desktop-y2.size1x1.x1.y4
-    = render 'shared/user/tile', user: users[6 % users.count]
-  .desktop-size1x1.desktop-x2.desktop-y2.size1x1.x2.y4
-    = render 'shared/user/tile', user: users[7 % users.count]
-  .desktop-size2x2.desktop-x3.desktop-y2.size2x2.x1.y5
-    = render 'shared/user/tile', user: users[8 % users.count]
-  .desktop-size1x1.desktop-x5.desktop-y2.size1x1.x1.y7
-    = render 'shared/user/tile', user: users[9 % users.count]
-  .desktop-size1x1.desktop-x6.desktop-y2.size1x1.x2.y7
-    = render 'shared/user/tile', user: users[10 % users.count]
-
-  .desktop-size1x1.desktop-x1.desktop-y3.size1x1.x1.y8
-    = render 'shared/user/tile', user: users[11 % users.count]
-  .desktop-size1x1.desktop-x2.desktop-y3.size1x1.x2.y8
-    = render 'shared/user/tile', user: users[12 % users.count]
-  .desktop-size2x2.desktop-x5.desktop-y3.size2x2.x1.y9
-    = render 'shared/user/tile', user: statement_users[0], statement: true
-
-  .desktop-size2x2.desktop-x1.desktop-y4.size2x2.x1.y12
-    = render 'shared/user/tile', user: statement_users[1], statement: true
-  .desktop-size1x1.desktop-x3.desktop-y4.size1x1.x1.y11
-    = render 'shared/user/tile', user: users[13 % users.count]
-  .desktop-size1x1.desktop-x4.desktop-y4.size1x1.x2.y11
-    = render 'shared/user/tile', user: users[14 % users.count]
-
-  .desktop-size1x1.desktop-x3.desktop-y5.size1x1.x1.y14
-    = render 'shared/user/tile', user: users[15 % users.count]
-  .desktop-size1x1.desktop-x4.desktop-y5.size1x1.x2.y14
-    = render 'shared/user/tile', user: users[16 % users.count]
-  .desktop-size2x2.desktop-x5.desktop-y5.size2x2.x1.y15
-    = render 'shared/user/tile', user: users[17 % users.count]
-
-  .desktop-size1x1.desktop-x1.desktop-y6.size1x1.x1.y17
-    = render 'shared/user/tile', user: users[18 % users.count]
-  .desktop-size1x1.desktop-x2.desktop-y6.size1x1.x2.y17
-    = render 'shared/user/tile', user: users[19 % users.count]
-  .desktop-size1x1.desktop-x3.desktop-y6.size1x1.x1.y18
-    = render 'shared/user/tile', user: users[20 % users.count]
-  .desktop-size1x1.desktop-x4.desktop-y6.size1x1.x2.y18
-    = render 'shared/user/tile', user: users[21 % users.count]
-
-  .desktop-size1x1.desktop-x1.desktop-y7.size1x1.x1.y19
-    = render 'shared/user/tile', user: users[22 % users.count]
-  .desktop-size2x2.desktop-x2.desktop-y7.size2x2.x1.y20
-    = render 'shared/user/tile', user: users[23 % users.count]
-  .desktop-size1x1.desktop-x4.desktop-y7.size1x1.x2.y19
-    = render 'shared/user/tile', user: users[24 % users.count]
-  .desktop-size1x1.desktop-x5.desktop-y7.size1x1.x1.y22
-    = render 'shared/user/tile', user: users[25 % users.count]
-  .desktop-size1x1.desktop-x6.desktop-y7.size1x1.x2.y22
-    = render 'shared/user/tile', user: users[26 % users.count]
-
-  .desktop-size1x1.desktop-x1.desktop-y8.size1x1.x1.y23
-    = render 'shared/user/tile', user: users[27 % users.count]
-  .desktop-size1x1.desktop-x4.desktop-y8.size1x1.x2.y23
-    = render 'shared/user/tile', user: users[28 % users.count]
-  .desktop-size1x1.desktop-x5.desktop-y8.size1x1.x1.y24
-    = render 'shared/user/tile', user: users[29 % users.count]
-  .desktop-size1x1.desktop-x6.desktop-y8.size1x1.x2.y24
-    = render 'shared/user/tile', user: users[30 % users.count]
-
-  .desktop-size1x1.desktop-x1.desktop-y9.size1x1.x1.y25
-    = render 'shared/user/tile', user: users[31 % users.count]
-  .desktop-size1x1.desktop-x2.desktop-y9.size1x1.x2.y25
-    = render 'shared/user/tile', user: users[32 % users.count]
-  .desktop-size1x1.desktop-x3.desktop-y9.size1x1.x1.y26
-    = render 'shared/user/tile', user: users[33 % users.count]
-  .desktop-size1x1.desktop-x4.desktop-y9.size1x1.x2.y26
-    = render 'shared/user/tile', user: users[34 % users.count]
-  .desktop-size2x2.desktop-x5.desktop-y9.size2x2.x1.y27
-    = render 'shared/user/tile', user: statement_users[2], statement: true
-
-  .desktop-size1x1.desktop-x1.desktop-y10.size1x1.x1.y29
-    = render 'shared/user/tile', user: users[35 % users.count]
-  .desktop-size1x1.desktop-x2.desktop-y10.size1x1.x2.y29
-    = render 'shared/user/tile', user: users[36 % users.count]
-  .desktop-size1x1.desktop-x3.desktop-y10.size1x1.x1.y30
-    = render 'shared/user/tile', user: users[37 % users.count]
-  .desktop-size1x1.desktop-x4.desktop-y10.size1x1.x2.y30
-    = render 'shared/user/tile', user: users[38 % users.count]
-
-  .desktop-size2x2.desktop-x1.desktop-y11.size2x2.x1.y31
-    = render 'shared/user/tile', user: users[39 % users.count]
-  .desktop-size1x1.desktop-x3.desktop-y11.size1x1.x1.y33
-    = render 'shared/user/tile', user: users[40 % users.count]
-  .desktop-size1x1.desktop-x4.desktop-y11.size1x1.x2.y33
-    = render 'shared/user/tile', user: users[41 % users.count]
-  .desktop-size1x1.desktop-x5.desktop-y11.size1x1.x1.y34
-    = render 'shared/user/tile', user: users[42 % users.count]
-  .desktop-size1x1.desktop-x6.desktop-y11.size1x1.x2.y34
-    = render 'shared/user/tile', user: users[43 % users.count]
-
-  .desktop-size1x1.desktop-x3.desktop-y12.size1x1.x1.y35
-    = render 'shared/user/tile', user: users[44 % users.count]
-  .desktop-size1x1.desktop-x4.desktop-y12.size1x1.x2.y35
-    = render 'shared/user/tile', user: users[45 % users.count]
-  .desktop-size1x1.desktop-x5.desktop-y12.size1x1.x1.y36
-    = render 'shared/user/tile', user: users[46 % users.count]
-  .desktop-size1x1.desktop-x6.desktop-y12.size1x1.x2.y36
-    = render 'shared/user/tile', user: users[47 % users.count]
+- tiles = []
+- users.each_with_index do |user, index|
+  - tile_definition = user_grid[index % user_grid.count]
+  - if tile_definition[:type] == :statement
+    - tiles << render('picture_grid_item',
+                      classes: tile_definition[:classes],
+                      user: statement_users[index % statement_users.count],
+                      statement: true)
+  - else
+    - tiles << render('picture_grid_item',
+                      classes: tile_definition[:classes],
+                      user: user,
+                      statement: false)
+  - if (index % user_grid.count).zero? && index > 0
+    .grid
+      - tiles.each do |tile|
+        = tile
+    - tiles = []
 
   - if member_signed_in?
     - content_for :modals do

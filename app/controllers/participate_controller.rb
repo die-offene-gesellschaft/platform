@@ -37,7 +37,7 @@ class ParticipateController < ApplicationController
     end
   end
 
-  def get_content_for_key (key)
+  def get_content_for_key(key)
     Content.where(controller_action_name: "#{controller_name}#show")
            .where(key: key)
            .limit(1)
@@ -45,12 +45,10 @@ class ParticipateController < ApplicationController
   end
 
   def process_contents
-    @contents.each do |key, content|
+    @contents.each do |_, content|
       html = Kramdown::Document.new(content.value).to_html
       content.value = html
     end
-    # @content = ''
-    # @content = @contents.first.value if @contents.any?
   end
 
   def user_params

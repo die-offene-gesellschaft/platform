@@ -13,3 +13,4 @@ TooManyInstanceVariables:
 FeatureEnvy:
   exclude:
     - "ParticipateController#user_params"
+    - "ParticipateController#process_contents"
