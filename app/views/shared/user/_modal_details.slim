@@ -16,6 +16,9 @@ ruby:
         = "#{user.forename} #{user.surname}"
       .quote-role.user-role
         = user.role
+        - if user.locked?
+          .locked-notification
+            = t('users.status.locked')
       .links
         .link-small
           - if large_user_image

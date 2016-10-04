@@ -1,0 +1,41 @@
+= render 'shared/admin_tabs', active: :user
+.row
+  .col-xs-12
+    table.table.table-striped.table-hover
+      thead
+        tr
+          td
+            = t('users.attributes.id')
+          td
+            = t('users.attributes.forename')
+          td
+            = t('users.attributes.surname')
+          td
+            = t('users.attributes.email')
+          td
+            == t('users.attributes.email-confirmed')
+          td
+            = t('users.attributes.locked')
+          td
+            = t('users.attributes.newsletter')
+          td
+            == t('users.attributes.terms-of-use')
+      tbody
+        - users.order(created_at: :desc).each do |user|
+          tr data-href="#{edit_user_path(user)}"
+            td
+              = user.id
+            td
+              = user.forename
+            td
+              = user.surname
+            td
+              = user.email
+            td
+              = icon_from(user.confirmed?)
+            td
+              = icon_from(user.locked)
+            td
+              = icon_from(user.newsletter)
+            td
+              = icon_from(user.terms_of_use)

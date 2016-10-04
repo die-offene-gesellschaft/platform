@@ -135,7 +135,7 @@
 .quote {
   color: $anthracite;
   font-family: 'Montserrat', sans-serif;
-  font-size: 5.75vw;
+  font-size: 5.5vw;
   font-stretch: normal;
   font-style: normal;
   font-weight: normal;
@@ -144,11 +144,11 @@
   text-align: left;
 
   @media (min-width: $mobile-breakpoint-width) {
-    font-size: 1.9167vw;
+    font-size: 1.7vw;
   }
 
   @media (min-width: $max-viewport-width) {
-    font-size: 23px;
+    font-size: 22px;
   }
 }
 
@@ -185,7 +185,7 @@
 .box-article-text {
   color: $black;
   font-family: 'Montserrat', sans-serif;
-  font-size: 4.75vw;
+  font-size: 4.5vw;
   font-stretch: normal;
   font-style: normal;
   font-weight: 300;
@@ -193,11 +193,11 @@
   text-align: left;
 
   @media (min-width: $mobile-breakpoint-width) {
-    font-size: 1.5833vw;
+    font-size: 1.32vw;
   }
 
   @media (min-width: $max-viewport-width) {
-    font-size: 19px;
+    font-size: 17px;
   }
 }
 

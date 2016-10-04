@@ -5,6 +5,19 @@ html
       = @site_title
     meta charset='utf-8'
     meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'
+    meta property="og:site_name" content="Die Offene Gesellschaft"
+    meta property="og:type" content="website"
+    meta property="og:url" content="https://die-offene-gesellschaft.de"
+    meta property="og:title" content="Die Offene Gesellschaft"
+    meta property="og:description" content="Der Kern der Demokratie ist Freiheit. Haben andere erkämpft, müssen wir verteidigen."
+    meta property="og:updated_time" content="#{Time.zone.now}"
+    meta property="og:image" content="#{asset_url('DoG_logo.png')}"
+    meta property="og:image:type" content="image/png"
+    meta property="og:image:width" content="1200"
+    meta property="og:image:height" content="630"
+    meta name="twitter:card" content="summary"
+    meta name="twitter:url" content="https://die-offene-gesellschaft.de"
+    meta name="twitter:title" content="Die Offene Gesellschaft"
     link href="#{asset_path('favicon.png')}" rel="icon" type="image/png"
     = csrf_meta_tags
     = action_cable_meta_tag

@@ -1,18 +1,19 @@
-- controller, action = @contents.first.controller_action_name.split('#')
-= simple_form_for :contents, url: url_for(controller: controller, action: action), method: :patch do |f|
-  .row
-    .col-xs-12
-      h1
-        = action.capitalize
-      .inputs
-        - @contents.each do |content|
-          = f.input content.key,
-                    as: :text,
-                    input_html: { value: content.value,
-                                  rows: 15 }
-  .row.button-row
-    .col-xs-12
-        = render 'shared/button',
-                 type: 'submit',
-                 icon: 'check',
-                 label: t('save')
+.contents
+  = render 'shared/admin_tabs', active: :content
+
+  - controller, action = @contents.first.controller_action_name.split('#')
+  = simple_form_for :contents, url: url_for(controller: controller, action: action), method: :patch do |f|
+    .row
+      .col-xs-12
+        .inputs
+          - @contents.each do |content|
+            = f.input content.key,
+                      as: :text,
+                      input_html: { value: content.value,
+                                    rows: 15 }
+    .row.button-row
+      .col-xs-12
+          = render 'shared/button',
+                   type: 'submit',
+                   icon: 'check',
+                   label: t('save')

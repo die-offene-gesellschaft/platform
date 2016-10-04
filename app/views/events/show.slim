@@ -1,5 +1,6 @@
 .events
   = render 'shared/event/modal_details',
            event: @event
+
   javascript:
     window.location.href = '#{events_path(appointments: '')}#show(#event-id-#{@event.id})'

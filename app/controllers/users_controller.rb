@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_admin!, only: [:edit, :update]
 
   before_action :set_users, only: [:index]
+  before_action :set_admin_users, only: [:index]
   before_action :set_user, only: [:show, :destroy, :edit, :update]
 
   # GET /users
@@ -51,35 +52,31 @@ class UsersController < ApplicationController
   private
 
   def set_users
-    newsletter_only_ids = User.where(newsletter: true, terms_of_use: false).map(&:id)
-    @users = User.where('id NOT IN (?)', newsletter_only_ids)
+    @users = User.where(locked: false)
+                 .order(created_at: :desc)
+
     get_params = request.query_parameters.keys
-    if get_params & %w(pictures list) == []
-      authenticate_admin!
-    else
-      @users = @users.where(locked: false)
-    end
+    authenticate_admin! if get_params & %w(pictures list) == []
     filter_user_from get_params
   end
 
   def filter_user_from(get_params)
     if get_params.include?('pictures')
-      set_statements
+      @statement_users = @users.where.not(statement: nil)
+                               .where.not(statement: '')
       @users = @users.where.not(avatar_file_name: nil)
+      @pictureless_users = User.where(locked: false)
+                               .where(avatar_file_name: nil)
     elsif get_params.include?('list')
       @active_members = ActiveMember.all
     end
   end
 
-  def set_statements
-    @statement_users = @users.where(avatar_file_name: nil)
-                             .where.not(statement: nil)
-                             .limit(3)
-
-    if @statement_users.count < 3
-      @statement_users = @users.where.not(statement: nil)
-                               .limit(3)
-    end
+  def set_admin_users
+    newsletter_only_ids = User.where(newsletter: true, terms_of_use: false)
+                              .map(&:id)
+    @admin_users = User.where('id NOT IN (?)', newsletter_only_ids)
+                       .order(created_at: :desc)
   end
 
   def set_user
