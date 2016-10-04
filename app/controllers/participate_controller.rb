@@ -13,9 +13,7 @@ class ParticipateController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash.now[:success] = t('participate.success')
-      new_user = @user
-      @task = :member if new_user.terms_of_use
-      @task = :newsletter unless new_user.terms_of_use
+      create_task_variable @user
     else
       flash.now[:error] = t('participate.error',
                             error_description: @user.errors.full_messages.to_sentence)
@@ -47,6 +45,11 @@ class ParticipateController < ApplicationController
            .where(key: key)
            .limit(1)
            .first
+  end
+
+  def create_task_variable(created_user)
+    @task = :member if created_user.terms_of_use
+    @task = :newsletter unless created_user.terms_of_use
   end
 
   def process_contents
