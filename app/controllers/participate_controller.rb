@@ -13,6 +13,9 @@ class ParticipateController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash.now[:success] = t('participate.success')
+      new_user = @user
+      @task = :member if new_user.terms_of_use
+      @task = :newsletter unless new_user.terms_of_use
     else
       flash.now[:error] = t('participate.error',
                             error_description: @user.errors.full_messages.to_sentence)

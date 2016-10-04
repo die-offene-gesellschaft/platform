@@ -17,9 +17,8 @@ class HomeController < ApplicationController
 
   def set_users
     @users = User.where(locked: false)
-                 .where(terms_of_use: true)
                  .where.not(avatar_file_name: nil)
-                 .order(created_at: :desc)
                  .limit(25)
+                 .shuffle
   end
 end

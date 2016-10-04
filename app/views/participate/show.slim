@@ -1,11 +1,11 @@
 .participate
-  - if flash[:success]
+  - if @task == :member
     / show an onboarding text
-    .row.support
+    .row.what-next
       .col-xs-12
         == @contents[:what_next].value
 
-  - else
+  - unless flash[:success]
     / show the participate form
     = simple_form_for @user, url: participate_path do |f|
       .row
