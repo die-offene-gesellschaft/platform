@@ -219,25 +219,23 @@ ruby:
                       classes: tile_definition[:classes],
                       user: user,
                       statement: false)
-  - if (index % user_grid.count).zero? && index > 0
+  - if tiles.count == user_grid.count
     .grid
       - tiles.each do |tile|
         = tile
     - tiles = []
 
-  - if member_signed_in?
-    - content_for :modals do
-      .modal.fade id="user-id-#{current_user.id}" tabindex="-1" role="dialog" aria-labelledby="user-id-#{current_user.id}" aria-hidden="true"
-        .modal-dialog role="document"
-          .modal-content
-            button.close type="button" data-dismiss="modal" aria-label="Close"
-              span aria-hidden="true"
-                = fa_icon 'times'
-            .modal-body.user-modal
-                = render 'shared/user/modal_details',
-                         user: current_user,
-                         large_user_image: false
+- if member_signed_in?
+  - content_for :modals do
+    .modal.fade id="user-id-#{current_user.id}" tabindex="-1" role="dialog" aria-labelledby="user-id-#{current_user.id}" aria-hidden="true"
+      .modal-dialog role="document"
+        .modal-content
+          button.close type="button" data-dismiss="modal" aria-label="Close"
+            span aria-hidden="true"
+              = fa_icon 'times'
+          .modal-body.user-modal
+            = render 'shared/user/modal_details',
+                      user: current_user,
+                      large_user_image: false
 
 = content_for :modals
-coffee:
-  window.modalManager = new window.ModalManager()

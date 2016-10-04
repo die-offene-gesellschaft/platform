@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_admin!, only: [:edit, :update]
 
   before_action :set_users, only: [:index]
+  before_action :set_admin_users, only: [:index]
   before_action :set_user, only: [:show, :destroy, :edit, :update]
 
   # GET /users
@@ -51,9 +52,7 @@ class UsersController < ApplicationController
   private
 
   def set_users
-    newsletter_only_ids = User.where(newsletter: true, terms_of_use: false).map(&:id)
-    @users = User.where('id NOT IN (?)', newsletter_only_ids)
-                 .where(locked: false)
+    @users = User.where(locked: false)
                  .order(created_at: :desc)
 
     get_params = request.query_parameters.keys
@@ -66,9 +65,18 @@ class UsersController < ApplicationController
       @statement_users = @users.where.not(statement: nil)
                                .where.not(statement: '')
       @users = @users.where.not(avatar_file_name: nil)
+      @pictureless_users = User.where(locked: false)
+                               .where(avatar_file_name: nil)
     elsif get_params.include?('list')
       @active_members = ActiveMember.all
     end
+  end
+
+  def set_admin_users
+    newsletter_only_ids = User.where(newsletter: true, terms_of_use: false)
+                              .map(&:id)
+    @admin_users = User.where('id NOT IN (?)', newsletter_only_ids)
+                       .order(created_at: :desc)
   end
 
   def set_user

@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  before_save :send_user_welcome_mail, if: :locked_changed?
+
   # Others available devise modules are:
   # :registerable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
@@ -54,7 +56,7 @@ class User < ApplicationRecord
   end
 
   def send_user_welcome_mail
-    UserWelcomeMailer.user_welcome_email(self).deliver_later
+    UserWelcomeMailer.user_welcome_email(self).deliver_later if id && !locked && terms_of_use
   end
 
   def sync_to_mailchimp
