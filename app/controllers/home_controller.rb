@@ -12,7 +12,9 @@ class HomeController < ApplicationController
   private
 
   def set_events
-    @events = Event.all
+    @events = Event.where('end_at >= ?', Time.zone.now)
+                   .where(planned: false)
+                   .order(begin_at: :asc)
   end
 
   def set_users
