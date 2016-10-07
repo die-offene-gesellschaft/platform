@@ -29,6 +29,9 @@ RSpec.describe User, type: :model do
   it { should validate_presence_of(:forename) }
   it { should validate_presence_of(:surname) }
 
+  it { should validate_length_of(:role).is_at_most(140) }
+  it { should validate_length_of(:statement).is_at_most(255) }
+
   describe 'terms of use' do
     it 'can not be unset if not a newsletter user' do
       @user.newsletter = false
