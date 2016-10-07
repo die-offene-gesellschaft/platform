@@ -3,14 +3,28 @@
     .col-xs-12
       .inputs
         .image style="background-image: url(#{asset_url(user.avatar(:normal))});"
-        = f.input :statement, readonly: true, disabled: true
-        = f.input :forename, readonly: true, disabled: true
-        = f.input :surname, readonly: true, disabled: true
-        = f.input :role, readonly: true, disabled: true
-        = f.input :email, readonly: true, disabled: true
+        = f.input :statement,
+                  as: :text,
+                  input_html: { rows: 2 },
+                  readonly: true,
+                  disabled: true
+        = f.input :forename,
+                  readonly: true,
+                  disabled: true
+        = f.input :surname,
+                  readonly: true,
+                  disabled: true
+        = f.input :role,
+                  readonly: true,
+                  disabled: true
+        = f.input :email,
+                  readonly: true,
+                  disabled: true
         = f.input :video_url
         = f.input :locked
-        = f.input :newsletter, readonly: true, disabled: true
+        = f.input :newsletter,
+                  readonly: true,
+                  disabled: true
   .row.button-row
     .col-xs-12
       = render 'shared/button',
