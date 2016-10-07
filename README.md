@@ -42,7 +42,7 @@ Drop local database and read in dump.
 rails db:drop
 rails db:create
 rails db:migrate
-mysql -u offenege -p offenge < latest.sql
+mysql -u offenege -p offenege < latest.sql
 ```
 
 ### Project
