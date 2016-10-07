@@ -387,3 +387,8 @@ input {
     }
   }
 }
+
+.embed-responsive-1by1 {
+  padding-bottom: calc(100% + 1px);
+  width: 100%;
+}

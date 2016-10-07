@@ -44,6 +44,7 @@ class User < ApplicationRecord
 
   validate do |user|
     UserFlagsValidator.validate_terms_of_use(user)
+    UserVideoUrlsValidator.validate_video_url(user)
   end
 
   def after_confirmation
@@ -53,6 +54,49 @@ class User < ApplicationRecord
 
   def full_name
     "#{forename} #{surname}"
+  end
+
+  def large_image?
+    false
+  end
+
+  def video_user?
+    video_url.present?
+  end
+
+  def youtube_id
+    return nil unless video_user?
+    %r{
+      https:\/\/(
+      www.youtube.com\/watch\?v=(?<youtube_id>[a-zA-Z0-9]+)|
+      youtu.be\/(?<youtube_id>[a-zA-Z0-9]+)
+      )
+    }x =~ video_url
+    youtube_id
+  end
+
+  def youtube_preview_url
+    return nil unless youtube_id
+    "https://img.youtube.com/vi/#{youtube_id}/0.jpg"
+  end
+
+  def vimeo_preview_url
+    return nil unless vimeo_id
+    response = open("http://vimeo.com/api/v2/video/#{vimeo_id}.json").read
+    json_response = JSON.parse(response)
+    json_response[0]['thumbnail_large']
+  rescue
+    nil
+  end
+
+  def vimeo_id
+    return nil unless video_user?
+    %r{
+      https:\/\/(
+      vimeo.com\/(?<vimeo_id>[0-9]+)
+      )
+    }x =~ video_url
+    vimeo_id
   end
 
   private

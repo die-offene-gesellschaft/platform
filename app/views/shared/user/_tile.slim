@@ -2,8 +2,11 @@ ruby:
   picture = defined?(picture) && picture == false ? false : true
   statement = defined?(statement) && statement ? true : false
   picture = false if statement
+  image_url = user.youtube_preview_url
+  image_url ||= user.vimeo_preview_url
+  image_url ||= asset_url(user.avatar)
 
-a.user href="#user-id-#{user.id}" style="#{"background-image: url(#{asset_url(user.avatar)});" if picture}" data-toggle='modal' data-target="#user-id-#{user.id}"
+a.user href="#user-id-#{user.id}" style="#{"background-image: url(#{image_url});" if picture}" data-toggle='modal' data-target="#user-id-#{user.id}"
   - if statement
     p.statement.quote
       = user.statement

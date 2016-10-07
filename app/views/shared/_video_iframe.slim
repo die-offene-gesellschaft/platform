@@ -1,0 +1,4 @@
+- if user.youtube_id
+  iframe.embed-responsive-item src="https://www.youtube.com/embed/#{user.youtube_id}" frameborder='0' allowfullscreen
+- elsif user.vimeo_id
+  iframe.embed-responsive-item src="https://player.vimeo.com/video/#{user.vimeo_id}" frameborder='0' allowfullscreen

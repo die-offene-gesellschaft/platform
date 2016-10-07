@@ -50,4 +50,51 @@ RSpec.describe User, type: :model do
       expect(@user).to be_valid
     end
   end
+
+  describe 'video_url' do
+    it 'can be nil' do
+      @user.video_url = nil
+      expect(@user).to be_valid
+    end
+
+    it 'can be an empty string' do
+      @user.video_url = ''
+      expect(@user).to be_valid
+    end
+
+    it 'can be a string consisting only of whitespace' do
+      @user.video_url = '  '
+      expect(@user).to be_valid
+    end
+
+    it 'can be a valid YouTube URL' do
+      @user.video_url = 'https://www.youtube.com/watch?v=T0o3UN8pEro'
+      expect(@user).to be_valid
+    end
+
+    it 'can be a valid YouTube URL' do
+      @user.video_url = 'https://youtu.be/T0o3UN8pEro'
+      expect(@user).to be_valid
+    end
+
+    it 'cannot be a YouTube URL not referencing to a video' do
+      @user.video_url = 'https://www.youtube.com/user/BritnyFoxVEVO'
+      expect(@user).to be_invalid
+    end
+
+    it 'can be valid Vimeo URL' do
+      @user.video_url = 'https://vimeo.com/175228896'
+      expect(@user).to be_valid
+    end
+
+    it 'cannot be a Vimeo URL not referencing to a video' do
+      @user.video_url = 'https://vimeo.com/user49816848'
+      expect(@user).to be_invalid
+    end
+
+    it 'cannot be an other URL than a YouTube or Vimeo video URL' do
+      @user.video_url = 'https://example.com/foobar'
+      expect(@user).to be_invalid
+    end
+  end
 end

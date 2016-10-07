@@ -1,4 +1,8 @@
 de:
+  actions:
+    save:
+      error: 'Die Änderungen konnten nicht gespeichert werden.'
+      success: 'Die Änderungen wurden erfolgreich gespeichert.'
   save: 'Speichern'
   delete: 'Löschen'
   confirm: 'Sind Sie sicher?'
