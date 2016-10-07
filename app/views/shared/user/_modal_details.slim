@@ -7,7 +7,11 @@ ruby:
     - additional_class = ''
     - additional_class = 'col-lg-6' unless large_user_image
     .col-xs-12 class="#{additional_class}"
-      .image style="background-image: url('#{asset_url(user.avatar)}')"
+      - if user.video_user?
+          = render 'shared/video_iframe',
+                   user: user
+      - else
+        .image style="background-image: url('#{asset_url(user.avatar)}')"
     .col-xs-12.details class="#{additional_class}"
       - if user.statement && !large_user_image
         p.quote.user-quote

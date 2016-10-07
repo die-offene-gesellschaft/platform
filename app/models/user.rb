@@ -1,8 +1,7 @@
 class User < ApplicationRecord
   before_save :send_user_welcome_mail, if: :locked_changed?
 
-  # Others available devise modules are:
-  # :registerable, :confirmable, :lockable, :timeoutable and :omniauthable
+  # Others available devise modules are: # :registerable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
          :confirmable,
          :recoverable,
@@ -54,6 +53,35 @@ class User < ApplicationRecord
 
   def full_name
     "#{forename} #{surname}"
+  end
+
+  def large_image?
+    false
+  end
+
+  def video_user?
+    video_url.present?
+  end
+
+  def youtube_id
+    return nil unless video_user?
+    %r{
+      https:\/\/(
+      www.youtube.com\/watch\?v=(?<youtube_id>[a-zA-Z0-9]+)|
+      youtu.be\/(?<youtube_id>[a-zA-Z0-9]+)
+      )
+    }x =~ video_url
+    youtube_id
+  end
+
+  def vimeo_id
+    return nil unless video_user?
+    %r{
+      https:\/\/(
+      vimeo.com\/(?<vimeo_id>[0-9]+)
+      )
+    }x =~ video_url
+    vimeo_id
   end
 
   private
