@@ -62,8 +62,8 @@ Admin.new(email: 'mail@example.com', password: '12345678').save!
 
 ## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+1. Create Issue
+2. Assign yourself
+3. Create feature branch with name pattern like `123-my-new-awesome-feature`, see `New branch` option in GitLab's issue detail view
+4. Create merge request for feature branch in master
+5. Let merge request be reviewed and accepted if applicable
