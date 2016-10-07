@@ -31,9 +31,5 @@ Rails.application.routes.draw do
   get '/participate' => 'participate#show'
   post '/participate' => 'participate#create'
 
-  get '/events_admin_index',
-      to: 'events#admin_index',
-      as: 'admin_index'
-
   get '/styleguide' => 'application#styleguide'
 end

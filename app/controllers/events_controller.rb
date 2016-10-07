@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_admin!, only: [:edit, :update, :create, :new, :destroy]
   before_action :set_events,
-                only: [:index, :admin_index]
+                only: [:index]
   before_action :set_event,
                 only: [:show, :edit, :update, :destroy]
   before_action :set_user,
@@ -12,9 +12,7 @@ class EventsController < ApplicationController
   def index
     respond_to do |format|
       format.html do
-        if request.query_parameters.keys & %w(appointments archive) == []
-          return redirect_to(events_path(appointments: ''))
-        end
+        authenticate_admin! if request.query_parameters.keys & %w(appointments archive) == []
         render :index
       end
       format.json { render json: @events }
@@ -45,11 +43,15 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user = @user
 
-    if @event.save
-      redirect_to admin_index_path, notice: 'Event was successfully created.'
-    else
-      flash[:error] = 'Es wurden nicht alle Felder korrekt ausgefüllt:'
-      render :new
+    respond_to do |format|
+      if @event.save
+        format.html { redirect_to events_path, notice: t('actions.save.success') }
+        format.json { render :show, status: :ok, location: @event }
+      else
+        flash.now[:error] = t('actions.save.error')
+        format.html { render :new }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -58,9 +60,10 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to admin_index_path, notice: 'Event was successfully updated.' }
+        format.html { redirect_to events_path, notice: t('actions.save.success') }
         format.json { render :show, status: :ok, location: @event }
       else
+        flash.now[:error] = t('actions.save.error')
         format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
@@ -72,7 +75,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to admin_index_path, notice: 'Event was successfully destroyed.' }
+      format.html { redirect_to events_path, notice: t('actions.destroy.success') }
       format.json { head :no_content }
     end
   end

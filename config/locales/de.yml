@@ -1,5 +1,7 @@
 de:
   actions:
+    destroy:
+      success: 'Das Objekt wurde erfolgreich gelöscht.'
     save:
       error: 'Die Änderungen konnten nicht gespeichert werden.'
       success: 'Die Änderungen wurden erfolgreich gespeichert.'
