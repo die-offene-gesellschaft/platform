@@ -8,8 +8,8 @@ class UserVideoUrlsValidator < ActiveModel::Validator
     return true if video_url.strip.empty?
     return true if video_url =~ %r{
         https:\/\/(
-        www.youtube.com\/watch\?v=[a-zA-Z0-9]+|
-        youtu.be\/[a-zA-Z0-9]+|
+        www.youtube.com\/watch\?v=[a-zA-Z0-9\-_]+|
+        youtu.be\/[a-zA-Z0-9\-_]+|
         vimeo.com\/[0-9]+
         )
       }x

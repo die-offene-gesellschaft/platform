@@ -68,8 +68,8 @@ class User < ApplicationRecord
     return nil unless video_user?
     %r{
       https:\/\/(
-      www.youtube.com\/watch\?v=(?<youtube_id>[a-zA-Z0-9]+)|
-      youtu.be\/(?<youtube_id>[a-zA-Z0-9]+)
+      www.youtube.com\/watch\?v=(?<youtube_id>[a-zA-Z0-9\-_]+)|
+      youtu.be\/(?<youtube_id>[a-zA-Z0-9\-_]+)
       )
     }x =~ video_url
     youtube_id
