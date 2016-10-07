@@ -36,6 +36,12 @@ class User < ApplicationRecord
   validates :password,
             confirmation: true
 
+  validates :role,
+            length: { maximum: 140 }
+
+  validates :statement,
+            length: { maximum: 255 }
+
   validate do |user|
     UserFlagsValidator.validate_terms_of_use(user)
   end
