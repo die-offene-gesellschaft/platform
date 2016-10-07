@@ -42,7 +42,6 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = @user
-
     respond_to do |format|
       if @event.save
         format.html { redirect_to events_path, notice: t('actions.save.success') }

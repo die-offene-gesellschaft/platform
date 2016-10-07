@@ -28,7 +28,8 @@ ruby:
         = render 'events/planned_appointments',
                  events: @planned_events
     - else
-      = render 'events/admin_index'
+      = render 'events/admin_index',
+               events: @events
 
   coffee:
     window.modalManager = new window.ModalManager()
