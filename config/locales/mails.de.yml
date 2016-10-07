@@ -2,7 +2,7 @@ de:
   mails:
     user_welcome:
       greeting: 'Liebe/r %{recipient},'
-      text: "Wir freuen uns sehr, Sie als FreundIn der Offenen Gesellschaft zu begrüßen, Ihre Daten wurden soeben freigeschalten.\n\n%{profile_link} gelangen Sie zu Ihrem Freundschaftsprofil.\n\nWir würden uns sehr freuen, wenn Sie unsere Initiative weitertragen. Alle bereits geplanten Aktionen finden Sie %{event_link}."
+      text: "wir freuen uns sehr, Sie als FreundIn der Offenen Gesellschaft zu begrüßen, Ihre Daten wurden soeben freigeschaltet.\n\n%{profile_link} gelangen Sie zu Ihrem Freundschaftsprofil.\n\nWir würden uns sehr freuen, wenn Sie unsere Initiative weitertragen. Alle bereits geplanten Aktionen finden Sie %{event_link}."
       profile_link_label: 'Hier'
       event_link_label: 'hier'
       goodbye: "Herzliche Grüße!\n\nIhr Team der Initiative Offene Gesellschaft"
