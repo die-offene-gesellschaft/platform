@@ -5,7 +5,5 @@ ruby:
     ul.nav.nav-tabs
       - resources.each do |resource|
         li.nav-item
-          - action = :index
-          - action = :admin_index if resource == 'event'
-          a.nav-link href="#{url_for(controller: resource.pluralize, action: action)}" class="#{'active' if resource == active.to_s}"
+          a.nav-link href="#{url_for(controller: resource.pluralize, action: :index)}" class="#{'active' if resource == active.to_s}"
             = resource.pluralize.capitalize

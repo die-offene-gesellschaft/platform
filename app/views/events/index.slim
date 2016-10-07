@@ -4,19 +4,21 @@ ruby:
   archive = true if request.query_parameters.keys.include?('archive')
 
 .events
-  = render 'shared/subnav',
-           items: t('events.subnav'),
-           active: archive ? 'archive' : 'appointments'
+  - if archive || appointments
+    = render 'shared/subnav',
+             items: t('events.subnav'),
+             active: archive ? 'archive' : 'appointments'
 
   .row
-    iframe frameborder='0' src='https://lucid-berlin.carto.com/viz/32514800-779d-11e6-8037-0e233c30368f/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen
+    - if archive || appointments
+      iframe frameborder='0' src='https://lucid-berlin.carto.com/viz/32514800-779d-11e6-8037-0e233c30368f/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen
     - if archive
       - @events.each do |year, events|
         = render 'events/archive',
                  events: events,
                  year: year
 
-    - else
+    - elsif appointments
       - @events.each do |month, events|
         = render 'events/appointments',
                  events: events,
@@ -25,6 +27,9 @@ ruby:
       - if @planned_events.any?
         = render 'events/planned_appointments',
                  events: @planned_events
+    - else
+      = render 'events/admin_index',
+               events: @events
 
   coffee:
     window.modalManager = new window.ModalManager()

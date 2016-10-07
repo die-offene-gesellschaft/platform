@@ -5,7 +5,7 @@ NestedIterators:
 DuplicateMethodCall:
   max_calls: 2
 TooManyStatements:
-  max_statements: 10
+  max_statements: 12
 InstanceVariableAssumption:
   enabled: false
 TooManyInstanceVariables:
