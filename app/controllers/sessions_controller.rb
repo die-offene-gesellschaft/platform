@@ -1,5 +1,5 @@
 class SessionsController < Devise::SessionsController
-  before_filter :before_login,
+  before_action :before_login,
                 only: :create
 
   def before_login
