@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   scope '/auth' do
-    devise_for :admins
-    devise_for :users, controllers: { confirmations: 'confirmations' }
+    devise_for :admins, controllers: { sessions: 'sessions' }
+    devise_for :users, controllers: { sessions: 'sessions', confirmations: 'confirmations' }
   end
 
   resources :blogposts, only: [:index, :show]
