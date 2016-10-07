@@ -44,6 +44,7 @@ class User < ApplicationRecord
 
   validate do |user|
     UserFlagsValidator.validate_terms_of_use(user)
+    UserVideoUrlsValidator.validate_video_url(user)
   end
 
   def after_confirmation

@@ -28,3 +28,4 @@ de:
       locked: Ihr Profil wird derzeit geprüft. Sie erhalten bei erfolgreicher Prüfung eine Bestätigung per E-Mail.
     errors:
       no-terms-of-use: '(Bitte akzeptiere unsere Nutzungsbedingungen um ein/e Freund/In der Offenen Gesellschaft zu werden.)'
+      video-url: 'keine YouTube oder Vimeo Video URL'
