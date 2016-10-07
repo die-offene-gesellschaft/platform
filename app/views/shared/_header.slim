@@ -81,6 +81,11 @@ header.container-fluid id="header"
                     method: 'delete',
                     class: 'logout' do
             = t('header.meta-nav.logout')
+        - elsif admin_signed_in?
+          = link_to destroy_admin_session_path,
+                    method: 'delete',
+                    class: 'logout' do
+            = t('header.meta-nav.logout')
         - else
           a.login href="#{new_user_session_path}"
             = t('header.meta-nav.login')
@@ -92,6 +97,11 @@ header.container-fluid id="header"
                 meta_nav_item[:url]
     - if member_signed_in?
       = link_to destroy_user_session_path,
+                method: 'delete',
+                class: 'logout' do
+        = t('header.meta-nav.logout')
+    - elsif admin_signed_in?
+      = link_to destroy_admin_session_path,
                 method: 'delete',
                 class: 'logout' do
         = t('header.meta-nav.logout')
