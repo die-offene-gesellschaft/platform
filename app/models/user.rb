@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   before_save :send_user_welcome_mail, if: :locked_changed?
 
-  # Others available devise modules are: # :registerable, :confirmable, :lockable, :timeoutable and :omniauthable
+  # Others available devise modules are:
+  # :registerable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
          :confirmable,
          :recoverable,
@@ -72,6 +73,20 @@ class User < ApplicationRecord
       )
     }x =~ video_url
     youtube_id
+  end
+
+  def youtube_preview_url
+    return nil unless youtube_id
+    "https://img.youtube.com/vi/#{youtube_id}/0.jpg"
+  end
+
+  def vimeo_preview_url
+    return nil unless vimeo_id
+    response = open("http://vimeo.com/api/v2/video/#{vimeo_id}.json").read
+    json_response = JSON.parse(response)
+    json_response[0]['thumbnail_large']
+  rescue
+    nil
   end
 
   def vimeo_id

@@ -1,19 +1,18 @@
-ruby:
-  large_user_image = false unless defined?(large_user_image)
 .container-fluid
   - additional_class = 'user-default-image'
-  - additional_class = 'user-double-image' if large_user_image
+  - additional_class = 'user-double-image' if user.large_image?
   .row class="#{additional_class}"
     - additional_class = ''
-    - additional_class = 'col-lg-6' unless large_user_image
+    - additional_class = 'col-lg-6' unless user.large_image?
     .col-xs-12 class="#{additional_class}"
       - if user.video_user?
+        .embed-responsive.embed-responsive-1by1
           = render 'shared/video_iframe',
                    user: user
       - else
         .image style="background-image: url('#{asset_url(user.avatar)}')"
     .col-xs-12.details class="#{additional_class}"
-      - if user.statement && !large_user_image
+      - if user.statement && !user.large_image?
         p.quote.user-quote
           = user.statement
       .box-details.user-name
@@ -25,7 +24,7 @@ ruby:
             = t('users.status.locked')
       .links
         .link-small
-          - if large_user_image
+          - if user.large_image?
             a href="#{users_path}"
               = t('users.all-friends')
           - if member_signed_in?

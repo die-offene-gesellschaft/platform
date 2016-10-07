@@ -28,9 +28,10 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_path, notice: 'User was successfully updated.' }
+        format.html { redirect_to users_path, notice: t('actions.save.success') }
         format.json { render :show, status: :ok, location: @user }
       else
+        flash.now[:error] = t('actions.save.error')
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -86,7 +87,8 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-      :locked
+      :locked,
+      :video_url
     )
   end
 end

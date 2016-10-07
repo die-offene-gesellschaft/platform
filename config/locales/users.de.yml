@@ -9,6 +9,7 @@ de:
       email-confirmed: 'E-Mail<wbr />bestätigt'
       locked: 'Gesperrt'
       terms-of-use: 'AGB'
+      video-url: 'Video'
     success:
       delete-profile: 'Das Profil wurde erfolgreich gelöscht'
     actions:
