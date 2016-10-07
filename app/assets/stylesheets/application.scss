@@ -26,7 +26,6 @@
 @import 'faciliation';
 @import 'guideline';
 @import 'imprint';
-@import 'admins';
 
 @import 'styleguide';
 
@@ -339,7 +338,12 @@ tr {
   }
 }
 
-input {
+input,
+textarea,
+select {
+  &.datetime,
+  &.select,
+  &.text,
   &.string,
   &.password {
     background-color: $white;
@@ -363,6 +367,18 @@ input {
       border-color: $dark-gray;
       color: $black;
     }
+  }
+}
+
+textarea {
+  .text {
+    height: auto;
+  }
+}
+
+select {
+  &.form-control:not([size]):not([multiple]) {
+    height: 49px;
   }
 }
 
