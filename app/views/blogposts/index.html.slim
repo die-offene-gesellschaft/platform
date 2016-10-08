@@ -17,7 +17,7 @@
     .row.row-eq-height.post
       .col-xs-12.col-md-4
         a href="#{blogpost_path(blogpost)}"
-          .image style="background-image: url(#{asset_path(blogpost.thumbnail(:normal))});"
+          .image style="background-image: url(#{asset_url(blogpost.thumbnail(:normal))});"
       .col-xs-12.col-md-8
         h2
           = t "blogposts.types.#{blogpost.blogpost_type}"

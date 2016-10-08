@@ -10,7 +10,7 @@
           = render 'shared/video_iframe',
                    user: user
       - else
-        .image style="background-image: url('#{asset_url(user.avatar)}')"
+        .image style="background-image: url('#{asset_url(user.avatar(:normal))}')"
     .col-xs-12.details class="#{additional_class}"
       - if user.statement && !user.large_image?
         p.quote.user-quote

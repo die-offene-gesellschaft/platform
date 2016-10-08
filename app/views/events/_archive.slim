@@ -21,7 +21,7 @@ table.archive
                 style = "background-color: #{event.color}" if event.color
               end
 
-            a class="#{type}" style="#{"background-image: url(#{asset_path(asset)});" if type == 'picture' || type == 'logo'} #{style}" href="#event-id-#{event.id}" data-toggle='modal' data-target="#event-id-#{event.id}"
+            a class="#{type}" style="#{"background-image: url(#{asset_url(asset)});" if type == 'picture' || type == 'logo'} #{style}" href="#event-id-#{event.id}" data-toggle='modal' data-target="#event-id-#{event.id}"
               - if type == 'statement'
                 .statement
                   = event.statement

@@ -84,7 +84,7 @@ class User < ApplicationRecord
     return nil unless vimeo_id
     response = open("http://vimeo.com/api/v2/video/#{vimeo_id}.json").read
     json_response = JSON.parse(response)
-    json_response[0]['thumbnail_large']
+    json_response[0]['thumbnail_large'].gsub(/^http:/, 'https:')
   rescue
     nil
   end
