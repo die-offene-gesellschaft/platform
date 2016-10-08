@@ -2,7 +2,7 @@
   - if event.picture.path
     .row
       .col-xs-12
-        .image style="background-image: url('#{asset_url(event.picture)}')"
+        .image style="background-image: url('#{asset_url(event.picture(:normal))}')"
   .row
     .col-xs-12.details
       h1.title
@@ -11,9 +11,11 @@
         - venue = event.venue
         = venue.city
         span.pipe
-        = l event.begin_at, format: :short_year_date unless event.planned
+        = l event.begin_at,
+            format: :short_year_date unless event.planned
         span.pipe
-        = l event.begin_at, format: :short_time unless event.planned
+        = l event.begin_at,
+            format: :short_time unless event.planned
         = fa_icon 'calendar-o'
       p.venue
         = venue.name
