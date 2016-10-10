@@ -1,0 +1,28 @@
+.modal.fade#initial-pop-up{
+    .modal-dialog{
+        width: 550px;
+        margin-top: 10px;
+        .modal-content{
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            background-color: #FFDD02;
+            .modal-body{
+                .modal-title{
+                    margin:20px;
+                    color: $white;
+                    background-color: #D20A11;
+                    font-size: 30px;
+                    letter-spacing: 4px;
+                    text-transform: uppercase;
+                    text-align: center;
+                }
+                .modal-text{
+                    margin: 40px;
+                    font-size: 20px;
+                }
+            }    
+        }
+    }  
+}

@@ -30,7 +30,9 @@ class ModalManager
 
   openModalFromUrl: ->
     regexSearchGroup = /.*show\((#[-\w]+)\).*/.exec(window.location.hash)
-    return unless regexSearchGroup
+    if !regexSearchGroup
+      window.initialPopUp = new window.InitialPopUp()
+      return
 
     this.currentModalIdentifier = regexSearchGroup[1]
     $(this.currentModalIdentifier).modal()
