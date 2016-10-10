@@ -1,11 +1,8 @@
 ruby:
   picture = defined?(picture) && picture == false ? false : true
   statement = defined?(statement) && statement ? true : false
-  image_url = user.youtube_preview_url
-  image_url ||= user.vimeo_preview_url
-  image_url ||= asset_url(user.avatar(:normal))
 
-a.user href="#user-id-#{user.id}" style="#{"background-image: url(#{image_url});" unless statement}" data-toggle='modal' data-target="#user-id-#{user.id}"
+a.user href="#user-id-#{user.id}" style="#{"background-image: url(#{asset_url(user.avatar(:normal))});" unless statement}" data-toggle='modal' data-target="#user-id-#{user.id}"
   - if statement
     p.statement.quote
       = user.statement
@@ -14,6 +11,9 @@ a.user href="#user-id-#{user.id}" style="#{"background-image: url(#{image_url});
         = "#{user.forename} #{user.surname}"
       p.quote-role
         = user.role
+  - elsif user.video_user?
+    = image_tag 'video-play.svg',
+                class: 'video-play-icon'
 - content_for :modals do
   .modal.fade id="user-id-#{user.id}" tabindex="-1" role="dialog" aria-labelledby="user-id-#{user.id}" aria-hidden="true"
     .modal-dialog role="document"

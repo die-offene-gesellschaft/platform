@@ -1,12 +1,12 @@
 .container-fluid
   - additional_class = 'user-default-image'
-  - additional_class = 'user-double-image' if user.large_image?
+  - additional_class = 'user-double-image' if user.large_image? || user.video_user?
   .row class="#{additional_class}"
     - additional_class = ''
-    - additional_class = 'col-lg-6' unless user.large_image?
+    - additional_class = 'col-lg-6' unless user.large_image? || user.video_user?
     .col-xs-12 class="#{additional_class}"
       - if user.video_user?
-        .embed-responsive.embed-responsive-1by1
+        .embed-responsive.embed-responsive-2by1
           = render 'shared/video_iframe',
                    user: user
       - else

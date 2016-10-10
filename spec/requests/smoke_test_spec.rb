@@ -8,7 +8,8 @@ RSpec.describe "GET routes", type: :request do
                                 end_at: 2.days.from_now,
                                 planned: false
     @user = @event.user
-    @admin = FactoryGirl.create(:admin)
+    @video_user = FactoryGirl.create :video_user
+    @admin = FactoryGirl.create :admin
     @venue = @event.venue
     @comment = FactoryGirl.create :comment,
                                   user: @user,

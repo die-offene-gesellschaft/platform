@@ -10,5 +10,10 @@ FactoryGirl.define do
     locked false
     newsletter true
     terms_of_use true
+
+    factory :video_user do
+      email 'video-dude@example.com'
+      video_url 'https://www.youtube.com/watch?v=cDcBKVKQizg'
+    end
   end
 end
