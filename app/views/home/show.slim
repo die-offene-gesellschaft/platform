@@ -58,14 +58,14 @@
     .desktop-size1x1.desktop-x4.desktop-y5.size1x1.x2.y13
       = render 'shared/event/tile', event: @events[3 % @events.count]
     .desktop-size2x2.desktop-x5.desktop-y5.size2x2.x1.y11
-      = render 'shared/user/tile', user: @users[12 % @users.count]
+      = render 'shared/user/tile', user: @video_users[0 % @video_users.count]
 
     .desktop-size1x1.desktop-x1.desktop-y6.mobile-hidden
-      = render 'shared/user/tile', user: @users[13 % @users.count]
+      = render 'shared/user/tile', user: @users[12 % @users.count]
     .desktop-size1x1.desktop-x2.desktop-y6.mobile-hidden
-      = render 'shared/user/tile', user: @users[14 % @users.count]
+      = render 'shared/user/tile', user: @users[13 % @users.count]
     .desktop-size1x1.desktop-x3.desktop-y6.size1x1.x2.y10
-      = render 'shared/user/tile', user: @users[15 % @users.count]
+      = render 'shared/user/tile', user: @users[14 % @users.count]
     .desktop-size1x1.desktop-x4.desktop-y6.size1x1.x1.y13
       a.call-to-action href="#{participate_path}"
         span
@@ -74,11 +74,11 @@
     .desktop-size1x1.desktop-x1.desktop-y7.size1x1.x1.y14
       = render 'shared/event/tile', event: @events[4 % @events.count]
     .desktop-size2x2.desktop-x2.desktop-y7.mobile-hidden
-      = render 'shared/user/tile', user: @users[16 % @users.count]
+      = render 'shared/user/tile', user: @video_users[1 % @video_users.count]
     .desktop-size1x1.desktop-x4.desktop-y7.size1x1.x1.y15
-      = render 'shared/user/tile', user: @users[17 % @users.count]
+      = render 'shared/user/tile', user: @users[15 % @users.count]
     .desktop-size1x1.desktop-x5.desktop-y7.size1x1.x2.y16
-      = render 'shared/user/tile', user: @users[18 % @users.count]
+      = render 'shared/user/tile', user: @users[16 % @users.count]
     .desktop-size1x1.desktop-x6.desktop-y7.size1x1.x2.y15
       = render 'shared/event/tile', event: @events[5 % @events.count]
 
@@ -108,27 +108,27 @@
         span.link
           = t('home.article')
     .desktop-size1x1.desktop-x3.desktop-y9.mobile-hidden
-      = render 'shared/user/tile', user: @users[19 % @users.count]
+      = render 'shared/user/tile', user: @users[17 % @users.count]
     .desktop-size1x1.desktop-x4.desktop-y9.mobile-hidden
-      = render 'shared/user/tile', user: @users[20 % @users.count]
+      = render 'shared/user/tile', user: @users[18 % @users.count]
 
     .desktop-size1x1.desktop-x3.desktop-y10.size1x1.x1.y19
       = render 'shared/event/tile', event: @events[7 % @events.count]
     .desktop-size1x1.desktop-x4.desktop-y10.size1x1.x2.y19
-      = render 'shared/user/tile', user: @users[21 % @users.count]
+      = render 'shared/user/tile', user: @users[19 % @users.count]
 
     .desktop-size4x2.desktop-x1.desktop-y11.size2x1.x1.y21
       .statement.big-title
         = t('home.statements').second
     .desktop-size1x1.desktop-x5.desktop-y11.size1x1.x1.y20
-      = render 'shared/user/tile', user: @users[22 % @users.count]
+      = render 'shared/user/tile', user: @users[20 % @users.count]
     .desktop-size1x1.desktop-x6.desktop-y11.size1x1.x2.y20
       = render 'shared/event/tile', event: @events[8 % @events.count]
 
     .desktop-size1x1.desktop-x5.desktop-y12.mobile-hidden
-      = render 'shared/user/tile', user: @users[23 % @users.count]
+      = render 'shared/user/tile', user: @users[21 % @users.count]
     .desktop-size1x1.desktop-x6.desktop-y12.mobile-hidden
-      = render 'shared/user/tile', user: @users[24 % @users.count]
+      = render 'shared/user/tile', user: @users[22 % @users.count]
   = content_for :modals
   coffee:
     window.modalManager = new window.ModalManager()
