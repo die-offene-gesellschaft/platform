@@ -26,7 +26,8 @@ html
     = piwik_tracking_tag
 
   body
-    = render 'shared/initial_pop_up'
+    = render 'shared/initial_pop_up',
+             pop_up: @pop_up
     = render 'shared/header'
     = render 'shared/flash'
     .container-fluid.content-container

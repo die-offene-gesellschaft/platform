@@ -10,5 +10,6 @@ Content.seed(:id,
   { id: 7, controller_action_name: 'application#guideline', key: 'guideline', value: File.read("#{Rails.root}/db/fixtures/contents/guideline.md"), order: 1 },
   { id: 10, controller_action_name: 'participate#show', key: 'what_next', value: File.read("#{Rails.root}/db/fixtures/contents/participate/what_next.md"), order: 1 },
   { id: 8, controller_action_name: 'participate#show', key: 'support', value: File.read("#{Rails.root}/db/fixtures/contents/participate/support.md"), order: 2 },
-  { id: 9, controller_action_name: 'participate#show', key: 'diy', value: File.read("#{Rails.root}/db/fixtures/contents/participate/diy.md"), order: 3 }
+  { id: 9, controller_action_name: 'participate#show', key: 'diy', value: File.read("#{Rails.root}/db/fixtures/contents/participate/diy.md"), order: 3 },
+  { id: 11, controller_action_name: nil, key: 'pop-up', value: File.read("#{Rails.root}/db/fixtures/contents/pop-up.md"), order: 1 }
 )
