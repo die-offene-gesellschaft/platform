@@ -1,7 +1,9 @@
 class InitialPopUp
   constructor: ->
-    if !Cookies.get('initial-pop-up')
+    popUpModal = $('#initial-pop-up')
+    displayPopUp = popUpModal.find('.modal-title').text() != ""
+    if !Cookies.get('initial-pop-up') and displayPopUp
       Cookies.set('initial-pop-up', true)
-      $('#initial-pop-up').modal('show')
+      popUpModal.modal('show')
 
 window.InitialPopUp = InitialPopUp
