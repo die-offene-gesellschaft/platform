@@ -1,68 +1,70 @@
-.modal.fade#initial-pop-up{
-    .modal-dialog{
-        width: 39vw;
-        max-width: 550px;
-        margin-top: 10vh;
-        
-        @include media-breakpoint-up(sm) {
-          width: 50vw;
+.modal.fade#initial-pop-up {
+  .modal-dialog {
+    margin-top: 10vh;
+    max-width: 550px;
+    width: 39vw;
+
+    @include media-breakpoint-up(sm) {
+      width: 50vw;
+    }
+    
+    @include media-breakpoint-down(sm) {
+      width: 75vw;
+    }
+
+    .modal-content {
+      background-color: $initial-popup-warning-red;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      
+      .modal-body {
+        .modal-title {
+          background-color: $initial-popup-warning-yellow;
+          color: $white;
+          font-size: 30px;
+          letter-spacing: 4px;
+          margin: 20px;
+          text-align: center;
+          text-transform: uppercase;
+          
+          @include media-breakpoint-down(md) {
+            font-size: 3.5vw;
+            margin: 10px;
+          }
+
+          @include media-breakpoint-down(sm) {
+            font-size: 3.5vw;
+            margin: 5px;
+          }
+
+          @include media-breakpoint-down(xs) {
+            font-size: 5vw;
+            margin: 3px;
+          } 
+          
         }
-        
-        @include media-breakpoint-down(sm) {
-          width: 75vw;
-        }
-        .modal-content {
-          background-color: $initial-popup-warning-red;
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
+        .modal-text {
+          font-size: 20px;
+          margin: 40px;
             
-            .modal-body {
-                .modal-title {
-                  background-color: $initial-popup-warning-yellow;
-                  color: $white;
-                  font-size: 30px;
-                  letter-spacing: 4px;
-                  margin:20px;
-                  text-align: center;
-                  text-transform: uppercase;
-                  
-                  @include media-breakpoint-down(md) {
-                    margin: 10px;
-                    font-size: 3.5vw;
-                  }
+          @include media-breakpoint-down(md) {
+            font-size: 2.5vw;
+            margin: 20px;
+          }
 
-                  @include media-breakpoint-down(sm) {
-                    font-size: 3.5vw;
-                    margin: 5px;
-                  }
+          @include media-breakpoint-down(sm) {
+            font-size: 2.5vw;
+            margin: 10px;
+          }
 
-                  @include media-breakpoint-down(xs) {
-                    font-size: 5vw;
-                    margin: 3px;
-                  } 
-                }
-                .modal-text {
-                  font-size: 20px;
-                  margin: 40px;
-                    
-                  @include media-breakpoint-down(md) {
-                    font-size: 2.5vw;
-                    margin: 20px;
-                  }
-
-                  @include media-breakpoint-down(sm) {
-                    font-size: 2.5vw;
-                    margin: 10px;
-                  }
-
-                  @include media-breakpoint-down(xs) {
-                    font-size: 4.5vw;
-                    margin: 8px;
-                  }
-                }
-            }    
+          @include media-breakpoint-down(xs) {
+            font-size: 4.5vw;
+            margin: 8px;
+          }
         }
-    }  
+      }    
+    }
+  }  
 }
