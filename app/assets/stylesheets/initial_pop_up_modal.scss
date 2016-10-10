@@ -1,7 +1,14 @@
 .modal.fade#initial-pop-up{
     .modal-dialog{
-        width: 550px;
-        margin-top: 10px;
+        width: 39vw;
+        max-width: 550px;
+        margin-top: 10vh;
+        @include media-breakpoint-up(sm){
+            width: 50vw;
+        }
+        @include media-breakpoint-down(sm){
+            width: 75vw;
+        }
         .modal-content{
             border-bottom-right-radius: 0;
             border-bottom-left-radius: 0;
@@ -14,6 +21,18 @@
                     color: $white;
                     background-color: #D20A11;
                     font-size: 30px;
+                    @include media-breakpoint-down(md){
+                        font-size: 3.5vw;
+                        margin: 10px;
+                    }
+                    @include media-breakpoint-down(sm){
+                        margin: 5px;
+                        font-size: 3.5vw;
+                    }
+                    @include media-breakpoint-down(xs){
+                        margin: 3px;
+                        font-size: 5vw;
+                    }
                     letter-spacing: 4px;
                     text-transform: uppercase;
                     text-align: center;
@@ -21,6 +40,18 @@
                 .modal-text{
                     margin: 40px;
                     font-size: 20px;
+                    @include media-breakpoint-down(md){
+                        font-size: 2.5vw;
+                        margin: 20px;
+                    }
+                    @include media-breakpoint-down(sm){
+                        font-size: 2.5vw;
+                        margin: 10px;
+                    }
+                    @include media-breakpoint-down(xs){
+                        font-size: 4.5vw;
+                        margin: 8px;
+                    }
                 }
             }    
         }
