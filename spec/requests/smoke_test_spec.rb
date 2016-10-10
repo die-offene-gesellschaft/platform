@@ -7,7 +7,6 @@ RSpec.describe "GET routes", type: :request do
                                 begin_at: 1.day.from_now,
                                 end_at: 2.days.from_now,
                                 planned: false
-    ap @event
     @user = @event.user
     @admin = FactoryGirl.create(:admin)
     @venue = @event.venue
