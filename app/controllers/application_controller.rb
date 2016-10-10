@@ -4,10 +4,12 @@ class ApplicationController < ActionController::Base
   before_action :set_title
   before_action :set_content_key
   before_action :set_contents
+  before_action :set_pop_up
   before_action :process_contents, except: [:content_edit, :content_update]
   before_action :authenticate_admin!, only: [:content_edit]
 
   def content_edit
+    render 'contents/edit'
   end
 
   def content_update
@@ -53,6 +55,16 @@ class ApplicationController < ActionController::Base
     @contents = Content.from_controller_action_or_key controller_name: controller_name,
                                                       action_name: action_name,
                                                       content_key: @content_key
+  end
+
+  def set_pop_up
+    content = Content.find_by key: 'pop-up'
+    html_content = Kramdown::Document.new(content.value).to_html.tr("\n", ' ')
+    %r{<h1.*>(?<title>.+)<\/h1>.*<p>(?<text>.+)<\/p>} =~ html_content
+    @pop_up = {
+      title: title,
+      text: text
+    }
   end
 
   def process_contents

@@ -1,7 +1,7 @@
 de:
   contents:
     attributes:
-      url: 'URL'
+      key: 'Schlüssel'
       value: 'Inhalt'
     update:
       success: 'Die Inhalte sind erfolgreich gespeichert worden.'

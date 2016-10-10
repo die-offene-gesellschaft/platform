@@ -1,0 +1,11 @@
+.modal.fade#initial-pop-up.initial-pop-up
+  .modal-dialog role="document"
+    .modal-content
+      button.close type="button" data-dismiss="modal" aria-label="Close"
+        span aria-hidden="true"
+          = fa_icon 'times'
+      .modal-body.event-modal
+        .modal-title
+          = pop_up[:title]
+        .modal-text
+          = pop_up[:text]

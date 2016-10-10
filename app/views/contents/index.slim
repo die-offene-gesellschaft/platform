@@ -6,17 +6,23 @@
         thead
           tr
             td
-              = t('contents.url')
+              = t('contents.key')
             td
               = t('contents.value')
         tbody
           - @contents.group_by(&:controller_action_name).each do |content_group|
             ruby:
               content = content_group.second.first
-              controller, action = content.controller_action_name.split('#')
-              url = url_for(controller: controller, action: action)
+              if content.controller_action_name
+                controller, action = content.controller_action_name.split('#')
+                url = url_for(controller: controller, action: action)
+                key = url
+              else
+                key = content.key
+                url = content_url(id: content.id)
+              end
             tr data-href="#{url}/edit"
               td
-                = url
+                = key
               td
                 = content.value[0..200]

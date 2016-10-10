@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   resources :locations, only: [:index, :show, :edit, :new]
   resources :venues
-  resources :contents, only: [:index, :show]
+  resources :contents, only: [:index, :show, :edit, :update]
   resources :admins
   resources :users, except: [:new, :create]
 

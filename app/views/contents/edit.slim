@@ -1,8 +1,15 @@
 .contents
   = render 'shared/admin_tabs', active: :content
 
-  - controller, action = @contents.first.controller_action_name.split('#')
-  = simple_form_for :contents, url: url_for(controller: controller, action: action), method: :patch do |f|
+  ruby:
+    if @contents.any?
+      controller, action = @contents.first.controller_action_name.split('#')
+      url = url_for(controller: controller, action: action)
+    else
+      @contents = [@content]
+      url = content_url(id: @content.id)
+    end
+  = simple_form_for :contents, url: url, method: :patch do |f|
     .row
       .col-xs-12
         .inputs
