@@ -60,3 +60,22 @@
                                      .gsub(/%{sms_link}/, sms_link)
                                      .gsub(/%{paypal_link}/, paypal_link)
       == content
+  .row.do-it-yourself
+        .col-xs-12.col-md-6.diy-text
+          a name="selbermachen"
+          h1.headline-white.title
+            = t('participate.Selber Machen')
+          p.article-white.introduction
+            | Sie veranstalten bereits eine Aktion im Sinne der Offenen Gesellschaft? Teilen Sie uns Ihr Vorhaben mit! Wir unterstützen Sie gerne. Hier finden Sie unseren <a href="/guideline">Leitfaden</a>
+          a.mitteilen href="mailto:freunde@die-offene-gesellschaft.de?subject=Veranstaltung mitteilen"
+            | Veranstaltung mitteilen
+        .col-xs-12.col-md-6.diy-avatars
+          /- @events.each_with_index do |event, index|
+            /- break if index == 6
+            /.test index
+          .image style="background-image: url(#{image_url("selbermachen/action-1.png")});"
+          .image style="background-image: url(#{image_url("selbermachen/action-2.png")});"    
+          .image style="background-image: url(#{image_url("selbermachen/action-3.png")});"    
+          .image style="background-image: url(#{image_url("selbermachen/action-4.png")});"    
+          .image style="background-image: url(#{image_url("selbermachen/action-5.png")});"    
+          .image style="background-image: url(#{image_url("selbermachen/action-6.png")});"        
