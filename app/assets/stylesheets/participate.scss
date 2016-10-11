@@ -315,4 +315,51 @@
       }
     }
   }
+  .do-it-yourself{
+    background-color: $red;
+    a {
+      color: $white;
+      text-decoration: underline;
+    }
+    .diy-text{
+      padding: 40px 40px 100px;
+      a.mitteilen{
+        background-color: $white;
+        border: 0;
+        margin-top: 100px;
+        color: $red;
+        font-weight: 600;
+        height: auto;
+        padding: 14px 0;
+        position: absolute;
+        left: 40px;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        width: 28vw;
+
+        @include media-breakpoint-down(lg){
+          margin-top: 80px;
+        }
+
+        @include media-breakpoint-down(md){
+          margin-top: 3vw;
+        }
+
+        @include media-breakpoint-down(sm){
+          width: 50vw;
+          bottom: 40px;
+        }
+
+        @include media-breakpoint-down(xs){
+          width: 80vw;
+          bottom: 40px;
+        }
+
+      }
+    }
+    .diy-avatars{
+      padding: 0;
+    }
+  }
 }

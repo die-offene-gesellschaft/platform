@@ -2,6 +2,7 @@ class ParticipateController < ApplicationController
   before_action :set_user, only: [:show, :create]
   before_action :set_users, only: [:show, :create]
   before_action :set_contents, only: [:show, :create]
+  before_action :set_events, only: [:show, :create]
   before_action :process_contents, only: [:show, :create]
 
   # GET /participate
@@ -38,6 +39,10 @@ class ParticipateController < ApplicationController
     [:what_next, :support, :diy].each do |key|
       @contents[key] = get_content_for_key key
     end
+  end
+
+  def set_events
+     @events = Event.all
   end
 
   def get_content_for_key(key)
