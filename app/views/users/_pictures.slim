@@ -206,10 +206,11 @@ ruby:
     }
   ]
 
-- total_user_count = video_users.count + statement_users.count + users.count
-- total_users = video_users + statement_users + users
-- video_user_index = statement_user_index = user_index = 0
-- tiles = []
+  total_user_count = video_users.count + statement_users.count + users.count
+  total_users = video_users + statement_users + users
+  video_user_index = statement_user_index = user_index = 0
+  tiles = []
+
 - total_user_count.times do |index|
   - tile_definition = user_grid[index % user_grid.count]
   - if tile_definition[:type] == :statement

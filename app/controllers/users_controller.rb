@@ -63,18 +63,23 @@ class UsersController < ApplicationController
 
   def filter_user_from(get_params)
     if get_params.include?('pictures')
-      @video_users = @users.where.not(video_url: [nil, ''])
-                           .where.not(avatar_file_name: nil)
-      @statement_users = @users.where.not(statement: [nil, ''])
-                               .where(video_url: [nil, ''])
-                               .where.not(id: @video_users.map(&:id))
-                               .sample(10)
-      @users = @users.where.not(avatar_file_name: nil)
-                     .where(video_url: [nil, ''])
-                     .where.not(id: @statement_users.map(&:id))
+      filter_user_for_pictures_param
     elsif get_params.include?('list')
       @active_members = ActiveMember.all
     end
+  end
+
+  # this method smells of :reek:DuplicateMethodCall
+  def filter_user_for_pictures_param
+    @video_users = @users.where.not(video_url: [nil, ''])
+                         .where.not(avatar_file_name: nil)
+    @statement_users = @users.where.not(statement: [nil, ''])
+                             .where(video_url: [nil, ''])
+                             .where.not(id: @video_users.map(&:id))
+                             .sample(10)
+    @users = @users.where.not(avatar_file_name: nil)
+                   .where(video_url: [nil, ''])
+                   .where.not(id: @statement_users.map(&:id))
   end
 
   def set_admin_users
