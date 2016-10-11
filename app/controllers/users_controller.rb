@@ -88,6 +88,8 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(
       :locked,
+      :role,
+      :statement,
       :video_url
     )
   end
