@@ -5,18 +5,14 @@
         .image style="background-image: url(#{asset_url(user.avatar(:normal))});"
         = f.input :statement,
                   as: :text,
-                  input_html: { rows: 2 },
-                  readonly: true,
-                  disabled: true
+                  input_html: { rows: 2 }
         = f.input :forename,
                   readonly: true,
                   disabled: true
         = f.input :surname,
                   readonly: true,
                   disabled: true
-        = f.input :role,
-                  readonly: true,
-                  disabled: true
+        = f.input :role
         = f.input :email,
                   readonly: true,
                   disabled: true
