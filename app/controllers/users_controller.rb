@@ -63,11 +63,15 @@ class UsersController < ApplicationController
 
   def filter_user_from(get_params)
     if get_params.include?('pictures')
-      @statement_users = @users.where.not(statement: nil)
-                               .where.not(statement: '')
+      @video_users = @users.where.not(video_url: [nil, ''])
+                           .where.not(avatar_file_name: nil)
+      @statement_users = @users.where.not(statement: [nil, ''])
+                               .where(video_url: [nil, ''])
+                               .where.not(id: @video_users.map(&:id))
+                               .sample(10)
       @users = @users.where.not(avatar_file_name: nil)
-      @pictureless_users = User.where(locked: false)
-                               .where(avatar_file_name: nil)
+                     .where(video_url: [nil, ''])
+                     .where.not(id: @statement_users.map(&:id))
     elsif get_params.include?('list')
       @active_members = ActiveMember.all
     end
