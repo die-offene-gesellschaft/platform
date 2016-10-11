@@ -317,7 +317,8 @@
   }
   .do-it-yourself{
     background-color: $red;
-    a {
+    color: $white;
+    a, a:hover{
       color: $white;
       text-decoration: underline;
     }
@@ -336,13 +337,14 @@
         text-align: center;
         text-transform: uppercase;
         text-decoration: none;
-        width: 28vw;
+        width: 400px;
 
         @include media-breakpoint-down(lg){
-          margin-top: 80px;
+          margin-top: 4vw;
         }
 
         @include media-breakpoint-down(md){
+          width: 35vw;
           margin-top: 3vw;
         }
 
