@@ -83,7 +83,7 @@
       = render 'shared/event/tile', event: @events[5 % @events.count]
 
     .desktop-size1x1.desktop-x1.desktop-y8.size1x1.x2.y14
-      a.call-to-action href="#{participate_path}"
+      a.call-to-action href="#{participate_path(anchor: 'do-it-yourself')}" data-turbolinks='false'
         span
           = t('home.start-own-event')
     .desktop-size1x1.desktop-x4.desktop-y8.size1x1.x1.y16
