@@ -27,7 +27,7 @@ Create a new MySQL dump.
 ssh offenge@offenege.kochab.uberspace.de
 timestamp=`date +%Y-%m-%d-%H-%M-%S`
 mysqldump offenege > offenege-"$timestamp".sql
-cp "$timestamp".sql latest.sql
+cp "offenege-$timestamp".sql latest.sql
 ```
 
 Copy the dump to your local machine.
@@ -43,6 +43,14 @@ rails db:drop
 rails db:create
 rails db:migrate
 mysql -u offenege -p offenege < latest.sql
+```
+
+### Paperclip attachments
+
+Copy all Paperclip attachements to your local machine.
+
+```
+rsync offenge@offenege.kochab.uberspace.de:~/offene-gesellschaft/public/system ./public/
 ```
 
 ### Project
