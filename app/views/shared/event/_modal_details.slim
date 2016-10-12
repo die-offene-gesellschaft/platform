@@ -32,13 +32,6 @@
           | &nbsp;
           = event.active_members.map(&:full_name).join(', ')
       .links
-        .link-small
-          - if !event.planned && event.end_at > Time.zone.now
-            a href="#{events_path(appointments: '')}"
-              = t('events.upcoming-events')
-          - else
-            a href="#{events_path(archive: '')}"
-              = t('events.event-archive')
         .share-links
           a.share href="#{facebook_share_link(event)}" target='_blank'
             = fa_icon 'facebook-square'

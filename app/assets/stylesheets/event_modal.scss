@@ -1,0 +1,187 @@
+.event-modal {
+  
+  .details, 
+  .description {
+    padding: 27px 24px;
+
+    @include media-breakpoint-down(xs) {
+      padding: 15px 13px;
+    }
+
+  }
+
+  .details {
+    position: relative;
+
+
+    @include media-breakpoint-down(sm) {
+      min-height: 100px;
+    }
+
+
+    .title {
+      color: $black;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 1;
+      margin: 0 0 21px;
+      text-align: left;
+
+      @include media-breakpoint-down(md) {
+        font-size: 20px;
+      }
+
+      @include media-breakpoint-down(sm) {
+        font-size: 18px;
+      }
+
+      @include media-breakpoint-down(xs) {
+        font-size: 15px;
+      }
+
+    }
+
+
+    h2 {
+      font-size: 16px;
+    }
+
+    .location-date-and-time {
+      color: $black;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: .2px;
+      margin: 0 0 3px;
+      text-align: left;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 15px;
+      }
+
+      @include media-breakpoint-down(xs) {
+        font-size: 13px;
+      }
+
+    }
+
+    p {
+      font-size: 14px;
+
+      @include media-breakpoint-down(md) {
+        font-size: 10px;
+      }
+
+      @include media-breakpoint-down(sm) {
+        font-size: 10px;
+      }
+
+      @include media-breakpoint-down(xs) {
+        font-size: 10px;
+      }
+
+      .fa {
+        color: $dark-gray;
+        margin: 0 0 0 10px;
+      }
+    }
+
+    .venue {
+      color: $black;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: 300;
+      margin: 0 0 10px;
+      text-align: left;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 15px;
+      }
+
+      @include media-breakpoint-down(xs) {
+        font-size: 13px;
+      }
+
+    }
+
+    .type {
+      color: $red;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 19px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: normal;
+      letter-spacing: .4px;
+      line-height: 1.47;
+      margin: 0 0 2px;
+      text-align: left;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 16px;
+      }
+
+      @include media-breakpoint-down(xs) {
+        font-size: 14px;
+      }
+
+    }
+
+    .active-members {
+      color: $black;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 19px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: 300;
+      letter-spacing: .4px;
+      line-height: 1.47;
+      margin: 0 0 10px;
+      text-align: left;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 16px;
+      }
+
+      @include media-breakpoint-down(xs) {
+        font-size: 14px;
+      }
+
+    }
+
+    .pipe {
+      display: block;
+
+      @media (min-width: $max-viewport-width) {
+        display: inline;
+      }
+
+      &::after {
+        content: '';
+
+        @media (min-width: $max-viewport-width) {
+          content: ' | ';
+        }
+      }
+    }
+  }
+
+  .description {
+    font-size: 19px;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 16px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      font-size: 14px;
+    }
+
+  }
+}

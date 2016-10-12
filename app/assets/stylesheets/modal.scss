@@ -1,3 +1,4 @@
+//is this still required??
 .event {
   .modal {
     .modal-dialog {
@@ -23,42 +24,32 @@
   }
 
   .links {
-    bottom: 4vw;
     color: $red;
-    left: 22px;
-    position: absolute;
-    width: calc(100% - 44px);
 
-    @include media-breakpoint-up(lg) {
-      bottom: 28px;
-    }
-
-    .link-small {
-      width: 60%;
-
-      a {
-        display: block;
-        margin-right: 33px;
-      }
-    }
-
-    .share-links,
     .link-small {
       display: inline-block;
       font-size: 3.16vw;
+      padding-top: 1vw;
 
       @include media-breakpoint-up(lg) {
-        font-size: 16px;
+        font-size: 16px;   
+      }
+
+      @include media-breakpoint-up(xl) {
+        padding-top: 7px;
       }
     }
 
     .share-links {
-      text-align: right;
-      width: 50%;
+      float: right;
+      font-size: 4.5vw;
+      
+      @include media-breakpoint-up(lg) {
+        font-size: 25px;
+      }
 
       a {
-        color: $red;
-        margin: 0 0 0 5px;
+        margin-left: 10px;
       }
     }
   }
@@ -88,188 +79,5 @@
   &:hover {
     color: $white;
     opacity: 1;
-  }
-}
-
-.event-modal {
-  .description,
-  .details {
-    padding: 27px 24px;
-  }
-
-  .details {
-    min-height: 400px;
-    position: relative;
-
-    .title {
-      color: $black;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 24px;
-      font-stretch: normal;
-      font-style: normal;
-      font-weight: 600;
-      line-height: .95;
-      margin: 0 0 21px;
-      text-align: left;
-    }
-
-    h2 {
-      font-size: 16px;
-    }
-
-    .location-date-and-time {
-      color: $black;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 18px;
-      font-stretch: normal;
-      font-style: normal;
-      font-weight: 600;
-      letter-spacing: .2px;
-      margin: 0 0 3px;
-      text-align: left;
-    }
-
-    p {
-      font-size: 14px;
-
-      .fa {
-        color: $dark-gray;
-        margin: 0 0 0 10px;
-      }
-    }
-
-    .venue {
-      color: $black;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 18px;
-      font-stretch: normal;
-      font-style: normal;
-      font-weight: 300;
-      margin: 0 0 33px;
-      text-align: left;
-    }
-
-    .type {
-      color: $red;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 19px;
-      font-stretch: normal;
-      font-style: normal;
-      font-weight: normal;
-      letter-spacing: .4px;
-      line-height: 1.47;
-      margin: 0 0 2px;
-      text-align: left;
-    }
-
-    .active-members {
-      color: $black;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 19px;
-      font-stretch: normal;
-      font-style: normal;
-      font-weight: 300;
-      letter-spacing: .4px;
-      line-height: 1.47;
-      margin: 0 0 86px;
-      text-align: left;
-    }
-
-    .link-small {
-      display: inline-block;
-      text-align: left;
-      width: 50%;
-    }
-
-    .pipe {
-      display: block;
-
-      @media (min-width: $max-viewport-width) {
-        display: inline;
-      }
-
-      &::after {
-        content: '';
-
-        @media (min-width: $max-viewport-width) {
-          content: ' | ';
-        }
-      }
-    }
-  }
-}
-
-.user-modal {
-  @include media-breakpoint-up(lg) {
-    .user-double-image {
-      .image {
-        height: 37.5vw;
-        max-height: #{$max-viewport-width * .375};
-      }
-    }
-  }
-
-  .image {
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 66.6vw;
-    width: 100%;
-
-    @include media-breakpoint-up(lg) {
-      height: 33.3vw;
-      max-height: $max-modal-height;
-    }
-  }
-
-  .details {
-    min-height: 66.6vw;
-    position: relative;
-    width: 100%;
-
-    @include media-breakpoint-up(lg) {
-      &.col-xs-12 {
-        min-height: 15vw;
-      }
-
-      &.col-lg-6 {
-        min-height: 33.3vw;
-        width: 50%;
-      }
-    }
-
-    .user-quote {
-      font-size: 4vw;
-      margin: 3vw 22px 0;
-
-      @include media-breakpoint-up(lg) {
-        font-size: 23px;
-        margin: 15px 22px 0;
-      }
-    }
-
-    .user-name {
-      font-size: 3vw;
-      margin: 4vw 22px 0;
-
-      @include media-breakpoint-up(lg) {
-        font-size: 18px;
-        margin: 25px 22px 0;
-      }
-    }
-
-    .user-role {
-      font-size: 2.2vw;
-      margin: .5vw 22px 81px;
-
-      @include media-breakpoint-up(lg) {
-        font-size: 13px;
-        margin: 7px 22px 81px;
-      }
-    }
-
-    a {
-      position: relative;
-    }
   }
 }
