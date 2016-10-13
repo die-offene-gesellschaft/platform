@@ -1,0 +1,67 @@
+.user-modal {
+  @include media-breakpoint-up(lg) {
+    .user-double-image {
+      .image {
+        height: 37.5vw;
+        max-height: #{$max-viewport-width * .375};
+      }
+    }
+  }
+
+  .image {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vw;
+    width: 100%;
+
+    @include media-breakpoint-up(lg) {
+      height: 33.3vw;
+      max-height: $max-modal-height;
+    }
+  }
+
+  .details {
+    position: relative;
+
+    .user-quote {
+      font-size: 4vw;
+      margin: 3vw 22px 0;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 15px;
+        margin: 15px 22px 0;
+      }
+    }
+
+    .user-name {
+      font-size: 3vw;
+      margin: 4vw 22px 0;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 18px;
+        margin: 25px 22px 0;
+      }
+    }
+
+    .user-role {
+      font-size: 2.2vw;
+      margin: .5vw 22px 22px;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 13px;
+        margin: 7px 22px 10px;
+      }
+    }
+
+    .links {
+      margin: .5vw 22px 10px;
+      
+      @include media-breakpoint-up(lg) {
+        font-size: 13px;
+        margin: 7px 22px 81px;
+      }
+      
+    }
+  }
+}
