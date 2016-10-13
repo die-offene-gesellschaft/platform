@@ -16,11 +16,11 @@ class ModalManager
       if location == undefined
         location = $(this).data('target_alt')
       _this.setLocationHash(location)
-    this.basePath = window.location.pathname+window.location.search
+    this.basePath = window.location.pathname + window.location.search
 
   setLocationHash: (hash) ->
     this.currentModalIdentifier = hash
-    _this.basePath = window.location.pathname+window.location.search
+    _this.basePath = window.location.pathname + window.location.search
     if history.pushState
       history.pushState(null, null, "#show(#{this.currentModalIdentifier})")
     else
@@ -30,7 +30,7 @@ class ModalManager
   removeModalIdFromLocationHashOnModalClose: ->
     $(this.currentModalIdentifier).on('hidden.bs.modal', ->
       _this.currentModalIdentifier = undefined
-      if(history.pushState)
+      if history.pushState
         history.pushState(null, null, _this.basePath)
       else
         location.hash = ''
