@@ -36,11 +36,11 @@
             = f.submit t('participate.send')
         .col-xs-12.col-md-6.extended-form
           .inputs
-            = f.input :avatar, as: :file, input_html: { accept: '.jpg,.jpeg,.gif,.png' }, hint: t('participate.hints.avatar')
+            = f.input :avatar, as: :file, input_html: { accept: '.jpg,.jpeg,.gif,.png' }, label: t('participate.hints.avatar_file_button_label')
             = f.input :password, as: :password, input_html: { value: @user.password }, hint: t('participate.hints.password')
             = f.input :password_confirmation, as: :password, validate: true, input_html: { placeholder: t('participate.placeholder.password-confirmation') }
-            = f.input :role, input_html: { value: @user.role }
-            = f.input :statement, as: :text, input_html: { value: @user.statement }
+            = f.input :role, input_html: { value: @user.role, placeholder: t('participate.hints.about-me') }
+            = f.input :statement, as: :text, input_html: { value: @user.statement, placeholder: t('participate.hints.my-statement') }
             = f.submit t('participate.send')
         .col-xs-12.col-md-6.avatars
           - @users.each do |user|
@@ -71,3 +71,5 @@
           .image style="background-image: url(#{image_url('participate/action-4.png')});"
           .image style="background-image: url(#{image_url('participate/action-5.png')});"
           .image style="background-image: url(#{image_url('participate/action-6.png')});"
+coffee:
+    window.avatarButton = new window.AvatarUploadButton()

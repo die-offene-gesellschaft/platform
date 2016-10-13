@@ -66,6 +66,10 @@
     padding: 40px 40px 100px;
   }
 
+  //style the file input
+
+
+
   label {
     display: none;
 
@@ -165,9 +169,37 @@
     height: 147px;
   }
 
-  [type='file'] {
-    font-size: 16px;
-    padding: 0;
+  .user_avatar{
+    text-align: right;
+    input{
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+    }
+    label{
+      display: inline-block;
+      background-color: #fff;
+      color: #d20a11;
+      font-weight: 600;
+      height: 150px;
+      width: 150px;
+      font-size: 12px;
+      padding: 14px 0;
+      text-align: center;
+      text-transform: uppercase;
+      background-position: 50% 50%;
+      background-size: cover;
+    }
+    label::before{
+      display: block;
+      text-align: center;
+      font-size: 30px;
+      font-family: "FontAwesome";
+      content: "\f093";
+    }
   }
 
   .extended-form {
