@@ -16,16 +16,24 @@ class ModalManager
       if location == undefined
         location = $(this).data('target_alt')
       _this.setLocationHash(location)
+    this.basePath = window.location.pathname+window.location.search
 
   setLocationHash: (hash) ->
     this.currentModalIdentifier = hash
-    window.location.hash = "show(#{this.currentModalIdentifier})"
+    _this.basePath = window.location.pathname+window.location.search
+    if history.pushState
+      history.pushState(null, null, "#show(#{this.currentModalIdentifier})")
+    else
+      location.hash = "show(#{this.currentModalIdentifier})"
     this.removeModalIdFromLocationHashOnModalClose()
 
   removeModalIdFromLocationHashOnModalClose: ->
     $(this.currentModalIdentifier).on('hidden.bs.modal', ->
       _this.currentModalIdentifier = undefined
-      window.location.hash = ' '
+      if(history.pushState)
+        history.pushState(null, null, _this.basePath)
+      else
+        location.hash = ''
     )
 
   openModalFromUrl: ->

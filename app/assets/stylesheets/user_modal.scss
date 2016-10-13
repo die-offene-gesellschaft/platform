@@ -12,7 +12,7 @@
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 66.6vw;
+    height: 80vw;
     width: 100%;
 
     @include media-breakpoint-up(lg) {
@@ -22,27 +22,14 @@
   }
 
   .details {
-    min-height: 66.6vw;
     position: relative;
-    width: 100%;
-
-    @include media-breakpoint-up(lg) {
-      &.col-xs-12 {
-        min-height: 15vw;
-      }
-
-      &.col-lg-6 {
-        min-height: 33.3vw;
-        width: 50%;
-      }
-    }
 
     .user-quote {
       font-size: 4vw;
       margin: 3vw 22px 0;
 
       @include media-breakpoint-up(lg) {
-        font-size: 23px;
+        font-size: 15px;
         margin: 15px 22px 0;
       }
     }
@@ -59,7 +46,7 @@
 
     .user-role {
       font-size: 2.2vw;
-      margin: .5vw 22px 10px;
+      margin: .5vw 22px 22px;
 
       @include media-breakpoint-up(lg) {
         font-size: 13px;
