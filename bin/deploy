@@ -3,7 +3,7 @@
 ./bin/helpers/message "DEPLOYMENT"
 
 eval "$(ssh-agent -s)"
-echo "$UBERSPACE_SSH_KEY" > uberspace_ssh_key.pem
+echo -e "-----BEGIN RSA PRIVATE KEY-----\n$UBERSPACE_SSH_KEY\n-----END RSA PRIVATE KEY-----" > uberspace_ssh_key.pem
 chmod 600 uberspace_ssh_key.pem
 ssh-add uberspace_ssh_key.pem
 
