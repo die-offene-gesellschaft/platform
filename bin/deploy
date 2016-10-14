@@ -15,5 +15,6 @@ elif [ "$1" = "staging" ]; then
 	host="$user.kochab.uberspace.de"
 fi
 
+ssh-keyscan -H $host >> ~/.ssh/known_hosts
 git remote add deploy $user@$host:~/offene-gesellschaft.git
 git push deploy master
