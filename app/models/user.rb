@@ -115,6 +115,24 @@ class User < ApplicationRecord
     end
   end
 
+  # this method smells of :reek:DuplicateMethodCall
+  def self.filter_for_pictures(collection)
+    video_users = collection.where.not(video_url: [nil, ''])
+                            .where.not(avatar_file_name: nil)
+    statement_users = collection.where.not(statement: [nil, ''])
+                                .where(good_statement: true)
+                                .where.not(id: video_users.map(&:id)).sample(10)
+    picture_users = collection.where.not(avatar_file_name: nil)
+                              .where(good_photo: true)
+                              .where.not(id: video_users.map(&:id))
+                              .where.not(id: statement_users.map(&:id)).sample(10)
+    users = collection.where.not(avatar_file_name: nil)
+                      .where.not(id: video_users.map(&:id))
+                      .where.not(id: statement_users.map(&:id))
+                      .where.not(id: picture_users.map(&:id))
+    [video_users, statement_users, picture_users, users]
+  end
+
   private
 
   def sync_to_mailchimp_later

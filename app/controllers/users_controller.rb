@@ -69,17 +69,8 @@ class UsersController < ApplicationController
     end
   end
 
-  # this method smells of :reek:DuplicateMethodCall
   def filter_user_for_pictures_param
-    @video_users = @users.where.not(video_url: [nil, ''])
-                         .where.not(avatar_file_name: nil)
-    @statement_users = @users.where.not(statement: [nil, ''])
-                             .where(video_url: [nil, ''])
-                             .where.not(id: @video_users.map(&:id))
-                             .sample(10)
-    @users = @users.where.not(avatar_file_name: nil)
-                   .where(video_url: [nil, ''])
-                   .where.not(id: @statement_users.map(&:id))
+    @video_users, @statement_users, @picture_users, @users = User.filter_for_pictures(@users)
   end
 
   def set_admin_users
