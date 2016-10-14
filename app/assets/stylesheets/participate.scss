@@ -133,9 +133,13 @@
       overflow: hidden;
     }
   }
-
+  .user_statement{
+    textarea{
+      height: 77px;
+    }
+  }
   textarea,
-  input {
+  input { 
     background-color: $white;
     border: 0;
     border-radius: 0;
@@ -172,6 +176,7 @@
 
   .user_avatar{
     text-align: right;
+    margin-top: 21px;
     input{
       width: 0.1px;
       height: 0.1px;
