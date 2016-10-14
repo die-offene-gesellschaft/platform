@@ -23,7 +23,7 @@ class AvatarUploadButton
           bgImage =  e.target.result
           $('.user_avatar label').css('background-image', "url('"+bgImage+"')").text('')
           #hacky code to remove icon from before element defined in participate.scss
-          document.styleSheets[0].addRule('.participate .user_avatar label:before','content:"";')
+          #document.styleSheets[0].addRule('.participate .user_avatar label:before','content:"";')
         reader.readAsDataURL(input.files[0]);
 
 window.AvatarUploadButton = AvatarUploadButton
