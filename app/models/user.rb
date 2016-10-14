@@ -110,7 +110,8 @@ class User < ApplicationRecord
         !user.good_photo && params['filter-good-photo'] == 'true' ||
         !user.good_statement && params['filter-good-statement'] == 'true' ||
         !user.contributor && params['filter-contributor'] == 'true' ||
-        !user.video_user? && params['filter-video-url'] == 'true'
+        !user.video_user? && params['filter-video-url'] == 'true' ||
+        !user.frontpage && params['filter-frontpage'] == 'true'
     end
   end
 

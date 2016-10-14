@@ -395,8 +395,8 @@ select {
   }
 }
 
-button {
-  &.filter {
+.filter {
+  button {
     &.active {
       background-color: $gray;
 

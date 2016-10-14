@@ -116,7 +116,8 @@ class UsersController < ApplicationController
       :vip,
       :good_photo,
       :good_statement,
-      :contributor
+      :contributor,
+      :frontpage
     )
   end
 end

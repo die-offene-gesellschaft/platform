@@ -1,8 +1,8 @@
 = render 'shared/admin_tabs', active: :user
 .row
   .col-xs-12
-    .filter.btn-group role='group' data-base-path="#{users_path}"
-      - %w(email-confirmed locked newsletter terms-of-use vip good-photo good-statement contributor video-url).each do |filter|
+    .filter.btn-group.btn-group-sm role='group' data-base-path="#{users_path}"
+      - %w(email-confirmed locked newsletter terms-of-use vip good-photo good-statement contributor video-url frontpage).each do |filter|
         - active_class = ''
         - active_class = 'active' if filters["filter-#{filter}"] && filters["filter-#{filter}"] == 'true'
         button.btn.btn-secondary type='button' data-filter="#{filter}" class="#{active_class}"

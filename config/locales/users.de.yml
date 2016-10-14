@@ -6,14 +6,15 @@ de:
       surname: 'Nachname'
       email: 'E-Mail-Adresse'
       password: 'Passwort'
-      email-confirmed: 'E-Mail<wbr />bestätigt'
+      email-confirmed: 'E-Mail bestätigt'
       locked: 'Gesperrt'
       terms-of-use: 'AGB'
       video-url: 'Video'
       vip: 'Prominent'
-      good_photo: 'gutes Foto'
-      good_statement: 'gutes Statement'
+      good-photo: 'gutes Foto'
+      good-statement: 'gutes Statement'
       contributor: 'Mitwirkende(r)'
+      frontpage: 'Frontpage'
     success:
       delete-profile: 'Das Profil wurde erfolgreich gelöscht'
     actions:
