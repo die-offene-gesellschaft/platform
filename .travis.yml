@@ -1,0 +1,16 @@
+env:
+  - RAILS_ENV=test
+language: ruby
+cache: bundler
+rvm:
+  - 2.3.1
+script: ./bin/ci
+deploy:
+  - provider: script
+    script: ./bin/deploy 'production'
+    on:
+      tags: true
+  - provider: script
+    script: ./bin/deploy 'staging'
+    on:
+      branch: master
