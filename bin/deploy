@@ -7,6 +7,8 @@ cat >> ~/.ssh/id_rsa << EOF
 $UBERSPACE_SSH_KEY
 EOF
 chmod 0600 ~/.ssh/id_rsa
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
 
 if [ "$1" = "production" ]; then
 	user="offenege"
