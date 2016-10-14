@@ -4,6 +4,8 @@ language: ruby
 cache: bundler
 rvm:
   - 2.3.1
+before_script:
+  - echo -e "Host offenge.kochab.uberspace.de\n\tHostName offenege.kochab.uberspace.de\n\tUser offenege\n\tIdentityFile ~/.ssh/id_rsa\n" >> ~/.ssh/config
 script: ./bin/ci
 deploy:
   - provider: script
