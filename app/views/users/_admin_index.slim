@@ -1,6 +1,16 @@
 = render 'shared/admin_tabs', active: :user
 .row
   .col-xs-12
+    .filter.btn-group role='group' data-base-path="#{users_path}"
+      - %w(email-confirmed locked newsletter terms-of-use vip good-photo good-statement contributor video-url).each do |filter|
+        - active_class = ''
+        - active_class = 'active' if filters["filter-#{filter}"] && filters["filter-#{filter}"] == 'true'
+        button.btn.btn-secondary type='button' data-filter="#{filter}" class="#{active_class}"
+          == t("users.attributes.#{filter}")
+      coffee:
+        window.filterButton = new window.FilterButton()
+.row
+  .col-xs-12
     table.table.table-striped.table-hover
       thead
         tr
@@ -12,26 +22,8 @@
             = t('users.attributes.surname')
           td
             = t('users.attributes.email')
-          td
-            == t('users.attributes.email-confirmed')
-          td
-            = t('users.attributes.locked')
-          td
-            = t('users.attributes.newsletter')
-          td
-            = t('users.attributes.terms-of-use')
-          td
-            = t('users.attributes.vip')
-          td
-            = t('users.attributes.good-photo')
-          td
-            = t('users.attributes.good-statement')
-          td
-            = t('users.attributes.contributor')
-          td
-            = t('users.attributes.video-url')
       tbody
-        - users.order(created_at: :desc).each do |user|
+        - users.each do |user|
           tr data-href="#{edit_user_path(user)}"
             td
               = user.id
@@ -41,26 +33,3 @@
               = user.surname
             td
               = user.email
-            td
-              = icon_from(user.confirmed?)
-            td
-              = icon_from(user.locked)
-            td
-              = icon_from(user.newsletter)
-            td
-              = icon_from(user.terms_of_use)
-            td
-              = icon_from(user.vip)
-            td
-              = icon_from(user.good_photo)
-            td
-              = icon_from(user.good_statement)
-            td
-              = icon_from(user.contributor)
-            td
-              - if user.youtube_id
-                = fa_icon 'youtube'
-              - elsif user.vimeo_id
-                = fa_icon 'vimeo'
-              - else
-                = icon_from(false)

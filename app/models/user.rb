@@ -99,6 +99,21 @@ class User < ApplicationRecord
     vimeo_id
   end
 
+  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+  def self.apply_filters(collection, params)
+    collection.reject do |user|
+      !user.confirmed_at && params['filter-emails-confirmed'] == 'true' ||
+        !user.locked && params['filter-locked'] == 'true' ||
+        !user.newsletter && params['filter-newsletter'] == 'true' ||
+        !user.terms_of_use && params['filter-terms-of-use'] == 'true' ||
+        !user.vip && params['filter-vip'] == 'true' ||
+        !user.good_photo && params['filter-good-photo'] == 'true' ||
+        !user.good_statement && params['filter-good-statement'] == 'true' ||
+        !user.contributor && params['filter-contributor'] == 'true' ||
+        !user.video_user? && params['filter-video-url'] == 'true'
+    end
+  end
+
   private
 
   def sync_to_mailchimp_later
