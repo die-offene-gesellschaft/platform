@@ -2,10 +2,10 @@ de:
   participate:
     hints:
       avatar: 'max. 4 MB, erlaubte Formate: jpg, gif und png'
-      avatar_file_button_label: 'Ihr Foto mind. 500 x 500 Pixel max. 4 MB'
+      avatar_file_button_label: 'Ihr Foto <br> mind. 500 x 500 Pixel <br> max. 4 MB'
       password: 'mind. 8 Zeichen lang'
       about-me: 'Über mich (max. 140 Zeichen)'
-      my-statement: 'Mein Statement … (max. 255 Zeichen)'
+      my-statement: 'Mein Statement zur Offenen Gesellschaft (max. 255 Zeichen)'
     placeholder:
       password-confirmation: 'Passwort bestätigen'
     error: 'Bei der Registrierung ist folgendes Problem aufgetreten: %{error_description}'
