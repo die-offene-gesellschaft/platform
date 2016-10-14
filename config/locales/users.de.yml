@@ -10,6 +10,10 @@ de:
       locked: 'Gesperrt'
       terms-of-use: 'AGB'
       video-url: 'Video'
+      vip: 'Prominent'
+      good_photo: 'gutes Foto'
+      good_statement: 'gutes Statement'
+      contributor: 'Mitwirkende(r)'
     success:
       delete-profile: 'Das Profil wurde erfolgreich gelöscht'
     actions:

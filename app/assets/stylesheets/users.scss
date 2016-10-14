@@ -13,9 +13,19 @@
     display: inline-block;
     padding: 0 0 100%;
     width: 100%;
+    margin-bottom: -7px;
 
-    @media (min-width: 300px) {
-      margin-bottom: -7px;
+  }
+
+  .inputs {
+    .image {
+      width: 100%;
+
+      @media (min-width: 300px) {
+        margin: 0 calc(50% - 150px);
+        padding: 0 0 300px;
+        width: 300px;
+      }
     }
   }
 

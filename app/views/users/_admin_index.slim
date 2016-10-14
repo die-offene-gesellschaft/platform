@@ -21,6 +21,14 @@
           td
             = t('users.attributes.terms-of-use')
           td
+            = t('users.attributes.vip')
+          td
+            = t('users.attributes.good-photo')
+          td
+            = t('users.attributes.good-statement')
+          td
+            = t('users.attributes.contributor')
+          td
             = t('users.attributes.video-url')
       tbody
         - users.order(created_at: :desc).each do |user|
@@ -41,6 +49,14 @@
               = icon_from(user.newsletter)
             td
               = icon_from(user.terms_of_use)
+            td
+              = icon_from(user.vip)
+            td
+              = icon_from(user.good_photo)
+            td
+              = icon_from(user.good_statement)
+            td
+              = icon_from(user.contributor)
             td
               - if user.youtube_id
                 = fa_icon 'youtube'

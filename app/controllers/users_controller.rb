@@ -99,7 +99,11 @@ class UsersController < ApplicationController
       :locked,
       :role,
       :statement,
-      :video_url
+      :video_url,
+      :vip,
+      :good_photo,
+      :good_statement,
+      :contributor
     )
   end
 end
