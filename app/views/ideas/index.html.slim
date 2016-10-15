@@ -1,0 +1,26 @@
+.ideas
+  = render 'shared/admin_tabs', active: :idea
+  .row
+    .col-xs-12
+      table.table.table-striped.table-hover
+        thead
+          tr
+            td
+              = t('ideas.attributes.id')
+            td
+              = t('ideas.attributes.subject')
+            td
+              = t('ideas.attributes.time')
+            td
+              = t('ideas.attributes.location')
+        tbody
+          - @ideas.each do |idea|
+            tr data-href="#{edit_idea_path(idea)}"
+              td
+                = idea.id
+              td
+                = idea.subject
+              td
+                = idea.time
+              td
+                = idea.location

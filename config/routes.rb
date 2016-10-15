@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :admins
   resources :users, except: [:new, :create]
   resources :press_reviews
+  resources :ideas, except: [:show, :new, :create]
 
   get '/' => redirect('/home')
   get '/home' => 'home#show'

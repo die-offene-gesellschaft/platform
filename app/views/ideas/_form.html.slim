@@ -1,0 +1,37 @@
+= simple_form_for idea do |f|
+  .row
+    .col-xs-12
+      .inputs
+        = f.input :subject,
+                  readonly: true,
+                  disabled: true
+        = f.input :time,
+                  readonly: true,
+                  disabled: true
+        = f.input :location,
+                  readonly: true,
+                  disabled: true
+        = f.input :contact_person,
+                  readonly: true,
+                  disabled: true
+        = f.input :organisation,
+                  readonly: true,
+                  disabled: true
+        = f.input :email,
+                  readonly: true,
+                  disabled: true
+        = f.input :phone,
+                  readonly: true,
+                  disabled: true
+  .row.button-row
+    .col-xs-12
+      = render 'shared/button',
+               label: t('delete'),
+               icon: 'times',
+               confirm: t('confirm'),
+               method: 'delete',
+               href: idea_path(idea) if idea.id
+      = render 'shared/button',
+               type: 'submit',
+               label: t('save'),
+               icon: 'check'

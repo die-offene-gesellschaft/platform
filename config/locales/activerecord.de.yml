@@ -19,6 +19,9 @@ de:
       press_review:
         one: Medienspiegel
         other: Medienspiegel
+      idea:
+        one: Idee
+        other: Ideen
     attributes:
       admin:
         name: Name
@@ -52,3 +55,11 @@ de:
         planned: Geplant
         post_description: Post-Beschreibung
         post_description_source: Post-Beschreibungsquelle
+      idea:
+        subject: Thema
+        time: Zeit
+        location: Ort
+        contact_person: Ansprechpartner(in)
+        organisation: Organisation
+        email: E-Mail-Adresse
+        phone: Telefon
