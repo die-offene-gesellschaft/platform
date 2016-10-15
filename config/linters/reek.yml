@@ -14,3 +14,5 @@ FeatureEnvy:
   exclude:
     - "ParticipateController#user_params"
     - "ParticipateController#process_contents"
+RepeatedConditional:
+  max_ifs: 5

@@ -39,6 +39,28 @@
       height: 2400px;
     }
   }
+
+  &.user-form {
+    background-color: $red;
+
+    .name-form {
+      height: auto;
+      padding: 40px;
+    }
+
+    .extended-form {
+      height: auto;
+    }
+
+    .review-notice {
+      color: $white;
+      font-size: 19px;
+    }
+
+    .delete-account {
+      color: $white;
+    }
+  }
 }
 
 .modal-body {

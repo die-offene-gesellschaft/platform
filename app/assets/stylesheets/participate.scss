@@ -6,7 +6,8 @@
   }
 }
 
-.participate {
+.participate,
+.user-form {
   .help-block {
     color: $white;
     text-align: right;
@@ -320,7 +321,7 @@
     background-color: $red;
     color: $white;
 
-    a, 
+    a,
     a:hover {
       color: $white;
       text-decoration: underline;
@@ -328,7 +329,7 @@
 
     .diy-text {
       padding: 40px 40px 100px;
-      
+
       .mitteilen {
         background-color: $white;
         border: 0;

@@ -14,7 +14,9 @@ de:
       delete-profile: 'Das Profil wurde erfolgreich gelöscht'
     actions:
       new: 'Neuen User erstellen'
+      edit-profile: 'Profil bearbeiten'
       delete-profile: 'Profil löschen'
+      separator: '∕'
     title: 'Freunde'
     subnav:
       pictures:
@@ -30,3 +32,10 @@ de:
     errors:
       no-terms-of-use: '(Bitte akzeptiere unsere Nutzungsbedingungen um ein/e Freund/In der Offenen Gesellschaft zu werden.)'
       video-url: 'keine YouTube oder Vimeo Video URL'
+    user-form:
+      title: Profil bearbeiten
+      under-review: 'Ihr Profil wird derzeit geprüft.'
+      review-notice: 'Falls Daten geändert werden, die für andere Nuter/innen sichtbar sind, wird Ihr Profil zwischenzeitig nicht sichbar sein. Sobald wir Ihr Profil erneut freigegeben haben, bekommen Sie eine entsprechende E-Mail von uns.'
+      hints:
+        password: 'muss zur Authorisierung angegeben werden'
+      error-notice: 'Bei der Aktualisierung ist folgendes Problem aufgetreten: %{error_description}'

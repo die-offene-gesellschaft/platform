@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_admin!, only: [:edit, :update]
+  before_action :authenticate_any, only: [:edit, :update]
 
   before_action :set_users, only: [:index]
   before_action :set_admin_users, only: [:index]
@@ -21,21 +21,23 @@ class UsersController < ApplicationController
   end
 
   def edit
+    render 'admin_edit' if admin_signed_in?
+    render 'user_edit' unless user_signed_in?
   end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to users_path, notice: t('actions.save.success') }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        flash.now[:error] = t('actions.save.error')
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    return unless update_permitted?
+    if @user.update(user_params)
+      flash.now[:notice] = t('actions.save.success')
+      sign_in(@user, bypass: true) if user_signed_in?
+    else
+      flash.now[:error] = t('users.user-form.error-notice',
+                            error_description: @user.errors.full_messages.to_sentence)
     end
+    render 'admin_edit' if admin_signed_in?
+    render 'user_edit' if user_signed_in?
   end
 
   def destroy
@@ -51,6 +53,15 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def authenticate_any
+    return true if admin_signed_in?
+    authenticate_user! unless user_signed_in?
+  end
+
+  def update_permitted?
+    admin_signed_in? || (current_user && @user == current_user)
+  end
 
   def set_users
     @users = User.where(locked: false)
@@ -96,9 +107,17 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
+      :avatar,
+      :email,
+      :forename,
       :locked,
+      :newsletter,
+      :password_confirmation,
+      :password,
       :role,
       :statement,
+      :surname,
+      :terms_of_use,
       :video_url
     )
   end
