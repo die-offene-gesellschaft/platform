@@ -1,6 +1,35 @@
 de:
   activerecord:
+    models:
+      admin:
+        one: Admin
+        other: Admins
+      content:
+        one: Inhalt
+        other: Inhalte
+      user:
+        one: Freund
+        other: Freunde
+      event:
+        one: Aktion
+        other: Aktionen
+      venue:
+        one: Veranstaltungsort
+        other: Veranstaltungsorte
+      press_review:
+        one: Medienspiegel
+        other: Medienspiegel
     attributes:
+      admin:
+        name: Name
+        email: E-Mail-Adresse
+        password: Passwort
+      press_review:
+        source_url: Quellen-URL
+        source_title: Quellentitel
+        title: Titel
+        description: Beschreibung
+        link: Link
       user:
         email: E-Mail-Adresse
         role: Über mich
@@ -10,3 +39,16 @@ de:
         surname: Nachname
         newsletter: Newsletter
         terms_of_use: Nutzungsbedingungen
+        video_url: Video-URL
+      event:
+        title: Titel
+        event_type: Veranstaltungsart
+        begin_at: Beginn
+        end_at: Ende
+        description: Beschreibung
+        venue: Veranstaltungsort
+        link: Link
+        locked: Gesperrt
+        planned: Geplant
+        post_description: Post-Beschreibung
+        post_description_source: Post-Beschreibungsquelle

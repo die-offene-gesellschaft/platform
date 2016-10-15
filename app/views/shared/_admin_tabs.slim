@@ -1,9 +1,9 @@
 ruby:
-  resources = %w(admin content user event venue)
+  resources = %w(admin content user event venue press_review)
 .row
   .col-xs-12
     ul.nav.nav-tabs
       - resources.each do |resource|
         li.nav-item
           a.nav-link href="#{url_for(controller: resource.pluralize, action: :index)}" class="#{'active' if resource == active.to_s}"
-            = resource.pluralize.capitalize
+            = t("activerecord.models.#{resource}.other")
