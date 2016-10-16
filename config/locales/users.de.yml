@@ -16,7 +16,6 @@ de:
       new: 'Neuen User erstellen'
       edit-profile: 'Profil bearbeiten'
       delete-profile: 'Profil löschen'
-      separator: '∕'
     title: 'Freunde'
     subnav:
       pictures:
@@ -35,13 +34,14 @@ de:
     user-form:
       title: Profil bearbeiten
       under-review: 'Ihr Profil wird derzeit geprüft.'
-      review-notice: 'Falls Daten geändert werden, die für andere Nutzer/Innen sichtbar sind, wird Ihr Profil nicht sichbar sein bis wir es erneut freigegeben haben. Daraufhin bekommen Sie eine entsprechende E-Mail von uns.'
+      review-notice: 'Falls Daten geändert werden, die für andere Nutzer/Innen sichtbar sind, wird Ihr Profil nicht sichtbar sein bis wir es erneut freigeben. Daraufhin bekommen Sie eine entsprechende E-Mail von uns.'
       hints:
         password: 'muss immer angegeben werden'
       placeholer:
         password: 'bisheriges Passwort'
         new-password: 'optional, neues Passwort'
         new-password-confirmation: 'neues Passwort bestätigen'
+        video-url: 'YouTube oder Vimeo URL zu persönlichem Video'
       save-changes: Profil speichern
       error-notice: 'Bei der Aktualisierung ist folgendes Problem aufgetreten: %{error_description}'
       image:

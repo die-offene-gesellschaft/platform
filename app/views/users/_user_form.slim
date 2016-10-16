@@ -43,6 +43,8 @@
                   as: :file,
                   input_html: { accept: '.jpg,.jpeg,.gif,.png' },
                   hint: t('participate.hints.avatar')
+        = f.input :video_url,
+                  input_html: { value: user.video_url, placeholder: t('users.user-form.placeholer.video-url') }
         = f.input :role,
                   input_html: { value: user.role }
         = f.input :statement,

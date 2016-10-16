@@ -31,11 +31,6 @@
             - if user == current_user
               = link_to t('users.actions.edit-profile'),
                 edit_user_path(current_user)
-              = t('users.actions.separator')
-              = link_to user_path(current_user),
-                method: 'delete',
-                data: { confirm: t('confirm') } do
-                = t('users.actions.delete-profile')
           - else
             a href="#{participate_path}"
               = t('users.become-friends')

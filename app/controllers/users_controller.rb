@@ -21,8 +21,8 @@ class UsersController < ApplicationController
   end
 
   def edit
-    return render 'admin_edit' if admin_signed_in?
-    render 'user_edit' if user_signed_in?
+    return render 'user_edit' if user_signed_in?
+    render 'admin_edit' if admin_signed_in?
   end
 
   # PATCH/PUT /users/1
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   def update
     return unless update_permitted?
 
-    if user_signed_in? && @user.update_with_password(user_params)
+    if user_signed_in? && @user.update_with_password(params_with_locked_check)
       flash.now[:notice] = t('actions.save.success')
       sign_in @user, bypass: true
     elsif admin_signed_in? && @user.update(user_params)
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    authenticate_admin! unless user_signed_in?
+    return unless update_permitted?
     if admin_signed_in?
       @user.destroy
       redirect_to users_path
@@ -60,6 +60,7 @@ class UsersController < ApplicationController
   end
 
   def delete_avatar
+    return unless update_permitted?
     @user.avatar = nil
     @user.save!
     redirect_to edit_user_path(@user), notice: t('users.user-form.image.delete-notice')
@@ -76,10 +77,21 @@ class UsersController < ApplicationController
     admin_signed_in? || (current_user && @user == current_user)
   end
 
+  def params_with_locked_check
+    # This should be model logic.
+    # It currently isn't, because of admins beeing able to change details.
+    # Adapt this code as soon as admins just set 'locked' to true / false.
+    new_params = user_params
+    new_params[:locked] = true if @user.role != user_params[:role] ||
+                                  @user.statement != user_params[:statement] ||
+                                  @user.video_url != user_params[:video_url] ||
+                                  user_params[:avatar_file_name]
+    new_params
+  end
+
   def set_user
     @user = User.find_by(id: params[:id])
     @user = User.find_by(id: params[:user_id]) unless @user
-    authenticate_admin! if @user.locked
   end
 
   def set_users
