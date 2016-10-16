@@ -37,7 +37,7 @@ class AdminsController < ApplicationController
     @admin = Admin.new(admin_params)
 
     if @admin.save
-      redirect_to admins_path, notice: 'Admin was successfully created.'
+      redirect_to admins_path, notice: t('actions.save.success')
     else
       render :new
     end
@@ -48,10 +48,13 @@ class AdminsController < ApplicationController
   def update
     respond_to do |format|
       if @admin.update(admin_params)
-        format.html { redirect_to admins_path, notice: 'Admin was successfully updated.' }
+        format.html { redirect_to admins_path, notice: t('actions.save.success') }
         format.json { render :show, status: :ok, location: @admin }
       else
-        format.html { render :edit }
+        format.html do
+          flash.now[:error] = t('actions.save.error')
+          render :edit
+        end
         format.json { render json: @admin.errors, status: :unprocessable_entity }
       end
     end
@@ -62,7 +65,7 @@ class AdminsController < ApplicationController
   def destroy
     @admin.destroy
     respond_to do |format|
-      format.html { redirect_to admins_path, notice: 'Admin was successfully destroyed.' }
+      format.html { redirect_to admins_path, notice: t('actions.destroy.success') }
       format.json { head :no_content }
     end
   end

@@ -5,6 +5,8 @@
       thead
         tr
           td
+            | #
+          td
             = t('venues.attributes.name')
           td
             = t('venues.attributes.street')
@@ -17,6 +19,8 @@
       tbody
         - @venues.order(:name).each do |venue|
           tr data-href="#{edit_venue_path(venue)}"
+            td
+              = venue.id
             td
               = venue.name
             td

@@ -47,8 +47,10 @@ class EventsController < ApplicationController
         format.html { redirect_to events_path, notice: t('actions.save.success') }
         format.json { render :show, status: :ok, location: @event }
       else
-        flash.now[:error] = t('actions.save.error')
-        format.html { render :new }
+        format.html do
+          flash.now[:error] = t('actions.save.error')
+          render :new
+        end
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end

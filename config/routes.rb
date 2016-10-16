@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     devise_for :users, controllers: { sessions: 'sessions', confirmations: 'confirmations' }
   end
 
-  resources :blogposts, only: [:index, :show]
+  resources :blogposts
   resources :active_members, only: [:index, :show]
   resources :events do
     resources :comments, only: [:index, :show]
@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resources :contents, only: [:index, :show, :edit, :update]
   resources :admins
   resources :users, except: [:new, :create]
+  resources :press_reviews
+  resources :ideas, except: [:show, :new, :create]
 
   get '/' => redirect('/home')
   get '/home' => 'home#show'

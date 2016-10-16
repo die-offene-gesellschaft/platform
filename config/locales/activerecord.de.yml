@@ -1,17 +1,81 @@
 de:
   activerecord:
-    attributes:
+    models:
+      admin:
+        one: Admin
+        other: Admins
+      content:
+        one: Inhalt
+        other: Inhalte
       user:
+        one: Freund
+        other: Freunde
+      event:
+        one: Aktion
+        other: Aktionen
+      venue:
+        one: Veranstaltungsort
+        other: Veranstaltungsorte
+      press_review:
+        one: Medienspiegel
+        other: Medienspiegel
+      idea:
+        one: Idee
+        other: Ideen
+      blogpost:
+        one: Blogpost
+        other: Blogposts
+    attributes:
+      blogpost:
+        hero: Hero
+        thumbnail: Vorschau
+        reference: Quelle
+        content: Inhalt
+        introduction: Einleitung
+        blogpost_type: Typ
+        title: Titel
+      admin:
+        name: Name
         email: E-Mail-Adresse
-        role: Über mich
-        statement: Statement
-        locked: gesperrt
+        password: Passwort
+      press_review:
+        source_url: Quellen-URL
+        source_title: Quellentitel
+        title: Titel
+        description: Beschreibung
+        link: Link
+      user:
+        contributor: Mitwirkende(r)
+        email: E-Mail-Adresse
         forename: Vorname
-        surname: Nachname
-        newsletter: Newsletter
-        terms_of_use: Nutzungsbedingungen
-        vip: Prominent
+        frontpage: Frontpage
         good_photo: gutes Foto
         good_statement: gutes Statement
-        contributor: Mitwirkende(r)
-        frontpage: Frontpage
+        locked: gesperrt
+        newsletter: Newsletter
+        role: Über mich
+        statement: Statement
+        surname: Nachname
+        terms_of_use: Nutzungsbedingungen
+        video_url: Video-URL
+        vip: Prominent
+      event:
+        title: Titel
+        event_type: Veranstaltungsart
+        begin_at: Beginn
+        end_at: Ende
+        description: Beschreibung
+        venue: Veranstaltungsort
+        link: Link
+        locked: Gesperrt
+        planned: Geplant
+        post_description: Post-Beschreibung
+        post_description_source: Post-Beschreibungsquelle
+      idea:
+        subject: Thema
+        time: Zeit
+        location: Ort
+        contact_person: Ansprechpartner(in)
+        organisation: Organisation
+        email: E-Mail-Adresse
+        phone: Telefon

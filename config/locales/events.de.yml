@@ -1,5 +1,11 @@
 de:
   events:
+    attributes:
+      begin-at: Beginn
+      title: Titel
+      event-type: Veranstaltungsart
+      locked: Gesperrt
+      planned: Geplant
     with: mit
     event-type-and-active-members: '%{event_type} mit %{active_members}'
     subnav:
@@ -19,4 +25,4 @@ de:
     planned-events: Geplante Aktionen
     event-archive: Aktionen Archiv
     actions:
-      new: Neues Event erstellen
+      new: Neue Aktion erstellen

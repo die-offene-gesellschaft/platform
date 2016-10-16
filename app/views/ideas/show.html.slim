@@ -1,0 +1,27 @@
+p#notice = notice
+
+p
+  strong Subject:
+  = @idea.subject
+p
+  strong Time:
+  = @idea.time
+p
+  strong Location:
+  = @idea.location
+p
+  strong Contact person:
+  = @idea.contact_person
+p
+  strong Organisation:
+  = @idea.organisation
+p
+  strong Email:
+  = @idea.email
+p
+  strong Phone:
+  = @idea.phone
+
+= link_to 'Edit', edit_idea_path(@idea)
+'|
+= link_to 'Back', ideas_path
