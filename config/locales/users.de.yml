@@ -37,7 +37,11 @@ de:
       under-review: 'Ihr Profil wird derzeit geprüft.'
       review-notice: 'Falls Daten geändert werden, die für andere Nuter/innen sichtbar sind, wird Ihr Profil zwischenzeitig nicht sichbar sein. Sobald wir Ihr Profil erneut freigegeben haben, bekommen Sie eine entsprechende E-Mail von uns.'
       hints:
-        password: 'muss zur Authorisierung angegeben werden'
+        password: 'muss immer angegeben werden'
+      placeholer:
+        password: 'bisheriges Passwort'
+        new-password: 'optionales, neues Passwort'
+        new-password-confirmation: 'neues Passwort bestätigen'
       save-changes: Profil speichern
       error-notice: 'Bei der Aktualisierung ist folgendes Problem aufgetreten: %{error_description}'
       image:

@@ -7,14 +7,18 @@
       p.review-notice
         = t('users.user-form.review-notice')
         = " #{t('users.user-form.under-review')}" unless user.locked == false
+
       .inputs
         = f.input :forename, input_html: { value: user.forename }
         = f.input :surname, input_html: { value: user.surname }
-        = f.input :role,
-                  input_html: { value: user.role }
-        = f.input :statement,
-                  as: :text,
-                  input_html: { value: user.statement }
+        = f.input :email, input_html: { value: user.email }
+        = f.input :password,
+                  as: :password,
+                  input_html: { placeholder: t('users.user-form.placeholer.new-password') }
+        = f.input :password_confirmation,
+                  as: :password,
+                  input_html: { placeholder: t('users.user-form.placeholer.new-password-confirmation') }
+
         - checked_attribute = {}
         - checked_attribute = { checked: true } if user.newsletter
         input type="checkbox" name='user[newsletter]' id='newsletter' *checked_attribute
@@ -22,6 +26,7 @@
           span.box
           span.text
             = t 'participate.options.newsletter'
+
     .col-xs-12.col-md-6.extended-form
       - if user.avatar_file_name?
         .image style="background-image: url('#{asset_url(user.avatar(:normal))}')"
@@ -32,15 +37,20 @@
       - else
         .image
           = t('users.user-form.image.blank-slate')
+
       .inputs
         = f.input :avatar,
                   as: :file,
                   input_html: { accept: '.jpg,.jpeg,.gif,.png' },
                   hint: t('participate.hints.avatar')
-        = f.input :email, input_html: { value: user.email }
-        = f.input :password,
+        = f.input :role,
+                  input_html: { value: user.role }
+        = f.input :statement,
+                  as: :text,
+                  input_html: { value: user.statement, rows: 3 }
+        = f.input :current_password,
                   as: :password,
-                  input_html: { value: user.password },
+                  input_html: { autocomplete: 'off', placeholder: t('users.user-form.placeholer.password') },
                   hint: t('users.user-form.hints.password')
 
         .delete-and-submit-group

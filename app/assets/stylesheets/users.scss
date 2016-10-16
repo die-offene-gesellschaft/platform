@@ -59,7 +59,7 @@
     }
 
     .image {
-      background-color: #fff;
+      background-color: $white;
       height: 190px;
       line-height: 190px;
       padding-bottom: 0;
@@ -73,8 +73,8 @@
     }
 
     .delete-and-submit-group {
-      width: 100%;
       text-align: right;
+      width: 100%;
     }
 
     .delete-profile-link {
@@ -89,18 +89,18 @@
     .button-style {
       background-color: $white;
       border: 0;
+      bottom: inherit;
       color: $red;
+      font-size: 19px;
       font-weight: 600;
       height: auto;
+      letter-spacing: .4px;
       padding: 14px 0;
+      position: relative;
+      right: inherit;
       text-align: center;
       text-transform: uppercase;
-      position: relative;
       width: 223px;
-      bottom: inherit;
-      right: inherit;
-      font-size: 19px;
-      letter-spacing: .4px;
     }
   }
 }
