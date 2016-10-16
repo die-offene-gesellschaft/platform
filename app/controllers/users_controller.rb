@@ -135,6 +135,7 @@ class UsersController < ApplicationController
     @admin_users = User.apply_filters(@admin_users, params)
   end
 
+  # rubocop:disable Metrics/MethodLength
   def user_params
     params.require(:user).permit(
       :avatar,
