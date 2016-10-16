@@ -27,16 +27,22 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/PerceivedComplexity
   def update
     return unless update_permitted?
 
-    if (admin_signed_in? && @user.update(user_params)) || (user_signed_in? && @user.update_with_password(user_params))
+    if user_signed_in? && @user.update_with_password(user_params)
       flash.now[:notice] = t('actions.save.success')
-      sign_in(@user, bypass: true) if user_signed_in?
+      sign_in @user, bypass: true
+    elsif admin_signed_in? && @user.update(user_params)
+      flash.now[:notice] = t('actions.save.success')
     else
       flash.now[:error] = t('users.user-form.error-notice',
                             error_description: @user.errors.full_messages.to_sentence)
     end
+
     render 'admin_edit' if admin_signed_in?
     render 'user_edit' if user_signed_in?
   end
@@ -120,6 +126,7 @@ class UsersController < ApplicationController
       :forename,
       :locked,
       :newsletter,
+      :current_password,
       :password_confirmation,
       :password,
       :role,
