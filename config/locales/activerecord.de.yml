@@ -22,7 +22,18 @@ de:
       idea:
         one: Idee
         other: Ideen
+      blogpost:
+        one: Blogpost
+        other: Blogposts
     attributes:
+      blogpost:
+        hero: Hero
+        thumbnail: Vorschau
+        reference: Quelle
+        content: Inhalt
+        introduction: Einleitung
+        blogpost_type: Typ
+        title: Titel
       admin:
         name: Name
         email: E-Mail-Adresse

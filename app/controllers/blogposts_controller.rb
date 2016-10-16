@@ -9,12 +9,9 @@ class BlogpostsController < ApplicationController
   # GET /blogposts.json
   def index
     @blogposts = Blogpost.all
+    authenticate_admin!
     respond_to do |format|
-      format.html do
-        @blogposts = @blogposts.to_a
-        @hero_blogpost = @blogposts.shift
-        render :index
-      end
+      format.html { render :index }
       format.json { render json: @blogposts }
     end
   end
@@ -41,13 +38,15 @@ class BlogpostsController < ApplicationController
   # POST /blogposts.json
   def create
     @blogpost = Blogpost.new(blogpost_params)
-
     respond_to do |format|
       if @blogpost.save
-        format.html { redirect_to @blogpost, notice: 'Blogpost was successfully created.' }
+        format.html { redirect_to blogposts_path, notice: t('actions.save.success') }
         format.json { render :show, status: :created, location: @blogpost }
       else
-        format.html { render :new }
+        format.html do
+          flash.now[:error] = t('actions.save.error')
+          render :new
+        end
         format.json { render json: @blogpost.errors, status: :unprocessable_entity }
       end
     end
@@ -58,10 +57,13 @@ class BlogpostsController < ApplicationController
   def update
     respond_to do |format|
       if @blogpost.update(blogpost_params)
-        format.html { redirect_to @blogpost, notice: 'Blogpost was successfully updated.' }
+        format.html { redirect_to blogposts_path, notice: t('actions.save.success') }
         format.json { render :show, status: :ok, location: @blogpost }
       else
-        format.html { render :edit }
+        format.html do
+          flash.now[:error] = t('actions.save.error')
+          render :edit
+        end
         format.json { render json: @blogpost.errors, status: :unprocessable_entity }
       end
     end
@@ -72,7 +74,7 @@ class BlogpostsController < ApplicationController
   def destroy
     @blogpost.destroy
     respond_to do |format|
-      format.html { redirect_to blogposts_url, notice: 'Blogpost was successfully destroyed.' }
+      format.html { redirect_to blogposts_url, notice: t('actions.destroy.success') }
       format.json { head :no_content }
     end
   end
@@ -86,8 +88,16 @@ class BlogpostsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def blogpost_params
-    params.require(:blogpost).permit(:title, :blogpost_type, :introduction, :content)
-    blogpost_params[:admin] = current_admin
-    blogpost_params
+    tmp_params = params.require(:blogpost).permit(
+      :title,
+      :blogpost_type,
+      :introduction,
+      :content,
+      :hero,
+      :thumbnail,
+      :reference
+    )
+    tmp_params[:admin] = current_admin
+    tmp_params
   end
 end

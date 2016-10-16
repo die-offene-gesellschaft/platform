@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     devise_for :users, controllers: { sessions: 'sessions', confirmations: 'confirmations' }
   end
 
-  resources :blogposts, only: [:index, :show]
+  resources :blogposts
   resources :active_members, only: [:index, :show]
   resources :events do
     resources :comments, only: [:index, :show]
