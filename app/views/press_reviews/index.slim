@@ -1,0 +1,32 @@
+.press_reviews
+  = render 'shared/admin_tabs', active: :press_review
+  .row
+    .col-xs-12
+      table.table.table-striped.table-hover
+        thead
+          tr
+            td
+              = t('press-reviews.attributes.id')
+            td
+              = t('press-reviews.attributes.source-title')
+            td
+              = t('press-reviews.attributes.title')
+            td
+              = t('press-reviews.attributes.description')
+        tbody
+          - @press_reviews.each do |press_review|
+            tr data-href="#{edit_press_review_path(press_review)}"
+              td
+                = press_review.id
+              td
+                = press_review.source_title
+              td
+                = press_review.title
+              td
+                = press_review.description
+  .button-row
+    .col-xs-12
+      = render 'shared/button',
+               label: t('press-reviews.actions.new'),
+               icon: 'plus',
+               href: new_press_review_path

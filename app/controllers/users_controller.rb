@@ -111,41 +111,50 @@ class UsersController < ApplicationController
     end
   end
 
-  # this method smells of :reek:DuplicateMethodCall
   def filter_user_for_pictures_param
-    @video_users = @users.where.not(video_url: [nil, ''])
-                         .where.not(avatar_file_name: nil)
-    @statement_users = @users.where.not(statement: [nil, ''])
-                             .where(video_url: [nil, ''])
-                             .where.not(id: @video_users.map(&:id))
-                             .sample(10)
-    @users = @users.where.not(avatar_file_name: nil)
-                   .where(video_url: [nil, ''])
-                   .where.not(id: @statement_users.map(&:id))
+    @video_users, @statement_users, @picture_users, @users = User.filter_for_pictures(@users)
   end
 
   def set_admin_users
     newsletter_only_ids = User.where(newsletter: true, terms_of_use: false)
                               .map(&:id)
-    @admin_users = User.where('id NOT IN (?)', newsletter_only_ids)
+    @admin_users = User.where.not(id: newsletter_only_ids)
                        .order(created_at: :desc)
+    set_filters
+    apply_filters
+  end
+
+  def set_filters
+    @filters = {}
+    request.query_parameters.each do |key, value|
+      @filters[key] = value if key =~ /^filter-/
+    end
+  end
+
+  def apply_filters
+    @admin_users = User.apply_filters(@admin_users, params)
   end
 
   def user_params
     params.require(:user).permit(
       :avatar,
+      :contributor,
+      :current_password,
       :email,
       :forename,
+      :frontpage,
+      :good_photo,
+      :good_statement,
       :locked,
       :newsletter,
-      :current_password,
       :password_confirmation,
       :password,
       :role,
       :statement,
       :surname,
       :terms_of_use,
-      :video_url
+      :video_url,
+      :vip
     )
   end
 end

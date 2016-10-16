@@ -1,0 +1,11 @@
+de:
+  press-reviews:
+    actions:
+      new: 'Neuen Medienspiegel erstellen'
+    attributes:
+      id: '#'
+      source-url: Quellen-URL
+      source-title: Quellentitel
+      title: Titel
+      description: Beschreibung
+      link: Link
