@@ -10,6 +10,8 @@ InstanceVariableAssumption:
   enabled: false
 TooManyInstanceVariables:
   max_instance_variables: 8
+TooManyMethods:
+  max_methods: 20
 FeatureEnvy:
   exclude:
     - "ParticipateController#user_params"
