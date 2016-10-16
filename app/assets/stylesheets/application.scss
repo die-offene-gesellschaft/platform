@@ -395,6 +395,24 @@ select {
   }
 }
 
+.filter {
+  button {
+    &.active {
+      background-color: $gray;
+
+      &:focus,
+      &:active {
+        background-color: $gray;
+      }
+    }
+
+    &:focus,
+    &:active {
+      background-color: $white;
+    }
+  }
+}
+
 .nav-tabs {
   margin: 0 0 1rem;
 

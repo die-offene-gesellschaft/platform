@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007080737) do
+ActiveRecord::Schema.define(version: 20161014224326) do
 
   create_table "active_members", force: :cascade do |t|
     t.string   "forename"
@@ -215,6 +215,11 @@ ActiveRecord::Schema.define(version: 20161007080737) do
     t.boolean  "newsletter",             default: false
     t.boolean  "terms_of_use",           default: false
     t.string   "video_url"
+    t.boolean  "vip"
+    t.boolean  "good_photo"
+    t.boolean  "good_statement"
+    t.boolean  "contributor"
+    t.boolean  "frontpage"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

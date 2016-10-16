@@ -99,6 +99,40 @@ class User < ApplicationRecord
     vimeo_id
   end
 
+  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+  def self.apply_filters(collection, params)
+    collection.reject do |user|
+      !user.confirmed_at && params['filter-emails-confirmed'] == 'true' ||
+        !user.locked && params['filter-locked'] == 'true' ||
+        !user.newsletter && params['filter-newsletter'] == 'true' ||
+        !user.terms_of_use && params['filter-terms-of-use'] == 'true' ||
+        !user.vip && params['filter-vip'] == 'true' ||
+        !user.good_photo && params['filter-good-photo'] == 'true' ||
+        !user.good_statement && params['filter-good-statement'] == 'true' ||
+        !user.contributor && params['filter-contributor'] == 'true' ||
+        !user.video_user? && params['filter-video-url'] == 'true' ||
+        !user.frontpage && params['filter-frontpage'] == 'true'
+    end
+  end
+
+  # this method smells of :reek:DuplicateMethodCall
+  def self.filter_for_pictures(collection)
+    video_users = collection.where.not(video_url: [nil, ''])
+                            .where.not(avatar_file_name: nil)
+    statement_users = collection.where.not(statement: [nil, ''])
+                                .where(good_statement: true)
+                                .where.not(id: video_users.map(&:id)).sample(10)
+    picture_users = collection.where.not(avatar_file_name: nil)
+                              .where(good_photo: true)
+                              .where.not(id: video_users.map(&:id))
+                              .where.not(id: statement_users.map(&:id)).sample(10)
+    users = collection.where.not(avatar_file_name: nil)
+                      .where.not(id: video_users.map(&:id))
+                      .where.not(id: statement_users.map(&:id))
+                      .where.not(id: picture_users.map(&:id))
+    [video_users, statement_users, picture_users, users]
+  end
+
   private
 
   def sync_to_mailchimp_later

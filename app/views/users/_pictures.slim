@@ -78,7 +78,7 @@ ruby:
     },
     {
       classes: 'desktop-size2x2 desktop-x5 desktop-y5 size2x2 x1 y15',
-      type: :picture
+      type: :good_picture
     },
     {
       classes: 'desktop-size1x1 desktop-x1 desktop-y6 size1x1 x1 y17',
@@ -170,7 +170,7 @@ ruby:
     },
     {
       classes: 'desktop-size2x2 desktop-x1 desktop-y11 size2x2 x1 y31',
-      type: :picture
+      type: :good_picture
     },
     {
       classes: 'desktop-size1x1 desktop-x3 desktop-y11 size1x1 x1 y33',
@@ -208,7 +208,7 @@ ruby:
 
   total_user_count = video_users.count + statement_users.count + users.count
   total_users = video_users + statement_users + users
-  video_user_index = statement_user_index = user_index = 0
+  video_user_index = statement_user_index = picture_user_index = user_index = 0
   tiles = []
 
 - total_user_count.times do |index|
@@ -225,6 +225,12 @@ ruby:
                       user: video_users[video_user_index % video_users.count],
                       statement: false)
     - video_user_index += 1
+  - elsif tile_definition[:type] == :good_picture
+    - tiles << render('picture_grid_item',
+                      classes: tile_definition[:classes],
+                      user: picture_users[picture_user_index % picture_users.count],
+                      statement: false)
+    - picture_user_index += 1
   - else
     - tiles << render('picture_grid_item',
                       classes: tile_definition[:classes],
