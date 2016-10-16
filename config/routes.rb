@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   resources :venues
   resources :contents, only: [:index, :show, :edit, :update]
   resources :admins
-  resources :users, except: [:new, :create]
+  resources :users, except: [:new, :create] do
+    delete '/avatar',
+           to: 'users#delete_avatar',
+           as: 'delete_avatar'
+  end
 
   get '/' => redirect('/home')
   get '/home' => 'home#show'

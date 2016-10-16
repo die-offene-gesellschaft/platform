@@ -10,7 +10,11 @@
       .inputs
         = f.input :forename, input_html: { value: user.forename }
         = f.input :surname, input_html: { value: user.surname }
-        = f.input :email, input_html: { value: user.email }
+        = f.input :role,
+                  input_html: { value: user.role }
+        = f.input :statement,
+                  as: :text,
+                  input_html: { value: user.statement }
         - checked_attribute = {}
         - checked_attribute = { checked: true } if user.newsletter
         input type="checkbox" name='user[newsletter]' id='newsletter' *checked_attribute
@@ -18,26 +22,31 @@
           span.box
           span.text
             = t 'participate.options.newsletter'
-        = link_to user_path(current_user),
-          method: 'delete',
-          class: 'delete-account',
-          data: { confirm: t('confirm') } do
-          = t('users.actions.delete-profile')
     .col-xs-12.col-md-6.extended-form
-      - unless user.avatar_file_name?
+      - if user.avatar_file_name?
         .image style="background-image: url('#{asset_url(user.avatar(:normal))}')"
+        = link_to t('users.user-form.image.delete-link'),
+                  user_delete_avatar_path(user),
+                  method: :delete,
+                  class: 'delete-avatar-link'
+      - else
+        .image
+          = t('users.user-form.image.blank-slate')
       .inputs
         = f.input :avatar,
                   as: :file,
                   input_html: { accept: '.jpg,.jpeg,.gif,.png' },
                   hint: t('participate.hints.avatar')
+        = f.input :email, input_html: { value: user.email }
         = f.input :password,
                   as: :password,
                   input_html: { value: user.password },
                   hint: t('users.user-form.hints.password')
-        = f.input :role,
-                  input_html: { value: user.role }
-        = f.input :statement,
-                  as: :text,
-                  input_html: { value: user.statement }
-        = f.submit t('participate.send')
+
+        .delete-and-submit-group
+          = f.submit t('users.user-form.save-changes'), class: 'button-style'
+          .delete-profile-link
+            = link_to user_path(current_user),
+              method: 'delete',
+              data: { confirm: t('confirm') } do
+              = t('users.actions.delete-profile')

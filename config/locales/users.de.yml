@@ -38,4 +38,9 @@ de:
       review-notice: 'Falls Daten geändert werden, die für andere Nuter/innen sichtbar sind, wird Ihr Profil zwischenzeitig nicht sichbar sein. Sobald wir Ihr Profil erneut freigegeben haben, bekommen Sie eine entsprechende E-Mail von uns.'
       hints:
         password: 'muss zur Authorisierung angegeben werden'
+      save-changes: Profil speichern
       error-notice: 'Bei der Aktualisierung ist folgendes Problem aufgetreten: %{error_description}'
+      image:
+        blank-slate: Kein Bild
+        delete-notice: 'Ihr Profilbild wurde erfolgreich gelöscht.'
+        delete-link: Bild entfernen

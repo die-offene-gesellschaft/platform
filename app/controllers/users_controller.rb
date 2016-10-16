@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   before_action :set_users, only: [:index]
   before_action :set_admin_users, only: [:index]
-  before_action :set_user, only: [:show, :destroy, :edit, :update]
+  before_action :set_user, only: [:show, :destroy, :edit, :update, :delete_avatar]
 
   # GET /users
   def index
@@ -21,8 +21,8 @@ class UsersController < ApplicationController
   end
 
   def edit
-    render 'admin_edit' if admin_signed_in?
-    render 'user_edit' unless user_signed_in?
+    return render 'admin_edit' if admin_signed_in?
+    render 'user_edit' if user_signed_in?
   end
 
   # PATCH/PUT /users/1
@@ -52,6 +52,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def delete_avatar
+    @user.avatar = nil
+    @user.save!
+    redirect_to edit_user_path(@user), notice: t('users.user-form.image.delete-notice')
+  end
+
   private
 
   def authenticate_any
@@ -61,6 +67,12 @@ class UsersController < ApplicationController
 
   def update_permitted?
     admin_signed_in? || (current_user && @user == current_user)
+  end
+
+  def set_user
+    @user = User.find_by(id: params[:id])
+    @user = User.find_by(id: params[:user_id]) unless @user
+    authenticate_admin! if @user.locked
   end
 
   def set_users
@@ -98,11 +110,6 @@ class UsersController < ApplicationController
                               .map(&:id)
     @admin_users = User.where('id NOT IN (?)', newsletter_only_ids)
                        .order(created_at: :desc)
-  end
-
-  def set_user
-    @user = User.find(params[:id])
-    authenticate_admin! if @user.locked
   end
 
   def user_params
