@@ -10,13 +10,9 @@
           h5
             = statement.question
         p
-          - if statement.question
-            = t('events.quotes.prefix')
-
+          = t('events.quotes.prefix')
           = statement.content
-
-          - if statement.question
-            = t('events.quotes.suffix')
+          = t('events.quotes.suffix')
 
           - if statement.author
             .author

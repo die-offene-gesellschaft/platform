@@ -26,10 +26,10 @@ class Event < ApplicationRecord
                                     content_type: %r{\Aimage\/.*\z}
 
   def moments
-    self.statements.where(question: [nil, ''])
+    statements.where(question: [nil, ''])
   end
 
   def quotes
-    self.statements.where.not(question: [nil, ''])
+    statements.where.not(question: [nil, ''])
   end
 end
