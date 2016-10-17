@@ -40,7 +40,7 @@
             = f.input :password, as: :password, input_html: { value: @user.password }, hint: t('participate.hints.password')
             = f.input :password_confirmation, as: :password, validate: true, input_html: { placeholder: t('participate.placeholder.password-confirmation') }
             = f.input :role, input_html: { value: @user.role, placeholder: t('participate.hints.about-me') }
-            = f.input :statement, as: :text, input_html: { value: @user.statement, placeholder: t('participate.hints.my-statement') }
+            = f.input :statement, as: :text, input_html: { class: 'user-statement', value: @user.statement, placeholder: t('participate.hints.my-statement') }
             = f.submit t('participate.send')
         .col-xs-12.col-md-6.avatars
           - @users.each do |user|
