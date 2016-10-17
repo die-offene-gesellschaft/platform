@@ -1,5 +1,12 @@
 de:
   blogposts:
+    attributes:
+      id: '#'
+      title: Titel
+      blogpost-type: Typ
+      introduction: Einleitung
+    actions:
+      new: Neuen Blogpost erstellen
     more: 'Mehr'
     from: 'von %{author}'
     reference: 'Quelle: %{reference}'

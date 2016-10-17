@@ -6,7 +6,8 @@
   }
 }
 
-.participate {
+.participate,
+.user-form {
   .help-block {
     color: $white;
     text-align: right;
@@ -134,7 +135,7 @@
   }
 
   .text {
-    textarea {
+    .user-statement {
       height: 77px;
     }
   }
@@ -179,7 +180,7 @@
     margin-top: 21px;
     text-align: right;
     
-    input {
+    .avatar-input {
       height: .1px;
       opacity: 0;
       overflow: hidden;
@@ -188,15 +189,17 @@
       z-index: -1;
     }
 
-    label {
-      background-color: $black;
+    .avatar-label {
+      background-color: $white;
       background-position: 50% 50%;
       background-size: cover;
       color: $red;
+      cursor: pointer;
       display: inline-block;
       font-size: 12px;
       font-weight: 600;
       height: 150px;
+      margin: 4px;
       padding: 14px 0;
       position: relative;
       text-align: center;
@@ -370,7 +373,7 @@
     background-color: $red;
     color: $white;
 
-    a, 
+    a,
     a:hover {
       color: $white;
       text-decoration: underline;
@@ -378,7 +381,7 @@
 
     .diy-text {
       padding: 40px 40px 100px;
-      
+
       .mitteilen {
         background-color: $white;
         border: 0;

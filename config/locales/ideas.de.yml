@@ -1,0 +1,7 @@
+de:
+  ideas:
+    attributes:
+      id: '#'
+      subject: Thema
+      time: Zeit
+      location: Ort

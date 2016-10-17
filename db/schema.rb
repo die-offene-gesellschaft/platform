@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007080737) do
+ActiveRecord::Schema.define(version: 20161015164621) do
 
   create_table "active_members", force: :cascade do |t|
     t.string   "forename"
@@ -140,6 +140,18 @@ ActiveRecord::Schema.define(version: 20161007080737) do
     t.index ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id"
   end
 
+  create_table "ideas", force: :cascade do |t|
+    t.text     "subject"
+    t.text     "time"
+    t.text     "location"
+    t.string   "contact_person"
+    t.string   "organisation"
+    t.string   "email"
+    t.string   "phone"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "locations", force: :cascade do |t|
     t.decimal  "latitude"
     t.decimal  "longitude"
@@ -215,6 +227,11 @@ ActiveRecord::Schema.define(version: 20161007080737) do
     t.boolean  "newsletter",             default: false
     t.boolean  "terms_of_use",           default: false
     t.string   "video_url"
+    t.boolean  "vip"
+    t.boolean  "good_photo"
+    t.boolean  "good_statement"
+    t.boolean  "contributor"
+    t.boolean  "frontpage"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

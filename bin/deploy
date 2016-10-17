@@ -2,11 +2,10 @@
 
 ./bin/helpers/message "DEPLOYMENT"
 
-mkdir -p ~/.ssh
-cat >> ~/.ssh/id_rsa << EOF
-$SSH_DEPLOY_KEY
-EOF
-chmod 0600 ~/.ssh/id_rsa
+eval "$(ssh-agent -s)"
+echo -e "-----BEGIN RSA PRIVATE KEY-----\n$UBERSPACE_SSH_KEY\n-----END RSA PRIVATE KEY-----" > uberspace_ssh_key.pem
+chmod 600 uberspace_ssh_key.pem
+ssh-add uberspace_ssh_key.pem
 
 if [ "$1" = "production" ]; then
 	user="offenege"
@@ -17,4 +16,5 @@ elif [ "$1" = "staging" ]; then
 fi
 
 ssh-keyscan -H $host >> ~/.ssh/known_hosts
-git push -f $user@$host:~/offene-gesellschaft.git HEAD:master
+git remote add deploy $user@$host:~/offene-gesellschaft.git
+git push deploy master

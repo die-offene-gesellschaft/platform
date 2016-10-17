@@ -1,0 +1,32 @@
+.blogposts
+  = render 'shared/admin_tabs', active: :blogpost
+  .row
+    .col-xs-12
+      table.table.table-striped.table-hover
+        thead
+          tr
+            td
+              = t('blogposts.attributes.id')
+            td
+              = t('blogposts.attributes.title')
+            td
+              = t('blogposts.attributes.blogpost-type')
+            td
+              = t('blogposts.attributes.introduction')
+        tbody
+          - blogposts.each do |blogpost|
+            tr data-href="#{edit_blogpost_path(blogpost)}"
+              td
+                = blogpost.id
+              td
+                = blogpost.title
+              td
+                = blogpost.blogpost_type
+              td
+                = blogpost.introduction
+  .button-row
+    .col-xs-12
+      = render 'shared/button',
+               label: t('blogposts.actions.new'),
+               icon: 'plus',
+               href: new_blogpost_path

@@ -1,11 +1,31 @@
-= simple_form_for(blogpost) do |f|
-  = f.error_notification
-
-  .form-inputs
-    = f.input :title
-    = f.input :blogpost_type
-    = f.input :introduction
-    = f.input :content
-
-  .form-actions
-    = f.button :submit
+= simple_form_for blogpost do |f|
+  .row
+    .col-xs-12
+      .inputs
+        = f.input :title
+        = f.input :blogpost_type
+        = f.input :introduction
+        = f.input :content
+        .form-group.file.optional.blogpost_hero
+          label.control-label.file.optional for='blogpost_hero'
+            = t('activerecord.attributes.blogpost.hero').capitalize
+            .image style="background-image: url(#{asset_url(blogpost.hero(:normal))});"
+            input.file.optional name='blogpost[hero]' id='blogpost_hero' type='file'
+        .form-group.file.optional.blogpost_thumbnail
+          label.control-label.file.optional for='blogpost_thumbnail'
+            = t('activerecord.attributes.blogpost.thumbnail').capitalize
+            .image style="background-image: url(#{asset_url(blogpost.thumbnail(:normal))});"
+            input.file.optional name='blogpost[thumbnail]' id='blogpost_thumbnail' type='file'
+        = f.input :reference
+  .row.button-row
+    .col-xs-12
+      = render 'shared/button',
+               label: t('delete'),
+               icon: 'times',
+               confirm: t('confirm'),
+               method: 'delete',
+               href: blogpost_path(blogpost) if blogpost.id
+      = render 'shared/button',
+               type: 'submit',
+               label: t('save'),
+               icon: 'check'

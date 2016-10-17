@@ -391,12 +391,45 @@ select {
   }
 }
 
+form {
+  .image {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 0 0 100%;
+    width: 100%;
+
+    @media (min-width: 300px) {
+      padding: 0 0 300px;
+      width: 300px;
+    }
+  }
+}
+
 .button-row {
   text-align: right;
 
   a,
   button {
     margin: 0 0 0 1rem;
+  }
+}
+
+.filter {
+  button {
+    &.active {
+      background-color: $gray;
+
+      &:focus,
+      &:active {
+        background-color: $gray;
+      }
+    }
+
+    &:focus,
+    &:active {
+      background-color: $white;
+    }
   }
 }
 

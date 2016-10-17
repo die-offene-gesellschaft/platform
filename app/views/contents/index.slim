@@ -6,9 +6,9 @@
         thead
           tr
             td
-              = t('contents.key')
+              = t('contents.attributes.key')
             td
-              = t('contents.value')
+              = t('contents.attributes.value')
         tbody
           - @contents.group_by(&:controller_action_name).each do |content_group|
             ruby:

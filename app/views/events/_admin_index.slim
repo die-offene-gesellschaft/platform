@@ -6,11 +6,13 @@
         thead
           tr
             td
-              = t('events.attributes.begin_at')
+              | #
+            td
+              = t('events.attributes.begin-at')
             td
               = t('events.attributes.title')
             td
-              = t('events.attributes.event_type')
+              = t('events.attributes.event-type')
             td
               = t('events.attributes.locked')
             td
@@ -18,6 +20,8 @@
         tbody
           - events.order(begin_at: :desc).each do |event|
             tr data-href="#{edit_event_path(event)}"
+              td
+                = event.id
               td
                 = event.begin_at.strftime('%d.%m.%Y - %H:%M') if event.begin_at
               td

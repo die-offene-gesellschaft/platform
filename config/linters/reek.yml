@@ -3,14 +3,18 @@ IrresponsibleModule:
 NestedIterators:
   max_allowed_nesting: 2
 DuplicateMethodCall:
-  max_calls: 2
+  max_calls: 3
 TooManyStatements:
   max_statements: 12
 InstanceVariableAssumption:
   enabled: false
 TooManyInstanceVariables:
-  max_instance_variables: 6
+  max_instance_variables: 8
+TooManyMethods:
+  max_methods: 20
 FeatureEnvy:
   exclude:
     - "ParticipateController#user_params"
     - "ParticipateController#process_contents"
+RepeatedConditional:
+  max_ifs: 5

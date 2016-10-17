@@ -9,8 +9,6 @@ de:
         remember_me: Angemeldet bleiben
         reset_password_token: Passwort-Zurücksetzen-Token
         unlock_token: Entsperrungs-Token
-    models:
-      user: Benutzer
   devise:
     login: 'Login'
     confirmations:
