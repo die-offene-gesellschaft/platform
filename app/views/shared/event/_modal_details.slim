@@ -41,6 +41,15 @@
     .col-xs-12.description
       == event.description
 
+  - if event.post_description
+    .row.post-event
+      .col-xs-12.description
+        p
+          = event.post_description
+          - if event.post_description_source
+            .source
+              = event.post_description_source
+
   - event.pictures.each do |picture|
     .row
       .col-xs-12.post-event

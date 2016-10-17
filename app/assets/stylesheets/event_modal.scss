@@ -190,6 +190,15 @@
   }
 
   .post-event {
+    .author,
+    .source {
+      color: $dark-gray;
+      display: block;
+      font-style: italic;
+      margin: -.6rem 0 1rem;
+      text-align: right;
+    }
+
     .post-event-image {
       background-position: center center;
       background-repeat: no-repeat;
@@ -204,13 +213,5 @@
 
   .statements {
     padding: 13px 27px;
-
-    .author {
-      color: $dark-gray;
-      display: block;
-      font-style: italic;
-      margin: -.6rem 0 1rem;
-      text-align: right;
-    }
   }
 }
