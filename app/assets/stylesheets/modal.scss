@@ -23,7 +23,7 @@
       padding-top: 1vw;
 
       @include media-breakpoint-up(lg) {
-        font-size: 16px;   
+        font-size: 16px;
       }
 
       @include media-breakpoint-up(xl) {
@@ -34,7 +34,7 @@
     .share-links {
       float: right;
       font-size: 4.5vw;
-      
+
       @include media-breakpoint-up(lg) {
         font-size: 25px;
       }

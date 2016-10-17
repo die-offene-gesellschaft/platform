@@ -1,6 +1,12 @@
 .event-modal {
-  
-  .details, 
+  .header-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-bottom: 50%;
+  }
+
+  .details,
   .description {
     padding: 27px 24px;
 

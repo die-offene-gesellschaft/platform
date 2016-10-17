@@ -1,8 +1,8 @@
 .container-fluid
-  - if event.picture.path
+  - if event.picture_file_name?
     .row
       .col-xs-12
-        .image style="background-image: url('#{asset_url(event.picture(:normal))}')"
+        .header-image style="background-image: url('#{asset_url(event.picture(:normal))}')"
   .row
     .col-xs-12.details
       h1.title
