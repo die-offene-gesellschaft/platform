@@ -33,9 +33,9 @@
           = event.active_members.map(&:full_name).join(', ')
       .links
         .share-links
-          a.share href="#{facebook_share_link(event)}" target='_blank'
+          a.share-link href="#{facebook_share_link(event)}" target='_blank'
             = fa_icon 'facebook-square'
-          a.share href="#{twitter_share_link(event)}" target='_blank'
+          a.share-link href="#{twitter_share_link(event)}" target='_blank'
             = fa_icon 'twitter-square'
   .row
     .col-xs-12.description
