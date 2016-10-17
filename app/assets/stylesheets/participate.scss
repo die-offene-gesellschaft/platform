@@ -67,10 +67,6 @@
     padding: 40px 40px 100px;
   }
 
-  //style the file input
-
-
-
   label {
     display: none;
 
@@ -141,7 +137,7 @@
   }
 
   textarea,
-  input { 
+  input {
     background-color: $white;
     border: 0;
     border-radius: 0;
@@ -203,23 +199,24 @@
       padding: 14px 0;
       position: relative;
       text-align: center;
-      text-transform: uppercase;
       width: 150px;
     }
 
-    label::after {
-      background-color: rgba(0, 0, 0, .5);
-      bottom: 0;
-      color: $white;
-      content: "\f030";
-      display: block;
-      font-family: "FontAwesome";
-      font-size: 19px;
-      left: 0;
-      padding-left: 10px;
-      position: absolute;
-      text-align: left;
-      width: 150px;
+    label {
+      &::after {
+        background-color: rgba(0, 0, 0, .5);
+        bottom: 0;
+        color: $white;
+        content: "\f030";
+        display: block;
+        font-family: "FontAwesome";
+        font-size: 19px;
+        left: 0;
+        padding-left: 10px;
+        position: absolute;
+        text-align: left;
+        width: 150px;
+      }
     }
   }
 
