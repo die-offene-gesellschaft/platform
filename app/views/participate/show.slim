@@ -36,7 +36,7 @@
             = f.submit t('participate.send')
         .col-xs-12.col-md-6.extended-form
           .inputs
-            = f.input :avatar, as: :file, input_html: { accept: '.jpg,.jpeg,.gif,.png' }, label: t('participate.hints.avatar_file_button_label').html_safe
+            = f.input :avatar, as: :file, label_html: { class: 'avatar-label' }, input_html: { accept: '.jpg,.jpeg,.gif,.png', class: 'avatar-input' }, label: t('participate.hints.avatar_file_button_label').html_safe
             = f.input :password, as: :password, input_html: { value: @user.password }, hint: t('participate.hints.password')
             = f.input :password_confirmation, as: :password, validate: true, input_html: { placeholder: t('participate.placeholder.password-confirmation') }
             = f.input :role, input_html: { value: @user.role, placeholder: t('participate.hints.about-me') }
