@@ -1,0 +1,19 @@
+.statements
+  .row
+    .col-xs-12
+      h3
+        = t("events.#{type}.title")
+  - statements.each do |statement|
+    .row class="#{type}"
+      .col-xs-12
+        - if statement.question
+          h5
+            = statement.question
+        p
+          = t('events.quotes.prefix')
+          = statement.content
+          = t('events.quotes.suffix')
+
+          - if statement.author
+            .author
+              = statement.author

@@ -80,7 +80,8 @@
       == @contents[:diy].value
     .col-xs-12.col-md-6.diy-avatars
       - @event_pictures.each_with_index do |picture, index|
-        - additional_class = 'additional-images' if index >= 9
+        - additional_class = 'additional-images-md' if index >= 9 && index < 12
+        - additional_class = 'additional-images-lg' if index >= 12
         .image style="background-image: url(#{asset_url(picture.picture(:normal))});" class="#{additional_class}"
 
 coffee:

@@ -410,14 +410,26 @@
       padding: 0;
     }
 
-    .additional-images {
+    .additional-images-md {
       display: none;
 
-      @media (min-width: $mobile-breakpoint-width) {
+      @include media-breakpoint-up(md) {
         display: inline-block;
       }
 
       @include media-breakpoint-up(lg) {
+        display: none;
+      }
+    }
+
+    .additional-images-lg {
+      display: none;
+
+      @include media-breakpoint-up(md) {
+        display: inline-block;
+      }
+
+      @include media-breakpoint-up(xl) {
         display: none;
       }
     }
