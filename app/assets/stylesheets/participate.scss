@@ -190,14 +190,16 @@
     }
 
     label {
-      background-color: $black;
+      background-color: $white;
       background-position: 50% 50%;
       background-size: cover;
       color: $red;
+      cursor: pointer;
       display: inline-block;
       font-size: 12px;
       font-weight: 600;
       height: 150px;
+      margin: 4px;
       padding: 14px 0;
       position: relative;
       text-align: center;
