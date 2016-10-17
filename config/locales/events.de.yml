@@ -26,3 +26,9 @@ de:
     event-archive: Aktionen Archiv
     actions:
       new: Neue Aktion erstellen
+    moments:
+      title: Momente
+    quotes:
+      title: Zitate
+      prefix: "»"
+      suffix: "«"

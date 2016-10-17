@@ -47,3 +47,13 @@
         .post-event-image style="background-image: url('#{asset_url(picture.picture(:normal))}')"
         p.image-description
           = picture.description
+
+  - if event.moments.any?
+    = render 'shared/event/modal_statements',
+             type: 'moments',
+             statements: event.moments
+
+  - if event.quotes.any?
+    = render 'shared/event/modal_statements',
+             type: 'quotes',
+             statements: event.quotes
