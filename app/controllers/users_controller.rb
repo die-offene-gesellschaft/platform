@@ -133,7 +133,7 @@ class UsersController < ApplicationController
     @admin_users = User.apply_filters(@admin_users, params)
   end
 
-  # rubocop:disable Metrics/MethodLength
+  # this method smells of :reek:FeatureEnvy
   def user_params
     tmp_params = params.require(:user).permit(
       :avatar, :contributor, :current_password, :email, :forename, :frontpage, :good_photo,
