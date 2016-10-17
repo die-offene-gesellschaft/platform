@@ -29,10 +29,8 @@
               = t('users.all-friends')
           - if member_signed_in?
             - if user == current_user
-              = link_to user_path(current_user),
-                method: 'delete',
-                data: { confirm: t('confirm') } do
-                = t('users.actions.delete-profile')
+              = link_to t('users.actions.edit-profile'),
+                edit_user_path(current_user)
           - else
             a href="#{participate_path}"
               = t('users.become-friends')

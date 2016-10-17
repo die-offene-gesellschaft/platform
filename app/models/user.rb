@@ -47,11 +47,6 @@ class User < ApplicationRecord
     UserVideoUrlsValidator.validate_video_url(user)
   end
 
-  def after_confirmation
-    send_user_welcome_mail if terms_of_use
-    sync_to_mailchimp_later if newsletter
-  end
-
   def full_name
     "#{forename} #{surname}"
   end
@@ -134,6 +129,12 @@ class User < ApplicationRecord
   end
 
   private
+
+  def after_confirmation
+    return if locked
+    send_user_welcome_mail if terms_of_use
+    sync_to_mailchimp_later if newsletter
+  end
 
   def sync_to_mailchimp_later
     delay.sync_to_mailchimp
