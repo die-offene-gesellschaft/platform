@@ -24,4 +24,12 @@ class Event < ApplicationRecord
 
   validates_attachment_content_type :picture,
                                     content_type: %r{\Aimage\/.*\z}
+
+  def moments
+    statements.where(question: [nil, ''])
+  end
+
+  def quotes
+    statements.where.not(question: [nil, ''])
+  end
 end

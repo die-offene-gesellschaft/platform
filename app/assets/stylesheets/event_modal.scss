@@ -1,6 +1,12 @@
 .event-modal {
-  
-  .details, 
+  .header-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 50%;
+  }
+
+  .details,
   .description {
     padding: 27px 24px;
 
@@ -41,9 +47,7 @@
       @include media-breakpoint-down(xs) {
         font-size: 17px;
       }
-
     }
-
 
     h2 {
       font-size: 16px;
@@ -183,5 +187,31 @@
       font-size: 14px;
     }
 
+  }
+
+  .post-event {
+    .author,
+    .source {
+      color: $dark-gray;
+      display: block;
+      font-style: italic;
+      margin: -.6rem 0 1rem;
+      text-align: right;
+    }
+
+    .post-event-image {
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding-bottom: 75%;
+    }
+
+    .image-description {
+      padding: 13px 27px;
+    }
+  }
+
+  .statements {
+    padding: 13px 27px;
   }
 }

@@ -1,8 +1,8 @@
 .container-fluid
-  - if event.picture.path
+  - if event.picture_file_name?
     .row
       .col-xs-12
-        .image style="background-image: url('#{asset_url(event.picture(:normal))}')"
+        .header-image style="background-image: url('#{asset_url(event.picture(:normal))}')"
   .row
     .col-xs-12.details
       h1.title
@@ -33,10 +33,36 @@
           = event.active_members.map(&:full_name).join(', ')
       .links
         .share-links
-          a.share href="#{facebook_share_link(event)}" target='_blank'
+          a.share-link href="#{facebook_share_link(event)}" target='_blank'
             = fa_icon 'facebook-square'
-          a.share href="#{twitter_share_link(event)}" target='_blank'
+          a.share-link href="#{twitter_share_link(event)}" target='_blank'
             = fa_icon 'twitter-square'
   .row
     .col-xs-12.description
       == event.description
+
+  - if event.post_description
+    .row.post-event
+      .col-xs-12.description
+        p
+          = event.post_description
+          - if event.post_description_source
+            .source
+              = event.post_description_source
+
+  - event.pictures.each do |picture|
+    .row
+      .col-xs-12.post-event
+        .post-event-image style="background-image: url('#{asset_url(picture.picture(:normal))}')"
+        p.image-description
+          = picture.description
+
+  - if event.moments.any?
+    = render 'shared/event/modal_statements',
+             type: 'moments',
+             statements: event.moments
+
+  - if event.quotes.any?
+    = render 'shared/event/modal_statements',
+             type: 'quotes',
+             statements: event.quotes
