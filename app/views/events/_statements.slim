@@ -1,0 +1,46 @@
+.card.card-block
+  h4.card-title
+    = t("statements.#{statement_type.pluralize}")
+  - if statements.any?
+    table.table.table-striped.table-hover
+      thead
+        tr
+          th
+            = t('statements.attributes.id')
+          - if statement_type == 'moment'
+            th
+              = t('statements.attributes.question')
+          th
+            = t('statements.attributes.content')
+          th
+            = t('statements.attributes.author')
+          th
+      tbody
+        - statements.each do |s|
+          tr
+            td
+              = s.id
+            - if statement_type == 'moment'
+              td
+                = s.question
+            td
+              = s.content
+            td
+              = s.author
+            td.controls
+              = render 'shared/button',
+                       method: 'delete',
+                       confirm: t('confirm'),
+                       icon: 'trash',
+                       href: event_statement_path(event, s)
+  = simple_form_for [event, statement] do |f|
+    - if statement_type == 'moment'
+      = f.input :question
+    = f.input :statement_type, as: :hidden, input_html: { value: statement_type }
+    = f.input :content
+    = f.input :author
+    .button-row
+      = render 'shared/button',
+               type: 'submit',
+               label: t("statements.actions.add-#{statement_type}"),
+               icon: 'plus'

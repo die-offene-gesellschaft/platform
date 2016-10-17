@@ -408,6 +408,10 @@ form {
 .button-row {
   text-align: right;
 
+  &.row {
+    margin-bottom: 1rem;
+  }
+
   a,
   button {
     margin: 0 0 0 1rem;
@@ -461,3 +465,27 @@ form {
   left: 0;
   position: absolute;
 }
+
+table {
+  .controls {
+    text-align: right;
+    visibility: hidden;
+  }
+
+  tr {
+    &:hover {
+      .controls {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.touch {
+  table {
+    .controls {
+      visibility: visible;
+    }
+  }
+}
+
