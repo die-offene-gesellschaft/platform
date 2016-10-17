@@ -80,10 +80,10 @@ class UsersController < ApplicationController
     # It currently isn't because of admins beeing able to change details.
     # Adopt this code as soon as admins just set 'locked' to true / false.
     new_params = user_params
-    new_params[:locked] = @user.role != user_params[:role] ||
-                          @user.statement != user_params[:statement] ||
-                          @user.video_url != user_params[:video_url] ||
-                          user_params[:avatar_file_name]
+    new_params[:locked] = true if @user.role != user_params[:role] ||
+                                  @user.statement != user_params[:statement] ||
+                                  @user.video_url != user_params[:video_url] ||
+                                  user_params[:avatar_file_name]
     new_params
   end
 
