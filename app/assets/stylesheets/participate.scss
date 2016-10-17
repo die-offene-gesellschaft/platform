@@ -67,6 +67,10 @@
     padding: 40px 40px 100px;
   }
 
+  //style the file input
+
+
+
   label {
     display: none;
 
@@ -130,8 +134,14 @@
     }
   }
 
+  .text {
+    .user-statement {
+      height: 77px;
+    }
+  }
+
   textarea,
-  input {
+  input { 
     background-color: $white;
     border: 0;
     border-radius: 0;
@@ -166,9 +176,51 @@
     height: 147px;
   }
 
-  [type='file'] {
-    font-size: 16px;
-    padding: 0;
+  .file {
+    margin-top: 21px;
+    text-align: right;
+    
+    .avatar-input {
+      height: .1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      width: .1px;
+      z-index: -1;
+    }
+
+    .avatar-label {
+      background-color: $white;
+      background-position: 50% 50%;
+      background-size: cover;
+      color: $red;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      height: 150px;
+      margin: 4px;
+      padding: 14px 0;
+      position: relative;
+      text-align: center;
+      text-transform: uppercase;
+      width: 150px;
+    }
+
+    label::after {
+      background-color: rgba(0, 0, 0, .5);
+      bottom: 0;
+      color: $white;
+      content: "\f030";
+      display: block;
+      font-family: "FontAwesome";
+      font-size: 19px;
+      left: 0;
+      padding-left: 10px;
+      position: absolute;
+      text-align: left;
+      width: 150px;
+    }
   }
 
   .extended-form {

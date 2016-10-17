@@ -30,7 +30,7 @@ de:
         href: '?list'
         label: 'Liste'
     all-friends: 'Alle Freunde'
-    become-friends: 'Freund/in werden'
+    become-friends: 'auch Freund/in werden'
     status:
       locked: Ihr Profil wird derzeit geprüft. Sie erhalten bei erfolgreicher Prüfung eine Bestätigung per E-Mail.
     errors:
