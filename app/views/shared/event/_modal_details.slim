@@ -40,3 +40,10 @@
   .row
     .col-xs-12.description
       == event.description
+
+  - event.pictures.each do |picture|
+    .row
+      .col-xs-12.post-event
+        .post-event-image style="background-image: url('#{asset_url(picture.picture(:normal))}')"
+        p.image-description
+          = picture.description

@@ -2,7 +2,7 @@
   .header-image {
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     padding-bottom: 50%;
   }
 
@@ -47,9 +47,7 @@
       @include media-breakpoint-down(xs) {
         font-size: 17px;
       }
-
     }
-
 
     h2 {
       font-size: 16px;
@@ -189,5 +187,18 @@
       font-size: 14px;
     }
 
+  }
+
+  .post-event {
+    .post-event-image {
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding-bottom: 75%;
+    }
+
+    .image-description {
+      padding: 13px 27px;
+    }
   }
 }
