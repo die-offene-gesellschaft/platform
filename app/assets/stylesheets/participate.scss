@@ -175,7 +175,7 @@
   .file {
     margin-top: 21px;
     text-align: right;
-    
+
     .avatar-input {
       height: .1px;
       opacity: 0;
@@ -377,47 +377,49 @@
     }
 
     .diy-text {
-      padding: 40px 40px 100px;
+      padding: 40px 40px 10px;
 
       .mitteilen {
         background-color: $white;
         border: 0;
         color: $red;
+        display: block;
         font-weight: 600;
         height: auto;
-        left: 40px;
-        margin-top: 100px;
+        margin: 30px 0;
         padding: 14px 0;
-        position: absolute;
         text-align: center;
         text-decoration: none;
         text-transform: uppercase;
-        width: 400px;
 
-        @include media-breakpoint-down(lg) {
-          margin-top: 4vw;
-        }
-
-        @include media-breakpoint-down(md) {
-          margin-top: 3vw;
-          width: 35vw;
-        }
-
-        @include media-breakpoint-down(sm) {
-          bottom: 40px;
-          width: 50vw;
-        }
-
-        @include media-breakpoint-down(xs) {
-          bottom: 40px;
-          width: 80vw;
-        }
+        // @include media-breakpoint-down(md) {
+        //   margin-top: 3vw;
+        // }
+        //
+        // @include media-breakpoint-down(lg) {
+        //   margin-top: 4vw;
+        // }
+        //
+        // @include media-breakpoint-down(sm) {
+        // }
 
       }
     }
 
     .diy-avatars {
       padding: 0;
+    }
+
+    .additional-images {
+      display: none;
+
+      @media (min-width: $mobile-breakpoint-width) {
+        display: inline-block;
+      }
+
+      @include media-breakpoint-up(lg) {
+        display: none;
+      }
     }
   }
 }

@@ -73,16 +73,15 @@
                                      .gsub(/%{sms_link}/, sms_link)
                                      .gsub(/%{paypal_link}/, paypal_link)
       == content
+
   .row.do-it-yourself
-        .col-xs-12.col-md-6.diy-text
-          a name='do-it-yourself'
-          == @contents[:diy].value
-        .col-xs-12.col-md-6.diy-avatars
-          .image style="background-image: url(#{image_url('participate/action-1.png')});"
-          .image style="background-image: url(#{image_url('participate/action-2.png')});"
-          .image style="background-image: url(#{image_url('participate/action-3.png')});"
-          .image style="background-image: url(#{image_url('participate/action-4.png')});"
-          .image style="background-image: url(#{image_url('participate/action-5.png')});"
-          .image style="background-image: url(#{image_url('participate/action-6.png')});"
+    .col-xs-12.col-md-6.diy-text
+      a name='do-it-yourself'
+      == @contents[:diy].value
+    .col-xs-12.col-md-6.diy-avatars
+      - @event_pictures.each_with_index do |picture, index|
+        - additional_class = 'additional-images' if index >= 9
+        .image style="background-image: url(#{asset_url(picture.picture(:normal))});" class="#{additional_class}"
+
 coffee:
     window.avatarButton = new window.AvatarUploadButton()
