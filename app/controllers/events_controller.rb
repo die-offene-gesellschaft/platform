@@ -35,6 +35,8 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @quote = Statement.new
+    @moment = Statement.new
   end
 
   # POST /events

@@ -1,6 +1,9 @@
 de:
   activerecord:
     models:
+      statement:
+        one: Zitat
+        other: Zitate
       admin:
         one: Admin
         other: Admins
@@ -79,3 +82,7 @@ de:
         organisation: Organisation
         email: E-Mail-Adresse
         phone: Telefon
+      statement:
+        question: Frage
+        content: Inhalt
+        author: Autor

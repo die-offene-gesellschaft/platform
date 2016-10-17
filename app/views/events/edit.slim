@@ -1,4 +1,16 @@
 .admins
   = render 'shared/admin_tabs', active: :event
-  = render 'form',
+  = render 'events/form',
            event: @event
+  .row
+    .col-xs-12
+      = render 'events/statements',
+               event: @event,
+               statement_type: 'quote',
+               statement: @quote,
+               statements: @event.statements.where(question: [nil, ''])
+      = render 'events/statements',
+               event: @event,
+               statement_type: 'moment',
+               statement: @moment,
+               statements: @event.statements.where.not(question: [nil, ''])
