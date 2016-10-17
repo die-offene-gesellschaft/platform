@@ -27,9 +27,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/CyclomaticComplexity
-  # rubocop:disable Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
   def update
     return unless update_permitted?
 
@@ -79,13 +77,13 @@ class UsersController < ApplicationController
 
   def params_with_locked_check
     # This should be model logic.
-    # It currently isn't, because of admins beeing able to change details.
-    # Adapt this code as soon as admins just set 'locked' to true / false.
+    # It currently isn't because of admins beeing able to change details.
+    # Adopt this code as soon as admins just set 'locked' to true / false.
     new_params = user_params
-    new_params[:locked] = true if @user.role != user_params[:role] ||
-                                  @user.statement != user_params[:statement] ||
-                                  @user.video_url != user_params[:video_url] ||
-                                  user_params[:avatar_file_name]
+    new_params[:locked] = @user.role != user_params[:role] ||
+                          @user.statement != user_params[:statement] ||
+                          @user.video_url != user_params[:video_url] ||
+                          user_params[:avatar_file_name]
     new_params
   end
 
@@ -137,25 +135,12 @@ class UsersController < ApplicationController
 
   # rubocop:disable Metrics/MethodLength
   def user_params
-    params.require(:user).permit(
-      :avatar,
-      :contributor,
-      :current_password,
-      :email,
-      :forename,
-      :frontpage,
-      :good_photo,
-      :good_statement,
-      :locked,
-      :newsletter,
-      :password_confirmation,
-      :password,
-      :role,
-      :statement,
-      :surname,
-      :terms_of_use,
-      :video_url,
-      :vip
+    tmp_params = params.require(:user).permit(
+      :avatar, :contributor, :current_password, :email, :forename, :frontpage, :good_photo,
+      :good_statement, :locked, :newsletter, :password_confirmation, :password, :role, :statement,
+      :surname, :terms_of_use, :video_url, :vip
     )
+    tmp_params[:newsletter] = tmp_params[:newsletter] == 'on'
+    tmp_params
   end
 end
