@@ -1,8 +1,24 @@
+//This fixes a Styling issue of the events table a style interfering with modal a tags
+//To see in action open event modal from archive (with links in the text)
+.events {
+  .archive {
+    .event {
+      .description {
+        a {
+          position: relative;
+        }
+      }
+    }
+  }
+}
+
+
 .event-modal {
   .header-image {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    display: none; //this is because we do not have good images in the back end. Can be removed once correct images are in place
     padding-bottom: 50%;
   }
 
