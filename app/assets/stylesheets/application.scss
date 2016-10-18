@@ -7,7 +7,13 @@
 @import 'bootstrap-overwrites';
 @import 'bootstrap';
 @import 'font-awesome';
-@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700';
+
+@font-face {
+  font-family: 'Montserrat';
+  src:font-url('Montserrat-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
 
 // partial styling
 @import 'about';
