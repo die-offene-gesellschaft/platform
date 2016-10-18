@@ -2,6 +2,6 @@
   = render 'shared/user/modal_details',
            user: @user
 javascript:
-    //when OG Tags are enabled we should check if FB has problems with this approach 
-    document.body.innerHTML = '' //make the page with the og tags appear empty for real humans
-    window.location.href = '#{users_path(pictures: '')}#show(#user-id-#{@user.id})'
+    //when OG Tags are enabled we should check if FB has problems with this approach
+    document.body.innerHTML = ''; //make the page with the og tags appear empty for real humans
+    window.location.href = '#{users_path(pictures: '')}#show(#user-id-#{@user.id})';
