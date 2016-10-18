@@ -140,15 +140,19 @@
 
     ul {
       li {
-        height: 170px;
         margin: .5rem 0;
         overflow: hidden;
         width: 100%;
 
         img {
-          float: left;
+          display: block;
           margin: 0 1rem 0 0;
           width: 170px;
+
+          @include media-breakpoint-up(sm) {
+            display: inline;
+            float: left;  
+          }
         }
       }
     }
