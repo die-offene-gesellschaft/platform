@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def index
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: @users }
+      format.json { json: User.apply_filters(@users, params) }
     end
   end
 
