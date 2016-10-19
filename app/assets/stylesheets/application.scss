@@ -10,7 +10,8 @@
 
 @font-face {
   font-family: 'Montserrat';
-  src:font-url('Montserrat-Regular.ttf');
+  //src: url("<%= asset_path('fonts/montserrat-regular.ttf') %>");
+  src:font-url('400-montserat-normal.ttf');
   font-weight: normal;
   font-style: normal;
 }
