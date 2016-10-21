@@ -25,7 +25,7 @@ class ModalManager
       history.pushState(null, null, "#show(#{this.currentModalIdentifier})")
     else
       location.hash = "show(#{this.currentModalIdentifier})"
-    this.stopAllPlayingVideosOnModalClose()
+    this.stopPlayingVideoOnModalClose()
     this.removeModalIdFromLocationHashOnModalClose()
 
   removeModalIdFromLocationHashOnModalClose: ->
@@ -37,7 +37,7 @@ class ModalManager
         location.hash = ''
     )
 
-  stopAllPlayingVideosOnModalClose: ->
+  stopPlayingVideoOnModalClose: ->
     $(this.currentModalIdentifier).on('hidden.bs.modal', (e) ->
       videoFrame = $(e.currentTarget).find('iframe')
       videoFrame.attr('src',videoFrame.attr('src'))
