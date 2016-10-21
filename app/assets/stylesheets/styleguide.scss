@@ -1,5 +1,13 @@
 // styleguide
 // https://app.zeplin.io/project.html#pid=57caca57bc94281c06a4e3b2&styleguide
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  font-weight: 700;
+}
 
 .big-title {
   color: $black;
@@ -44,7 +52,7 @@
 .calendar {
   color: $white;
   font-family: 'Montserrat', sans-serif;
-  font-size: 10.5vw;
+  font-size: 5.5vw;
   font-stretch: normal;
   font-style: normal;
   font-weight: 600;
@@ -52,11 +60,11 @@
   text-align: left;
 
   @media (min-width: $mobile-breakpoint-width) {
-    font-size: 3.5vw;
+    font-size: 2ºvw;
   }
 
   @media (min-width: $max-viewport-width) {
-    font-size: 42px;
+    font-size: 25px;
   }
 }
 
@@ -135,7 +143,7 @@
 .quote {
   color: $anthracite;
   font-family: 'Montserrat', sans-serif;
-  font-size: 5.5vw;
+  font-size: 4.5vw;
   font-stretch: normal;
   font-style: normal;
   font-weight: normal;
@@ -144,11 +152,11 @@
   text-align: left;
 
   @media (min-width: $mobile-breakpoint-width) {
-    font-size: 1.7vw;
+    font-size: 1.5vw;
   }
 
   @media (min-width: $max-viewport-width) {
-    font-size: 22px;
+    font-size: 19px;
   }
 }
 
@@ -313,6 +321,7 @@
   font-style: normal;
   font-weight: 300;
   letter-spacing: .4px;
+  margin-right: 10px;
   text-align: left;
 }
 
