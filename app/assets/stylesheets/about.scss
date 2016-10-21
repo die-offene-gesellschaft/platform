@@ -8,31 +8,31 @@
 
 .about {
 
-  .headings-with-margins{
+  %headings-with-margins {
     h1,
     h2,
     h3,
     h4,
     h6 {
       font-weight: 600;
-      margin-top: 55px;
       margin-bottom: 22px;
+      margin-top: 55px;
     }
   }
 
-  .headings-without-margins{
+  %headings-without-margins {
     h1 {
       font-weight: 600;
-      margin-top: 55px;
       margin-bottom: 22px;
+      margin-top: 55px;
     }
 
     h2,
     h3,
     h4,
     h6 {
-      margin-top: 0;
       margin-bottom: 0;
+      margin-top: 0;
     }
   }
 
@@ -80,11 +80,13 @@
       }
     }
   }
-  .intro{
-    @extend .headings-with-margins;
+
+  .intro {
+    @extend %headings-with-margins;
   }
+
   .team {
-    @extend .headings-without-margins;
+    @extend %headings-without-margins;
 
     ul {
       li {
@@ -120,7 +122,7 @@
   }
 
   .partner {
-    @extend .headings-without-margins;
+    @extend %headings-without-margins;
 
     h2 {
       color: $black;
@@ -150,13 +152,15 @@
   }
 
   .press-reviews {
-    @extend .headings-without-margins;
+
+    @extend %headings-without-margins;
+
     h2 {
-      margin-top:10px;
-      margin-bottom: 5px;
-      line-height: 1.2;
       color: $black;
       font-weight: normal;
+      line-height: 1.2;
+      margin-bottom: 5px;
+      margin-top: 10px;
     }
 
     h3 {
@@ -178,7 +182,7 @@
 
   .contact {
     
-    @extend .headings-without-margins;
+    @extend %headings-without-margins;
 
     h2 {
       color: $black;
