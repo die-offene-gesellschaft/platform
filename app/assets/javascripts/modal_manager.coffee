@@ -29,19 +29,17 @@ class ModalManager
     this.removeModalIdFromLocationHashOnModalClose()
 
   removeModalIdFromLocationHashOnModalClose: ->
-    $(this.currentModalIdentifier).on('hidden.bs.modal', ->
+    $(this.currentModalIdentifier).on 'hidden.bs.modal', ->
       _this.currentModalIdentifier = undefined
       if history.pushState
         history.pushState(null, null, _this.basePath)
       else
         location.hash = ''
-    )
 
   stopPlayingVideoOnModalClose: ->
-    $(this.currentModalIdentifier).on('hidden.bs.modal', (e) ->
+    $(this.currentModalIdentifier).on 'hidden.bs.modal', (e) ->
       videoFrame = $(e.currentTarget).find('iframe')
-      videoFrame.attr('src',videoFrame.attr('src'))
-    )
+      videoFrame.attr('src', videoFrame.attr('src'))
 
   openModalFromUrl: ->
     unescapedHash = unescape(window.location.hash)
