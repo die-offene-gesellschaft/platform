@@ -1,6 +1,5 @@
 = simple_form_for user do |f|
   .row
-    input.terms-of-use type="checkbox" name='user[terms_of_use]' id='terms-of-use' checked='checked'
     .col-xs-12.col-md-6.name-form
       h1.headline-white.title
         = t('users.user-form.title')
@@ -30,6 +29,17 @@
           span.box
           span.text
             = t 'participate.options.newsletter'
+        - if user.terms_of_use
+          input type='hidden' name='user[terms_of_use]' value='on'
+        - else
+          - checked_attribute = {}
+          - checked_attribute = { checked: true } if user.terms_of_use
+          input.terms-of-use type="checkbox" name='user[terms_of_use]' id='terms-of-use'
+          label.boolean for='terms-of-use'
+            span.box
+            span.text
+              == t 'users.user-form.terms-of-use',
+                   link: link_to(t('participate.options.terms-of-use-label'), "#{imprint_path}#nutzungsbedingungen", target: '_blank')
 
     .col-xs-12.col-md-6.extended-form
       - if user.avatar_file_name?
