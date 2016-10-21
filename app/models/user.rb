@@ -97,7 +97,7 @@ class User < ApplicationRecord
   # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
   def self.apply_filters(collection, params)
     collection.reject do |user|
-      !user.confirmed_at && params['filter-emails-confirmed'] == 'true' ||
+      !user.confirmed_at && params['filter-email-confirmed'] == 'true' ||
         !user.locked && params['filter-locked'] == 'true' ||
         !user.newsletter && params['filter-newsletter'] == 'true' ||
         !user.terms_of_use && params['filter-terms-of-use'] == 'true' ||
