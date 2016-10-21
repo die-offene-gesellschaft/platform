@@ -37,6 +37,9 @@ class UsersController < ApplicationController
     elsif admin_signed_in? && @user.update(admin_update_params)
       flash.now[:notice] = t('actions.save.success')
     else
+      error_params = user_update_params
+      error_params.delete :current_password
+      @user.update(error_params)
       flash.now[:error] = t('users.user-form.error-notice',
                             error_description: @user.errors.full_messages.to_sentence)
     end
@@ -89,11 +92,6 @@ class UsersController < ApplicationController
   end
 
   def admin_update_params
-    # This fixes an issues with members not having 'terms of use' accepted in their record.
-    # If an admin unlocks them, their terms of use will be set to true. Otherwise admins
-    # wouldn't be able to update such a record, since toc = true is validated to be true.
-    # We do this because the registration form made a registration possible only by
-    # checking the toc label; but we had a bug saving this information.
     new_params = user_params
     new_params[:terms_of_use] = true if user_params[:locked] == '0' && admin_signed_in?
     new_params
@@ -153,6 +151,7 @@ class UsersController < ApplicationController
       :surname, :terms_of_use, :video_url, :vip
     )
     tmp_params[:newsletter] = tmp_params[:newsletter] == 'on'
+    tmp_params[:terms_of_use] = tmp_params[:terms_of_use] == 'on'
     tmp_params
   end
 end
