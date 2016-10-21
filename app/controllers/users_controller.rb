@@ -31,10 +31,10 @@ class UsersController < ApplicationController
   def update
     return unless update_permitted?
 
-    if user_signed_in? && @user.update_with_password(params_with_locked_check)
+    if user_signed_in? && @user.update_with_password(user_update_params)
       flash.now[:notice] = t('actions.save.success')
       sign_in @user, bypass: true
-    elsif admin_signed_in? && @user.update(user_params)
+    elsif admin_signed_in? && @user.update(admin_update_params)
       flash.now[:notice] = t('actions.save.success')
     else
       flash.now[:error] = t('users.user-form.error-notice',
@@ -75,15 +75,27 @@ class UsersController < ApplicationController
     admin_signed_in? || (current_user && @user == current_user)
   end
 
-  def params_with_locked_check
+  def user_update_params
     # This should be model logic.
     # It currently isn't because of admins beeing able to change details.
     # Adopt this code as soon as admins just set 'locked' to true / false.
     new_params = user_params
-    new_params[:locked] = true if @user.role != user_params[:role] ||
+    new_params[:locked] = true if (@user.role != user_params[:role] ||
                                   @user.statement != user_params[:statement] ||
                                   @user.video_url != user_params[:video_url] ||
-                                  user_params[:avatar_file_name]
+                                  user_params[:avatar_file_name]) &&
+                                  user_signed_in?
+    new_params
+  end
+
+  def admin_update_params
+    # This fixes an issues with members not having 'terms of use' accepted in their record.
+    # If an admin unlocks them, their terms of use will be set to true. Otherwise admins
+    # wouldn't be able to update such a record, since toc = true is validated to be true.
+    # We do this because the registration form made a registration possible only by
+    # checking the toc label; but we had a bug saving this information.
+    new_params = user_params
+    new_params[:terms_of_use] = true if user_params[:locked] == '0' && admin_signed_in?
     new_params
   end
 
