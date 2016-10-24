@@ -51,12 +51,8 @@ class User < ApplicationRecord
     "#{forename} #{surname}"
   end
 
-  def large_image?
-    false
-  end
-
   def video_user?
-    video_url.present?
+    !frontpage && video_url.present?
   end
 
   def youtube_id

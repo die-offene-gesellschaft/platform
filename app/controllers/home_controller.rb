@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
   before_action :set_events, only: [:show]
-  before_action :set_video_users, only: [:show]
+
   before_action :set_frontpage_users, only: [:show]
+  before_action :set_video_users, only: [:show]
   before_action :set_vip_users, only: [:show]
   before_action :set_users, only: [:show]
 
@@ -27,6 +28,34 @@ class HomeController < ApplicationController
                    .limit(EVENTS_COUNT)
   end
 
+  def set_frontpage_users
+    @frontpage_users = User.where(locked: false)
+                           .where(frontpage: true)
+                           .where.not(avatar_file_name: nil)
+                           .sample(FRONTPAGE_USERS_COUNT)
+  end
+
+  def set_video_users
+    @video_users = User.where(locked: false)
+                       .where.not(video_url: [nil, ''])
+                       .where.not(avatar_file_name: nil)
+                       .where.not(
+                         id: @frontpage_users.map(&:id)
+                       )
+                       .sample(VIDEO_USERS_COUNT)
+  end
+
+  def set_vip_users
+    @vip_users = User.where(locked: false)
+                     .where(vip: true)
+                     .where.not(avatar_file_name: nil)
+                     .where.not(
+                       id: @frontpage_users.map(&:id) +
+                           @video_users.map(&:id)
+                     )
+                     .sample(VIP_USERS_COUNT)
+  end
+
   def set_users
     @users = User.where(locked: false)
                  .where.not(avatar_file_name: nil)
@@ -37,27 +66,5 @@ class HomeController < ApplicationController
                  )
                  .order(created_at: :desc)
                  .limit(USERS_COUNT)
-  end
-
-  def set_video_users
-    @video_users = User.where(locked: false)
-                       .where.not(video_url: [nil, ''])
-                       .where.not(avatar_file_name: nil)
-                       .sample(VIDEO_USERS_COUNT)
-  end
-
-  def set_frontpage_users
-    @frontpage_users = User.where(locked: false)
-                           .where(frontpage: true)
-                           .where.not(avatar_file_name: nil)
-                           .sample(FRONTPAGE_USERS_COUNT)
-  end
-
-  def set_vip_users
-    @vip_users = User.where(locked: false)
-                     .where(vip: true)
-                     .where.not(avatar_file_name: nil)
-                     .where.not(id: @frontpage_users.map(&:id))
-                     .sample(VIP_USERS_COUNT)
   end
 end
