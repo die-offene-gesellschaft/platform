@@ -44,7 +44,7 @@
 .calendar {
   color: $white;
   font-family: 'Montserrat', sans-serif;
-  font-size: 10.5vw;
+  font-size: 8.75vw;
   font-stretch: normal;
   font-style: normal;
   font-weight: 600;
@@ -52,11 +52,11 @@
   text-align: left;
 
   @media (min-width: $mobile-breakpoint-width) {
-    font-size: 3.5vw;
+    font-size: 2.9vw;
   }
 
   @media (min-width: $max-viewport-width) {
-    font-size: 42px;
+    font-size: 35px;
   }
 }
 
