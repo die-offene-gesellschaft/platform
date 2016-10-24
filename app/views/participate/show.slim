@@ -77,7 +77,20 @@
   .row.do-it-yourself
     .col-xs-12.col-md-6.diy-text
       a name='do-it-yourself'
-      == @contents[:diy].value
+      h1
+        = t('participate.diy.title')
+
+      - link = link_to t('participate.diy.guidline-label'), '/guideline'
+      p
+        == t('participate.diy.idea.text', guideline_link: link)
+        a.mitteilen href="mailto:freunde@die-offene-gesellschaft.de?subject=Idee mitteilen"
+          = t 'participate.diy.idea.button-label'
+
+      p
+        == t('participate.diy.event.text', guideline_link: link)
+        a.mitteilen href="mailto:freunde@die-offene-gesellschaft.de?subject=Veranstaltung mitteilen"
+          = t 'participate.diy.event.button-label'
+
     .col-xs-12.col-md-6.diy-avatars
       - @event_pictures.each_with_index do |picture, index|
         - additional_class = 'additional-images-md' if index >= 9 && index < 12

@@ -17,3 +17,12 @@ de:
       terms-of-use-label: 'Nutzungsbedingungen'
     become-friend: 'Freund/in werden'
     introduction: 'Überall in Europa nehmen Ausgrenzungswünsche, Hass und Hetze zu. Die Offene Gesellschaft braucht Menschen, die für sie eintreten. Werden Sie Freundin oder Freund der Initiative Offene Gesellschaft und setzen Sie ein Zeichen.'
+    diy:
+      title: Selber machen
+      guidline-label: Leitfaden
+      idea:
+        text: 'Unsere Bewegung lebt von kreativen Aktionsideen. Wir freuen uns auf Ihre Einfälle und helfen Ihnen gern bei der Umsetzung. Sie sind noch auf der Suche nach Inspiration? Hier finden Sie unseren %{guideline_link}.'
+        button-label: Idee mitteilen
+      event:
+        text: 'Sie veranstalten bereits eine Aktion im Sinne der Offenen Gesellschaft? Teilen Sie uns Ihr Vorhaben mit! Wir unterstützen Sie gerne. Hier finden Sie unseren %{guideline_link}.'
+        button-label: Veranstaltung mitteilen
