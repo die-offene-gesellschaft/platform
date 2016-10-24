@@ -1,0 +1,27 @@
+h1
+  = t 'participate.diy.idea.modal.title'
+
+p
+  = t 'participate.diy.idea.modal.description'
+
+= simple_form_for record do |f|
+  = f.input :subject
+
+/ Titel der Aktion:
+/
+/Worum geht es? (z.B.: Diskussion, Picknick, Bootsfahrt, Lesung mit xy....)
+/
+/Wie setzt Ihre Aktion ein Zeichen für eine offenen Gesellschaft? (z.B.: “Es begegnen sich Menschen unterschiedlicher Herkunft...”)
+/
+/Wunschtermin:
+/
+/Wunschort:
+/
+/ Mitwirkende (optional):
+/
+/ Ansprechpartner
+/ Vorname:
+/ Nachname:
+/ Mailadresse:
+/ Telefon:
+/  (Button: Senden)

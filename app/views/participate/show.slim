@@ -83,13 +83,24 @@
       - link = link_to t('participate.diy.guidline-label'), '/guideline'
       p
         == t('participate.diy.idea.text', guideline_link: link)
-        a.mitteilen href="mailto:freunde@die-offene-gesellschaft.de?subject=Idee mitteilen"
+        a.mitteilen href='#participate_idea' data-toggle='modal' data-target='#participate_idea'
           = t 'participate.diy.idea.button-label'
 
       p
         == t('participate.diy.event.text', guideline_link: link)
-        a.mitteilen href="mailto:freunde@die-offene-gesellschaft.de?subject=Veranstaltung mitteilen"
+        a.mitteilen href='#participate_event' data-toggle='modal' data-target='#participate_event'
           = t 'participate.diy.event.button-label'
+
+      - %w(idea event).each do |modal_name|
+        .modal.fade id="participate_#{modal_name}" tabindex='-1' role='dialog' aria-labelledby="participate_#{modal_name}" aria-hidden='true'
+          .modal-dialog role='document'
+            .modal-content
+              button.close type='button' data-dismiss='modal' aria-label='Close'
+                span aria-hidden='true'
+                  = fa_icon 'times'
+              .modal-body.participate-modal
+                = render "participate/#{modal_name}_modal",
+                         record: @participation[modal_name.to_sym]
 
     .col-xs-12.col-md-6.diy-avatars
       - @event_pictures.each_with_index do |picture, index|

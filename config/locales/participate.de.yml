@@ -23,6 +23,9 @@ de:
       idea:
         text: 'Unsere Bewegung lebt von kreativen Aktionsideen. Wir freuen uns auf Ihre Einfälle und helfen Ihnen gern bei der Umsetzung. Sie sind noch auf der Suche nach Inspiration? Hier finden Sie unseren %{guideline_link}.'
         button-label: Idee mitteilen
+        modal:
+          title: Idee mitteilen
+          description: 'Schildern Sie uns Ihre Aktionsidee im Sinne einer offenen Gesellschaft. Wir geben Ihnen möglichst bald Feedback...'
       event:
         text: 'Sie veranstalten bereits eine Aktion im Sinne der Offenen Gesellschaft? Teilen Sie uns Ihr Vorhaben mit! Wir unterstützen Sie gerne. Hier finden Sie unseren %{guideline_link}.'
         button-label: Veranstaltung mitteilen

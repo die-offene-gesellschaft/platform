@@ -7,6 +7,10 @@ class ParticipateController < ApplicationController
 
   # GET /participate
   def show
+    @participation = {
+      idea: Idea.new,
+      event: Event.new
+    }
   end
 
   # POST /participate
