@@ -12,7 +12,7 @@
       - else
         .image style="background-image: url('#{asset_url(user.avatar(:normal))}')"
     .col-xs-12.details class="#{additional_class}"
-      - if user.statement && !user.good_photo
+      - if user.statement
         p.quote.user-quote
           = user.statement
       .box-details.user-name
@@ -24,9 +24,6 @@
             = t('users.status.locked')
       .links
         .link-small
-          - if user.good_photo
-            a href="#{users_path}"
-              = t('users.all-friends')
           - if member_signed_in?
             - if user == current_user
               = link_to t('users.actions.edit-profile'),
