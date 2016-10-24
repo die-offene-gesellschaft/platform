@@ -9,7 +9,7 @@ html
     meta property="og:type" content="website"
     meta property="og:url" content="https://die-offene-gesellschaft.de"
     meta property="og:title" content="Die Offene Gesellschaft"
-    meta property="og:description" content="Der Kern der Demokratie ist Freiheit. Haben andere erkämpft, müssen wir verteidigen."
+    meta property="og:description" content="#{t('description')}"
     meta property="og:updated_time" content="#{Time.zone.now}"
     meta property="og:image" content="#{asset_url('DoG_logo.png')}"
     meta property="og:image:type" content="image/png"
@@ -19,6 +19,7 @@ html
     meta name="twitter:url" content="https://die-offene-gesellschaft.de"
     meta name="twitter:title" content="Die Offene Gesellschaft"
     meta name="format-detection" content="telephone=no"
+    meta name="description" content="#{t('description')}"
     link href="#{asset_url('favicon.png')}" rel="icon" type="image/png"
     = csrf_meta_tags
     = action_cable_meta_tag
