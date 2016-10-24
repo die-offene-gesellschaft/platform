@@ -1,3 +1,10 @@
+- content_for :meta_tags do
+  meta property="og:title" content="#{@blogpost.title}"
+  meta property="og:description" content="#{@blogpost.introduction}"
+  meta property="og:image" content="#{asset_url(@blogpost.thumbnail(:normal))}"
+  meta property="og:image:type" content="#{@blogpost.thumbnail_content_type}"
+  meta name="twitter:title" content="#{@blogpost.title}"
+
 .blogposts
   .hero style="background-image: url(#{@blogpost.hero(:normal)});"
   .row.post

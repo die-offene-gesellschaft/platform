@@ -1,3 +1,10 @@
+- content_for :meta_tags do
+  meta property="og:title" content="Die Offene Gesellschaft"
+  meta property="og:description" content="Der Kern der Demokratie ist Freiheit. Haben andere erkämpft, müssen wir verteidigen."
+  meta property="og:image" content="#{asset_url(@user.avatar(:normal))}"
+  meta property="og:image:type" content="#{@user.avatar.content_type}"
+  meta name="twitter:title" content="Die Offene Gesellschaft"
+
 .users
   = render 'shared/user/modal_details',
            user: @user

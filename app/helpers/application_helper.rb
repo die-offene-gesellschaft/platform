@@ -18,7 +18,7 @@ module ApplicationHelper
   # this method smells of :reek:TooManyStatements
   # rubocop:disable Metrics/CyclomaticComplexity
   def network_share_link(network, resource = '')
-    base_uri = 'https://twitter.com/home?status=' if network == :twitter
+    base_uri = 'https://twitter.com/home?status=%23DieOffenegesellschaft%20' if network == :twitter
     base_uri = 'https://www.facebook.com/sharer.php?u=' if network == :facebook
     resource_uri = request.original_url if resource == ''
     resource_uri = event_url(resource) if resource.is_a? Event
