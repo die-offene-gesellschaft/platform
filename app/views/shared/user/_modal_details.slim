@@ -1,16 +1,14 @@
 .container-fluid
   - additional_class = 'user-default-image'
-  - additional_class = 'user-double-image' if user.good_photo || user.video_user?
+  - additional_class = 'user-double-image' if user.video_user?
   .row class="#{additional_class}"
     - additional_class = ''
-    - additional_class = 'col-lg-6' unless user.good_photo || user.video_user?
+    - additional_class = 'col-lg-6' unless user.video_user?
     .col-xs-12 class="#{additional_class}"
       - if user.video_user?
         .embed-responsive.embed-responsive-2by1
           = render 'shared/video_iframe',
                    user: user
-      - elsif user.good_photo
-        .image style="background-image: url('#{asset_url(user.avatar(:large))}')"
       - else
         .image style="background-image: url('#{asset_url(user.avatar(:normal))}')"
     .col-xs-12.details class="#{additional_class}"
