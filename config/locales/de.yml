@@ -1,4 +1,5 @@
 de:
+  description: 'Der Kern der Demokratie ist Freiheit. Haben andere erkämpft, müssen wir verteidigen.'
   actions:
     destroy:
       success: 'Das Objekt wurde erfolgreich gelöscht.'
