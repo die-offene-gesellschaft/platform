@@ -9,6 +9,8 @@ RSpec.describe "GET routes", type: :request do
                                 planned: false
     @user = @event.user
     @video_user = FactoryGirl.create :video_user
+    @vip_user = FactoryGirl.create :vip_user
+    @frontpage_user = FactoryGirl.create :frontpage_user
     @admin = FactoryGirl.create :admin
     @venue = @event.venue
     @comment = FactoryGirl.create :comment,
