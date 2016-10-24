@@ -31,4 +31,4 @@
       h1
         = @blogpost.title
       .content
-        = @blogpost.content
+        == Kramdown::Document.new(@blogpost.content).to_html
