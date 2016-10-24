@@ -1,4 +1,5 @@
 .admins
-  = render 'shared/admin_tabs', active: :admin
+  = render 'shared/admin_tabs', active: :press_review
   = render 'form',
+           press_review: @press_review,
            admin: @admin
