@@ -9,6 +9,7 @@ class HomeController < ApplicationController
   FRONTPAGE_USERS_COUNT = 4
   VIDEO_USERS_COUNT = 2
   VIP_USERS_COUNT = 8
+  EVENTS_COUNT = 9
 
   def show
     @contents = [
@@ -23,6 +24,7 @@ class HomeController < ApplicationController
     @events = Event.where('end_at >= ?', Time.zone.now)
                    .where(planned: false)
                    .order(begin_at: :asc)
+                   .limit(EVENTS_COUNT)
   end
 
   def set_users

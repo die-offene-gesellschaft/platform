@@ -15,5 +15,15 @@ FactoryGirl.define do
       email 'video-dude@example.com'
       video_url 'https://www.youtube.com/watch?v=cDcBKVKQizg'
     end
+
+    factory :vip_user do
+      email 'very-important-dude@example.com'
+      vip true
+    end
+
+    factory :frontpage_user do
+      email 'frontpage@example.com'
+      frontpage true
+    end
   end
 end
