@@ -7,6 +7,35 @@
 }
 
 .about {
+
+  %headings-with-margins {
+    h1,
+    h2,
+    h3,
+    h4,
+    h6 {
+      font-weight: 600;
+      margin-bottom: 22px;
+      margin-top: 55px;
+    }
+  }
+
+  %headings-without-margins {
+    h1 {
+      font-weight: 600;
+      margin-bottom: 22px;
+      margin-top: 55px;
+    }
+
+    h2,
+    h3,
+    h4,
+    h6 {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+  }
+
   [alt='Hero'] {
     border: 1rem solid $red;
     height: 60vw;
@@ -52,7 +81,13 @@
     }
   }
 
+  .intro {
+    @extend %headings-with-margins;
+  }
+
   .team {
+    @extend %headings-without-margins;
+
     ul {
       li {
         margin: .5rem 0;
@@ -63,11 +98,13 @@
           width: 49%;
         }
 
+        
+
         h2 {
           color: $black;
           display: inline-block;
           font-size: 1.25rem;
-          font-weight: normal;
+          font-weight: 600;
         }
 
         img {
@@ -85,6 +122,8 @@
   }
 
   .partner {
+    @extend %headings-without-margins;
+
     h2 {
       color: $black;
       font-weight: normal;
@@ -113,9 +152,15 @@
   }
 
   .press-reviews {
+
+    @extend %headings-without-margins;
+
     h2 {
       color: $black;
       font-weight: normal;
+      line-height: 1.2;
+      margin-bottom: 5px;
+      margin-top: 10px;
     }
 
     h3 {
@@ -136,10 +181,13 @@
   }
 
   .contact {
+    
+    @extend %headings-without-margins;
+
     h2 {
       color: $black;
       font-size: 1.25rem;
-      font-weight: normal;
+      font-weight: 600;
     }
 
     ul {
