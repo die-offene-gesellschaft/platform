@@ -48,6 +48,7 @@ class HomeController < ApplicationController
   def set_vip_users
     @vip_users = User.where(locked: false)
                      .where(vip: true)
+                     .where(video_url: [nil, ''])
                      .where.not(avatar_file_name: nil)
                      .where.not(
                        id: @frontpage_users.map(&:id) +
@@ -59,6 +60,7 @@ class HomeController < ApplicationController
   def set_users
     @users = User.where(locked: false)
                  .where.not(avatar_file_name: nil)
+                 .where(video_url: [nil, ''])
                  .where.not(
                    id: @video_users.map(&:id) +
                        @frontpage_users.map(&:id) +

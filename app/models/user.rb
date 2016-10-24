@@ -20,7 +20,8 @@ class User < ApplicationRecord
                           class_name: 'User'
 
   has_attached_file :avatar,
-                    styles: { normal: ['400x', :jpg] }
+                    styles: { normal: ['400x400^', :jpg],
+                              large: ['800x800^', :jpg] }
 
   has_many :events
   has_many :comments

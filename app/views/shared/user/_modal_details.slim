@@ -9,6 +9,8 @@
         .embed-responsive.embed-responsive-2by1
           = render 'shared/video_iframe',
                    user: user
+      - elsif user.good_photo
+        .image style="background-image: url('#{asset_url(user.avatar(:large))}')"
       - else
         .image style="background-image: url('#{asset_url(user.avatar(:normal))}')"
     .col-xs-12.details class="#{additional_class}"

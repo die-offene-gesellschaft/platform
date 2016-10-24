@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20161015164621) do
 
-  create_table "active_members", force: :cascade do |t|
+  create_table "active_members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "forename"
     t.string   "surname"
     t.string   "role"
@@ -20,14 +20,14 @@ ActiveRecord::Schema.define(version: 20161015164621) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "active_members_events", id: false, force: :cascade do |t|
+  create_table "active_members_events", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "active_member_id", null: false
     t.integer "event_id",         null: false
-    t.index ["active_member_id", "event_id"], name: "index_active_members_events_on_active_member_id_and_event_id"
-    t.index ["event_id", "active_member_id"], name: "index_active_members_events_on_event_id_and_active_member_id"
+    t.index ["active_member_id", "event_id"], name: "index_active_members_events_on_active_member_id_and_event_id", using: :btree
+    t.index ["event_id", "active_member_id"], name: "index_active_members_events_on_event_id_and_active_member_id", using: :btree
   end
 
-  create_table "admins", force: :cascade do |t|
+  create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -41,17 +41,17 @@ ActiveRecord::Schema.define(version: 20161015164621) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
-    t.index ["email"], name: "index_admins_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_admins_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "blogposts", force: :cascade do |t|
+  create_table "blogposts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
     t.string   "blogpost_type"
-    t.text     "introduction"
-    t.text     "content"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.text     "introduction",           limit: 65535
+    t.text     "content",                limit: 65535
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "hero_file_name"
     t.string   "hero_content_type"
     t.integer  "hero_file_size"
@@ -62,34 +62,34 @@ ActiveRecord::Schema.define(version: 20161015164621) do
     t.datetime "thumbnail_updated_at"
     t.integer  "admin_id"
     t.string   "reference"
-    t.index ["admin_id"], name: "index_blogposts_on_admin_id"
+    t.index ["admin_id"], name: "index_blogposts_on_admin_id", using: :btree
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.text     "message"
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "message",    limit: 65535
     t.boolean  "locked"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.integer  "user_id"
     t.integer  "event_id"
-    t.index ["event_id"], name: "index_comments_on_event_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
+    t.index ["event_id"], name: "index_comments_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
-  create_table "contents", force: :cascade do |t|
+  create_table "contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "controller_action_name"
     t.string   "key"
-    t.text     "value"
+    t.text     "value",                  limit: 65535
     t.integer  "order"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
-  create_table "delayed_jobs", force: :cascade do |t|
-    t.integer  "priority",   default: 0, null: false
-    t.integer  "attempts",   default: 0, null: false
-    t.text     "handler",                null: false
-    t.text     "last_error"
+  create_table "delayed_jobs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "priority",                 default: 0, null: false
+    t.integer  "attempts",                 default: 0, null: false
+    t.text     "handler",    limit: 65535,             null: false
+    t.text     "last_error", limit: 65535
     t.datetime "run_at"
     t.datetime "locked_at"
     t.datetime "failed_at"
@@ -97,108 +97,108 @@ ActiveRecord::Schema.define(version: 20161015164621) do
     t.string   "queue"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
   end
 
-  create_table "event_participations", id: false, force: :cascade do |t|
+  create_table "event_participations", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "event_id", null: false
     t.integer "user_id",  null: false
-    t.index ["event_id", "user_id"], name: "index_event_participations_on_event_id_and_user_id"
-    t.index ["user_id", "event_id"], name: "index_event_participations_on_user_id_and_event_id"
+    t.index ["event_id", "user_id"], name: "index_event_participations_on_event_id_and_user_id", using: :btree
+    t.index ["user_id", "event_id"], name: "index_event_participations_on_user_id_and_event_id", using: :btree
   end
 
-  create_table "events", force: :cascade do |t|
+  create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
     t.string   "event_type"
     t.datetime "begin_at"
     t.datetime "end_at"
-    t.text     "description"
+    t.text     "description",             limit: 65535
     t.string   "facebook_identifier"
     t.boolean  "locked"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.integer  "user_id"
     t.integer  "venue_id"
-    t.text     "link"
+    t.text     "link",                    limit: 65535
     t.boolean  "planned"
-    t.text     "post_description"
+    t.text     "post_description",        limit: 65535
     t.string   "post_description_source"
     t.string   "color"
-    t.index ["user_id"], name: "index_events_on_user_id"
-    t.index ["venue_id"], name: "index_events_on_venue_id"
+    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
+    t.index ["venue_id"], name: "index_events_on_venue_id", using: :btree
   end
 
-  create_table "friendships", force: :cascade do |t|
+  create_table "friendships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "friend_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id"
+    t.index ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id", using: :btree
   end
 
-  create_table "ideas", force: :cascade do |t|
-    t.text     "subject"
-    t.text     "time"
-    t.text     "location"
+  create_table "ideas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "subject",        limit: 65535
+    t.text     "time",           limit: 65535
+    t.text     "location",       limit: 65535
     t.string   "contact_person"
     t.string   "organisation"
     t.string   "email"
     t.string   "phone"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
-  create_table "locations", force: :cascade do |t|
-    t.decimal  "latitude"
-    t.decimal  "longitude"
-    t.decimal  "radius"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.decimal  "latitude",   precision: 10
+    t.decimal  "longitude",  precision: 10
+    t.decimal  "radius",     precision: 10
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
-  create_table "pictures", force: :cascade do |t|
-    t.text     "description"
+  create_table "pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "description",          limit: 65535
     t.datetime "taken_at"
     t.boolean  "locked"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.integer  "event_id"
     t.integer  "user_id"
-    t.index ["event_id"], name: "index_pictures_on_event_id"
-    t.index ["user_id"], name: "index_pictures_on_user_id"
+    t.index ["event_id"], name: "index_pictures_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_pictures_on_user_id", using: :btree
   end
 
-  create_table "press_reviews", force: :cascade do |t|
+  create_table "press_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "source_url"
     t.string   "source_title"
     t.string   "title"
-    t.text     "description"
+    t.text     "description",  limit: 65535
     t.string   "link"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "event_id"
-    t.index ["event_id"], name: "index_press_reviews_on_event_id"
+    t.index ["event_id"], name: "index_press_reviews_on_event_id", using: :btree
   end
 
-  create_table "statements", force: :cascade do |t|
+  create_table "statements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "question"
-    t.text     "content"
+    t.text     "content",    limit: 65535
     t.string   "author"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.integer  "event_id"
-    t.index ["event_id"], name: "index_statements_on_event_id"
+    t.index ["event_id"], name: "index_statements_on_event_id", using: :btree
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
@@ -232,22 +232,36 @@ ActiveRecord::Schema.define(version: 20161015164621) do
     t.boolean  "good_statement"
     t.boolean  "contributor"
     t.boolean  "frontpage"
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "venues", force: :cascade do |t|
+  create_table "venues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "street"
     t.string   "zip_code"
     t.string   "city"
-    t.text     "description"
+    t.text     "description", limit: 65535
     t.boolean  "locked"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "location_id"
-    t.index ["location_id"], name: "index_venues_on_location_id"
+    t.index ["location_id"], name: "index_venues_on_location_id", using: :btree
   end
 
+  add_foreign_key "active_members_events", "active_members"
+  add_foreign_key "active_members_events", "events"
+  add_foreign_key "blogposts", "admins"
+  add_foreign_key "comments", "events"
+  add_foreign_key "comments", "users"
+  add_foreign_key "event_participations", "events"
+  add_foreign_key "event_participations", "users"
+  add_foreign_key "events", "users"
+  add_foreign_key "events", "venues"
+  add_foreign_key "pictures", "events"
+  add_foreign_key "pictures", "users"
+  add_foreign_key "press_reviews", "events"
+  add_foreign_key "statements", "events"
+  add_foreign_key "venues", "locations"
 end

@@ -13,7 +13,8 @@ class Event < ApplicationRecord
                           join_table: 'event_participations'
 
   has_attached_file :picture,
-                    styles: { normal: ['800x', :jpg], logo: ['250x', :png] }
+                    styles: { normal: ['800x800^', :jpg],
+                              logo: ['250x250^', :png] }
 
   validates :title,
             :begin_at,
