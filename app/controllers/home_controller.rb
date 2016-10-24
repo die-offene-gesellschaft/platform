@@ -55,5 +55,7 @@ class HomeController < ApplicationController
     @vip_users = User.where(locked: false)
                      .where(vip: true)
                      .where.not(avatar_file_name: nil)
+                     .where.not(id: @frontpage_users.map(&:id))
+                     .sample(VIP_USERS_COUNT)
   end
 end
