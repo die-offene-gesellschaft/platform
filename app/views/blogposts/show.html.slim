@@ -9,7 +9,7 @@
   .hero style="background-image: url(#{@blogpost.hero(:normal)});"
   .row.post
     .col-xs-12.col-md-8.push-md-2
-      h2
+      .infos
         = t "blogposts.types.#{@blogpost.blogpost_type}"
         span.pipe
         = l @blogpost.created_at, format: :normal_date
@@ -28,7 +28,7 @@
           = fa_icon 'facebook-square'
         a.share href="#{twitter_share_link(@blogpost)}" target='_blank'
           = fa_icon 'twitter-square'
-      h1
+      h1.title
         = @blogpost.title
       .content
         == Kramdown::Document.new(@blogpost.content).to_html
