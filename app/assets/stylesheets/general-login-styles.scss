@@ -1,0 +1,26 @@
+%general-login{
+    h1,
+    h2,
+    h3,
+    h4,
+    h6 {
+        font-weight: 600;
+        margin-bottom: 22px;
+        margin-top: 55px;
+    }
+    
+    label {
+        color: $meta-nav-gray;
+        font-weight: 300;
+    }
+    input.string,
+    input.password {
+        font-weight: 400;
+    }
+}
+%general-login-links{
+    a {
+        display: block;
+        margin-top: 15px;
+    }
+}
