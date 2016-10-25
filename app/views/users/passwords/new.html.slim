@@ -1,5 +1,5 @@
-.row
-  .col-xs-12
+.row.reset-password
+  .col-xs-12.col-md-8.push-md-2
     h2
       = t('devise.passwords.new.forgot_your_password')
     = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
@@ -11,6 +11,6 @@
                  type: 'submit',
                  label: t('devise.passwords.new.send_me_reset_password_instructions'),
                  icon: 'key'
-.row
-  .col-xs-12
+.row.reset-password-links
+  .col-xs-12.col-md-8.push-md-2
     = render 'users/shared/links'

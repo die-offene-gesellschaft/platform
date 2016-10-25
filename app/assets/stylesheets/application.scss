@@ -30,6 +30,10 @@
 @import 'imprint';
 @import 'admins';
 @import 'initial_pop_up_modal';
+@import 'login';
+@import 'reset-password';
+@import 're-confirm';
+@import 'change-password';
 
 @import 'styleguide';
 
@@ -44,6 +48,7 @@ body {
 body {
   background-color: $white;
 }
+
 
 .content-container {
   min-height: calc(100% - 151px);

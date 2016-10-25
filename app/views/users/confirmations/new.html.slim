@@ -1,5 +1,5 @@
-.row
-  .col-xs-12
+.row.re-confirm
+  .col-xs-12.col-md-8.push-md-2
     h2
       = t('devise.confirmations.new.resend_confirmation_instructions')
     = simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
@@ -12,6 +12,6 @@
                  type: 'submit',
                  label: t('devise.confirmations.new.resend_confirmation_instructions'),
                  icon: 'sign-in'
-.row
-  .col-xs-12
+.row.re-confirm-links
+  .col-xs-12.col-md-8.push-md-2
     = render 'users/shared/links'
