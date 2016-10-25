@@ -32,22 +32,25 @@
     &:last-of-type {
       border-bottom: 0;
     }
-    .infos{
+
+    .infos {
       color: $red;
       font-size: 18px;
       font-weight: 500;
     }
+
     .share-links {
+      font-size: 3vw;
       position: absolute;
       right: 10px;
-      top: 0px;
-      font-size: 3vw;
+      top: 0;
+      
 
       @include media-breakpoint-up(lg) {
         font-size: 25px;
       }
 
-      @include media-breakpoint-down(sm){
+      @include media-breakpoint-down(sm) {
         font-size: 7.5vw;
       }
 
@@ -57,11 +60,11 @@
       }
     }
 
-    .content{
+    .content {
       p {
-        margin-bottom: 15px;
         font-size: 17px;
         font-weight: 300;
+        margin-bottom: 15px;
       }
     }
 
