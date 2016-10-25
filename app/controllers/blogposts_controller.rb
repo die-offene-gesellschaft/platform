@@ -9,7 +9,6 @@ class BlogpostsController < ApplicationController
   # GET /blogposts.json
   def index
     @blogposts = Blogpost.all
-    authenticate_admin!
     respond_to do |format|
       format.html { render :index }
       format.json { render json: @blogposts }
