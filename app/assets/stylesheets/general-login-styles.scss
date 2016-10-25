@@ -10,14 +10,24 @@
     margin-top: 55px;
   }
   
-  label {
-    color: $meta-nav-gray;
-    font-weight: 300;
-  }
+  
   
   .string,
-  .password {
+  .password,
+  .email {
     font-weight: 400;
+
+    label {
+      color: $meta-nav-gray;
+      font-weight: 300;
+    }
+  }
+
+  .checkbox {
+    
+    input {
+      margin-right: 10px;  
+    } 
   }
 }
 
