@@ -30,6 +30,8 @@
 @import 'imprint';
 @import 'admins';
 @import 'initial_pop_up_modal';
+@import 'login';
+@import 'reset-password'; 
 
 @import 'styleguide';
 
@@ -43,6 +45,16 @@ body {
 
 body {
   background-color: $white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h6 {
+  font-weight: 600;
+  margin-bottom: 22px;
+  margin-top: 55px;
 }
 
 .content-container {

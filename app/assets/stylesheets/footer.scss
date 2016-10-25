@@ -1,6 +1,7 @@
 footer {
   height: 96px;
   position: relative;
+  margin-top: 50px;
 
   @media (min-width: $mobile-breakpoint-width) {
     height: 172px;
