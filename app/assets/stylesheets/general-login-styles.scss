@@ -1,5 +1,4 @@
 %general-login {
-  
   h1,
   h2,
   h3,
@@ -9,9 +8,7 @@
     margin-bottom: 22px;
     margin-top: 55px;
   }
-  
-  
-  
+
   .string,
   .password,
   .email {
@@ -24,15 +21,13 @@
   }
 
   .checkbox {
-    
     input {
-      margin-right: 10px;  
-    } 
+      margin-right: 10px;
+    }
   }
 }
 
 %general-login-links {
-  
   a {
     display: block;
     margin-top: 15px;
