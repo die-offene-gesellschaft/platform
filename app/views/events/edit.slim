@@ -4,6 +4,10 @@
            event: @event
   .row
     .col-xs-12
+      = render 'events/organizers',
+               event: @event
+  .row
+    .col-xs-12
       = render 'events/statements',
                event: @event,
                statement_type: 'quote',

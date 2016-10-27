@@ -1,0 +1,8 @@
+de:
+  organizers:
+    attributes:
+      name: Name
+      url: URL
+    actions:
+      add: Veranstalter hinzufügen
+      new: Neuen Veranstalter erstellen

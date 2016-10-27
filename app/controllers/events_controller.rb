@@ -59,17 +59,16 @@ class EventsController < ApplicationController
   end
 
   # PATCH/PUT /events/1
-  # PATCH/PUT /events/1.json
   def update
-    respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to events_path, notice: t('actions.save.success') }
-        format.json { render :show, status: :ok, location: @event }
-      else
-        flash.now[:error] = t('actions.save.error')
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if params[:event][:organizer]
+      @event.organizers << Organizer.find(params[:event][:organizer])
+      @event.save
+      redirect_to edit_event_path(@event), notice: t('actions.save.success')
+    elsif @event.update(event_params)
+      redirect_to events_path, notice: t('actions.save.success')
+    else
+      flash.now[:error] = t('actions.save.error')
+      render :edit
     end
   end
 

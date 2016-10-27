@@ -1,0 +1,38 @@
+.card.card-block
+  h4.card-title
+    = t('activerecord.models.organizer.other')
+  - if event.organizers.any?
+    table.table.table-striped.table-hover
+      thead
+        tr
+          th
+            | #
+          th
+            = t('organizers.attributes.name')
+          th
+            = t('organizers.attributes.url')
+          th
+      tbody
+        - event.organizers.each do |organizer|
+          tr
+            td
+              = organizer.id
+            td
+              = organizer.name
+            td
+              = organizer.url
+            td.controls
+              = render 'shared/button',
+                       method: 'delete',
+                       confirm: t('confirm'),
+                       icon: 'trash',
+                       href: event_organizer_path(event, organizer)
+  = simple_form_for event do |f|
+    = f.input :organizers,
+              collection: Organizer.all.order(:name),
+              input_html: { name: 'event[organizer]' }
+    .button-row
+      = render 'shared/button',
+               type: 'submit',
+               label: t('organizers.actions.add'),
+               icon: 'plus'

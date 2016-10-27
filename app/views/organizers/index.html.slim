@@ -1,0 +1,27 @@
+= render 'shared/admin_tabs', active: :organizer
+.row
+  .col-xs-12
+    table.table.table-striped.table-hover
+      thead
+        tr
+          td
+            | #
+          td
+            = t('organizers.attributes.name')
+          td
+            = t('organizers.attributes.url')
+      tbody
+        - @organizers.each do |organizer|
+          tr data-href="#{edit_organizer_path(organizer)}"
+            td
+              = organizer.id
+            td
+              = organizer.name
+            td
+              = organizer.url
+  .button-row
+    .col-xs-12
+      = render 'shared/button',
+               label: t('organizers.actions.new'),
+               icon: 'plus',
+               href: new_organizer_path
