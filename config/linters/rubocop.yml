@@ -1,3 +1,6 @@
+Rails/OutputSafety:
+  Exclude:
+    - 'app/inputs/*'
 Documentation:
   Enabled: false
 AllCops:

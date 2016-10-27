@@ -6,6 +6,7 @@
 @import 'variables';
 @import 'bootstrap-overwrites';
 @import 'bootstrap';
+@import 'pagedown_bootstrap';
 @import 'fonts';
 @import 'font-awesome';
 
@@ -34,6 +35,7 @@
 @import 'reset-password';
 @import 're-confirm';
 @import 'change-password';
+@import 'editor';
 
 @import 'styleguide';
 
@@ -355,6 +357,7 @@ tr {
 input,
 textarea,
 select {
+  &.wmd-input,
   &.datetime,
   &.select,
   &.text,
@@ -386,6 +389,12 @@ select {
 
 .text {
   textarea {
+    height: auto;
+  }
+}
+
+textarea {
+  &.wmd-input {
     height: auto;
   }
 }
