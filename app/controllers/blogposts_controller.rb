@@ -10,7 +10,12 @@ class BlogpostsController < ApplicationController
   def index
     @blogposts = Blogpost.all
     respond_to do |format|
-      format.html { render :index }
+      format.html do
+        @blogposts = @blogposts.where(published: true)
+                               .where('date <= ?', Time.zone.now)
+                               .order(date: :desc) unless admin_signed_in?
+        render :index
+      end
       format.json { render json: @blogposts }
     end
   end
@@ -94,7 +99,9 @@ class BlogpostsController < ApplicationController
       :content,
       :hero,
       :thumbnail,
-      :reference
+      :reference,
+      :date,
+      :published
     )
     tmp_params[:admin] = current_admin
     tmp_params

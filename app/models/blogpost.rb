@@ -10,4 +10,8 @@ class Blogpost < ApplicationRecord
                                     content_type: %r{\Aimage\/.*\z}
   validates_attachment_content_type :thumbnail,
                                     content_type: %r{\Aimage\/.*\z}
+
+  def self.enough_published?
+    Blogpost.where(published: true).where('date <= ?', Time.zone.now).count >= 2
+  end
 end
