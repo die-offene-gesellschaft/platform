@@ -12,7 +12,7 @@
           h2
             = t "blogposts.types.#{hero_blogpost.blogpost_type}"
             span.pipe
-            = l hero_blogpost.created_at, format: :normal_date
+            = l hero_blogpost.date, format: :normal_date
             span.pipe
             = t 'blogposts.from',
                 author: hero_blogpost.admin.name
@@ -30,7 +30,7 @@
           h2
             = t "blogposts.types.#{blogpost.blogpost_type}"
             span.pipe
-            = l blogpost.created_at, format: :normal_date
+            = l blogpost.date, format: :normal_date
             - if blogpost.reference && !blogpost.reference.empty?
               span.reference
                 = t 'blogposts.reference',

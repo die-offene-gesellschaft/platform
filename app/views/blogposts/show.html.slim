@@ -12,7 +12,7 @@
       .infos
         = t "blogposts.types.#{@blogpost.blogpost_type}"
         span.pipe
-        = l @blogpost.created_at, format: :normal_date
+        = l @blogpost.date, format: :normal_date
         - if @blogpost.reference && !@blogpost.reference.empty?
           span.reference
             = t 'blogposts.reference',
