@@ -19,7 +19,7 @@
           h1
             = hero_blogpost.title
           span.more
-            = "> #{t('blogposts.more')}"
+            = t('blogposts.more')
 
     - @blogposts.each do |blogpost|
       .row.row-eq-height.post
@@ -27,7 +27,7 @@
           a href="#{blogpost_path(blogpost)}"
             .image style="background-image: url(#{asset_url(blogpost.thumbnail(:normal))});"
         .col-xs-12.col-md-8
-          h2
+          h2.teaser-attributes
             = t "blogposts.types.#{blogpost.blogpost_type}"
             span.pipe
             = l blogpost.date, format: :normal_date
@@ -41,9 +41,9 @@
                 - admin = blogpost.admin
                 = t 'blogposts.from',
                     author: admin.name
-          h1
+          h1.teaser-header
             = blogpost.title
-          p
+          p.teaser-summary
             = blogpost.introduction
           a.more href="#{blogpost_path(blogpost)}"
-            = "> #{t('blogposts.more')}"
+            = t('blogposts.more')
