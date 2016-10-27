@@ -220,4 +220,5 @@ de:
       short_date_with_weekday: "%a %d.%m."
       short_year_date: "%d.%m.%y"
       normal_date: "%d.%m.%Y"
+      normal_date_with_time: "%d.%m.%Y %H:%M"
     pm: nachmittags

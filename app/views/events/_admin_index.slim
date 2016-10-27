@@ -14,6 +14,10 @@
             td
               = t('events.attributes.event-type')
             td
+              = t('venues.attributes.city')
+            td
+              = t('events.attributes.updated-at')
+            td
               = t('events.attributes.locked')
             td
               = t('events.attributes.planned')
@@ -23,11 +27,16 @@
               td
                 = event.id
               td
-                = event.begin_at.strftime('%d.%m.%Y - %H:%M') if event.begin_at
+                = l event.begin_at, format: :normal_date_with_time if event.begin_at
               td
                 = event.title
               td
                 = event.event_type
+              td
+                - venue = event.venue
+                = venue.city
+              td
+                = l event.updated_at, format: :normal_date_with_time
               td
                 = icon_from(event.locked)
               td
