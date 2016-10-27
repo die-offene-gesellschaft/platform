@@ -412,6 +412,17 @@ form {
   }
 }
 
+.card {
+  > .image {
+    background-color: $gray;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 0 0 100%;
+    width: 100%;
+  }
+}
+
 .button-row {
   text-align: right;
 

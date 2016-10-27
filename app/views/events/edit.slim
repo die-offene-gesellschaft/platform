@@ -4,7 +4,10 @@
            event: @event
   .row
     .col-xs-12
-      = render 'events/pictures'
+      = render 'events/pictures',
+               event: @event,
+               picture: @picture,
+               pictures: @event.pictures
   .row
     .col-xs-12
       = render 'events/statements',

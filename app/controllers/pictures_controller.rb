@@ -1,5 +1,9 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!,
+                only: [:destroy]
+  before_action :set_event
+  before_action :set_picture,
+                only: [:show, :edit, :update, :destroy]
 
   # GET /events/1/pictures.json
   def index
@@ -18,44 +22,23 @@ class PicturesController < ApplicationController
     end
   end
 
-  # POST /pictures
-  # POST /pictures.json
+  # POST /events/1/pictures
   def create
     @picture = Picture.new(picture_params)
-
-    respond_to do |format|
-      if @picture.save
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
-        format.json { render :show, status: :created, location: @picture }
-      else
-        format.html { render :new }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
-      end
+    @picture.event = @event
+    if @picture.save
+      redirect_to edit_event_path(@event), notice: t('actions.save.success')
+    else
+      set_embeded_models
+      flash.now[:error] = t('actions.save.error')
+      render 'events/edit'
     end
   end
 
-  # PATCH/PUT /pictures/1
-  # PATCH/PUT /pictures/1.json
-  def update
-    respond_to do |format|
-      if @picture.update(picture_params)
-        format.html { redirect_to @picture, notice: 'Picture was successfully updated.' }
-        format.json { render :show, status: :ok, location: @picture }
-      else
-        format.html { render :edit }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /pictures/1
-  # DELETE /pictures/1.json
+  # DELETE /events/1/pictures/1
   def destroy
     @picture.destroy
-    respond_to do |format|
-      format.html { redirect_to pictures_url, notice: 'Picture was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to edit_event_path(@event), notice: t('actions.destroy.success')
   end
 
   private
@@ -65,8 +48,17 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
   end
 
+  def set_embeded_models
+    @quote = Statement.new
+    @moment = Statement.new
+  end
+
+  def set_event
+    @event = Event.find(params[:event_id])
+  end
+
   # Never trust parameters from the scary internet, only allow the white list through.
   def picture_params
-    params.require(:picture).permit(:description, :locked)
+    params.require(:picture).permit(:picture, :description, :locked)
   end
 end

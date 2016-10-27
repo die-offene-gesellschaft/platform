@@ -37,6 +37,7 @@ class EventsController < ApplicationController
   def edit
     @quote = Statement.new
     @moment = Statement.new
+    @picture = Picture.new
   end
 
   # POST /events

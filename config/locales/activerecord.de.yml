@@ -1,6 +1,9 @@
 de:
   activerecord:
     models:
+      picture:
+        one: Bild
+        other: Bilder
       statement:
         one: Zitat
         other: Zitate
@@ -29,6 +32,9 @@ de:
         one: Blogpost
         other: Blogposts
     attributes:
+      picture:
+        picture: Bild
+        description: Beschreibung
       blogpost:
         hero: Hero
         thumbnail: Vorschau
