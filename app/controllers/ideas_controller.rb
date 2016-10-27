@@ -12,42 +12,30 @@ class IdeasController < ApplicationController
   def edit
   end
 
-  # POST /ideas
+  # POST /ideas.json
   def create
     @idea = Event.new(idea_params)
     if @idea.save
-      redirect_to ideas_path, notice: t('actions.save.success')
+      render :nothing, status: :ok
     else
-      flash.now[:error] = t('actions.save.error')
-      render :new
+      render status: :unprocessable_entity, json: @idea.errors
     end
   end
 
   # PATCH/PUT /ideas/1
-  # PATCH/PUT /ideas/1.json
   def update
-    respond_to do |format|
-      if @idea.update(idea_params)
-        format.html { redirect_to @idea, notice: t('actions.save.success') }
-        format.json { render :show, status: :ok, location: @idea }
-      else
-        format.html do
-          flash.now[:error] = t('actions.save.error')
-          render :edit
-        end
-        format.json { render json: @idea.errors, status: :unprocessable_entity }
-      end
+    if @idea.update(idea_params)
+      redirect_to @idea, notice: t('actions.save.success')
+    else
+      flash.now[:error] = t('actions.save.error')
+      render :edit
     end
   end
 
   # DELETE /ideas/1
-  # DELETE /ideas/1.json
   def destroy
     @idea.destroy
-    respond_to do |format|
-      format.html { redirect_to ideas_url, notice: t('actions.destroy.success') }
-      format.json { head :no_content }
-    end
+    redirect_to ideas_url, notice: t('actions.destroy.success')
   end
 
   private
