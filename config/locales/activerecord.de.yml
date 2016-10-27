@@ -9,6 +9,9 @@ de:
                 width: 'muss mindestens %{width}px breit sein'
                 height: 'muss mindestens %{height}px hoch sein'
     models:
+      picture:
+        one: Bild
+        other: Bilder
       statement:
         one: Zitat
         other: Zitate
@@ -37,6 +40,9 @@ de:
         one: Blogpost
         other: Blogposts
     attributes:
+      picture:
+        picture: Bild
+        description: Beschreibung
       blogpost:
         hero: Hero
         thumbnail: Vorschau
@@ -45,6 +51,8 @@ de:
         introduction: Einleitung
         blogpost_type: Typ
         title: Titel
+        date: Datum
+        published: Veröffentlicht
       admin:
         name: Name
         email: E-Mail-Adresse
@@ -82,6 +90,7 @@ de:
         planned: Geplant
         post_description: Post-Beschreibung
         post_description_source: Post-Beschreibungsquelle
+        picture: Bild
       idea:
         subject: Thema
         time: Zeit

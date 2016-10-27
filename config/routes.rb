@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :active_members, only: [:index, :show]
   resources :events do
     resources :comments, only: [:index, :show]
-    resources :pictures, only: [:index, :show]
+    resources :pictures, only: [:index, :show, :destroy, :create]
     resources :statements, only: [:index, :show, :destroy, :create, :update]
   end
   resources :statements, only: [:index, :show]

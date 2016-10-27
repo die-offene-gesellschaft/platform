@@ -1,4 +1,4 @@
-= simple_form_for event do |f|
+= simple_form_for event, html: { multipart: true } do |f|
   .row
     .col-xs-12
       .inputs
@@ -8,7 +8,11 @@
         = f.input :end_at
         = f.input :description
         / = f.input :facebook_identifier
-        / = f.input :picture
+        .form-group.file.optional.event_picture
+          label.control-label.file.optional for='event_picture'
+            = t('activerecord.attributes.event.picture').capitalize
+            .image style="background-image: url(#{asset_url(event.picture(:normal))});"
+            input.file.optional name='event[picture]' id='event_picture' type='file'
         / = f.input :user_id
         = f.input :venue_id, collection: Venue.all
         = f.input :link, as: :string
