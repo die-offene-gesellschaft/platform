@@ -6,19 +6,20 @@
     ruby:
       @blogposts = @blogposts.to_a
       hero_blogpost = @blogposts.shift
-    a.hero href="#{blogpost_path(hero_blogpost)}" style="background-image: url(#{hero_blogpost.hero(:normal)});"
-      .details
-        h2
-          = t "blogposts.types.#{hero_blogpost.blogpost_type}"
-          span.pipe
-          = l hero_blogpost.created_at, format: :normal_date
-          span.pipe
-          = t 'blogposts.from',
-              author: hero_blogpost.admin.name
-        h1
-          = hero_blogpost.title
-        span.more
-          = "> #{t('blogposts.more')}"
+    - if hero_blogpost
+      a.hero href="#{blogpost_path(hero_blogpost)}" style="background-image: url(#{hero_blogpost.hero(:normal)});"
+        .details
+          h2
+            = t "blogposts.types.#{hero_blogpost.blogpost_type}"
+            span.pipe
+            = l hero_blogpost.created_at, format: :normal_date
+            span.pipe
+            = t 'blogposts.from',
+                author: hero_blogpost.admin.name
+          h1
+            = hero_blogpost.title
+          span.more
+            = "> #{t('blogposts.more')}"
 
     - @blogposts.each do |blogpost|
       .row.row-eq-height.post
