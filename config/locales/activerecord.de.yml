@@ -37,6 +37,8 @@ de:
         introduction: Einleitung
         blogpost_type: Typ
         title: Titel
+        date: Datum
+        published: Veröffentlicht
       admin:
         name: Name
         email: E-Mail-Adresse
@@ -74,6 +76,7 @@ de:
         planned: Geplant
         post_description: Post-Beschreibung
         post_description_source: Post-Beschreibungsquelle
+        picture: Bild
       idea:
         subject: Thema
         time: Zeit

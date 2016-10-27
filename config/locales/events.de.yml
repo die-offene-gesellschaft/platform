@@ -1,5 +1,6 @@
 de:
   events:
+    pictures: Bilder
     attributes:
       begin-at: Beginn
       title: Titel
