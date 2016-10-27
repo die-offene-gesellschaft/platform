@@ -23,6 +23,8 @@ class User < ApplicationRecord
                     styles: { normal: ['400x400^', :jpg],
                               large: ['800x800^', :jpg] }
 
+  validates :avatar, dimensions: { width: 500, height: 500 }
+
   has_many :events
   has_many :comments
   has_many :pictures

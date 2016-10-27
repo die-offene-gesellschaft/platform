@@ -1,5 +1,13 @@
 de:
   activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            avatar:
+              dimensions:
+                width: 'muss mindestens %{width}px breit sein'
+                height: 'muss mindestens %{height}px hoch sein'
     models:
       statement:
         one: Zitat
