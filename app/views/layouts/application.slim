@@ -7,23 +7,22 @@ html
     meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'
     meta property="og:site_name" content="Die Offene Gesellschaft"
     meta property="og:type" content="website"
-    meta property="og:url" content="https://die-offene-gesellschaft.de"
     meta property="og:updated_time" content="#{Time.zone.now}"
     meta name="twitter:card" content="summary"
-    meta name="twitter:url" content="https://die-offene-gesellschaft.de"
     meta name="format-detection" content="telephone=no"
-    meta name="description" content="#{t('description')}"
     - meta_tags = yield :meta_tags
     - if meta_tags.present?
       = meta_tags
     - else
-      meta property="og:title" content="Die Offene Gesellschaft"
-      meta property="og:description" content="#{t('description')}"
+      meta property="og:title" content="#{@site_title}"
+      meta name="twitter:title" content="#{@site_title}"
+      meta property="og:url" content="https://die-offene-gesellschaft.de"
+      meta name="description" content="#{t('description')}"
       meta property="og:image" content="#{asset_url('DoG_logo.png')}"
       meta property="og:image:type" content="image/png"
       meta property="og:image:width" content="1200"
       meta property="og:image:height" content="630"
-      meta name="twitter:title" content="Die Offene Gesellschaft"
+      meta name="twitter:url" content="https://die-offene-gesellschaft.de"
     link href="#{asset_url('favicon.png')}" rel="icon" type="image/png"
     = csrf_meta_tags
     = action_cable_meta_tag

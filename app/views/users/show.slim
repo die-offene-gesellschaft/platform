@@ -1,14 +1,23 @@
 - content_for :meta_tags do
-  meta property="og:title" content="Die Offene Gesellschaft"
-  meta property="og:description" content="Der Kern der Demokratie ist Freiheit. Haben andere erkämpft, müssen wir verteidigen."
-  meta property="og:image" content="#{asset_url(@user.avatar(:normal))}"
-  meta property="og:image:type" content="#{@user.avatar.content_type}"
-  meta name="twitter:title" content="Die Offene Gesellschaft"
+  ruby:
+    if @user.avatar.path
+      image = asset_url(@user.avatar(:normal))
+      image_type = @user.avatar_content_type
+    else
+      image = asset_url('DoG_logo.png')
+      image_type = 'image/png'
+    end
+  meta property="og:url" content="#{user_url(@user)}"
+  meta property="og:title" content="#{@user.forename} #{@user.surname}"
+  meta property="og:description" content="#{@user.statement}"
+  meta property="og:image" content="#{image}"
+  meta property="og:image:type" content="#{image_type}"
+  meta name="twitter:title" content="#{@user.forename} #{@user.surname}"
+  meta name="twitter:url" content="#{user_url(@user)}"
 
 .users
   = render 'shared/user/modal_details',
            user: @user
-javascript:
-    //when OG Tags are enabled we should check if FB has problems with this approach
-    document.body.innerHTML = ''; //make the page with the og tags appear empty for real humans
+  javascript:
+    document.body.innerHTML = '';
     window.location.href = '#{users_path(pictures: '')}#show(#user-id-#{@user.id})';
