@@ -25,19 +25,25 @@ class ModalManager
       history.pushState(null, null, "#show(#{this.currentModalIdentifier})")
     else
       location.hash = "show(#{this.currentModalIdentifier})"
+    this.stopPlayingVideoOnModalClose()
     this.removeModalIdFromLocationHashOnModalClose()
 
   removeModalIdFromLocationHashOnModalClose: ->
-    $(this.currentModalIdentifier).on('hidden.bs.modal', ->
+    $(this.currentModalIdentifier).on 'hidden.bs.modal', ->
       _this.currentModalIdentifier = undefined
       if history.pushState
         history.pushState(null, null, _this.basePath)
       else
         location.hash = ''
-    )
+
+  stopPlayingVideoOnModalClose: ->
+    $(this.currentModalIdentifier).on 'hidden.bs.modal', (e) ->
+      videoFrame = $(e.currentTarget).find('iframe')
+      videoFrame.attr('src', videoFrame.attr('src'))
 
   openModalFromUrl: ->
-    regexSearchGroup = /.*show\((#[-\w]+)\).*/.exec(window.location.hash)
+    unescapedHash = unescape(window.location.hash)
+    regexSearchGroup = /.*show\((#[-\w]+)\).*/.exec(unescapedHash)
     if !regexSearchGroup
       window.initialPopUp = new window.InitialPopUp()
       return

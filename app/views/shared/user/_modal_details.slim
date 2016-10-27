@@ -1,9 +1,9 @@
 .container-fluid
   - additional_class = 'user-default-image'
-  - additional_class = 'user-double-image' if user.large_image? || user.video_user?
+  - additional_class = 'user-double-image' if user.video_user?
   .row class="#{additional_class}"
     - additional_class = ''
-    - additional_class = 'col-lg-6' unless user.large_image? || user.video_user?
+    - additional_class = 'col-lg-6' unless user.video_user?
     .col-xs-12 class="#{additional_class}"
       - if user.video_user?
         .embed-responsive.embed-responsive-2by1
@@ -12,7 +12,7 @@
       - else
         .image style="background-image: url('#{asset_url(user.avatar(:normal))}')"
     .col-xs-12.details class="#{additional_class}"
-      - if user.statement && !user.large_image?
+      - if user.statement
         p.quote.user-quote
           = user.statement
       .box-details.user-name
@@ -24,9 +24,6 @@
             = t('users.status.locked')
       .links
         .link-small
-          - if user.large_image?
-            a href="#{users_path}"
-              = t('users.all-friends')
           - if member_signed_in?
             - if user == current_user
               = link_to t('users.actions.edit-profile'),

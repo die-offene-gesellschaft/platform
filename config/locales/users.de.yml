@@ -40,6 +40,7 @@ de:
       title: Profil bearbeiten
       under-review: 'Ihr Profil wird derzeit geprüft.'
       review-notice: 'Falls Daten geändert werden, die für andere Nutzer/Innen sichtbar sind, wird Ihr Profil nicht sichtbar sein bis wir es erneut freigeben. Daraufhin bekommen Sie eine entsprechende E-Mail von uns.'
+      terms-of-use: 'Ich akzeptiere die %{link}.'
       hints:
         password: 'muss immer angegeben werden'
       placeholer:

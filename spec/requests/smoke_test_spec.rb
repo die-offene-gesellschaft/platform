@@ -9,6 +9,8 @@ RSpec.describe "GET routes", type: :request do
                                 planned: false
     @user = @event.user
     @video_user = FactoryGirl.create :video_user
+    @vip_user = FactoryGirl.create :vip_user
+    @frontpage_user = FactoryGirl.create :frontpage_user
     @admin = FactoryGirl.create :admin
     @venue = @event.venue
     @comment = FactoryGirl.create :comment,
@@ -24,6 +26,7 @@ RSpec.describe "GET routes", type: :request do
     @content = FactoryGirl.create :content
     @press_review = FactoryGirl.create :press_review
     @idea = FactoryGirl.create :idea
+    @statement = FactoryGirl.create :statement
     FactoryGirl.create(:user, email: 'jane.doe@example.com', password: '12345678')
   end
 

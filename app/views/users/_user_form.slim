@@ -1,6 +1,5 @@
 = simple_form_for user do |f|
   .row
-    input.terms-of-use type="checkbox" name='user[terms_of_use]' id='terms-of-use' checked='checked'
     .col-xs-12.col-md-6.name-form
       h1.headline-white.title
         = t('users.user-form.title')
@@ -12,6 +11,10 @@
         = f.input :forename, input_html: { value: user.forename }
         = f.input :surname, input_html: { value: user.surname }
         = f.input :email, input_html: { value: user.email }
+        = f.input :current_password,
+                  as: :password,
+                  input_html: { autocomplete: 'off', placeholder: t('users.user-form.placeholer.password') },
+                  hint: t('users.user-form.hints.password')
         = f.input :password,
                   as: :password,
                   input_html: { placeholder: t('users.user-form.placeholer.new-password') }
@@ -26,6 +29,17 @@
           span.box
           span.text
             = t 'participate.options.newsletter'
+        - if user.terms_of_use
+          input type='hidden' name='user[terms_of_use]' value='on'
+        - else
+          - checked_attribute = {}
+          - checked_attribute = { checked: true } if user.terms_of_use
+          input.terms-of-use type="checkbox" name='user[terms_of_use]' id='terms-of-use'
+          label.boolean for='terms-of-use'
+            span.box
+            span.text
+              == t 'users.user-form.terms-of-use',
+                   link: link_to(t('participate.options.terms-of-use-label'), "#{imprint_path}#nutzungsbedingungen", target: '_blank')
 
     .col-xs-12.col-md-6.extended-form
       - if user.avatar_file_name?
@@ -41,19 +55,13 @@
       .inputs
         = f.input :avatar,
                   as: :file,
-                  input_html: { accept: '.jpg,.jpeg,.gif,.png' },
+                  input_html: { accept: '.jpg,.jpeg,.gif,.png', class: 'edit-user-avatar-input' },
                   hint: t('participate.hints.avatar')
-        = f.input :video_url,
-                  input_html: { value: user.video_url, placeholder: t('users.user-form.placeholer.video-url') }
         = f.input :role,
                   input_html: { value: user.role }
         = f.input :statement,
                   as: :text,
                   input_html: { value: user.statement, rows: 3 }
-        = f.input :current_password,
-                  as: :password,
-                  input_html: { autocomplete: 'off', placeholder: t('users.user-form.placeholer.password') },
-                  hint: t('users.user-form.hints.password')
 
         .delete-and-submit-group
           = f.submit t('users.user-form.save-changes'), class: 'button-style'

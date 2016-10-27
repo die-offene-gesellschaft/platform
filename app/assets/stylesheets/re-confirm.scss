@@ -1,0 +1,9 @@
+@import 'general-login-styles';
+
+.re-confirm {
+  @extend %general-login;
+}
+
+.re-confirm-links {
+  @extend %general-login-links;
+}

@@ -20,7 +20,10 @@ class User < ApplicationRecord
                           class_name: 'User'
 
   has_attached_file :avatar,
-                    styles: { normal: ['400x', :jpg] }
+                    styles: { normal: ['400x400^', :jpg],
+                              large: ['800x800^', :jpg] }
+
+  validates :avatar, dimensions: { width: 500, height: 500 }
 
   has_many :events
   has_many :comments
@@ -51,12 +54,8 @@ class User < ApplicationRecord
     "#{forename} #{surname}"
   end
 
-  def large_image?
-    false
-  end
-
   def video_user?
-    video_url.present?
+    !frontpage && video_url.present?
   end
 
   def youtube_id
@@ -97,7 +96,7 @@ class User < ApplicationRecord
   # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
   def self.apply_filters(collection, params)
     collection.reject do |user|
-      !user.confirmed_at && params['filter-emails-confirmed'] == 'true' ||
+      !user.confirmed_at && params['filter-email-confirmed'] == 'true' ||
         !user.locked && params['filter-locked'] == 'true' ||
         !user.newsletter && params['filter-newsletter'] == 'true' ||
         !user.terms_of_use && params['filter-terms-of-use'] == 'true' ||
@@ -116,11 +115,11 @@ class User < ApplicationRecord
                             .where.not(avatar_file_name: nil)
     statement_users = collection.where.not(statement: [nil, ''])
                                 .where(good_statement: true)
-                                .where.not(id: video_users.map(&:id)).sample(10)
+                                .where.not(id: video_users.map(&:id))
     picture_users = collection.where.not(avatar_file_name: nil)
                               .where(good_photo: true)
                               .where.not(id: video_users.map(&:id))
-                              .where.not(id: statement_users.map(&:id)).sample(10)
+                              .where.not(id: statement_users.map(&:id))
     users = collection.where.not(avatar_file_name: nil)
                       .where.not(id: video_users.map(&:id))
                       .where.not(id: statement_users.map(&:id))

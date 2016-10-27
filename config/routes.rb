@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :events do
     resources :comments, only: [:index, :show]
     resources :pictures, only: [:index, :show]
+    resources :statements, only: [:index, :show, :destroy, :create, :update]
   end
+  resources :statements, only: [:index, :show]
   resources :locations, only: [:index, :show, :edit, :new]
   resources :venues
   resources :contents, only: [:index, :show, :edit, :update]

@@ -1,4 +1,4 @@
-= simple_form_for blogpost do |f|
+= simple_form_for blogpost, html: { multipart: true } do |f|
   .row
     .col-xs-12
       .inputs
@@ -17,6 +17,8 @@
             .image style="background-image: url(#{asset_url(blogpost.thumbnail(:normal))});"
             input.file.optional name='blogpost[thumbnail]' id='blogpost_thumbnail' type='file'
         = f.input :reference
+        = f.input :date
+        = f.input :published
   .row.button-row
     .col-xs-12
       = render 'shared/button',

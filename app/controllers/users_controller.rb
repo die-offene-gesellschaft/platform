@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def index
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: @users }
+      format.json { render json: User.apply_filters(@users, params) }
     end
   end
 
@@ -31,12 +31,15 @@ class UsersController < ApplicationController
   def update
     return unless update_permitted?
 
-    if user_signed_in? && @user.update_with_password(params_with_locked_check)
+    if user_signed_in? && @user.update_with_password(user_update_params)
       flash.now[:notice] = t('actions.save.success')
       sign_in @user, bypass: true
-    elsif admin_signed_in? && @user.update(user_params)
+    elsif admin_signed_in? && @user.update(admin_update_params)
       flash.now[:notice] = t('actions.save.success')
     else
+      error_params = user_update_params
+      error_params.delete :current_password
+      @user.update(error_params)
       flash.now[:error] = t('users.user-form.error-notice',
                             error_description: @user.errors.full_messages.to_sentence)
     end
@@ -75,15 +78,22 @@ class UsersController < ApplicationController
     admin_signed_in? || (current_user && @user == current_user)
   end
 
-  def params_with_locked_check
+  def user_update_params
     # This should be model logic.
     # It currently isn't because of admins beeing able to change details.
     # Adopt this code as soon as admins just set 'locked' to true / false.
     new_params = user_params
-    new_params[:locked] = true if @user.role != user_params[:role] ||
+    new_params[:locked] = true if (@user.role != user_params[:role] ||
                                   @user.statement != user_params[:statement] ||
                                   @user.video_url != user_params[:video_url] ||
-                                  user_params[:avatar_file_name]
+                                  user_params[:avatar_file_name]) &&
+                                  user_signed_in?
+    new_params
+  end
+
+  def admin_update_params
+    new_params = user_params
+    new_params[:terms_of_use] = true if user_params[:locked] == '0' && admin_signed_in?
     new_params
   end
 
@@ -141,6 +151,7 @@ class UsersController < ApplicationController
       :surname, :terms_of_use, :video_url, :vip
     )
     tmp_params[:newsletter] = tmp_params[:newsletter] == 'on'
+    tmp_params[:terms_of_use] = tmp_params[:terms_of_use] == 'on'
     tmp_params
   end
 end

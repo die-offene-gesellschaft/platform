@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161015164621) do
+ActiveRecord::Schema.define(version: 20161027080123) do
 
   create_table "active_members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "forename"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20161015164621) do
     t.datetime "thumbnail_updated_at"
     t.integer  "admin_id"
     t.string   "reference"
+    t.datetime "date"
+    t.boolean  "published"
     t.index ["admin_id"], name: "index_blogposts_on_admin_id", using: :btree
   end
 

@@ -1,0 +1,9 @@
+@import 'general-login-styles';
+
+.login {
+  @extend %general-login;
+}
+
+.login-links {
+  @extend %general-login-links;
+}

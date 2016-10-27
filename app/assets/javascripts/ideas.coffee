@@ -13,18 +13,27 @@ class ModalFormManager
     })
 
     this.$form.on('ajax:success', ->
-      _this.submitSuccess()
+      _this.successfulSubmit()
     ).on 'ajax:error', (e, data, status, error) ->
       _this.renderFormErrors(data.responseJSON)
 
-  submitSuccess: ->
+  successfulSubmit: ->
     return unless this.modalIsVisible
+    this.clearFormFields()
+
     $('.submit-idea', this.$modal).addClass('hidden')
     $('.submit-success', this.$modal).removeClass('hidden')
 
   clearFormErrors: ->
     this.$form.find('.form-group').removeClass('has-error')
     this.$form.find('span.help-block').remove()
+
+  clearFormFields: ->
+    this.$form.find(':input')
+              .not(':button, :submit, :reset, :hidden')
+              .val('')
+              .removeAttr('checked')
+              .removeAttr('selected')
 
   renderFormErrors: (errors) ->
     return unless this.modalIsVisible

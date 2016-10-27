@@ -13,7 +13,8 @@ class Event < ApplicationRecord
                           join_table: 'event_participations'
 
   has_attached_file :picture,
-                    styles: { normal: ['800x', :jpg], logo: ['250x', :png] }
+                    styles: { normal: ['800x800^', :jpg],
+                              logo: ['250x250^', :png] }
 
   validates :title,
             :begin_at,
@@ -24,4 +25,12 @@ class Event < ApplicationRecord
 
   validates_attachment_content_type :picture,
                                     content_type: %r{\Aimage\/.*\z}
+
+  def moments
+    statements.where(question: [nil, ''])
+  end
+
+  def quotes
+    statements.where.not(question: [nil, ''])
+  end
 end

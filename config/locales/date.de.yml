@@ -217,6 +217,7 @@ de:
       short: "%d. %B, %H:%M Uhr"
       short_time: "%H:%M Uhr"
       short_date: "%d.%m."
+      short_date_with_weekday: "%a %d.%m."
       short_year_date: "%d.%m.%y"
       normal_date: "%d.%m.%Y"
     pm: nachmittags

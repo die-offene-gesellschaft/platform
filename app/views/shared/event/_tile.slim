@@ -1,11 +1,11 @@
 a.event href="#event-id-#{event.id}" data-toggle='modal' data-target="#event-id-#{event.id}"
   .date.calendar
-    = l(event.begin_at, format: :short_date) unless event.planned
+    = l(event.begin_at, format: :short_date_with_weekday) unless event.planned
   .venue
     - venue = event.venue
-    = venue.name
+    = venue.city
 - content_for :modals do
-  .modal.fade id="event-id-#{event.id}" tabindex="-1" role="dialog" aria-labelledby="event-id-#{event.id}" aria-hidden="true"
+  .modal.fade id="event-id-#{event.id}" tabindex="-1" role="dialog" aria-labelledby="event-id-#{event.id}" aria-hidden="true" data-turbolinks='false'
     .modal-dialog role="document"
       .modal-content
         button.close type="button" data-dismiss="modal" aria-label="Close"

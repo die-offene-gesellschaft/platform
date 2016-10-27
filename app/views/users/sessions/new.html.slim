@@ -1,6 +1,6 @@
-.row
-  .col-xs-12
-    h2
+.row.login
+  .col-xs-12.col-md-8.push-md-2
+    h1
       = t('devise.login')
     = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .form-inputs
@@ -12,6 +12,6 @@
                  type: 'submit',
                  label: t('devise.login'),
                  icon: 'sign-in'
-.row
-  .col-xs-12
+.row.login-links
+  .col-xs-12.col-md-8.push-md-2
     = render 'users/shared/links'

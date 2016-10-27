@@ -1,0 +1,12 @@
+de:
+  statements:
+    quotes: 'Zitate'
+    moments: 'Momente'
+    actions:
+      add-quote: 'Zitat hinzufügen'
+      add-moment: 'Moment hinzufügen'
+    attributes:
+      id: '#'
+      question: Frage
+      content: Inhalt
+      author: Autor

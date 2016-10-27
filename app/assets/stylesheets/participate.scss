@@ -176,6 +176,11 @@
     margin-top: 21px;
     text-align: right;
 
+    .edit-user-avatar-input {
+      padding: 0;
+      text-align: left;
+    }
+
     .avatar-input {
       height: .1px;
       opacity: 0;
@@ -314,7 +319,7 @@
       font-size: 23px;
       font-stretch: normal;
       font-style: normal;
-      font-weight: normal;
+      font-weight: 600;
       letter-spacing: .5px;
       margin: 80px 0 6px;
       text-align: left;
@@ -370,6 +375,15 @@
     background-color: $red;
     color: $white;
 
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: 600;
+    }
+
     a,
     a:hover {
       color: $white;
@@ -391,18 +405,6 @@
         text-align: center;
         text-decoration: none;
         text-transform: uppercase;
-
-        // @include media-breakpoint-down(md) {
-        //   margin-top: 3vw;
-        // }
-        //
-        // @include media-breakpoint-down(lg) {
-        //   margin-top: 4vw;
-        // }
-        //
-        // @include media-breakpoint-down(sm) {
-        // }
-
       }
     }
 

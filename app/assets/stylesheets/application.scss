@@ -6,8 +6,8 @@
 @import 'variables';
 @import 'bootstrap-overwrites';
 @import 'bootstrap';
+@import 'fonts';
 @import 'font-awesome';
-@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700';
 
 // partial styling
 @import 'about';
@@ -27,6 +27,10 @@
 @import 'guideline';
 @import 'imprint';
 @import 'initial_pop_up_modal';
+@import 'login';
+@import 'reset-password';
+@import 're-confirm';
+@import 'change-password';
 
 @import 'styleguide';
 
@@ -42,6 +46,7 @@ body {
   background-color: $white;
 }
 
+
 .content-container {
   min-height: calc(100% - 151px);
 
@@ -51,6 +56,7 @@ body {
 
   a {
     color: $red;
+    font-weight: 600;
   }
 
   a:hover,
@@ -405,6 +411,10 @@ form {
 .button-row {
   text-align: right;
 
+  &.row {
+    margin-bottom: 1rem;
+  }
+
   a,
   button {
     margin: 0 0 0 1rem;
@@ -457,4 +467,33 @@ form {
   bottom: 0;
   left: 0;
   position: absolute;
+}
+
+table {
+  .controls {
+    text-align: right;
+    visibility: hidden;
+  }
+
+  tr {
+    &:hover {
+      .controls {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.touch {
+  table {
+    .controls {
+      visibility: visible;
+    }
+  }
+}
+
+.user-double-image {
+  .image {
+    padding: 0 0 100%;
+  }
 }

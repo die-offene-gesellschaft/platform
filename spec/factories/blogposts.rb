@@ -5,5 +5,6 @@ FactoryGirl.define do
     introduction "MyText"
     content "MyText"
     admin { FactoryGirl.create(:admin) }
+    date Time.zone.now
   end
 end

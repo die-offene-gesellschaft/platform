@@ -2,26 +2,26 @@ ruby:
   picture = defined?(picture) && picture == false ? false : true
   statement = defined?(statement) && statement ? true : false
 
-a.user href="#user-id-#{user.id}" style="#{"background-image: url(#{asset_url(user.avatar(:normal))});" unless statement}" data-toggle='modal' data-target="#user-id-#{user.id}"
-  - if statement
-    p.statement.quote
-      = user.statement
-    .name-and-role
-      p.box-details
-        = "#{user.forename} #{user.surname}"
-      p.quote-role
-        = user.role
-  - elsif user.video_user?
-    = image_tag 'video-play.svg',
-                class: 'video-play-icon'
-- content_for :modals do
-  .modal.fade id="user-id-#{user.id}" tabindex="-1" role="dialog" aria-labelledby="user-id-#{user.id}" aria-hidden="true"
-    .modal-dialog role="document"
-      .modal-content
-        button.close type="button" data-dismiss="modal" aria-label="Close"
-          span aria-hidden="true"
-            = fa_icon 'times'
-        .modal-body.user-modal
-            = render 'shared/user/modal_details',
-                     user: user,
-                     large_user_image: false
+- if user
+  a.user href="#user-id-#{user.id}" style="#{"background-image: url(#{asset_url(user.avatar(:normal))});" unless statement}" data-toggle='modal' data-target="#user-id-#{user.id}"
+    - if statement
+      p.statement.quote
+        = user.statement
+      .name-and-role
+        p.box-details
+          = "#{user.forename} #{user.surname}"
+        p.quote-role
+          = user.role
+    - elsif user.video_user?
+      = image_tag 'video-play.svg',
+                  class: 'video-play-icon'
+  - content_for :modals do
+    .modal.fade id="user-id-#{user.id}" tabindex="-1" role="dialog" aria-labelledby="user-id-#{user.id}" aria-hidden="true" data-turbolinks='false'
+      .modal-dialog role="document"
+        .modal-content
+          button.close type="button" data-dismiss="modal" aria-label="Close"
+            span aria-hidden="true"
+              = fa_icon 'times'
+          .modal-body.user-modal
+              = render 'shared/user/modal_details',
+                       user: user

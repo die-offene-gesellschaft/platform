@@ -1,5 +1,6 @@
 footer {
   height: 96px;
+  margin-top: 50px;
   position: relative;
 
   @media (min-width: $mobile-breakpoint-width) {
@@ -32,13 +33,13 @@ footer {
 
   .top-link {
     bottom: 13px;
-    color: $red;
+    color: $meta-nav-gray;
     font-family: 'Montserrat', sans-serif;
     font-size: 19px;
     font-stretch: normal;
     font-style: normal;
     font-weight: 600;
-    left: 13px;
+    left: 29px;
     letter-spacing: .4px;
     line-height: 23px;
     position: absolute;
