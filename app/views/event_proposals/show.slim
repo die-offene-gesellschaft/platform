@@ -1,42 +1,65 @@
-p#notice = notice
+.ideas
+  = render 'shared/admin_tabs', active: :event_proposal
 
-p
-  strong Title:
-  = @event_proposal.title
-p
-  strong Subject:
-  = @event_proposal.subject
-p
-  strong Venue:
-  = @event_proposal.venue
-p
-  strong Date:
-  = @event_proposal.date
-p
-  strong Organizer:
-  = @event_proposal.organizer
-p
-  strong Contact person forename:
-  = @event_proposal.contact_person_forename
-p
-  strong Contact person surname:
-  = @event_proposal.contact_person_surname
-p
-  strong Contact person mail:
-  = @event_proposal.contact_person_mail
-p
-  strong Contact person phone:
-  = @event_proposal.contact_person_phone
-p
-  strong Participants:
-  = @event_proposal.participants
-p
-  strong Symbol for open society:
-  = @event_proposal.symbol_for_open_society
-p
-  strong Terms of use:
-  = @event_proposal.terms_of_use
+  = simple_form_for @event_proposal do |f|
+    .row
+      .col-xs-12
+        .inputs
 
-= link_to 'Edit', edit_event_proposal_path(@event_proposal)
-'|
-= link_to 'Back', event_proposals_path
+          = f.input :title,
+                    readonly: true,
+                    disabled: true
+          = f.input :subject,
+                    readonly: true,
+                    disabled: true
+          = f.input :organizer,
+                    readonly: true,
+                    disabled: true
+          = f.input :participants,
+                    readonly: true,
+                    disabled: true
+          = f.input :date,
+                    readonly: true,
+                    disabled: true
+          = f.input :venue,
+                    readonly: true,
+                    disabled: true
+          = f.input :symbol_for_open_society,
+                    readonly: true,
+                    disabled: true
+
+          / - if @event_proposal.logo_file_name?
+          /   .image style="background-image: url(#{asset_url(@event_proposal.logo(:normal))});"
+          / - else
+          /   p
+          /     = t('event_proposals.blank-slates.logo')
+          / - if @event_proposal.picture_file_name?
+          /   .image style="background-image: url(#{asset_url(@event_proposal.picture(:normal))});"
+          / - else
+          /   p
+          /     = t('event_proposals.blank-slates.picture')
+
+          = f.input :contact_person_forename,
+                    readonly: true,
+                    disabled: true
+          = f.input :contact_person_surname,
+                    readonly: true,
+                    disabled: true
+          = f.input :contact_person_mail,
+                    readonly: true,
+                    disabled: true
+          = f.input :contact_person_phone,
+                    readonly: true,
+                    disabled: true
+    .row.button-row
+      .col-xs-12
+        = render 'shared/button',
+                 label: t('delete'),
+                 icon: 'times',
+                 confirm: t('confirm'),
+                 method: 'delete',
+                 href: event_proposal_path(@event_proposal) if @event_proposal.id
+        /= render 'shared/button',
+                 type: 'submit',
+                 label: t('save'),
+                 icon: 'check'

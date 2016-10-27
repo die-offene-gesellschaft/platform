@@ -24,6 +24,9 @@ de:
       event:
         one: Aktion
         other: Aktionen
+      event_proposal:
+        one: Veranstaltungsanmeldung
+        other: Veranstaltungsanmeldungen
       venue:
         one: Veranstaltungsort
         other: Veranstaltungsorte

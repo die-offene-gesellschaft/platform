@@ -1,0 +1,10 @@
+de:
+  event_proposals:
+    attributes:
+      id: '#'
+      title: Titel
+      date: Termin
+      venue: Ort
+    blank-slates:
+      logo: Kein Logo hochgeladen.
+      picture: Kein Bild hochgeladen.

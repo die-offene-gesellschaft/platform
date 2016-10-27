@@ -1,43 +1,27 @@
-h1 Listing event_proposals
+.event_proposals
+  = render 'shared/admin_tabs', active: :event_proposal
 
-table
-  thead
-    tr
-      th Title
-      th Subject
-      th Venue
-      th Date
-      th Organizer
-      th Contact person forename
-      th Contact person surname
-      th Contact person mail
-      th Contact person phone
-      th Participants
-      th Symbol for open society
-      th Terms of use
-      th
-      th
-      th
-
-  tbody
-    - @event_proposals.each do |event_proposal|
-      tr
-        td = event_proposal.title
-        td = event_proposal.subject
-        td = event_proposal.venue
-        td = event_proposal.date
-        td = event_proposal.organizer
-        td = event_proposal.contact_person_forename
-        td = event_proposal.contact_person_surname
-        td = event_proposal.contact_person_mail
-        td = event_proposal.contact_person_phone
-        td = event_proposal.participants
-        td = event_proposal.symbol_for_open_society
-        td = event_proposal.terms_of_use
-        td = link_to 'Show', event_proposal
-        td = link_to 'Edit', edit_event_proposal_path(event_proposal)
-        td = link_to 'Destroy', event_proposal, data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
-= link_to 'New Event proposal', new_event_proposal_path
+  .row
+    .col-xs-12
+      table.table.table-striped.table-hover
+        thead
+          tr
+            td
+              = t('event_proposals.attributes.id')
+            td
+              = t('event_proposals.attributes.title')
+            td
+              = t('event_proposals.attributes.date')
+            td
+              = t('event_proposals.attributes.venue')
+        tbody
+          - @event_proposals.each do |event_proposal|
+            tr data-href="#{event_proposal_path(event_proposal)}"
+              td
+                = event_proposal.id
+              td
+                = event_proposal.title
+              td
+                = event_proposal.date
+              td
+                = event_proposal.venue
