@@ -5,7 +5,7 @@ AllCops:
 Metrics/LineLength:
   Max: 100
 Metrics/MethodLength:
-  Max: 15
+  Max: 16
 Metrics/AbcSize:
   Max: 23
 Rails/HasAndBelongsToMany:

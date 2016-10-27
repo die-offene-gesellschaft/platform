@@ -1,0 +1,76 @@
+.row
+  .col-xs-12
+    h1
+      = t 'participate.diy.event_proposal.modal.title'
+
+.submit-form
+  .row
+    .col-xs-12
+      p
+        == t 'participate.diy.event_proposal.modal.description'
+
+  .row
+    = simple_form_for record, remote: true do |f|
+      .col-lg-8.offset-lg-2.event-proposal-form
+        = f.input :title,
+                  placeholder: t('participate.diy.event_proposal.modal.placeholder.title')
+        = f.input :subject,
+                  placeholder: t('participate.diy.event_proposal.modal.placeholder.subject'),
+                  input_html: { rows: 5 }
+        = f.input :organizer,
+                  placeholder: t('participate.diy.event_proposal.modal.placeholder.organizer')
+        = f.input :participants,
+                  placeholder: t('participate.diy.event_proposal.modal.placeholder.participants')
+        = f.input :date,
+                  placeholder: t('participate.diy.event_proposal.modal.placeholder.date')
+        = f.input :venue,
+                  placeholder: t('participate.diy.event_proposal.modal.placeholder.venue')
+        = f.input :symbol_for_open_society,
+                  placeholder: t('participate.diy.event_proposal.modal.placeholder.symbol_for_open_society'),
+                  input_html: { rows: 5 }
+
+        = f.input :logo,
+                  as: :file,
+                  label_html: { class: 'logo-label' },
+                  input_html: { accept: '.jpg,.jpeg,.gif,.png', class: 'logo-input' },
+                  label: t('participate.diy.event_proposal.modal.label.logo')
+        = f.input :picture,
+                  as: :file,
+                  label_html: { class: 'picture-label' },
+                  input_html: { accept: '.jpg,.jpeg,.gif,.png', class: 'picture-input' },
+                  label: t('participate.diy.event_proposal.modal.label.picture')
+
+        .contact-person-details
+          p.contact-person-label
+            = t('participate.diy.event_proposal.modal.contact_person')
+          = f.input :contact_person_forename,
+                    placeholder: t('participate.diy.event_proposal.modal.placeholder.contact_person_forename')
+          = f.input :contact_person_surname,
+                    placeholder: t('participate.diy.event_proposal.modal.placeholder.contact_person_surname')
+          = f.input :contact_person_mail,
+                    placeholder: t('participate.diy.event_proposal.modal.placeholder.contact_person_mail')
+          = f.input :contact_person_phone,
+                    placeholder: t('participate.diy.event_proposal.modal.placeholder.contact_person_phone')
+
+        .terms-of-use
+          input type="checkbox" name='event_proposal[terms_of_use]' id='terms_of_use'
+          label.boolean for='terms_of_use'
+            span.box
+            span.text
+              = t('participate.diy.event_proposal.modal.terms_of_use')
+
+        = f.submit t('participate.diy.event_proposal.modal.submit')
+
+        p.further-questions
+          - link = link_to t('participate.diy.event_proposal.modal.guidelines-link-label'), '/guideline'
+          == t('participate.diy.event_proposal.modal.guidelines', link: link)
+
+
+.submit-success.hidden
+  .row
+    .col-xs-12
+      p
+        == t 'participate.diy.event_proposal.modal.submit-success'
+
+coffee:
+  window.modalFormManager = new window.ModalFormManager('#participate_event_proposal')

@@ -38,6 +38,31 @@ de:
             email: 'Email'
             phone: 'Telefon (optional)'
           submit: 'Absenden'
-      event:
+      event_proposal:
         text: 'Sie veranstalten bereits eine Aktion im Sinne der Offenen Gesellschaft? Teilen Sie uns Ihr Vorhaben mit! Wir unterstützen Sie gerne. Hier finden Sie unseren %{guideline_link}.'
         button-label: Veranstaltung mitteilen
+        modal:
+          title: Veranstaltung anmelden
+          description: <p>Überall in Europa erstarken rechtspopulistische und rechtsextreme Parteien, Feinde einer offenen Gesellschaft. Die Offene Gesellschaft braucht daher die Unterstützung ihrer Freunde.</p>
+          submit-success: '<p>Danke! Wir prüfen Ihre Anmeldung und melden uns möglichst bald bei Ihnen zurück.</p>
+          <p>Ihr Team der Initiative Offene Gesellschaft</p>'
+          placeholder:
+            title: Title der Veranstaltung
+            subject: 'Thema und Format (z.B.: Debatte über …, Lesung von …)'
+            venue: Veranstaltungsort (Adresse)
+            date: Termin / Uhrzeit (als Text)
+            organizer: 'Veranstalter (z.B.: Studentengruppe, Verein, Stiftung, Theater, …)'
+            contact_person_forename: Vorname
+            contact_person_surname: Nachname
+            contact_person_mail: Mailadresse
+            contact_person_phone: Telefon (optional)
+            participants: Mitwirkende (optional)
+            symbol_for_open_society: 'Inwiefern setzt Ihre Veranstaltung ein Zeichen für eine offenen Gesellschaft? (z.B.: “Es begegnen sich Menschen unterschiedlichen Glaubens...”)'
+          label:
+            logo: Logo Ihrer Organisation (optional)
+            picture: Foto/Bild zur Ankündigung (optional)
+          terms_of_use: 'Ich erkläre mich damit einverstanden: Bei der Einladung zur Veranstaltung das Logo der Initiative zu nutzen (Digital, Print), vor Ort das Material (Postkarten/Flyer...) zu verwenden, das mir die Initiative zur Verfügung stellt, der Initiative bei der Dokumentation meiner Veranstaltung zu helfen und hierzu die erforderlichen Rechte an mindestens einem Foto einzuräumen (Bitte weisen Sie die Besucher darauf hin, wenn fotografiert und/oder aufgezeichnet wird).'
+          contact_person: 'Ansprechpartner/in'
+          submit: 'Anmeldung abschicken'
+          guidelines: 'Sie haben Fragen? %{link} finden Sie unseren Leitfaden für Aktionspartner.'
+          guidelines-link-label: Hier

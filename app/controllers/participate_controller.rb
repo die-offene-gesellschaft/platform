@@ -9,7 +9,7 @@ class ParticipateController < ApplicationController
   def show
     @participation = {
       idea: Idea.new,
-      event: Event.new
+      event_proposal: EventProposal.new
     }
   end
 

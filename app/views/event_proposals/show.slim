@@ -1,0 +1,42 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @event_proposal.title
+p
+  strong Subject:
+  = @event_proposal.subject
+p
+  strong Venue:
+  = @event_proposal.venue
+p
+  strong Date:
+  = @event_proposal.date
+p
+  strong Organizer:
+  = @event_proposal.organizer
+p
+  strong Contact person forename:
+  = @event_proposal.contact_person_forename
+p
+  strong Contact person surname:
+  = @event_proposal.contact_person_surname
+p
+  strong Contact person mail:
+  = @event_proposal.contact_person_mail
+p
+  strong Contact person phone:
+  = @event_proposal.contact_person_phone
+p
+  strong Participants:
+  = @event_proposal.participants
+p
+  strong Symbol for open society:
+  = @event_proposal.symbol_for_open_society
+p
+  strong Terms of use:
+  = @event_proposal.terms_of_use
+
+= link_to 'Edit', edit_event_proposal_path(@event_proposal)
+'|
+= link_to 'Back', event_proposals_path

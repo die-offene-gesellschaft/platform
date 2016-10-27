@@ -74,6 +74,7 @@
                                      .gsub(/%{paypal_link}/, paypal_link)
       == content
 
+  / DIY section
   .row.do-it-yourself
     .col-xs-12.col-md-6.diy-text
       a name='do-it-yourself'
@@ -87,9 +88,9 @@
           = t 'participate.diy.idea.button-label'
 
       p
-        == t('participate.diy.event.text', guideline_link: link)
-        a.mitteilen href='#participate_event' data-toggle='modal' data-target='#participate_event'
-          = t 'participate.diy.event.button-label'
+        == t('participate.diy.event_proposal.text', guideline_link: link)
+        a.mitteilen href='#participate_event_proposal' data-toggle='modal' data-target='#participate_event_proposal'
+          = t 'participate.diy.event_proposal.button-label'
 
     .col-xs-12.col-md-6.diy-avatars
       - @event_pictures.each_with_index do |picture, index|
@@ -97,7 +98,7 @@
         - additional_class = 'additional-images-lg' if index >= 12
         .image style="background-image: url(#{asset_url(picture.picture(:normal))});" class="#{additional_class}"
 
-  - %w(idea event).each do |modal_name|
+  - %w(idea event_proposal).each do |modal_name|
     .modal.fade id="participate_#{modal_name}" tabindex='-1' role='dialog' aria-labelledby="participate_#{modal_name}" aria-hidden='true'
       .modal-dialog role='document'
         .modal-content.participate-modal

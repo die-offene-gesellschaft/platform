@@ -1,6 +1,6 @@
 class IdeasController < ApplicationController
   before_action :authenticate_admin!, except: [:create]
-  before_action :set_idea, only: [:edit, :update, :destroy]
+  before_action :set_idea, only: [:show, :destroy]
 
   # GET /ideas
   # GET /ideas.json
@@ -8,8 +8,9 @@ class IdeasController < ApplicationController
     @ideas = Idea.all
   end
 
-  # GET /ideas/1/edit
-  def edit
+  # GET /ideas/1
+  # GET /ideas/1.json
+  def show
   end
 
   # POST /ideas.json
@@ -21,16 +22,6 @@ class IdeasController < ApplicationController
     else
       render json: @idea.errors,
              status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /ideas/1
-  def update
-    if @idea.update(idea_params)
-      redirect_to @idea, notice: t('actions.save.success')
-    else
-      flash.now[:error] = t('actions.save.error')
-      render :edit
     end
   end
 

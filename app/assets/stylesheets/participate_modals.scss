@@ -18,6 +18,44 @@
     right: auto;
   }
 
+  .event-proposal-form {
+    .file {
+      label {
+        display: block;
+      }
+    }
+
+    .contact-person-label {
+      margin: 51px 0 8px;
+      text-align: right;
+    }
+
+    .terms-of-use {
+      .help-block {
+        display: block;
+        margin: -18px 0 35px;
+        text-align: left;
+      }
+    }
+
+    [name="commit"] {
+      bottom: auto;
+      max-width: 260px;
+      position: inherit;
+      right: auto;
+      width: 260px;
+    }
+
+    .further-questions {
+      margin: 26px 0;
+
+      a {
+        color: $white;
+        text-decoration: underline;
+      }
+    }
+  }
+
   .hidden {
     display: none;
   }
