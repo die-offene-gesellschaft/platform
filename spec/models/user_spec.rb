@@ -51,6 +51,18 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe 'avatar' do
+    it 'should be at least 500x500px big' do
+      @user.avatar = File.open("#{Rails.root}/spec/fixtures/images/test.jpg")
+      expect(@user).to be_valid
+    end
+
+    it 'should not be smaller than 500x500px' do
+      @user.avatar = File.open("#{Rails.root}/spec/fixtures/images/smaller-than-500x500.jpg")
+      expect(@user).to be_invalid
+    end
+  end
+
   describe 'video_url' do
     it 'can be nil' do
       @user.video_url = nil
