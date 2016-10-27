@@ -26,4 +26,7 @@ class EventProposal < ApplicationRecord
             :symbol_for_open_society,
             :terms_of_use,
             presence: true
+
+  validates :contact_person_mail,
+            format: { with: /\A\S+@\S+\.\S+\z/ }
 end

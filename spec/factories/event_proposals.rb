@@ -7,7 +7,7 @@ FactoryGirl.define do
     organizer "MyString"
     contact_person_forename "MyString"
     contact_person_surname "MyString"
-    contact_person_mail "MyString"
+    contact_person_mail "ich.du@wir.de"
     contact_person_phone "MyString"
     participants "MyString"
     symbol_for_open_society "MyText"

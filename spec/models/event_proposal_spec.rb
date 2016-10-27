@@ -32,6 +32,22 @@ RSpec.describe EventProposal, type: :model do
     end
   end
 
+  describe 'contact_person_mail' do
+    it 'should not be an invalid email' do
+      ['foo@', 'foo @bar', 'f o@b a.com', '@bar.com'].each do |invalid_email|
+        @event_proposal.contact_person_mail = invalid_email
+        expect(@event_proposal).to be_invalid
+      end
+    end
+
+    it 'should be a valid email' do
+      ['foo@bar.com', 'john.doe@example.com', 'johnny_doe90@gmail.com'].each do |valid_email|
+        @event_proposal.contact_person_mail = valid_email
+        expect(@event_proposal).to be_valid
+      end
+    end
+  end
+
   describe 'logo' do
     it 'should be at least 500x500px big' do
       @event_proposal.logo = File.open("#{Rails.root}/spec/fixtures/images/test.jpg")
