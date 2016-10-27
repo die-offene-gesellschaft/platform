@@ -40,7 +40,7 @@ class ParticipateController < ApplicationController
 
   def set_contents
     @contents = {}
-    [:what_next, :support, :diy].each do |key|
+    [:what_next, :support].each do |key|
       @contents[key] = get_content_for_key key
     end
   end
