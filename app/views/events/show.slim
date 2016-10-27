@@ -1,6 +1,23 @@
+- content_for :meta_tags do
+  ruby:
+    if @event.picture.path
+      image = asset_url(@event.picture(:normal))
+      image_type = @event.picture_content_type
+    else
+      image = asset_url('DoG_logo.png')
+      image_type = 'image/png'
+    end
+  meta property="og:url" content="#{event_url(@event)}"
+  meta property="og:title" content="#{@event.title}"
+  meta property="og:description" content="#{@event.description}"
+  meta property="og:image" content="#{image}"
+  meta property="og:image:type" content="#{image_type}"
+  meta name="twitter:title" content="#{@event.title}"
+  meta name="twitter:url" content="#{event_url(@event)}"
+
 .events
   = render 'shared/event/modal_details',
            event: @event
-
   javascript:
+    document.body.innerHTML = '';
     window.location.href = '#{events_path(appointments: '')}#show(#event-id-#{@event.id})'
