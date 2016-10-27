@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :authenticate_admin!
+  before_action :authenticate_admin!, except: [:create]
   before_action :set_idea, only: [:edit, :update, :destroy]
 
   # GET /ideas
@@ -14,11 +14,13 @@ class IdeasController < ApplicationController
 
   # POST /ideas.json
   def create
-    @idea = Event.new(idea_params)
+    @idea = Idea.new(idea_params)
     if @idea.save
-      render :nothing, status: :ok
+      render json: { status: 'idea saved' },
+             status: :ok
     else
-      render status: :unprocessable_entity, json: @idea.errors
+      render json: @idea.errors,
+             status: :unprocessable_entity
     end
   end
 
