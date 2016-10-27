@@ -22,9 +22,9 @@ ruby:
         list: { label: t('header.nav.users_list'), url: users_path(list: '') }
       }
     },
-    about: { label: t('header.nav.about'), url: about_path },
-    # blogposts: { label: t('header.nav.blogposts'), url: blogposts_path }
+    about: { label: t('header.nav.about'), url: about_path }
   }
+  nav_items[:blogposts] = { label: t('header.nav.blogposts'), url: blogposts_path } if Blogpost.enough_published?
 header.container-fluid id="header"
   .menu
     input#menu type='checkbox'

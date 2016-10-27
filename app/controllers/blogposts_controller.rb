@@ -8,7 +8,11 @@ class BlogpostsController < ApplicationController
   # GET /blogposts
   # GET /blogposts.json
   def index
-    @blogposts = Blogpost.all
+    @blogposts = Blogpost.where(published: true)
+                         .where('date <= ?', Time.zone.now)
+                         .order(date: :desc)
+    @blogposts = Blogpost.all if admin_signed_in?
+
     respond_to do |format|
       format.html { render :index }
       format.json { render json: @blogposts }
@@ -34,37 +38,23 @@ class BlogpostsController < ApplicationController
   end
 
   # POST /blogposts
-  # POST /blogposts.json
   def create
     @blogpost = Blogpost.new(blogpost_params)
-    respond_to do |format|
-      if @blogpost.save
-        format.html { redirect_to blogposts_path, notice: t('actions.save.success') }
-        format.json { render :show, status: :created, location: @blogpost }
-      else
-        format.html do
-          flash.now[:error] = t('actions.save.error')
-          render :new
-        end
-        format.json { render json: @blogpost.errors, status: :unprocessable_entity }
-      end
+    if @blogpost.save
+      redirect_to blogposts_path, notice: t('actions.save.success')
+    else
+      flash.now[:error] = t('actions.save.error')
+      render :new
     end
   end
 
   # PATCH/PUT /blogposts/1
-  # PATCH/PUT /blogposts/1.json
   def update
-    respond_to do |format|
-      if @blogpost.update(blogpost_params)
-        format.html { redirect_to blogposts_path, notice: t('actions.save.success') }
-        format.json { render :show, status: :ok, location: @blogpost }
-      else
-        format.html do
-          flash.now[:error] = t('actions.save.error')
-          render :edit
-        end
-        format.json { render json: @blogpost.errors, status: :unprocessable_entity }
-      end
+    if @blogpost.update(blogpost_params)
+      redirect_to blogposts_path, notice: t('actions.save.success')
+    else
+      flash.now[:error] = t('actions.save.error')
+      render :edit
     end
   end
 
@@ -72,10 +62,7 @@ class BlogpostsController < ApplicationController
   # DELETE /blogposts/1.json
   def destroy
     @blogpost.destroy
-    respond_to do |format|
-      format.html { redirect_to blogposts_url, notice: t('actions.destroy.success') }
-      format.json { head :no_content }
-    end
+    redirect_to blogposts_url, notice: t('actions.destroy.success')
   end
 
   private
@@ -94,7 +81,9 @@ class BlogpostsController < ApplicationController
       :content,
       :hero,
       :thumbnail,
-      :reference
+      :reference,
+      :date,
+      :published
     )
     tmp_params[:admin] = current_admin
     tmp_params
