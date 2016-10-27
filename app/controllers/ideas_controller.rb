@@ -12,6 +12,17 @@ class IdeasController < ApplicationController
   def edit
   end
 
+  # POST /ideas
+  def create
+    @idea = Event.new(idea_params)
+    if @idea.save
+      redirect_to ideas_path, notice: t('actions.save.success')
+    else
+      flash.now[:error] = t('actions.save.error')
+      render :new
+    end
+  end
+
   # PATCH/PUT /ideas/1
   # PATCH/PUT /ideas/1.json
   def update

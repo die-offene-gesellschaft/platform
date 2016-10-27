@@ -25,7 +25,19 @@ de:
         button-label: Idee mitteilen
         modal:
           title: Idee mitteilen
-          description: 'Schildern Sie uns Ihre Aktionsidee im Sinne einer offenen Gesellschaft. Wir geben Ihnen möglichst bald Feedback...'
+          description: '<p>Wir unterstützen die Freundinnen und Freunde der Offenen Gesellschaft dabei, mit Aktionen für Demokratie und Vielfalt einzutreten. Setzen wir gemeinsam Gedanken, Ideen, und Talente frei. Ermöglichen wir Begegnungen und persönliche Momente.</p>
+          <p>Sie haben eine Aktionsidee? Dann geben Sie uns Bescheid. Wir überlegen, wie wir Sie unterstützen können und setzen uns mit Ihnen in Verbindung.</p>'
+          submit-success: '<p>Danke für Ihre Idee! Wir melden uns möglichst bald bei Ihnen zurück.</p>
+          <p>Ihr Team der Initiative Offene Gesellschaft</p>'
+          placeholder:
+            subject: 'Was? Bitte skizzieren Sie Ihr Vorhaben.'
+            time: 'Wann? Haben Sie schon einen Termin oder Zeitraum für Ihre Aktion?'
+            location: 'Wo?'
+            contact_person: 'Ansprechpartner/in'
+            organisation: 'Organisation (optional)'
+            email: 'Email'
+            phone: 'Telefon (optional)'
+          submit: 'Absenden'
       event:
         text: 'Sie veranstalten bereits eine Aktion im Sinne der Offenen Gesellschaft? Teilen Sie uns Ihr Vorhaben mit! Wir unterstützen Sie gerne. Hier finden Sie unseren %{guideline_link}.'
         button-label: Veranstaltung mitteilen

@@ -30,7 +30,12 @@ html
              pop_up: @pop_up
     = render 'shared/header'
     = render 'shared/flash'
+
     .container-fluid.content-container
       = yield
+
+    coffee:
+      window.modalManager = new window.ModalManager()
+
     = render 'shared/footer',
              current_year: @current_year

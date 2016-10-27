@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :contents, only: [:index, :show, :edit, :update]
   resources :admins
   resources :press_reviews
-  resources :ideas, except: [:show, :new, :create]
+  resources :ideas, except: [:show, :new]
   resources :users, except: [:new, :create] do
     delete '/avatar',
            to: 'users#delete_avatar',

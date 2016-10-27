@@ -1,27 +1,44 @@
-h1
-  = t 'participate.diy.idea.modal.title'
+.row
+  .col-xs-12
+    h1
+      = t 'participate.diy.idea.modal.title'
 
-p
-  = t 'participate.diy.idea.modal.description'
+.submit-idea
+  .row
+    .col-xs-12
+      p
+        == t 'participate.diy.idea.modal.description'
 
-= simple_form_for record do |f|
-  = f.input :subject
+  .row
+    = simple_form_for record, remote: true do |f|
+      .col-lg-8.offset-lg-2.idea-form
+        .idea-details
+          = f.input :subject,
+                    placeholder: t('participate.diy.idea.modal.placeholder.subject'),
+                    input_html: { rows: 5 }
+          = f.input :time,
+                    placeholder: t('participate.diy.idea.modal.placeholder.time'),
+                    input_html: { rows: 5 }
+          = f.input :location,
+                    placeholder: t('participate.diy.idea.modal.placeholder.location'),
+                    input_html: { rows: 5 }
 
-/ Titel der Aktion:
-/
-/Worum geht es? (z.B.: Diskussion, Picknick, Bootsfahrt, Lesung mit xy....)
-/
-/Wie setzt Ihre Aktion ein Zeichen für eine offenen Gesellschaft? (z.B.: “Es begegnen sich Menschen unterschiedlicher Herkunft...”)
-/
-/Wunschtermin:
-/
-/Wunschort:
-/
-/ Mitwirkende (optional):
-/
-/ Ansprechpartner
-/ Vorname:
-/ Nachname:
-/ Mailadresse:
-/ Telefon:
-/  (Button: Senden)
+        = f.input :contact_person,
+                  placeholder: t('participate.diy.idea.modal.placeholder.contact_person')
+        = f.input :organisation,
+                  placeholder: t('participate.diy.idea.modal.placeholder.organisation')
+        = f.input :email,
+                  placeholder: t('participate.diy.idea.modal.placeholder.email')
+        = f.input :phone,
+                  placeholder: t('participate.diy.idea.modal.placeholder.phone')
+
+        = f.submit t('participate.diy.idea.modal.submit')
+
+.submit-success.hidden
+  .row
+    .col-xs-12
+      p
+        == t 'participate.diy.idea.modal.submit-success'
+
+  coffee:
+    window.modalFormManager = new window.ModalFormManager('#participate_idea')

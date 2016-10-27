@@ -91,22 +91,22 @@
         a.mitteilen href='#participate_event' data-toggle='modal' data-target='#participate_event'
           = t 'participate.diy.event.button-label'
 
-      - %w(idea event).each do |modal_name|
-        .modal.fade id="participate_#{modal_name}" tabindex='-1' role='dialog' aria-labelledby="participate_#{modal_name}" aria-hidden='true'
-          .modal-dialog role='document'
-            .modal-content
-              button.close type='button' data-dismiss='modal' aria-label='Close'
-                span aria-hidden='true'
-                  = fa_icon 'times'
-              .modal-body.participate-modal
-                = render "participate/#{modal_name}_modal",
-                         record: @participation[modal_name.to_sym]
-
     .col-xs-12.col-md-6.diy-avatars
       - @event_pictures.each_with_index do |picture, index|
         - additional_class = 'additional-images-md' if index >= 9 && index < 12
         - additional_class = 'additional-images-lg' if index >= 12
         .image style="background-image: url(#{asset_url(picture.picture(:normal))});" class="#{additional_class}"
+
+  - %w(idea event).each do |modal_name|
+    .modal.fade id="participate_#{modal_name}" tabindex='-1' role='dialog' aria-labelledby="participate_#{modal_name}" aria-hidden='true'
+      .modal-dialog role='document'
+        .modal-content.participate-modal
+          button.close type='button' data-dismiss='modal' aria-label='Close'
+            span aria-hidden='true'
+              = fa_icon 'times'
+          .modal-body
+            = render "participate/#{modal_name}_modal",
+                     record: @participation[modal_name.to_sym]
 
 coffee:
     window.avatarButton = new window.AvatarUploadButton()
