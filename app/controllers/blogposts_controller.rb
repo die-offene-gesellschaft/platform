@@ -9,8 +9,8 @@ class BlogpostsController < ApplicationController
   # GET /blogposts.json
   def index
     @blogposts = Blogpost.where(published: true)
-                          .where('date <= ?', Time.zone.now)
-                          .order(date: :desc)
+                         .where('date <= ?', Time.zone.now)
+                         .order(date: :desc)
     @blogposts = Blogpost.all if admin_signed_in?
 
     respond_to do |format|
