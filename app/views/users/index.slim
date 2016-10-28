@@ -11,8 +11,8 @@ ruby:
              active: list ? 'list' : 'pictures'
   - if list
     = render 'list',
-             active_members: @active_members,
-             users: @users
+             active_members: @active_members.order(:surname),
+             users: @users.order(:surname)
   - elsif pictures
     = render 'pictures',
              users: @users,
