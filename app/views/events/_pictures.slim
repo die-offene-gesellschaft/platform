@@ -1,0 +1,30 @@
+.card.card-block
+  h4.card-title
+    = t('events.pictures')
+  - if pictures.any?
+    .row
+      - pictures.each do |picture|
+        .col-xs-12.col-sm-6.col-md-4.col-lg-3
+          .card
+            .image style="background-image: url('#{picture.picture(:normal)}');"
+            .card-block
+              p.card-text
+                = picture.description
+              = render 'shared/button',
+                       method: :delete,
+                       href: event_picture_path(event, picture),
+                       confirm: t('confirm'),
+                       icon: 'times',
+                       label: t('delete')
+  = simple_form_for [event, picture], html: { multipart: true } do |f|
+    .form-group.file.optional.picture_picture
+      label.control-label.file.optional for='picture_picture'
+        = t('activerecord.attributes.picture.picture').capitalize
+        .image style="background-image: url(#{asset_url(picture.picture(:normal))});"
+        input.file.optional name='picture[picture]' id='picture_picture' type='file'
+    = f.input :description
+    .button-row
+      = render 'shared/button',
+               type: 'submit',
+               label: t('pictures.actions.add'),
+               icon: 'plus'

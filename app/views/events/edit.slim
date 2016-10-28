@@ -6,6 +6,14 @@
     .col-xs-12
       = render 'events/organizers',
                event: @event
+
+  .row
+    .col-xs-12
+      = render 'events/pictures',
+               event: @event,
+               picture: @picture,
+               pictures: @event.pictures
+
   .row
     .col-xs-12
       = render 'events/statements',

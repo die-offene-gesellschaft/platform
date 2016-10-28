@@ -35,7 +35,7 @@ class StatementsController < ApplicationController
     if @statement.save
       redirect_to edit_event_path(@event), notice: t('actions.save.success')
     else
-      set_quote_and_moment
+      set_embeded_models
       flash.now[:error] = t('actions.save.error')
       render 'events/edit'
     end
@@ -50,7 +50,7 @@ class StatementsController < ApplicationController
         format.json { render :show, status: :ok, location: @statement }
       else
         format.html do
-          set_quote_and_moment
+          set_embeded_models
           flash.now[:error] = t('actions.save.error')
           render 'events/edit'
         end
@@ -71,7 +71,8 @@ class StatementsController < ApplicationController
 
   private
 
-  def set_quote_and_moment
+  def set_embeded_models
+    @picture = Picture.new
     @quote = Statement.new
     @moment = Statement.new
     if params[:statement][:statement_type] == 'quote'

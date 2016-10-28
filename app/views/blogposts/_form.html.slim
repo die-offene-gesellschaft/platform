@@ -5,7 +5,7 @@
         = f.input :title
         = f.input :blogpost_type
         = f.input :introduction
-        = f.input :content
+        = f.input :content, as: :pagedown, input_html: { rows: 10 }
         .form-group.file.optional.blogpost_hero
           label.control-label.file.optional for='blogpost_hero'
             = t('activerecord.attributes.blogpost.hero').capitalize

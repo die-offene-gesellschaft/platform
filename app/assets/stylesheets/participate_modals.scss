@@ -1,0 +1,62 @@
+.participate-modal {
+  background-color: $red;
+  color: $white;
+  padding: 29px 26px;
+
+  .idea-form {
+    margin-bottom: 80px;
+  }
+
+  .idea-details {
+    margin: 80px 0;
+  }
+
+  [name="commit"] {
+    bottom: auto;
+    max-width: 223px;
+    position: inherit;
+    right: auto;
+  }
+
+  .event-proposal-form {
+    .file {
+      label {
+        display: block;
+      }
+    }
+
+    .contact-person-label {
+      margin: 51px 0 8px;
+      text-align: right;
+    }
+
+    .terms-of-use {
+      .help-block {
+        display: block;
+        margin: -18px 0 35px;
+        text-align: left;
+      }
+    }
+
+    [name="commit"] {
+      bottom: auto;
+      max-width: 300px;
+      position: inherit;
+      right: auto;
+      width: 300px;
+    }
+
+    .further-questions {
+      margin: 26px 0;
+
+      a {
+        color: $white;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+}

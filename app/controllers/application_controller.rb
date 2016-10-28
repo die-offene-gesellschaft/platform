@@ -59,6 +59,11 @@ class ApplicationController < ActionController::Base
 
   def set_pop_up
     content = Content.find_by key: 'pop-up'
+    return @pop_up = {
+      title: '',
+      text: ''
+    } unless content
+
     html_content = Kramdown::Document.new(content.value).to_html.tr("\n", ' ')
     %r{<h1.*>(?<title>.+)<\/h1>.*<p>(?<text>.+)<\/p>} =~ html_content
     @pop_up = {

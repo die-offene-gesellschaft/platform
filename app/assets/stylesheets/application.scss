@@ -6,34 +6,33 @@
 @import 'variables';
 @import 'bootstrap-overwrites';
 @import 'bootstrap';
+@import 'pagedown_bootstrap';
 @import 'fonts';
 @import 'font-awesome';
 
 // partial styling
 @import 'about';
 @import 'blogposts';
-@import 'comments';
 @import 'events';
 @import 'footer';
 @import 'header';
 @import 'home';
-@import 'locations';
 @import 'modal';
 @import 'event_modal';
 @import 'user_modal';
 @import 'participate';
-@import 'pictures';
+@import 'participate_modals';
 @import 'users';
 @import 'venues';
 @import 'faciliation';
 @import 'guideline';
 @import 'imprint';
-@import 'admins';
 @import 'initial_pop_up_modal';
 @import 'login';
 @import 'reset-password';
 @import 're-confirm';
 @import 'change-password';
+@import 'editor';
 
 @import 'styleguide';
 
@@ -355,6 +354,7 @@ tr {
 input,
 textarea,
 select {
+  &.wmd-input,
   &.datetime,
   &.select,
   &.text,
@@ -390,6 +390,12 @@ select {
   }
 }
 
+textarea {
+  &.wmd-input {
+    height: auto;
+  }
+}
+
 select {
   &.form-control:not([size]):not([multiple]) {
     height: 49px;
@@ -398,6 +404,7 @@ select {
 
 form {
   .image {
+    background-color: $gray;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: contain;
@@ -408,6 +415,17 @@ form {
       padding: 0 0 300px;
       width: 300px;
     }
+  }
+}
+
+.card {
+  > .image {
+    background-color: $gray;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 0 0 100%;
+    width: 100%;
   }
 }
 

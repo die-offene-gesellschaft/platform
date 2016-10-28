@@ -4,5 +4,7 @@
 #= require modernizr
 #= require bootstrap/util
 #= require bootstrap/modal
+#= require pagedown_bootstrap
+#= require editor
 #= require js.cookie
 #= require_tree .

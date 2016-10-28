@@ -1,27 +1,40 @@
-p#notice = notice
+.ideas
+  = render 'shared/admin_tabs', active: :idea
 
-p
-  strong Subject:
-  = @idea.subject
-p
-  strong Time:
-  = @idea.time
-p
-  strong Location:
-  = @idea.location
-p
-  strong Contact person:
-  = @idea.contact_person
-p
-  strong Organisation:
-  = @idea.organisation
-p
-  strong Email:
-  = @idea.email
-p
-  strong Phone:
-  = @idea.phone
-
-= link_to 'Edit', edit_idea_path(@idea)
-'|
-= link_to 'Back', ideas_path
+  = simple_form_for @idea do |f|
+    .row
+      .col-xs-12
+        .inputs
+          = f.input :subject,
+                    readonly: true,
+                    disabled: true
+          = f.input :time,
+                    readonly: true,
+                    disabled: true
+          = f.input :location,
+                    readonly: true,
+                    disabled: true
+          = f.input :contact_person,
+                    readonly: true,
+                    disabled: true
+          = f.input :organisation,
+                    readonly: true,
+                    disabled: true
+          = f.input :email,
+                    readonly: true,
+                    disabled: true
+          = f.input :phone,
+                    readonly: true,
+                    disabled: true
+    .row.button-row
+      .col-xs-12
+        = render 'shared/button',
+                 label: t('delete'),
+                 icon: 'times',
+                 confirm: t('confirm'),
+                 method: 'delete',
+                 href: idea_path(@idea) if @idea.id
+        /= render 'shared/button',
+                 type: 'submit',
+                 label: t('save'),
+                 icon: 'check'

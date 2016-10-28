@@ -1,6 +1,6 @@
 class IdeasController < ApplicationController
-  before_action :authenticate_admin!
-  before_action :set_idea, only: [:edit, :update, :destroy]
+  before_action :authenticate_admin!, except: [:create]
+  before_action :set_idea, only: [:show, :destroy]
 
   # GET /ideas
   # GET /ideas.json
@@ -8,35 +8,27 @@ class IdeasController < ApplicationController
     @ideas = Idea.all
   end
 
-  # GET /ideas/1/edit
-  def edit
+  # GET /ideas/1
+  # GET /ideas/1.json
+  def show
   end
 
-  # PATCH/PUT /ideas/1
-  # PATCH/PUT /ideas/1.json
-  def update
-    respond_to do |format|
-      if @idea.update(idea_params)
-        format.html { redirect_to @idea, notice: t('actions.save.success') }
-        format.json { render :show, status: :ok, location: @idea }
-      else
-        format.html do
-          flash.now[:error] = t('actions.save.error')
-          render :edit
-        end
-        format.json { render json: @idea.errors, status: :unprocessable_entity }
-      end
+  # POST /ideas.json
+  def create
+    @idea = Idea.new(idea_params)
+    if @idea.save
+      render json: { model: 'idea' },
+             status: :ok
+    else
+      render json: { model: 'idea', errors: @idea.errors },
+             status: :unprocessable_entity
     end
   end
 
   # DELETE /ideas/1
-  # DELETE /ideas/1.json
   def destroy
     @idea.destroy
-    respond_to do |format|
-      format.html { redirect_to ideas_url, notice: t('actions.destroy.success') }
-      format.json { head :no_content }
-    end
+    redirect_to ideas_url, notice: t('actions.destroy.success')
   end
 
   private

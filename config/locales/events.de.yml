@@ -1,5 +1,6 @@
 de:
   events:
+    pictures: Bilder
     attributes:
       updated-at: Bearbeitet
       begin-at: Beginn

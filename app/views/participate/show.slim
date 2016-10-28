@@ -73,16 +73,41 @@
                                      .gsub(/%{sms_link}/, sms_link)
                                      .gsub(/%{paypal_link}/, paypal_link)
       == content
+
+  / DIY section
   .row.do-it-yourself
-        .col-xs-12.col-md-6.diy-text
-          a name='do-it-yourself'
-          == @contents[:diy].value
-        .col-xs-12.col-md-6.diy-avatars
-          .image style="background-image: url(#{image_url('participate/action-1.png')});"
-          .image style="background-image: url(#{image_url('participate/action-2.png')});"
-          .image style="background-image: url(#{image_url('participate/action-3.png')});"
-          .image style="background-image: url(#{image_url('participate/action-4.png')});"
-          .image style="background-image: url(#{image_url('participate/action-5.png')});"
-          .image style="background-image: url(#{image_url('participate/action-6.png')});"
+    .col-xs-12.col-md-6.diy-text
+      a name='do-it-yourself'
+      h1
+        = t('participate.diy.title')
+
+      - link = link_to t('participate.diy.guidline-label'), '/guideline'
+      p
+        == t('participate.diy.idea.text', guideline_link: link)
+        a.mitteilen href='#participate_idea' data-toggle='modal' data-target='#participate_idea'
+          = t 'participate.diy.idea.button-label'
+
+      p
+        == t('participate.diy.event_proposal.text', guideline_link: link)
+        a.mitteilen href='#participate_event_proposal' data-toggle='modal' data-target='#participate_event_proposal'
+          = t 'participate.diy.event_proposal.button-label'
+
+    .col-xs-12.col-md-6.diy-avatars
+      - @event_pictures.each_with_index do |picture, index|
+        - additional_class = 'additional-images-md' if index >= 9 && index < 12
+        - additional_class = 'additional-images-lg' if index >= 12
+        .image style="background-image: url(#{asset_url(picture.picture(:normal))});" class="#{additional_class}"
+
+  - %w(idea event_proposal).each do |modal_name|
+    .modal.fade id="participate_#{modal_name}" tabindex='-1' role='dialog' aria-labelledby="participate_#{modal_name}" aria-hidden='true'
+      .modal-dialog role='document'
+        .modal-content.participate-modal
+          button.close type='button' data-dismiss='modal' aria-label='Close'
+            span aria-hidden='true'
+              = fa_icon 'times'
+          .modal-body
+            = render "participate/#{modal_name}_modal",
+                     record: @participation[modal_name.to_sym]
+
 coffee:
     window.avatarButton = new window.AvatarUploadButton()

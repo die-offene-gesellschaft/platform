@@ -12,6 +12,9 @@ de:
       organizer:
         one: Veranstalter
         other: Veranstalter
+      picture:
+        one: Bild
+        other: Bilder
       statement:
         one: Zitat
         other: Zitate
@@ -27,6 +30,9 @@ de:
       event:
         one: Aktion
         other: Aktionen
+      event_proposal:
+        one: Veranstaltungsanmeldung
+        other: Veranstaltungsanmeldungen
       venue:
         one: Veranstaltungsort
         other: Veranstaltungsorte
@@ -40,6 +46,9 @@ de:
         one: Blogpost
         other: Blogposts
     attributes:
+      picture:
+        picture: Bild
+        description: Beschreibung
       blogpost:
         hero: Hero
         thumbnail: Vorschau
@@ -48,6 +57,8 @@ de:
         introduction: Einleitung
         blogpost_type: Typ
         title: Titel
+        date: Datum
+        published: Veröffentlicht
       admin:
         name: Name
         email: E-Mail-Adresse
@@ -85,7 +96,11 @@ de:
         planned: Geplant
         post_description: Post-Beschreibung
         post_description_source: Post-Beschreibungsquelle
+<<<<<<< HEAD
         organizers: Veranstalter
+=======
+        picture: Bild
+>>>>>>> af115c26ba8a5960122510f5f5943043ce60bc61
       idea:
         subject: Thema
         time: Zeit

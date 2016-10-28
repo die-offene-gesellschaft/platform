@@ -15,7 +15,7 @@
               = t('ideas.attributes.location')
         tbody
           - @ideas.each do |idea|
-            tr data-href="#{edit_idea_path(idea)}"
+            tr data-href="#{idea_path(idea)}"
               td
                 = idea.id
               td

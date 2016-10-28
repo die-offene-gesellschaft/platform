@@ -15,8 +15,9 @@
         .inputs
           - @contents.each do |content|
             = f.input content.key,
-                      as: :text,
+                      as: :pagedown,
                       input_html: { value: content.value,
+                                    class: 'markdown',
                                     rows: 15 }
     .row.button-row
       .col-xs-12

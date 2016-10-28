@@ -130,5 +130,3 @@
     .desktop-size1x1.desktop-x6.desktop-y12.mobile-hidden
       = render 'shared/user/tile', user: @users[9 % HomeController::USERS_COUNT]
   = content_for :modals
-  coffee:
-    window.modalManager = new window.ModalManager()

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :active_members, only: [:index, :show]
   resources :events do
     resources :comments, only: [:index, :show]
-    resources :pictures, only: [:index, :show]
+    resources :pictures, only: [:index, :show, :destroy, :create]
     resources :statements, only: [:index, :show, :destroy, :create, :update]
     resources :organizers, only: [:index, :show, :destroy]
   end
@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   resources :contents, only: [:index, :show, :edit, :update]
   resources :admins
   resources :press_reviews
-  resources :ideas, except: [:show, :new, :create]
+  resources :ideas, only: [:index, :show, :create, :destroy]
+  resources :event_proposals, only: [:index, :show, :create, :destroy]
   resources :users, except: [:new, :create] do
     delete '/avatar',
            to: 'users#delete_avatar',

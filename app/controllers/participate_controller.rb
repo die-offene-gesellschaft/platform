@@ -2,10 +2,15 @@ class ParticipateController < ApplicationController
   before_action :set_user, only: [:show, :create]
   before_action :set_users, only: [:show, :create]
   before_action :set_contents, only: [:show, :create]
+  before_action :set_event_pictures, only: [:show, :create]
   before_action :process_contents, only: [:show, :create]
 
   # GET /participate
   def show
+    @participation = {
+      idea: Idea.new,
+      event_proposal: EventProposal.new
+    }
   end
 
   # POST /participate
@@ -35,9 +40,13 @@ class ParticipateController < ApplicationController
 
   def set_contents
     @contents = {}
-    [:what_next, :support, :diy].each do |key|
+    [:what_next, :support].each do |key|
       @contents[key] = get_content_for_key key
     end
+  end
+
+  def set_event_pictures
+    @event_pictures = Picture.all.sample(15)
   end
 
   def get_content_for_key(key)
