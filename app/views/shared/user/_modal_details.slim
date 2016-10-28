@@ -2,16 +2,18 @@
   - additional_class = 'user-default-image'
   - additional_class = 'user-double-image' if user.video_user?
   .row class="#{additional_class}"
-    - additional_class = ''
-    - additional_class = 'col-lg-6' unless user.video_user?
-    .col-xs-12 class="#{additional_class}"
-      - if user.video_user?
+    - media = true
+    - if user.video_user?
+      .col-xs-12
         .embed-responsive.embed-responsive-2by1
           = render 'shared/video_iframe',
                    user: user
-      - else
+    - elsif user.avatar.path
+      .col-xs-12.col-lg-6
         .image style="background-image: url('#{asset_url(user.avatar(:normal))}')"
-    .col-xs-12.details class="#{additional_class}"
+    - else
+      - media = false
+    .col-xs-12.details class="#{'col-lg-6' if !user.video_user? && user.avatar.path}"
       - if user.statement
         p.quote.user-quote
           = user.statement

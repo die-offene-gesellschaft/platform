@@ -1,9 +1,30 @@
-- %w(active_members users).each do |resources|
-  h1.headline-red
-    = t("#{resources}.title")
-  p class="#{resources.tr('_', '-')}"
-    - binding.local_variable_get(resources).each do |resource|
+h1.headline-red
+  = t('users.title')
+p.users
+  - users.each do |user|
+    a href="#user-id-#{user.id}" data-toggle='modal' data-target="#user-id-#{user.id}"
       span.name>
-        = resource.full_name
+        = user.full_name
       span.role>
-        = resource.role
+        = user.role
+    - content_for :modals do
+      .modal.fade id="user-id-#{user.id}" tabindex="-1" role="dialog" aria-labelledby="user-id-#{user.id}" aria-hidden="true" data-turbolinks='false'
+        .modal-dialog role="document"
+          .modal-content
+            button.close type="button" data-dismiss="modal" aria-label="Close"
+              span aria-hidden="true"
+                = fa_icon 'times'
+            .modal-body.user-modal
+                = render 'shared/user/modal_details',
+                         user: user
+
+h1.headline-red
+  = t('active_members.title')
+p.active-members
+  - active_members.each do |active_member|
+    span.name>
+      = active_member.full_name
+    span.role>
+      = active_member.role
+
+= content_for :modals
