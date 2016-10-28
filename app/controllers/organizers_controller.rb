@@ -44,7 +44,7 @@ class OrganizersController < ApplicationController
     if @organizer.save
       redirect_to organizers_path, notice: t('actions.save.success')
     else
-      flash.now[:error] = t('actions.save.error')
+      flash.now[:error] = "#{t('actions.save.error')} #{@organizer.errors.full_messages.to_sentence}"
       render :new
     end
   end
