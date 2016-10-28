@@ -1,0 +1,23 @@
+= simple_form_for organizer, html: { multipart: true } do |f|
+  .row
+    .col-xs-12
+      .inputs
+        = f.input :name
+        = f.input :url
+        .form-group.file.optional.organizer_logo
+          label.control-label.file.optional for='organizer_logo'
+            = t('activerecord.attributes.organizer.logo').capitalize
+            .image style="background-image: url(#{asset_url(organizer.logo(:normal))});"
+            input.file.optional name='organizer[logo]' id='organizer_logo' type='file'
+  .row.button-row
+    .col-xs-12
+      = render 'shared/button',
+               label: t('delete'),
+               icon: 'times',
+               confirm: t('confirm'),
+               method: 'delete',
+               href: organizer_path(organizer) if organizer.id
+      = render 'shared/button',
+               type: 'submit',
+               icon: 'check',
+               label: t('save')

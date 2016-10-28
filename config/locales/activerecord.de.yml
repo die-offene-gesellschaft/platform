@@ -9,6 +9,9 @@ de:
                 width: 'muss mindestens %{width}px breit sein'
                 height: 'muss mindestens %{height}px hoch sein'
     models:
+      organizer:
+        one: Veranstalter
+        other: Veranstalter
       picture:
         one: Bild
         other: Bilder
@@ -93,6 +96,7 @@ de:
         planned: Geplant
         post_description: Post-Beschreibung
         post_description_source: Post-Beschreibungsquelle
+        organizers: Veranstalter
         picture: Bild
       idea:
         subject: Thema
@@ -106,3 +110,7 @@ de:
         question: Frage
         content: Inhalt
         author: Autor
+      organizer:
+        name: Name
+        url: URL
+        logo: Logo

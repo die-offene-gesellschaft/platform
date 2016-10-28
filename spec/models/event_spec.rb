@@ -13,6 +13,8 @@ RSpec.describe Event, type: :model do
 
   it { should have_and_belong_to_many(:active_members) }
 
+  it { should have_and_belong_to_many(:organizers) }
+
   it { should belong_to(:venue) }
 
   it do

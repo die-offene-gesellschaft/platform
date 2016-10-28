@@ -4,12 +4,14 @@ Rails.application.routes.draw do
     devise_for :users, controllers: { sessions: 'sessions', confirmations: 'confirmations' }
   end
 
+  resources :organizers
   resources :blogposts
   resources :active_members, only: [:index, :show]
   resources :events do
     resources :comments, only: [:index, :show]
     resources :pictures, only: [:index, :show, :destroy, :create]
     resources :statements, only: [:index, :show, :destroy, :create, :update]
+    resources :organizers, only: [:index, :show, :destroy]
   end
   resources :statements, only: [:index, :show]
   resources :locations, only: [:index, :show, :edit, :new]
