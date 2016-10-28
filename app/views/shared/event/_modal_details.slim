@@ -31,7 +31,7 @@
           = t('events.with')
           | &nbsp;
           = event.active_members.map(&:full_name).join(', ')
-      - if event.link.present?
+      - if event.link?
         p
           a href="#{event.link}" target='_blank'
             = event.link
