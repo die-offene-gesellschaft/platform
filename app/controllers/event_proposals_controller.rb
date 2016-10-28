@@ -17,10 +17,13 @@ class EventProposalsController < ApplicationController
   def create
     @event_proposal = EventProposal.new(event_proposal_params)
     if @event_proposal.save
-      render json: { status: 'event proposal saved' },
+      render json: { model: 'event_proposal' },
              status: :ok
     else
-      render json: @event_proposal.errors,
+      render json: {
+               model: 'event_proposal',
+               errors: @event_proposal.errors
+             },
              status: :unprocessable_entity
     end
   end

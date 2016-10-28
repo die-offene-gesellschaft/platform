@@ -2,22 +2,31 @@ class ModalFormManager
 
   _this = undefined
 
-  constructor: (modalSelector) ->
+  constructor: ->
     _this = this
-    this.$modal = $(modalSelector)
-    this.$form = $('form', this.$modal)
-    this.modelName = this.$form.attr('id').substring(4)
+    this.$modal = undefined
+    this.$form = undefined
+    this.modelName = undefined
 
     $.ajaxSetup({
       dataType: 'json'
     })
 
-    this.$form.on('ajax:success', ->
+  init: (modalSelector) ->
+    $('form', $(modalSelector)).on('ajax:success', (a, b, c, data) ->
+      _this.setReferences(data.responseJSON.model)
       _this.successfulSubmit()
-    ).on 'ajax:error', (e, data, status, error) ->
-      _this.renderFormErrors(data.responseJSON)
 
-  successfulSubmit: ->
+    ).on 'ajax:error', (_, data) ->
+      _this.setReferences(data.responseJSON.model)
+      _this.renderFormErrors(data.responseJSON.errors)
+
+  setReferences: (modelName) ->
+    this.modelName = modelName
+    this.$modal = $("#participate_#{this.modelName}")
+    this.$form = $('form', this.$modal)
+
+  successfulSubmit: (modelName) ->
     return unless this.modalIsVisible
     this.clearFormFields()
 
@@ -45,6 +54,7 @@ class ModalFormManager
         if name
           name.match(new RegExp(_this.modelName + '\\[' + field + '\\(?'))
       )
+
       input.closest('.form-group').addClass('has-error')
       input.parent().append(
         '<span class="help-block">' + $.map(messages, (m) ->

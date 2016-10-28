@@ -3,7 +3,7 @@
     h1
       = t 'participate.diy.idea.modal.title'
 
-.submit-idea
+.submit-form
   .row
     .col-xs-12
       p
@@ -41,4 +41,5 @@
         == t 'participate.diy.idea.modal.submit-success'
 
 coffee:
-  window.modalFormManager = new window.ModalFormManager('#participate_idea')
+  window.modalIdeaFormManager = new window.ModalFormManager
+  window.modalIdeaFormManager.init('#participate_idea')

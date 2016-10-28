@@ -17,10 +17,13 @@ class IdeasController < ApplicationController
   def create
     @idea = Idea.new(idea_params)
     if @idea.save
-      render json: { status: 'idea saved' },
+      render json: { model: 'idea' },
              status: :ok
     else
-      render json: @idea.errors,
+      render json: {
+               model: 'idea',
+               errors: @idea.errors
+             },
              status: :unprocessable_entity
     end
   end

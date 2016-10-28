@@ -75,4 +75,5 @@
         == t 'participate.diy.event_proposal.modal.submit-success'
 
 coffee:
-  window.modalFormManager = new window.ModalFormManager('#participate_event_proposal')
+  window.modalEventProposalFormManager = new window.ModalFormManager
+  window.modalEventProposalFormManager.init('#participate_event_proposal')
