@@ -1,0 +1,27 @@
+.event_proposals
+  = render 'shared/admin_tabs', active: :event_proposal
+
+  .row
+    .col-xs-12
+      table.table.table-striped.table-hover
+        thead
+          tr
+            td
+              = t('event_proposals.attributes.id')
+            td
+              = t('event_proposals.attributes.title')
+            td
+              = t('event_proposals.attributes.date')
+            td
+              = t('event_proposals.attributes.venue')
+        tbody
+          - @event_proposals.each do |event_proposal|
+            tr data-href="#{event_proposal_path(event_proposal)}"
+              td
+                = event_proposal.id
+              td
+                = event_proposal.title
+              td
+                = event_proposal.date
+              td
+                = event_proposal.venue

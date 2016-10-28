@@ -33,7 +33,7 @@ RSpec.describe User, type: :model do
   it { should validate_length_of(:statement).is_at_most(255) }
 
   describe 'terms of use' do
-    it 'can not be unset if not a newsletter user' do
+    it 'cannot be unset if not a newsletter user' do
       @user.newsletter = false
       @user.terms_of_use = false
       expect(@user).to be_invalid

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161027080123) do
+ActiveRecord::Schema.define(version: 20161027145751) do
 
   create_table "active_members", force: :cascade do |t|
     t.string   "forename"
@@ -107,6 +107,31 @@ ActiveRecord::Schema.define(version: 20161027080123) do
     t.integer "user_id",  null: false
     t.index ["event_id", "user_id"], name: "index_event_participations_on_event_id_and_user_id"
     t.index ["user_id", "event_id"], name: "index_event_participations_on_user_id_and_event_id"
+  end
+
+  create_table "event_proposals", force: :cascade do |t|
+    t.string   "title"
+    t.text     "subject"
+    t.string   "venue"
+    t.string   "date"
+    t.string   "organizer"
+    t.string   "contact_person_forename"
+    t.string   "contact_person_surname"
+    t.string   "contact_person_mail"
+    t.string   "contact_person_phone"
+    t.string   "participants"
+    t.text     "symbol_for_open_society"
+    t.boolean  "terms_of_use"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "events", force: :cascade do |t|
