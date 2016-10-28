@@ -96,11 +96,8 @@ de:
         planned: Geplant
         post_description: Post-Beschreibung
         post_description_source: Post-Beschreibungsquelle
-<<<<<<< HEAD
         organizers: Veranstalter
-=======
         picture: Bild
->>>>>>> af115c26ba8a5960122510f5f5943043ce60bc61
       idea:
         subject: Thema
         time: Zeit
