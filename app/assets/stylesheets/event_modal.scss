@@ -32,6 +32,13 @@
 
   }
 
+  img {
+    &.organizer {
+      width: 50px;
+      margin: 0 25px 0 0;
+    }
+  }
+
   .details {
     position: relative;
 

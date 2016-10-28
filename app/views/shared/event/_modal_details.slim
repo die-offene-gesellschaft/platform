@@ -31,6 +31,16 @@
           = t('events.with')
           | &nbsp;
           = event.active_members.map(&:full_name).join(', ')
+      - if event.link.present?
+        p
+          a href="#{event.link}" target='_blank'
+            = event.link
+      - if event.organizers.any?
+        - event.organizers.each do |organizer|
+          p
+            a href="#{organizer.url}" target='_blank'
+              img.organizer src="#{asset_url(organizer.logo(:normal))}" alt="#{organizer.name}"
+              = organizer.name
       .links
         .share-links
           a.share-link href="#{facebook_share_link(event)}" target='_blank'
