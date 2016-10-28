@@ -20,10 +20,7 @@ class IdeasController < ApplicationController
       render json: { model: 'idea' },
              status: :ok
     else
-      render json: {
-               model: 'idea',
-               errors: @idea.errors
-             },
+      render json: { model: 'idea', errors: @idea.errors },
              status: :unprocessable_entity
     end
   end

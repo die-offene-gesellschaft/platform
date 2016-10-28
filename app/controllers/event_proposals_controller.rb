@@ -20,10 +20,7 @@ class EventProposalsController < ApplicationController
       render json: { model: 'event_proposal' },
              status: :ok
     else
-      render json: {
-               model: 'event_proposal',
-               errors: @event_proposal.errors
-             },
+      render json: { model: 'event_proposal', errors: @event_proposal.errors },
              status: :unprocessable_entity
     end
   end
