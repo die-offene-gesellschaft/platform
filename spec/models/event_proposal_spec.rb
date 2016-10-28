@@ -21,7 +21,7 @@ RSpec.describe EventProposal, type: :model do
   it { should validate_presence_of(:terms_of_use) }
 
   describe 'terms_of_use' do
-    it 'can not be false' do
+    it 'cannot be false' do
       @event_proposal.terms_of_use = false
       expect(@event_proposal).to be_invalid
     end

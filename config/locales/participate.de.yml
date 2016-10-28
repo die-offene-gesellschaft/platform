@@ -47,7 +47,7 @@ de:
           submit-success: '<p>Danke! Wir prüfen Ihre Anmeldung und melden uns möglichst bald bei Ihnen zurück.</p>
           <p>Ihr Team der Initiative Offene Gesellschaft</p>'
           placeholder:
-            title: Title der Veranstaltung
+            title: Titel der Veranstaltung
             subject: 'Thema und Format (z.B.: Debatte über …, Lesung von …)'
             venue: Veranstaltungsort (Adresse)
             date: Termin / Uhrzeit (als Text)
