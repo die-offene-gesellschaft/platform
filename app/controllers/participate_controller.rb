@@ -3,14 +3,11 @@ class ParticipateController < ApplicationController
   before_action :set_users, only: [:show, :create]
   before_action :set_contents, only: [:show, :create]
   before_action :set_event_pictures, only: [:show, :create]
+  before_action :set_participation, only: [:show, :create]
   before_action :process_contents, only: [:show, :create]
 
   # GET /participate
   def show
-    @participation = {
-      idea: Idea.new,
-      event_proposal: EventProposal.new
-    }
   end
 
   # POST /participate
@@ -66,6 +63,13 @@ class ParticipateController < ApplicationController
       html = Kramdown::Document.new(content.value).to_html
       content.value = html
     end
+  end
+
+  def set_participation
+    @participation = {
+      idea: Idea.new,
+      event_proposal: EventProposal.new
+    }
   end
 
   def user_params
