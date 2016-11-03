@@ -99,7 +99,7 @@
         .image style="background-image: url(#{asset_url(picture.picture(:normal))});" class="#{additional_class}"
 
   - %w(idea event_proposal).each do |modal_name|
-    .modal.fade id="participate_#{modal_name}" tabindex='-1' role='dialog' aria-labelledby="participate_#{modal_name}" aria-hidden='true'
+    .modal.modal-dog.fade id="participate_#{modal_name}" tabindex='-1' role='dialog' aria-labelledby="participate_#{modal_name}" aria-hidden='true'
       .modal-dialog role='document'
         .modal-content.participate-modal
           button.close type='button' data-dismiss='modal' aria-label='Close'
