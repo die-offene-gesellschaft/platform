@@ -6,13 +6,12 @@ Rails.application.routes.draw do
 
   resources :organizers
   resources :blogposts, except: [:show]
+  get '/blogposts/:id',
+      constraints: { id: /\d+/ },
+      to: 'blogposts#show'
   get '/blogposts/:slug',
       to: 'blogposts#show',
-      as: 'slugged_blogpost',
-      constraints: { slug: /\D+/ }
-  get '/blogposts/:id',
-      constraints: { slug: /\d+/ },
-      to: 'blogposts#show'
+      as: 'slugged_blogpost'
   resources :active_members, only: [:index, :show]
   resources :events do
     resources :comments, only: [:index, :show]
