@@ -28,7 +28,7 @@
             .image style="background-image: url(#{asset_url(blogpost.thumbnail(:normal))});"
         .col-xs-12.col-md-8
           h2.teaser-attributes
-            = hero_blogpost.blogpost_type
+            = blogpost.blogpost_type
             span.pipe
             = l blogpost.date, format: :normal_date
             - if blogpost.reference && !blogpost.reference.empty?
