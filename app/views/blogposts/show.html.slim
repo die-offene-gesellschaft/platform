@@ -20,7 +20,7 @@
   .row.post
     .col-xs-12.col-md-8.push-md-2
       .infos
-        = t "blogposts.types.#{@blogpost.blogpost_type}"
+        = @blogpost.blogpost_type
         span.pipe
         = l @blogpost.date, format: :normal_date
         - if @blogpost.reference && !@blogpost.reference.empty?
