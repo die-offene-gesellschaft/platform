@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   end
 
   resources :organizers
+  get '/blogposts/:slug',
+      to: 'blogposts#show',
+      as: 'slugged_blogpost',
+      constraints: { slug: /\D+/ }
   resources :blogposts
   resources :active_members, only: [:index, :show]
   resources :events do

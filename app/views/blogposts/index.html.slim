@@ -7,7 +7,7 @@
       @blogposts = @blogposts.to_a
       hero_blogpost = @blogposts.shift
     - if hero_blogpost
-      a.hero href="#{blogpost_path(hero_blogpost)}" style="background-image: url(#{hero_blogpost.hero(:normal)});"
+      a.hero href="#{slugged_blogpost_path(slug: hero_blogpost.slug)}" style="background-image: url(#{hero_blogpost.hero(:normal)});"
         .details
           h2
             = hero_blogpost.blogpost_type
@@ -24,7 +24,7 @@
     - @blogposts.each do |blogpost|
       .row.row-eq-height.post
         .col-xs-12.col-md-4
-          a href="#{blogpost_path(blogpost)}"
+          a href="#{slugged_blogpost_path(slug: blogpost.slug)}"
             .image style="background-image: url(#{asset_url(blogpost.thumbnail(:normal))});"
         .col-xs-12.col-md-8
           h2.teaser-attributes
@@ -44,5 +44,5 @@
             = blogpost.title
           p.teaser-summary
             = blogpost.introduction
-          a.more href="#{blogpost_path(blogpost)}"
+          a.more href="#{slugged_blogpost_path(slug: blogpost.slug)}"
             = t('blogposts.more')
