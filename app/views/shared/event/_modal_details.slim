@@ -49,13 +49,13 @@
             = fa_icon 'twitter-square'
   .row
     .col-xs-12.description
-      == event.description
+      == Kramdown::Document.new(event.description).to_html
 
   - if event.post_description
     .row.post-event
       .col-xs-12.description
         p
-          = event.post_description
+          == Kramdown::Document.new(event.post_description).to_html
           - if event.post_description_source
             .source
               = event.post_description_source
