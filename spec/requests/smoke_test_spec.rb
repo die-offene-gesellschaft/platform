@@ -20,8 +20,8 @@ RSpec.describe "GET routes", type: :request do
                                   user: @user,
                                   event: @event
     @blogposts = [
-                   FactoryGirl.create(:blogpost, admin: @admin),
-                   FactoryGirl.create(:blogpost, admin: @admin)
+                   FactoryGirl.create(:blogpost),
+                   FactoryGirl.create(:blogpost)
                  ]
     @content = FactoryGirl.create :content
     @press_review = FactoryGirl.create :press_review
