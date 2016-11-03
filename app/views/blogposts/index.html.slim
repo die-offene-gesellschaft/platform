@@ -10,12 +10,12 @@
       a.hero href="#{blogpost_path(hero_blogpost)}" style="background-image: url(#{hero_blogpost.hero(:normal)});"
         .details
           h2
-            = t "blogposts.types.#{hero_blogpost.blogpost_type}"
+            = hero_blogpost.blogpost_type
             span.pipe
             = l hero_blogpost.date, format: :normal_date
             span.pipe
             = t 'blogposts.from',
-                author: hero_blogpost.admin.name
+                author: hero_blogpost.author
           h1
             = hero_blogpost.title
           span.more
@@ -28,7 +28,7 @@
             .image style="background-image: url(#{asset_url(blogpost.thumbnail(:normal))});"
         .col-xs-12.col-md-8
           h2.teaser-attributes
-            = t "blogposts.types.#{blogpost.blogpost_type}"
+            = hero_blogpost.blogpost_type
             span.pipe
             = l blogpost.date, format: :normal_date
             - if blogpost.reference && !blogpost.reference.empty?
@@ -38,9 +38,8 @@
             - else
               span.pipe
               span.author
-                - admin = blogpost.admin
                 = t 'blogposts.from',
-                    author: admin.name
+                    author: blogpost.author
           h1.teaser-header
             = blogpost.title
           p.teaser-summary

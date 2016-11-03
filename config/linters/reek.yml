@@ -4,6 +4,8 @@ NestedIterators:
   max_allowed_nesting: 2
 DuplicateMethodCall:
   max_calls: 3
+TooManyConstants:
+  max_constants: 6
 TooManyStatements:
   max_statements: 12
 InstanceVariableAssumption:

@@ -11,7 +11,8 @@ class BlogpostsController < ApplicationController
     @blogposts = Blogpost.where(published: true)
                          .where('date <= ?', Time.zone.now)
                          .order(date: :desc)
-    @blogposts = Blogpost.all if admin_signed_in?
+    @blogposts = Blogpost.all
+                         .order(date: :desc) if admin_signed_in?
 
     respond_to do |format|
       format.html { render :index }
@@ -76,6 +77,7 @@ class BlogpostsController < ApplicationController
   def blogpost_params
     tmp_params = params.require(:blogpost).permit(
       :title,
+      :author,
       :blogpost_type,
       :introduction,
       :content,
@@ -85,7 +87,6 @@ class BlogpostsController < ApplicationController
       :date,
       :published
     )
-    tmp_params[:admin] = current_admin
     tmp_params
   end
 end

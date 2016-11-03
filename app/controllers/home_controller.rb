@@ -5,12 +5,14 @@ class HomeController < ApplicationController
   before_action :set_video_users, only: [:show]
   before_action :set_vip_users, only: [:show]
   before_action :set_users, only: [:show]
+  before_action :set_blogposts, only: [:show]
 
   USERS_COUNT = 10
   FRONTPAGE_USERS_COUNT = 4
   VIDEO_USERS_COUNT = 2
   VIP_USERS_COUNT = 8
   EVENTS_COUNT = 9
+  BLOGPOSTS_COUNT = 1
 
   def show
     @contents = [
@@ -26,6 +28,11 @@ class HomeController < ApplicationController
                    .where(planned: false)
                    .order(begin_at: :asc)
                    .limit(EVENTS_COUNT)
+  end
+
+  def set_blogposts
+    @blogposts = Blogpost.where(published: true)
+                         .sample(BLOGPOSTS_COUNT)
   end
 
   def set_frontpage_users

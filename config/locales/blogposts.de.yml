@@ -8,7 +8,7 @@ de:
     actions:
       new: Neuen Blogpost erstellen
     more: 'Mehr'
-    from: 'von %{author}'
+    from: '%{author}'
     reference: 'Quelle: %{reference}'
     types:
       article: 'Artikel'

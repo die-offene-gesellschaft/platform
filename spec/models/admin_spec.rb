@@ -8,6 +8,4 @@ RSpec.describe Admin, type: :model do
   it 'should have a valid factory' do
     expect(@admin).to be_valid
   end
-
-  it { should have_many(:blogposts) }
 end
