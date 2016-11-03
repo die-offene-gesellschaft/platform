@@ -33,7 +33,7 @@
           = event.active_members.map(&:full_name).join(', ')
       - if event.link?
         p
-          a href="#{event.link}" target='_blank'
+          a.event-link href="#{event.link}" target='_blank'
             = event.link
       - if event.organizers.any?
         - event.organizers.each do |organizer|
