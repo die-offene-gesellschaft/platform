@@ -23,7 +23,7 @@ module ApplicationHelper
     resource_uri = request.original_url if resource == ''
     resource_uri = event_url(resource) if resource.is_a? Event
     resource_uri = user_url(resource) if resource.is_a? User
-    resource_uri = blogpost_url(resource) if resource.is_a? Blogpost
+    resource_uri = slugged_blogpost_url(slug: resource.slug) if resource.is_a? Blogpost
     "#{base_uri}#{URI.escape(resource_uri)}"
   end
 

@@ -37,7 +37,7 @@
         if blogpost
           title = blogpost.title
           introduction = blogpost.introduction
-          href = blogpost_path(blogpost)
+          href = slugged_blogpost_path(slug: blogpost.slug)
         else
           content = @contents.first
           controller, action = content.controller_action_name.split('#')

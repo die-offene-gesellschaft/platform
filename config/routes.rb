@@ -5,7 +5,14 @@ Rails.application.routes.draw do
   end
 
   resources :organizers
-  resources :blogposts
+  resources :blogposts, except: [:show]
+  get '/blogposts/:slug',
+      to: 'blogposts#show',
+      as: 'slugged_blogpost',
+      constraints: { slug: /\D+/ }
+  get '/blogposts/:id',
+      constraints: { slug: /\d+/ },
+      to: 'blogposts#show'
   resources :active_members, only: [:index, :show]
   resources :events do
     resources :comments, only: [:index, :show]

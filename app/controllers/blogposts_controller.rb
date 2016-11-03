@@ -70,7 +70,8 @@ class BlogpostsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_blogpost
-    @blogpost = Blogpost.find(params[:id])
+    @blogpost = Blogpost.find_by(slug: params[:slug])
+    @blogpost ||= Blogpost.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
