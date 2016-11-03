@@ -179,7 +179,10 @@
       @include media-breakpoint-down(xs) {
         font-size: 14px;
       }
+    }
 
+    .event-link {
+      position: relative;
     }
 
     .pipe {
