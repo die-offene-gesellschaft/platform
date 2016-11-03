@@ -15,7 +15,7 @@
             = l hero_blogpost.date, format: :normal_date
             span.pipe
             = t 'blogposts.from',
-                author: hero_blogpost.admin.name
+                author: hero_blogpost.author
           h1
             = hero_blogpost.title
           span.more
@@ -38,9 +38,8 @@
             - else
               span.pipe
               span.author
-                - admin = blogpost.admin
                 = t 'blogposts.from',
-                    author: admin.name
+                    author: blogpost.author
           h1.teaser-header
             = blogpost.title
           p.teaser-summary

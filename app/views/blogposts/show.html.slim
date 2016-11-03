@@ -27,12 +27,11 @@
           span.reference
             = t 'blogposts.reference',
                 reference: @blogpost.reference
-        - elsif @blogpost.admin
+        - elsif @blogpost.author
           span.pipe
           span.author
-            - admin = @blogpost.admin
             = t 'blogposts.from',
-                author: admin.name
+                author: @blogpost.author
       .share-links
         a.share href="#{facebook_share_link(@blogpost)}" target='_blank'
           = fa_icon 'facebook-square'

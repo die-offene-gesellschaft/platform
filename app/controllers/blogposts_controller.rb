@@ -76,6 +76,7 @@ class BlogpostsController < ApplicationController
   def blogpost_params
     tmp_params = params.require(:blogpost).permit(
       :title,
+      :author,
       :blogpost_type,
       :introduction,
       :content,
@@ -85,7 +86,6 @@ class BlogpostsController < ApplicationController
       :date,
       :published
     )
-    tmp_params[:admin] = current_admin
     tmp_params
   end
 end
