@@ -16,3 +16,5 @@ Rails/HasAndBelongsToMany:
   Enabled: false
 Metrics/ClassLength:
   Max: 150
+Style/RaiseArgs:
+  Enabled: false

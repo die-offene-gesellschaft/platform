@@ -20,8 +20,8 @@ RSpec.describe "GET routes", type: :request do
                                   user: @user,
                                   event: @event
     @blogposts = [
-                   FactoryGirl.create(:blogpost),
-                   FactoryGirl.create(:blogpost)
+                   FactoryGirl.create(:blogpost, title: 'first post'),
+                   FactoryGirl.create(:blogpost, title: 'second minor interesting post')
                  ]
     @content = FactoryGirl.create :content
     @press_review = FactoryGirl.create :press_review
@@ -35,8 +35,8 @@ RSpec.describe "GET routes", type: :request do
     routes = ROUTES.select { |r| r[:method] == 'GET' }
     routes.each do |route|
       path = route[:path]
-      de_path = path.gsub(/\(\/:locale\)/, '/de').gsub(/\(:locale\)/, 'de')
-      get de_path
+      new_path = path.gsub(/\/:slug/, '/first-post')
+      get new_path
       expect([200, 301, 302]).to include(response.status)
     end
   end
