@@ -43,22 +43,22 @@
     padding: 0;
 
     @include media-breakpoint-up(md) {
-      height: calc(99vw + 5px);
+      height: 99vw;
       min-height: 0;
     }
 
     @media (min-width: $mobile-breakpoint-width) {
-      height: calc(82vw + 8px);
+      height: calc(82vw + 4px);
     }
 
     @media (min-width: $max-viewport-width) {
-      height: 798px;
+      height: 794px;
     }
   }
 
   .avatars {
     @include media-breakpoint-down(sm) {
-      height: 133vw;
+      height: 131vw;
     }
   }
 
