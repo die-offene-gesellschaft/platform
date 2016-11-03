@@ -11,7 +11,8 @@ class BlogpostsController < ApplicationController
     @blogposts = Blogpost.where(published: true)
                          .where('date <= ?', Time.zone.now)
                          .order(date: :desc)
-    @blogposts = Blogpost.all if admin_signed_in?
+    @blogposts = Blogpost.all
+                         .order(date: :desc) if admin_signed_in?
 
     respond_to do |format|
       format.html { render :index }
