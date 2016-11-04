@@ -127,8 +127,12 @@
             font-size: 42px;
             height: 52px;
             letter-spacing: 1.9px;
-            padding: 19px 54px 139px 24px;
+            padding: 19px 54px 0 24px;
             width: 377px;
+
+            .end-date {
+              display: block;
+            }
           }
         }
 
