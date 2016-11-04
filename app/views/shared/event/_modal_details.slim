@@ -7,16 +7,29 @@
     .col-xs-12.details
       h1.title
         = event.title
+
+    - unless event.planned
+      .col-xs-12.col-md-6.details.details-date
+        .location-date-and-time
+          - has_relevent_end_date = (event.begin_at + 1.day) <= event.end_at
+          - if has_relevent_end_date
+            = "#{l event.begin_at, format: :short_date} - #{l event.end_at, format: :short_date}"
+          - else
+            = l event.begin_at,
+                format: :short_year_date
+
+    .col-xs-12.col-md-6.details.details-location
       p.location-date-and-time
         - venue = event.venue
         = venue.city
-        span.pipe
-        = l event.begin_at,
-            format: :short_year_date unless event.planned
-        span.pipe
+
+      h2.type
+        = event.event_type
+
+      p.location-date-and-time
         = l event.begin_at,
             format: :short_time unless event.planned
-        = fa_icon 'calendar-o'
+
       p.venue
         = venue.name
         br
@@ -24,8 +37,7 @@
         span.pipe
         = "#{venue.zip_code} #{venue.city}"
         = fa_icon 'map-marker'
-      h2.type
-        = event.event_type
+    .col-xs-12.details
       - if event.active_members.any?
         p.active-members
           = t('events.with')
@@ -49,13 +61,13 @@
             = fa_icon 'twitter-square'
   .row
     .col-xs-12.description
-      == event.description
+      == Kramdown::Document.new(event.description).to_html
 
   - if event.post_description
     .row.post-event
       .col-xs-12.description
         p
-          = event.post_description
+          == Kramdown::Document.new(event.post_description).to_html
           - if event.post_description_source
             .source
               = event.post_description_source

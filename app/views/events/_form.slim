@@ -6,7 +6,8 @@
         = f.input :event_type
         = f.input :begin_at
         = f.input :end_at
-        = f.input :description
+        = f.input :description,
+                  as: :pagedown
         / = f.input :facebook_identifier
         .form-group.file.optional.event_picture
           label.control-label.file.optional for='event_picture'
@@ -18,7 +19,8 @@
         = f.input :link, as: :string
         = f.input :locked
         = f.input :planned
-        = f.input :post_description
+        = f.input :post_description,
+                  as: :pagedown
         = f.input :post_description_source
         / = f.input :color
   .row.button-row
