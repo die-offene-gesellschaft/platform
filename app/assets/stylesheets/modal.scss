@@ -38,11 +38,7 @@
 
     .share-links {
       float: right;
-      font-size: 4.5vw;
-
-      @include media-breakpoint-up(lg) {
-        font-size: 25px;
-      }
+      font-size: 25px;
 
       a {
         margin-left: 10px;
