@@ -125,7 +125,7 @@ class UsersController < ApplicationController
     else
       pages = 1
     end
-    @video_users, @statement_users, @picture_users, @users = User.filter_for_pictures(@users, pages)
+    @video_users, @statement_users, @picture_users, @users = User.filter_for_pictures(@users, pages + 1)
   end
 
   def set_admin_users
