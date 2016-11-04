@@ -210,58 +210,45 @@ ruby:
   total_users = video_users + statement_users + users
   video_user_index = statement_user_index = picture_user_index = user_index = 0
   tiles = []
-.user-pictures
-  - total_user_count.times do |index|
-    - tile_definition = user_grid[index % user_grid.count]
-    - if tile_definition[:type] == :statement
-      - tiles << render('picture_grid_item',
-                        classes: tile_definition[:classes],
-                        user: statement_users[statement_user_index % statement_users.count],
-                        statement: true)
-      - statement_user_index += 1
-    - elsif tile_definition[:type] == :video
-      - tiles << render('picture_grid_item',
-                        classes: tile_definition[:classes],
-                        user: video_users[video_user_index % video_users.count],
-                        statement: false)
-      - video_user_index += 1
-    - elsif tile_definition[:type] == :good_picture
-      - tiles << render('picture_grid_item',
-                        classes: tile_definition[:classes],
-                        user: picture_users[picture_user_index % picture_users.count],
-                        statement: false)
-      - picture_user_index += 1
-    - else
-      - tiles << render('picture_grid_item',
-                        classes: tile_definition[:classes],
-                        user: users[user_index % users.count],
-                        statement: false)
-      - user_index += 1
-    - if tiles.count == user_grid.count
-      .grid
-        - tiles.each do |tile|
-          = tile
-      - tiles = []
+- total_user_count.times do |index|
+  - tile_definition = user_grid[index % user_grid.count]
+  - if tile_definition[:type] == :statement
+    - tiles << render('picture_grid_item',
+                      classes: tile_definition[:classes],
+                      user: statement_users[statement_user_index % statement_users.count],
+                      statement: true)
+    - statement_user_index += 1
+  - elsif tile_definition[:type] == :video
+    - tiles << render('picture_grid_item',
+                      classes: tile_definition[:classes],
+                      user: video_users[video_user_index % video_users.count],
+                      statement: false)
+    - video_user_index += 1
+  - elsif tile_definition[:type] == :good_picture
+    - tiles << render('picture_grid_item',
+                      classes: tile_definition[:classes],
+                      user: picture_users[picture_user_index % picture_users.count],
+                      statement: false)
+    - picture_user_index += 1
+  - else
+    - tiles << render('picture_grid_item',
+                      classes: tile_definition[:classes],
+                      user: users[user_index % users.count],
+                      statement: false)
+    - user_index += 1
+  - if tiles.count == user_grid.count
+    .grid
+      - tiles.each do |tile|
+        = tile
+    - tiles = []
 
-a.more href="#{users_path(pictures: '', pages: (params[:pages].to_i + 1))}"
-  | more
-
-coffee:
-  # Persist scroll position on page updates.
-  elementsWithPersistentScrolls = ['.user-pictures']
-
-  # Storing scroll positions of scrollable elements.
-  persistentScrollsPositions = {}
-  $(document).on 'page:receive', ->
-    console.log('receive')
-    persistentScrollsPositions = {}
-    for selector in elementsWithPersistentScrolls
-      persistentScrollsPositions[selector] = $(selector).scrollTop() 
-
-  $(document).on 'page:change', ->
-    console.log('change')
-    for selector, scrollTop of persistentScrollsPositions
-      $(selector).scrollTop scrollTop 
+ruby:
+  pages = params[:pages].to_i + 1
+  pages = 2 if pages <= 1
+a.more-users href="#{users_path(pictures: '', pages: pages)}"
+  = t('users.more-users')
+  br
+  = fa_icon 'chevron-down 4x'
 
 - if member_signed_in?
   - content_for :modals do
