@@ -50,7 +50,7 @@
       font-style: normal;
       font-weight: 600;
       line-height: 1;
-      margin: 0;
+      margin: 0 0 21px;
       text-align: left;
 
       @include media-breakpoint-down(md) {
@@ -64,14 +64,6 @@
       @include media-breakpoint-down(xs) {
         font-size: 17px;
       }
-    }
-
-    &.details-date {
-      padding-top: 0;
-    }
-
-    &.details-location {
-      padding-top: 0;
     }
 
     h2 {
