@@ -11,10 +11,12 @@
     - unless event.planned
       .col-xs-12.col-md-6.details.details-date
         .location-date-and-time
-          = l event.begin_at,
-              format: :short_date
-          - if (event.begin_at + 1.day) <= event.end_at
-            = " - #{l event.end_at, format: :short_date}"
+          - has_relevent_end_date = (event.begin_at + 1.day) <= event.end_at
+          - if has_relevent_end_date
+            = "#{l event.begin_at, format: :short_date} - #{l event.end_at, format: :short_date}"
+          - else
+            = l event.begin_at,
+                format: :short_year_date
 
     .col-xs-12.col-md-6.details.details-location
       p.location-date-and-time
