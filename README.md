@@ -72,6 +72,8 @@ Admin.new(email: 'mail@example.com', password: '12345678').save!
 
 1. Create Issue
 2. Assign yourself
-3. Create feature branch with name pattern like `123-my-new-awesome-feature`, see `New branch` option in GitLab's issue detail view
-4. Create merge request for feature branch in master
+3. Create feature branch with name pattern like `123-my-new-awesome-feature`
+4. Create pull request for feature branch in master
 5. Let merge request be reviewed and accepted if applicable
+6. Results will be deployed to staging `dogtest.hamal.uberspace.de`
+7. Add a version tag with the pattern `v1.2` to deploy to production `offenege.kochab.uberspace.de`
