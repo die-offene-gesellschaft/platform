@@ -33,7 +33,7 @@ cp "offenege-$timestamp".sql latest.sql
 Copy the dump to your local machine.
 
 ```
-rsync offenge@offenege.kochab.uberspace.de:~/latest.sql ./
+rsync -vP offenge@offenege.kochab.uberspace.de:~/latest.sql ./
 ```
 
 Drop local database and read in dump.
@@ -50,7 +50,7 @@ mysql -u offenege -p offenege < latest.sql
 Copy all Paperclip attachements to your local machine.
 
 ```
-rsync offenge@offenege.kochab.uberspace.de:~/offene-gesellschaft/public/system ./public/
+rsync -rvP offenge@offenege.kochab.uberspace.de:~/offene-gesellschaft/public/system ./public/
 ```
 
 ### Project
@@ -77,3 +77,63 @@ Admin.new(email: 'mail@example.com', password: '12345678').save!
 5. Let merge request be reviewed and accepted if applicable
 6. Results will be deployed to staging `dogtest.hamal.uberspace.de`
 7. Add a version tag with the pattern `v1.2` to deploy to production `offenege.kochab.uberspace.de`
+
+## Operations
+
+### Connect
+
+Connect to one of the both environments
+
+- staging: `dogtest.hamal.uberspace.de`
+- production: `offenege.kochab.uberspace.de`
+
+with ssh and the provided key.
+
+```bash
+USER=dogtest # or 'offenege' for production
+SERVER=hamal # or 'kochab' for production
+ssh -i /path/to/provided/key $USER@$USER.$SERVER.uberspace.de
+```
+
+### Useful tasks
+
+Re-run deploy hook
+
+```bash
+~/offene-gesellschaft.git/hooks/post-update
+```
+
+Restart services
+
+```
+svc -du ~/service/offene-gesellschaft
+svc -du ~/service/offene-gesellschaft-worker
+```
+
+Migrate database
+
+```bash
+cd ~/offene-gesellschaft
+rails db:migrate
+```
+
+Apply fixtures
+
+```bash
+cd ~/offene-gesellschaft
+rails db:seed_fu FILTER=fixture-pattern-to-match
+```
+
+Monitor logs
+
+```bash
+tail -f ~/offene-gesellschaft/log/production.log
+```
+
+Set environment variables
+
+```bash
+cat >> ~/.bash_profile <<EOF
+export KEY="value"
+EOF
+```
