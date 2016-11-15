@@ -210,7 +210,6 @@ ruby:
   total_users = video_users + statement_users + users
   video_user_index = statement_user_index = picture_user_index = user_index = 0
   tiles = []
-
 - total_user_count.times do |index|
   - tile_definition = user_grid[index % user_grid.count]
   - if tile_definition[:type] == :statement
@@ -242,6 +241,14 @@ ruby:
       - tiles.each do |tile|
         = tile
     - tiles = []
+
+ruby:
+  pages = params[:pages].to_i + 1
+  pages = 2 if pages <= 1
+a.more-users href="#{users_path(pictures: '', pages: pages)}"
+  = t('users.more-users')
+  br
+  = fa_icon 'chevron-down 4x'
 
 - if member_signed_in?
   - content_for :modals do

@@ -3,8 +3,7 @@
 @import 'images';
 
 .big-title {
-  @extend %top-slider-placeholder;
-  color: transparent;
+  color: $black;
   font-family: 'Montserrat', sans-serif;
   font-size: 3.75vw;
   font-stretch: normal;
@@ -20,6 +19,10 @@
   @media (min-width: $max-viewport-width) {
     font-size: 46px;
   }
+}
+
+.slider {
+  @extend %top-slider-placeholder;
 }
 
 .events-title {
@@ -51,6 +54,7 @@
   font-style: normal;
   font-weight: 600;
   letter-spacing: 1.9px;
+  line-height: 1;
   text-align: left;
 
   @media (min-width: $mobile-breakpoint-width) {
