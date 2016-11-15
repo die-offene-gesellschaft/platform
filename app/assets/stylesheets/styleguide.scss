@@ -1,8 +1,10 @@
 // styleguide
 // https://app.zeplin.io/project.html#pid=57caca57bc94281c06a4e3b2&styleguide
+@import 'images';
 
 .big-title {
-  color: $black;
+  @extend %top-slider-placeholder;
+  color: transparent;
   font-family: 'Montserrat', sans-serif;
   font-size: 3.75vw;
   font-stretch: normal;
@@ -10,6 +12,7 @@
   font-weight: 600;
   letter-spacing: 2.6px;
   text-align: left;
+
 
   @media (min-width: $mobile-breakpoint-width) {
     font-size: 3.8333vw;
