@@ -8,7 +8,6 @@ a.event href="#event-id-#{event.id}" data-toggle='modal' data-target="#event-id-
           = "- #{l event.end_at, format: :short_date}"
       - else
         = l(event.begin_at, format: :short_date_with_weekday)
-    = l(event.begin_at, format: :short_date_with_weekday) unless event.planned
   .venue
     - venue = event.venue
     = venue.city
