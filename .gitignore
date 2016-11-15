@@ -22,3 +22,5 @@
 
 /public/system
 /public/fixture_download
+
+.eslintrc.js
