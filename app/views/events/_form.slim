@@ -6,22 +6,24 @@
         = f.input :event_type
         = f.input :begin_at
         = f.input :end_at
-        = f.input :description,
-                  as: :pagedown
-        / = f.input :facebook_identifier
         .form-group.file.optional.event_picture
           label.control-label.file.optional for='event_picture'
             = t('activerecord.attributes.event.picture').capitalize
             .image style="background-image: url(#{asset_url(event.picture(:normal))});"
             input.file.optional name='event[picture]' id='event_picture' type='file'
+        = f.input :description,
+                  as: :pagedown,
+                      input_html: { class: 'markdown', rows: 22, preview: true }
+        / = f.input :facebook_identifier
         / = f.input :user_id
         = f.input :venue_id, collection: Venue.all
         = f.input :link, as: :string
         = f.input :locked
         = f.input :planned
         = f.input :post_description,
-                  as: :pagedown
-        = f.input :post_description_source
+                  as: :pagedown,
+                      input_html: { class: 'markdown', rows: 22, preview: true }
+        / = f.input :post_description_source
         / = f.input :color
   .row.button-row
     .col-xs-12
