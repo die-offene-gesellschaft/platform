@@ -37,10 +37,6 @@
           = t('events.with')
           | &nbsp;
           = event.active_members.map(&:full_name).join(', ')
-      - if event.link?
-        p
-          a.event-link href="#{event.link}" target='_blank'
-            = event.link
       - if event.organizers.any?
         - event.organizers.each do |organizer|
           p
@@ -56,6 +52,10 @@
   .row
     .col-xs-12.description
       == Kramdown::Document.new(event.description).to_html
+      - if event.link?
+        p
+          a.event-link href="#{event.link}" target='_blank'
+            = t('events.more')
 
   - if event.post_description
     .row.post-event

@@ -1,4 +1,10 @@
 = render 'shared/admin_tabs', active: :organizer
+.button-row
+  .col-xs-12.new-button
+    = render 'shared/button',
+             label: t('organizers.actions.new'),
+             icon: 'plus',
+             href: new_organizer_path
 .row
   .col-xs-12
     table.table.table-striped.table-hover
@@ -19,9 +25,4 @@
               = organizer.name
             td
               = organizer.url
-  .button-row
-    .col-xs-12
-      = render 'shared/button',
-               label: t('organizers.actions.new'),
-               icon: 'plus',
-               href: new_organizer_path
+  

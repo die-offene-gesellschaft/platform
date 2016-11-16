@@ -1,5 +1,11 @@
 .events
   = render 'shared/admin_tabs', active: :event
+  .button-row
+    .col-xs-12.new-button
+      = render 'shared/button',
+               label: t('events.actions.new'),
+               icon: 'plus',
+               href: new_event_path
   .row
     .col-xs-12
       table.table.table-striped.table-hover
@@ -41,9 +47,4 @@
                 = icon_from(event.locked)
               td
                 = icon_from(event.planned)
-  .button-row
-    .col-xs-12
-      = render 'shared/button',
-               label: t('events.actions.new'),
-               icon: 'plus',
-               href: new_event_path
+  

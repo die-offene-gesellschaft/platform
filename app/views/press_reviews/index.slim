@@ -1,5 +1,11 @@
 .press_reviews
   = render 'shared/admin_tabs', active: :press_review
+  .button-row
+    .col-xs-12.new-button
+      = render 'shared/button',
+               label: t('press-reviews.actions.new'),
+               icon: 'plus',
+               href: new_press_review_path
   .row
     .col-xs-12
       table.table.table-striped.table-hover
@@ -24,9 +30,4 @@
                 = press_review.title
               td
                 = press_review.description
-  .button-row
-    .col-xs-12
-      = render 'shared/button',
-               label: t('press-reviews.actions.new'),
-               icon: 'plus',
-               href: new_press_review_path
+  
