@@ -1,4 +1,10 @@
 = render 'shared/admin_tabs', active: :venue
+.button-row
+    .col-xs-12.new-button
+      = render 'shared/button',
+               label: t('venues.actions.new'),
+               icon: 'plus',
+               href: new_venue_path
 .row
   .col-xs-12
     table.table.table-striped.table-hover
@@ -31,9 +37,3 @@
               = venue.city
             td
               = venue.events.count
-  .button-row
-    .col-xs-12
-      = render 'shared/button',
-               label: t('venues.actions.new'),
-               icon: 'plus',
-               href: new_venue_path

@@ -2,6 +2,10 @@
 // https://app.zeplin.io/project.html#pid=57caca57bc94281c06a4e3b2&styleguide
 @import 'images';
 
+.new-button {
+  margin-bottom: 15px;
+}
+
 .big-title {
   color: $black;
   font-family: 'Montserrat', sans-serif;
@@ -368,4 +372,8 @@
   @media (min-width: $max-viewport-width) {
     font-size: 13px;
   }
+}
+
+.form-control[type="text"] {
+  color: $black;
 }
