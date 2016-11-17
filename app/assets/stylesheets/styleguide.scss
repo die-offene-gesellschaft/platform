@@ -2,9 +2,12 @@
 // https://app.zeplin.io/project.html#pid=57caca57bc94281c06a4e3b2&styleguide
 @import 'images';
 
+.new-button {
+  margin-bottom: 15px;
+}
+
 .big-title {
-  @extend %top-slider-placeholder;
-  color: transparent;
+  color: $black;
   font-family: 'Montserrat', sans-serif;
   font-size: 3.75vw;
   font-stretch: normal;
@@ -20,6 +23,10 @@
   @media (min-width: $max-viewport-width) {
     font-size: 46px;
   }
+}
+
+.slider {
+  @extend %top-slider-placeholder;
 }
 
 .events-title {
@@ -51,6 +58,7 @@
   font-style: normal;
   font-weight: 600;
   letter-spacing: 1.9px;
+  line-height: 1;
   text-align: left;
 
   @media (min-width: $mobile-breakpoint-width) {
@@ -364,4 +372,8 @@
   @media (min-width: $max-viewport-width) {
     font-size: 13px;
   }
+}
+
+.form-control[type="text"] {
+  color: $black;
 }
