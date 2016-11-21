@@ -206,11 +206,17 @@ ruby:
     }
   ]
 
-  total_user_count = video_users.count + statement_users.count + users.count
-  total_users = video_users + statement_users + users
+  total_users = video_users + statement_users + picture_users + users
   video_user_index = statement_user_index = picture_user_index = user_index = 0
   tiles = []
-- total_user_count.times do |index|
+= debug total_users.count
+= debug video_users
+br
+br
+= debug statement_users
+= debug picture_users
+= debug users.count
+- total_users.count.times do |index|
   - tile_definition = user_grid[index % user_grid.count]
   - if tile_definition[:type] == :statement
     - tiles << render('picture_grid_item',
@@ -227,7 +233,7 @@ ruby:
   - elsif tile_definition[:type] == :good_picture
     - tiles << render('picture_grid_item',
                       classes: tile_definition[:classes],
-                      user: picture_users[picture_user_index % picture_users.count],
+                      user: picture_users[picture_user_index],
                       statement: false)
     - picture_user_index += 1
   - else
@@ -243,9 +249,9 @@ ruby:
     - tiles = []
 
 ruby:
-  pages = params[:pages].to_i + 1
-  pages = 2 if pages <= 1
-a.more-users href="#{users_path(pictures: '', pages: pages)}"
+  page = params[:page].to_i + 1
+  page = 2 if page <= 1
+a.more-users href="#{users_path(pictures: '', page: page)}"
   = t('users.more-users')
   br
   = fa_icon 'chevron-down 4x'
@@ -262,5 +268,9 @@ a.more-users href="#{users_path(pictures: '', pages: pages)}"
             = render 'shared/user/modal_details',
                       user: current_user,
                       large_user_image: false
+.modals-container
+  = content_for :modals #The modals need some thechnique to be loaded on every page (TODO)
 
-= content_for :modals
+coffee:
+    window.lazyLoadingManager = new window.LazyLoadingManager()
+

@@ -32,6 +32,7 @@ gem 'therubyracer'
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
+gem 'kaminari'
 
 group :development, :test do
   gem 'awesome_print'
