@@ -1,5 +1,6 @@
 de:
   users:
+    more-users: 'Mehr Freunde'
     attributes:
       id: '#'
       forename: 'Vorname'

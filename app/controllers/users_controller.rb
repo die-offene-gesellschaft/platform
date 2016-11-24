@@ -120,7 +120,9 @@ class UsersController < ApplicationController
   end
 
   def filter_user_for_pictures_param
-    @video_users, @statement_users, @picture_users, @users = User.filter_for_pictures(@users)
+    page = params[:page].to_i
+    page = 1 if page < 1
+    @video_users, @statement_users, @picture_users, @users = User.filter_for_pictures(@users, page)
   end
 
   def set_admin_users

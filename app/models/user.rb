@@ -50,6 +50,11 @@ class User < ApplicationRecord
     UserVideoUrlsValidator.validate_video_url(user)
   end
 
+  VIDEO_USERS_COUNT = 2
+  PICTURE_USERS_COUNT = 2
+  STATEMENT_USERS_COUNT = 3
+  USERS_COUNT = 44
+
   def full_name
     "#{forename} #{surname}"
   end
@@ -110,20 +115,26 @@ class User < ApplicationRecord
   end
 
   # this method smells of :reek:DuplicateMethodCall
-  def self.filter_for_pictures(collection)
+  def self.filter_for_pictures(collection, page_number)
     video_users = collection.where.not(video_url: [nil, ''])
                             .where.not(avatar_file_name: nil)
+                            .where.not(frontpage: true)
+                            .order(:id)
+                            .page(page_number).per(VIDEO_USERS_COUNT)
     statement_users = collection.where.not(statement: [nil, ''])
                                 .where(good_statement: true)
-                                .where.not(id: video_users.map(&:id))
+                                .order(:id)
+                                .page(page_number).per(STATEMENT_USERS_COUNT)
     picture_users = collection.where.not(avatar_file_name: nil)
                               .where(good_photo: true)
                               .where.not(id: video_users.map(&:id))
-                              .where.not(id: statement_users.map(&:id))
+                              .order(:id)
+                              .page(page_number).per(PICTURE_USERS_COUNT)
     users = collection.where.not(avatar_file_name: nil)
-                      .where.not(id: video_users.map(&:id))
-                      .where.not(id: statement_users.map(&:id))
-                      .where.not(id: picture_users.map(&:id))
+                      .where.not(good_photo: true)
+                      .where(video_url: [nil,''])
+                      .order('id DESC')
+                      .page(page_number).per(USERS_COUNT)
     [video_users, statement_users, picture_users, users]
   end
 
