@@ -81,20 +81,23 @@ header,
   }
 
   .meta-nav {
-      padding: 0;
-      .social-share-buttons {
-        margin-right: 10px;
-        display: inline;
-        a.share{
-          color: $medium-gray;
-          font-size: 20px;
-        }
-        a.share:hover{
-          color: $red;
-        }
+    padding: 0;
+
+    .social-share-buttons {
+      display: inline;
+      margin-right: 10px;
+
+      .share {
+        color: $medium-gray;
+        font-size: 20px;
+      }
+
+      .share:hover {
+        color: $red;
       }
     }
   }
+}
 
 .row {
   margin: 0;

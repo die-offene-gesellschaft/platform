@@ -106,7 +106,7 @@
       font-size: 18px;
       font-stretch: normal;
       font-style: normal;
-      font-weight: 300;
+      font-weight: normal;
       margin: 0 0 10px;
       text-align: left;
 
@@ -118,17 +118,19 @@
         font-size: 13px;
       }
 
-      .map-link{
+      .map-link {
+        color: $black;
         font-family: 'Montserrat', sans-serif;
         font-size: 18px;
         font-stretch: normal;
         font-style: normal;
-        font-weight: 300;
-        color: $dark-gray;
+        font-weight: normal;
+
         &:hover {
           color: $red;
-          i{
-            color: $red; 
+
+          i {
+            color: $red;
           }
         }
       }
@@ -136,12 +138,12 @@
     }
 
     .type {
-      color: $red;
+      color: $black;
       font-family: 'Montserrat', sans-serif;
       font-size: 19px;
       font-stretch: normal;
       font-style: normal;
-      font-weight: normal;
+      font-weight: bold;
       letter-spacing: .4px;
       line-height: 1.47;
       margin: 0 0 2px;
@@ -163,7 +165,7 @@
       font-size: 19px;
       font-stretch: normal;
       font-style: normal;
-      font-weight: 300;
+      font-weight: normal;
       letter-spacing: .4px;
       line-height: 1.47;
       margin: 0 0 10px;

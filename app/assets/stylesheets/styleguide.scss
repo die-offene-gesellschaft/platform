@@ -162,7 +162,7 @@
   }
 
   @media (min-width: $max-viewport-width) {
-    font-size: 19px;
+    font-size: 18px;
   }
 }
 
@@ -363,6 +363,7 @@
   font-weight: 300;
   letter-spacing: .3px;
   line-height: 1.62;
+  padding-bottom: 9px;
   text-align: left;
 
   @media (min-width: $mobile-breakpoint-width) {
@@ -370,7 +371,7 @@
   }
 
   @media (min-width: $max-viewport-width) {
-    font-size: 13px;
+    font-size: 14px;
   }
 }
 
