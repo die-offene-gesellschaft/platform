@@ -123,6 +123,18 @@ header {
       > .meta-nav-item:last-of-type {
         margin-bottom: 33px;
       }
+
+      .social-share-buttons{
+        padding-bottom: 16px;
+        a.share:first-of-type{
+          font-size: 20px;
+          padding-right: 0;
+        }
+        a.share:last-of-type{
+          font-size: 20px;
+          padding-left: 0;
+        }
+      }
     }
 
     [type='checkbox']:checked ~ label {

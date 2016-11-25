@@ -118,6 +118,21 @@
         font-size: 13px;
       }
 
+      .map-link{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
+        font-stretch: normal;
+        font-style: normal;
+        font-weight: 300;
+        color: $dark-gray;
+        &:hover {
+          color: $red;
+          i{
+            color: $red; 
+          }
+        }
+      }
+
     }
 
     .type {

@@ -89,9 +89,19 @@ header.container-fluid id="header"
         - else
           a.login href="#{new_user_session_path}"
             = t('header.meta-nav.login')
+      li.social-share-buttons
+        a.share href="https://www.facebook.com/InitiativeOffeneGesellschaft/" target='_blank'
+          = fa_icon 'facebook-square'
+        a.share href="https://twitter.com/InitiativeOG" target='_blank'
+          = fa_icon 'twitter-square'
   a.logo-die-offene-gesellschaft href='/'
     = image_tag 'logo-die-offene-gesellschaft.svg'
   .meta-nav
+    .social-share-buttons
+      a.share href="https://www.facebook.com/InitiativeOffeneGesellschaft/" target='_blank'
+        = fa_icon 'facebook-square'
+      a.share href="https://twitter.com/InitiativeOG" target='_blank'
+        = fa_icon 'twitter-square'
     - meta_nav_items.each do |_, meta_nav_item|
       = link_to meta_nav_item[:label],
                 meta_nav_item[:url]

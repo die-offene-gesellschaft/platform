@@ -22,14 +22,15 @@
           span.pipe
           = l event.begin_at,
               format: :short_time
-          = fa_icon 'calendar-o'
+          /= fa_icon 'calendar-o'
       p.venue
         = venue.name
         br
-        = venue.street
-        span.pipe
-        = "#{venue.zip_code} #{venue.city}"
-        = fa_icon 'map-marker'
+        a.map-link href="http://maps.google.com/?q=#{venue.street}+#{venue.zip_code}+#{venue.city}" target="_blank"
+          = venue.street
+          span.pipe
+          = "#{venue.zip_code} #{venue.city}"
+          = fa_icon 'map-marker'
       h2.type
         = event.event_type
       - if event.active_members.any?
