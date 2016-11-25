@@ -1,11 +1,7 @@
 class SlidesController < ApplicationController
-
   before_action :authenticate_admin!, only: [:edit, :update, :create, :new, :destroy]
   before_action :set_slide,
                 only: [:show, :edit, :update, :destroy]
-  def set_slide
-    @slide = Slide.find(params[:id])
-  end
 
   # GET /slides
   # GET /slides.json
@@ -13,11 +9,11 @@ class SlidesController < ApplicationController
     @slides = Slide.all
   end
 
-
   # GET /slides/new
   def new
     @slide = Slide.new
   end
+
   # GET /slides/1
   def show
   end
@@ -69,4 +65,10 @@ class SlidesController < ApplicationController
       :link, :text1, :text2, :picture, :slide_mode
     )
   end
+end
+
+private
+
+def set_slide
+  @slide = Slide.find(params[:id])
 end

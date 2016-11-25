@@ -15,7 +15,7 @@
           = f.input :text2,
                     as: :pagedown,
                         input_html: { class: 'markdown', rows: 22, preview: true }
-          = f.input :slide_mode, collection: Slide::SLIDE_TYPES 
+          = f.input :slide_mode, collection: Slide::SLIDE_TYPES
     .row.button-row
       .col-xs-12
         = render 'shared/button',

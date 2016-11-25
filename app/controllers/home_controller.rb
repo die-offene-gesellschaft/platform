@@ -79,6 +79,6 @@ class HomeController < ApplicationController
   end
 
   def set_slides
-    @slides = Slide.all()
+    @slides = Slide.all
   end
 end

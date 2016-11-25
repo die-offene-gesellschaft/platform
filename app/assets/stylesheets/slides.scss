@@ -13,6 +13,11 @@
 .slideshow {
   .slide {
     display: none;
+
+    &.active {
+      display: block;
+    }
+
     &.text {
       background-color: $white;
       bottom: 0;
@@ -20,58 +25,63 @@
       position: absolute;
       right: 0;
       top: 0;
+
       .image {
         display: none;
       }
+
       .text1 {
-        line-height: 1;
         font-family: "Oswald";
+        font-size: 8vw;
         font-weight: 500;
-        font-size: 8vw; 
+        left: 9vw;
+        line-height: 1;
         position: absolute;
-        top: 6vw; 
-        left: 9vw; 
+        top: 6vw;
         width: 80vw;
-        
+
         @media (min-width: $mobile-breakpoint-width) {
           font-size: 7vw;
-          top: 4vw;
           left: 5vw;
+          top: 4vw;
           width: 60vw;
         }
 
         @include media-breakpoint-up(xl) {
           font-size: 80px;
-          top: 32px;
           left: 50px;
+          top: 32px;
           width: 700px;
         }
       }
+
       .text2 {
-        line-height: 1;
+        bottom: 20vw;
         font-family: "Oswald";
+        font-size: 4vw;
         font-weight: 300;
-        font-size: 4vw; 
+        left: 9vw;
+        line-height: 1;
         position: absolute;
-        bottom: 20vw; 
-        left: 9vw; 
-        width: 80vw; 
+        width: 80vw;
 
         @media (min-width: $mobile-breakpoint-width) {
-          font-size: 3vw;
           bottom: 9vw;
+          font-size: 3vw;
           left: 5vw;
           width: 60vw;
         }
+
         @include media-breakpoint-up(lg) {
-          font-size: 30px;
           bottom: 132px;
+          font-size: 30px;
           left: 50px;
           width: 700px;
         }
       }
     }
-    &.quote{
+
+    &.quote {
       background-color: $white;
       bottom: 0;
       left: 0;
@@ -82,72 +92,73 @@
       .image {
         display: none;
       }
+
       .text1 {
-        line-height: 1.2;
         font-family: "Montserrat";
+        font-size: 3.3vw;
         font-weight: 500;
-        font-size: 3.3vw; 
+        left: 9vw;
+        line-height: 1.2;
         position: absolute;
-        top: 6vw; 
-        left: 9vw; 
+        top: 6vw;
         width: 80vw;
+
         @media (min-width: $mobile-breakpoint-width) {
           font-size: 2.8vw;
-          top: 4vw;
           left: 5vw;
+          top: 4vw;
           width: 60vw;
         }
 
 
         @include media-breakpoint-up(lg) {
           font-size: 2.5vw;
-          top: 4vw;
           left: 5vw;
+          top: 4vw;
           width: 56vw;
         }
 
         @include media-breakpoint-up(xl) {
           font-size: 30px;
-          top: 54px;
           left: 50px;
+          top: 54px;
           width: 700px;
         }
-
-        
       }
+
       .text2 {
-        line-height: 1;
+        bottom: 16vw;
         font-family: "Montserrat";
+        font-size: 3vw;
         font-weight: 300;
-        font-size: 3vw; 
+        left: 9vw;
+        line-height: 1;
         position: absolute;
-        bottom: 16vw; 
-        left: 9vw; 
-        width: 80vw; 
+        width: 80vw;
 
         @media (min-width: $mobile-breakpoint-width) {
-          font-size: 2.5vw;
           bottom: 9vw;
+          font-size: 2.5vw;
           left: 5vw;
           width: 60vw;
         }
 
         @include media-breakpoint-up(lg) {
-          font-size: 2.5vw;
           bottom: 8vw;
+          font-size: 2.5vw;
           left: 5vw;
           width: 56vw;
         }
 
         @include media-breakpoint-up(xl) {
-          font-size: 24px;
           bottom: 107px;
+          font-size: 24px;
           left: 50px;
           width: 700px;
         }
-        
       }
     }
+
     &.picture {
       .image {
         background-size: contain;
@@ -157,19 +168,67 @@
         right: 0;
         top: 0;
       }
-      .text1{
-        position: absolute;
-        background-color: $red;
-        z-index: 1000;
-      }
-      .text2{
-        position: absolute;
+
+      .text1 {
         background-color: $white;
-        z-index: 100;
+        font-family: "Oswald";
+        font-size: 3.6vw;
+        font-weight: 500;
+        left: 6vw;
+        line-height: 9.5vw;
+        max-width: 80vw;
+        padding-left: 3.25vw;
+        padding-right: 3.25vw;
+        position: absolute;
+        top: 6vw;
+        z-index: 1000;
+
+        @media (min-width: $mobile-breakpoint-width) {
+          font-size: 2.5vw;
+          left: 4vw;
+          line-height: 6vw;
+          padding-left: 2.75vw;
+          padding-right: 2.75vw;
+          top: 4vw;
+        }
+
+        @include media-breakpoint-up(xl) {
+          font-size: 30px;
+          height: 70px;
+          left: 40px;
+          line-height: 70px;
+          padding-left: 25px;
+          padding-right: 25px;
+          top: 40px;
+        }
       }
-    } 
-  }
-  .slide.active{
-    display: block;
+
+      .text2 {
+        background-color: $black-transparent;
+        bottom: .5vw;
+        color: $white;
+        font-family: "Montserrat";
+        font-size: 1.7vw;
+        font-weight: 300;
+        padding: .5vw;
+        position: absolute;
+        right: 7vw;
+        z-index: 1000;
+
+        @media (min-width: $mobile-breakpoint-width) {
+          bottom: 6px;
+          font-size: 13px;
+          padding: 3px;
+          right: 4vw;
+        }
+
+        @include media-breakpoint-up(xl) {
+          bottom: 6px;
+          font-size: 13px;
+          padding: 3px;
+          right: 40px;
+        }
+      }
+    }
   }
 }

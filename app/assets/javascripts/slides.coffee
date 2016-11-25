@@ -1,7 +1,7 @@
 class SlideshowManager
 
-   _this = undefined
-   constructor: ->
+  _this = undefined
+  constructor: ->
     _this = this
     slides = $('.slideshow .slide')
     slides.removeClass('active')

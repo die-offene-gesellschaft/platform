@@ -25,16 +25,16 @@
     .desktop-size4x2.desktop-x3.desktop-y2.size2x1.x1.y5
       .slideshow
         - @slides.each do |slide|
-          div class=["slide", slide.slide_mode]
+          div class=['slide', slide.slide_mode]
             .text1
               = slide.text1
             .text2
               = slide.text2
             .image style='background-image: url(#{asset_url(slide.picture(:normal))})'
         .slider-nav
-          - @slides.each_with_index do |slide, i|
-            .nav-block slide="#{i}" 
-          
+          - @slides.each_with_index do |_slide, i|
+            .nav-block slide="#{i}"
+
     .desktop-size1x1.desktop-x1.desktop-y3.mobile-hidden
       = render 'shared/user/tile', user: @vip_users[3 % HomeController::VIP_USERS_COUNT]
     .desktop-size1x1.desktop-x2.desktop-y3.size1x1.x2.y7
