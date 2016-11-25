@@ -1,0 +1,30 @@
+.slide-admin
+  = simple_form_for slide, html: { multipart: true } do |f|
+    .row
+      .col-xs-12
+        .inputs
+          = f.input :link
+          .form-group.file.optional.slide_picture
+            label.control-label.file.optional for='slide_picture'
+              = t('activerecord.attributes.slide.picture').capitalize
+              .image style="background-image: url(#{asset_url(slide.picture(:normal))});"
+              input.file.optional name='slide[picture]' id='slide_picture' type='file'
+          = f.input :text1,
+                    as: :pagedown,
+                        input_html: { class: 'markdown', rows: 22, preview: true }
+          = f.input :text2,
+                    as: :pagedown,
+                        input_html: { class: 'markdown', rows: 22, preview: true }
+          = f.input :slide_mode, collection: Slide::SLIDE_TYPES 
+    .row.button-row
+      .col-xs-12
+        = render 'shared/button',
+                 label: t('delete'),
+                 icon: 'times',
+                 confirm: t('confirm'),
+                 method: 'delete',
+                 href: slide_path(slide) if slide.id
+        = render 'shared/button',
+                 type: 'submit',
+                 label: t('save'),
+                 icon: 'check'

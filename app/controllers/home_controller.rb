@@ -6,6 +6,7 @@ class HomeController < ApplicationController
   before_action :set_vip_users, only: [:show]
   before_action :set_users, only: [:show]
   before_action :set_blogposts, only: [:show]
+  before_action :set_slides, only: [:show]
 
   USERS_COUNT = 10
   FRONTPAGE_USERS_COUNT = 4
@@ -75,5 +76,9 @@ class HomeController < ApplicationController
                  )
                  .order(created_at: :desc)
                  .limit(USERS_COUNT)
+  end
+
+  def set_slides
+    @slides = Slide.all()
   end
 end

@@ -36,6 +36,9 @@ de:
       venue:
         one: Veranstaltungsort
         other: Veranstaltungsorte
+      slide:
+        one: Bühnenbild
+        other: Bühnenbilder
       press_review:
         one: Medienspiegel
         other: Medienspiegel
@@ -110,6 +113,12 @@ de:
         question: Frage
         content: Inhalt
         author: Autor
+      slide:
+        picture: Bild
+        link: Link zu dem weiter geleitet werden soll
+        text1: Der obere Slide Text
+        text2: Der Untere Slide Text
+        slide_mode: Bühnenbild Typ
       organizer:
         name: Name
         url: URL

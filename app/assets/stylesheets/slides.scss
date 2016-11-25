@@ -1,0 +1,175 @@
+// Place all the styles related to the Slides controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.slide-admin {
+  .image {
+    height: 400px;
+    width: 800px;
+  }
+}
+
+.slideshow {
+  .slide {
+    display: none;
+    &.text {
+      background-color: $white;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      .image {
+        display: none;
+      }
+      .text1 {
+        line-height: 1;
+        font-family: "Oswald";
+        font-weight: 500;
+        font-size: 8vw; 
+        position: absolute;
+        top: 6vw; 
+        left: 9vw; 
+        width: 80vw;
+        
+        @media (min-width: $mobile-breakpoint-width) {
+          font-size: 7vw;
+          top: 4vw;
+          left: 5vw;
+          width: 60vw;
+        }
+
+        @include media-breakpoint-up(xl) {
+          font-size: 80px;
+          top: 32px;
+          left: 50px;
+          width: 700px;
+        }
+      }
+      .text2 {
+        line-height: 1;
+        font-family: "Oswald";
+        font-weight: 300;
+        font-size: 4vw; 
+        position: absolute;
+        bottom: 20vw; 
+        left: 9vw; 
+        width: 80vw; 
+
+        @media (min-width: $mobile-breakpoint-width) {
+          font-size: 3vw;
+          bottom: 9vw;
+          left: 5vw;
+          width: 60vw;
+        }
+        @include media-breakpoint-up(lg) {
+          font-size: 30px;
+          bottom: 132px;
+          left: 50px;
+          width: 700px;
+        }
+      }
+    }
+    &.quote{
+      background-color: $white;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      .image {
+        display: none;
+      }
+      .text1 {
+        line-height: 1.2;
+        font-family: "Montserrat";
+        font-weight: 500;
+        font-size: 3.3vw; 
+        position: absolute;
+        top: 6vw; 
+        left: 9vw; 
+        width: 80vw;
+        @media (min-width: $mobile-breakpoint-width) {
+          font-size: 2.8vw;
+          top: 4vw;
+          left: 5vw;
+          width: 60vw;
+        }
+
+
+        @include media-breakpoint-up(lg) {
+          font-size: 2.5vw;
+          top: 4vw;
+          left: 5vw;
+          width: 56vw;
+        }
+
+        @include media-breakpoint-up(xl) {
+          font-size: 30px;
+          top: 54px;
+          left: 50px;
+          width: 700px;
+        }
+
+        
+      }
+      .text2 {
+        line-height: 1;
+        font-family: "Montserrat";
+        font-weight: 300;
+        font-size: 3vw; 
+        position: absolute;
+        bottom: 16vw; 
+        left: 9vw; 
+        width: 80vw; 
+
+        @media (min-width: $mobile-breakpoint-width) {
+          font-size: 2.5vw;
+          bottom: 9vw;
+          left: 5vw;
+          width: 60vw;
+        }
+
+        @include media-breakpoint-up(lg) {
+          font-size: 2.5vw;
+          bottom: 8vw;
+          left: 5vw;
+          width: 56vw;
+        }
+
+        @include media-breakpoint-up(xl) {
+          font-size: 24px;
+          bottom: 107px;
+          left: 50px;
+          width: 700px;
+        }
+        
+      }
+    }
+    &.picture {
+      .image {
+        background-size: contain;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+      .text1{
+        position: absolute;
+        background-color: $red;
+        z-index: 1000;
+      }
+      .text2{
+        position: absolute;
+        background-color: $white;
+        z-index: 100;
+      }
+    } 
+  }
+  .slide.active{
+    display: block;
+  }
+}

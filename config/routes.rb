@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   resources :press_reviews
   resources :ideas, only: [:index, :show, :create, :destroy]
   resources :event_proposals, only: [:index, :show, :create, :destroy]
+  resources :slides, only: [:new, :index, :create, :edit, :show, :update, :destroy]
   resources :users, except: [:new, :create] do
     delete '/avatar',
            to: 'users#delete_avatar',

@@ -1,0 +1,28 @@
+.slides
+  = render 'shared/admin_tabs', active: :slide
+  .button-row
+    .col-xs-12.new-button
+      = render 'shared/button',
+               label: t('slides.actions.new'),
+               icon: 'plus',
+               href: new_slide_path
+  .row
+    .col-xs-12
+      table.table.table-striped.table-hover
+        thead
+          tr
+            td
+              | #
+            td
+              = t('activerecord.attributes.slide.link')
+            td
+              = t('activerecord.attributes.slide.slide_mode')
+        tbody
+          - slides.each do |slide|
+            tr data-href="#{edit_slide_path(slide)}"
+              td
+                = slide.id
+              td
+                = slide.link
+              td
+                = slide.slide_mode
