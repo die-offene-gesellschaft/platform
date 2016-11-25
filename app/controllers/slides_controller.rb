@@ -41,6 +41,9 @@ class SlidesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   # DELETE /slides/1
   # DELETE /slides/1.json
   def destroy
