@@ -22,15 +22,12 @@ table.appointments
           p.city
             - venue = event.venue
             = venue.city
-          p.event-type-and-active-members
-            - if event.active_members.any?
-              = t 'events.event-type-and-active-members',
-                  event_type: event.event_type,
-                  active_members: event.active_members.map(&:full_name).join(', ')
-            - else
-              = event.event_type
-          p.time
-            = l(event.begin_at, format: :short_time)
+          p.event-type-and-active-members 
+            /TODO Change Class name to title
+            = event.title    
+          p.time 
+            /TODO Change classname to event-type 
+            = event.event_type
           p.venue
             = venue.name
         = render 'shared/event/modal',
