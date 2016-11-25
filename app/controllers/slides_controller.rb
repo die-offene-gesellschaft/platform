@@ -14,10 +14,6 @@ class SlidesController < ApplicationController
     @slide = Slide.new
   end
 
-  # GET /slides/1
-  def show
-  end
-
   def update
     if @slide.update(slide_params)
       redirect_to slides_path, notice: t('actions.save.success')
@@ -43,10 +39,6 @@ class SlidesController < ApplicationController
         format.json { render json: @slide.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  # GET /slides/1/edit
-  def edit
   end
 
   # DELETE /slides/1

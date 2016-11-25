@@ -29,6 +29,7 @@ RSpec.describe "GET routes", type: :request do
     @statement = FactoryGirl.create :statement
     @organizer = FactoryGirl.create :organizer
     FactoryGirl.create(:user, email: 'jane.doe@example.com', password: '12345678')
+    @slide = FactoryGirl.create :slide
   end
 
   it 'should be error-free' do
