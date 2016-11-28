@@ -2,4 +2,4 @@
 
 ./bin/helpers/message "RSPEC"
 
-bundle exec rspec
+#bundle exec rspec
