@@ -28,9 +28,11 @@
           a class=['slide', slide.slide_mode] href="#{slide.link}" slide="#{i}"
             .inside-wrapper
               .text1
-                = slide.text1
+                span
+                  = slide.text1
               .text2
-                = slide.text2
+                span
+                  = slide.text2
               .image style='background-image: url(#{asset_url(slide.picture(:normal))})'
         .slider-nav
           - @slides.each_with_index do |_slide, i|

@@ -56,6 +56,33 @@ $min-1200: 'min-width: 1200px';
   }
 }
 
+.slideshow{
+  .slider-nav {
+    bottom: 0;
+    left: 9vw;
+    @media ($min-830){
+      left: 5vw;
+    }
+    @media ($min-1200){
+      left: 50px;
+    }
+    position: absolute;
+    .nav-block{
+      width: 20px;
+      display: inline-block;
+      height: 8px;
+      margin-right: 2px;
+      @media ($min-830){
+        width: 34px;
+        height: 12px;
+      }
+      background-color: $gray;
+      &.active{
+        background-color: $red;
+      }
+    }
+  }
+}
 .slideshow {
   .slide {
     display: none;
@@ -64,12 +91,13 @@ $min-1200: 'min-width: 1200px';
       display: block;
     }
 
+    // general stylings
     &.text,
-    &.quote,
-    &.picture{
+    &.quote{
       .text1{
         color: $black;
-        padding: 6vw 9vw 0;
+        line-height: 1.2;
+        padding: 4vw 9vw 0;
         @media ($min-830){
           padding: 4vw 5vw 0;
         }
@@ -79,7 +107,8 @@ $min-1200: 'min-width: 1200px';
       }
       .text2{
         color: $black;
-        padding: 6vw 9vw 0;
+        line-height: inherit;
+        padding: 4vw 9vw 0;
         @media ($min-830){
           padding: 4vw 5vw 0;
         }
@@ -89,6 +118,8 @@ $min-1200: 'min-width: 1200px';
       }
       .image{}
     }
+
+    // specific styling overwrites
     &.text {
       background-color: $white;
       bottom: 0;
@@ -105,52 +136,29 @@ $min-1200: 'min-width: 1200px';
         font-family: "Oswald";
         font-size: 8vw;
         font-weight: 500;
-        // left: 9vw;
-        line-height: 1;
-        // position: absolute;
-        // top: 6vw;
-        // width: 80vw;
-
         @media (min-width: $mobile-breakpoint-width) {
           font-size: 7vw;
-          // left: 5vw;
-          // top: 4vw;
-          // width: 60vw;
         }
 
-        // (min-width: 1200px)
         @include media-breakpoint-up(xl) {
           font-size: 80px;
-          // left: 50px;
-          // top: 32px;
-          // width: 700px;
         }
       }
 
       .text2 {
-        // bottom: 20vw;
         font-family: "Oswald";
-        font-size: 4vw;
+        font-size: 5vw;
         font-weight: 300;
-        // left: 9vw;
-        line-height: 1;
-        // position: absolute;
         width: 80vw;
 
         // (min-width: 830px)
         @media (min-width: $mobile-breakpoint-width) {
-          // bottom: 9vw;
           font-size: 3vw;
-          // left: 5vw;
-          // width: 60vw;
         }
 
         // (min-width: 992px)
         @include media-breakpoint-up(lg) {
-          // bottom: 132px;
           font-size: 30px;
-          // left: 50px;
-          // width: 700px;
         }
       }
     }
@@ -169,67 +177,39 @@ $min-1200: 'min-width: 1200px';
 
       .text1 {
         font-family: "Montserrat";
-        font-size: 3.3vw;
+        font-size: 4vw;
         font-weight: 500;
-        // left: 9vw;
-        line-height: 1.2;
-        // position: absolute;
-        // top: 6vw;
-        // width: 80vw;
 
         // > 830px
         @media (min-width: $mobile-breakpoint-width) {
           font-size: 2.8vw;
-          // left: 5vw;
-          // top: 4vw;
-          // width: 60vw;
         }
 
 
         @include media-breakpoint-up(lg) {
           font-size: 2.5vw;
-          // left: 5vw;
-          // top: 4vw;
-          // width: 56vw;
         }
 
         @include media-breakpoint-up(xl) {
           font-size: 30px;
-          // left: 50px;
-          // top: 54px;
-          // width: 700px;
         }
       }
 
       .text2 {
-        // bottom: 16vw;
         font-family: "Montserrat";
-        font-size: 3vw;
+        font-size: 4vw;
         font-weight: 300;
-        // left: 9vw;
-        line-height: 1;
-        // position: absolute;
-        // width: 80vw;
 
         @media (min-width: $mobile-breakpoint-width) {
-          // bottom: 9vw;
           font-size: 2.5vw;
-          // left: 5vw;
-          // width: 60vw;
         }
 
         @include media-breakpoint-up(lg) {
-          // bottom: 8vw;
           font-size: 2.5vw;
-          // left: 5vw;
-          // width: 56vw;
         }
 
         @include media-breakpoint-up(xl) {
-          // bottom: 107px;
           font-size: 24px;
-          // left: 50px;
-          // width: 700px;
         }
       }
     }
@@ -244,66 +224,99 @@ $min-1200: 'min-width: 1200px';
         top: 0;
       }
 
-      .text1 {
-        background-color: $white;
-        font-family: "Oswald";
-        font-size: 3.6vw;
+      .text1,
+      .text2{
+        position: absolute;
+        z-index: 1;
+        bottom: 52px;
+        span{
+          display: inline;
+          background: $white;
+          box-shadow: 10px 0 0 $white, -10px 0 0 $white;
+          bottom: 52px;
+        }
+      }
+      .text1{
+        color: $black;
+        line-height: 1.2;
+        margin: 6vw 9vw 0;
+        font-size: 5vw;
         font-weight: 500;
-        // left: 6vw;
-        line-height: 9.5vw;
-        max-width: 80vw;
-        // padding-left: 3.25vw;
-        // padding-right: 3.25vw;
-        // position: absolute;
-        // top: 6vw;
-        z-index: 1000;
 
-        @media (min-width: $mobile-breakpoint-width) {
+        @media ($min-830){
+          margin: 4vw 5vw 0;
           font-size: 2.5vw;
-          // left: 4vw;
-          line-height: 6vw;
-          // padding-left: 2.75vw;
-          // padding-right: 2.75vw;
-          // top: 4vw;
         }
-
-        @include media-breakpoint-up(xl) {
+        @media ($min-1200){
+          margin: 32px 50px 0;
           font-size: 30px;
-          height: 70px;
-          // left: 40px;
-          line-height: 70px;
-          // padding-left: 25px;
-          // padding-right: 25px;
-          // top: 40px;
         }
       }
-
-      .text2 {
-        background-color: $black-transparent;
-        // bottom: .5vw;
-        color: $white;
+      .text2{
+        line-height: inherit;
+        margin: 6vw 9vw 0;
         font-family: "Montserrat";
-        font-size: 1.7vw;
+        font-size: 4vw;
         font-weight: 300;
-        // padding: .5vw;
-        // position: absolute;
-        // right: 7vw;
-        z-index: 1000;
-
-        @media (min-width: $mobile-breakpoint-width) {
-          // bottom: 6px;
-          font-size: 13px;
-          // padding: 3px;
-          // right: 4vw;
+        background: $black-transparent;
+        padding: 2px 10px;
+        bottom: 6px;
+        right: 0;
+        span {
+          box-shadow: none;
+          background: none;
+          color: $white;
         }
-
-        @include media-breakpoint-up(xl) {
-          // bottom: 6px;
+        @media ($min-830){
           font-size: 13px;
-          // padding: 3px;
-          // right: 40px;
+          margin: 4vw 5vw 0;
+        }
+        @media ($min-1200){
+          font-size: 13px;
+          margin: 32px 50px 0;
         }
       }
+      .image{}
+
+      // .text1 {
+      //   background-color: $white;
+      //   font-family: "Oswald";
+      //   font-size: 3.6vw;
+      //   font-weight: 500;
+      //   // line-height: 9.5vw;
+      //   max-width: 80vw;
+      //   z-index: 1000;
+
+      //   @media (min-width: $mobile-breakpoint-width) {
+      //     font-size: 2.5vw;
+      //     // line-height: 6vw;
+      //   }
+
+      //   @include media-breakpoint-up(xl) {
+      //     font-size: 30px;
+      //     height: 70px;
+      //     // line-height: 70px;
+      //   }
+      // }
+
+      // .text2 {
+      //   background-color: $black-transparent;
+      //   color: $white;
+      //   font-family: "Montserrat";
+      //   font-size: 1.7vw;
+      //   font-weight: 300;
+      //   z-index: 1000;
+
+      //   @media (min-width: $mobile-breakpoint-width) {
+      //     font-size: 13px;
+      //   }
+
+      //   @include media-breakpoint-up(xl) {
+      //     font-size: 13px;
+      //   }
+      // }
+
+
     }
   }
 }

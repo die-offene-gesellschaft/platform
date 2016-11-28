@@ -15,6 +15,7 @@ class SlideshowManager
       $('.nav-block[slide="'+activeID+'"]').addClass('active')
       if currentSlide.length == 0
         currentSlide = slides.first().addClass('active')
-     , 3000)
+        $('.nav-block[slide="0"]').addClass('active')
+     , 300000)
 
 window.SlideshowManager = SlideshowManager

@@ -51,11 +51,11 @@
     }
 
     .user {
-      opacity: .7;
+      // opacity: .7;
 
-      &:hover {
-        opacity: 1;
-      }
+      // &:hover {
+      //   opacity: 1;
+      // }
     }
 
     .about {
@@ -88,7 +88,7 @@
     .call-to-action {
       background-color: $yellow;
       color: $black;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Oswald', sans-serif;
       font-size: 5.5vw;
       font-stretch: normal;
       font-style: normal;
@@ -101,7 +101,7 @@
       }
 
       @media (min-width: $max-viewport-width) {
-        font-size: 22px;
+        font-size: 25px;
       }
 
       span {
