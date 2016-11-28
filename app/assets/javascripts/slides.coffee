@@ -8,7 +8,10 @@ class SlideshowManager
     currentSlide = slides.first().addClass('active')
     setInterval(() ->
       currentSlide.removeClass('active')
+      $('.nav-block').removeClass('active')
       currentSlide = currentSlide.next('.slide').addClass('active')
+      activeID = currentSlide.attr('slide')
+      $('.nav-block[slide="'+activeID+'"]').addClass('active')
       if currentSlide.length == 0
         currentSlide = slides.first().addClass('active')
      , 3000)

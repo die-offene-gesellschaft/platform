@@ -3,6 +3,52 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
+// // colors
+
+// $anthracite: #1d1d1b;
+// $black: #000;
+// $black-transparent: rgba(0, 0, 0, .3);
+// $dark-blue: #000207;
+// $dark-gray: #6f6f6f;
+// $medium-gray: #e0dbdb;
+// $gray: #e5e5e5;
+// $red: #d20a11;
+// $white: #fff;
+// $yellow: #ffdd02;
+
+// // special colors
+
+// $meta-nav-gray: #4e5350;
+// $mobile-menu-gray: #f2f2f2;
+// $initial-popup-warning-red: #ffdd02;
+// $initial-popup-warning-yellow: #d20a11;
+
+// // lengths
+
+// $mobile-breakpoint-width: 830px;
+// $max-viewport-width: 1200px;
+// $max-modal-width: #{$max-viewport-width * (2/3)};
+// $max-modal-height: #{$max-viewport-width / 3};
+
+// // opacities
+
+// $modal-backdrop: .8;
+
+
+
+// BREAKPOINTS
+// media queries
+$min-830: 'min-width: 830px';
+// @media (min-width: $mobile-breakpoint-width)
+
+$min-992: 'min-width: 992px';
+// @include media-breakpoint-up(lg)
+
+$min-1200: 'min-width: 1200px';
+// @include media-breakpoint-up(xl)
+
+
 .slide-admin {
   .image {
     height: 400px;
@@ -18,6 +64,21 @@
       display: block;
     }
 
+    &.text,
+    &.quote,
+    &.picture{
+      .text1{
+        padding: 6vw 9vw;
+        @media ($min-830){
+          padding: 4vw 5vw;
+        }
+        @media ($min-1200){
+          padding: 32px 50px;
+        }
+      }
+      .text2{}
+      .image{}
+    }
     &.text {
       background-color: $white;
       bottom: 0;
@@ -34,49 +95,52 @@
         font-family: "Oswald";
         font-size: 8vw;
         font-weight: 500;
-        left: 9vw;
+        // left: 9vw;
         line-height: 1;
-        position: absolute;
-        top: 6vw;
-        width: 80vw;
+        // position: absolute;
+        // top: 6vw;
+        // width: 80vw;
 
         @media (min-width: $mobile-breakpoint-width) {
           font-size: 7vw;
-          left: 5vw;
-          top: 4vw;
-          width: 60vw;
+          // left: 5vw;
+          // top: 4vw;
+          // width: 60vw;
         }
 
+        // (min-width: 1200px)
         @include media-breakpoint-up(xl) {
           font-size: 80px;
-          left: 50px;
-          top: 32px;
-          width: 700px;
+          // left: 50px;
+          // top: 32px;
+          // width: 700px;
         }
       }
 
       .text2 {
-        bottom: 20vw;
+        // bottom: 20vw;
         font-family: "Oswald";
         font-size: 4vw;
         font-weight: 300;
-        left: 9vw;
+        // left: 9vw;
         line-height: 1;
-        position: absolute;
+        // position: absolute;
         width: 80vw;
 
+        // (min-width: 830px)
         @media (min-width: $mobile-breakpoint-width) {
-          bottom: 9vw;
+          // bottom: 9vw;
           font-size: 3vw;
-          left: 5vw;
-          width: 60vw;
+          // left: 5vw;
+          // width: 60vw;
         }
 
+        // (min-width: 992px)
         @include media-breakpoint-up(lg) {
-          bottom: 132px;
+          // bottom: 132px;
           font-size: 30px;
-          left: 50px;
-          width: 700px;
+          // left: 50px;
+          // width: 700px;
         }
       }
     }
@@ -97,64 +161,65 @@
         font-family: "Montserrat";
         font-size: 3.3vw;
         font-weight: 500;
-        left: 9vw;
+        // left: 9vw;
         line-height: 1.2;
-        position: absolute;
-        top: 6vw;
-        width: 80vw;
+        // position: absolute;
+        // top: 6vw;
+        // width: 80vw;
 
+        // > 830px
         @media (min-width: $mobile-breakpoint-width) {
           font-size: 2.8vw;
-          left: 5vw;
-          top: 4vw;
-          width: 60vw;
+          // left: 5vw;
+          // top: 4vw;
+          // width: 60vw;
         }
 
 
         @include media-breakpoint-up(lg) {
           font-size: 2.5vw;
-          left: 5vw;
-          top: 4vw;
-          width: 56vw;
+          // left: 5vw;
+          // top: 4vw;
+          // width: 56vw;
         }
 
         @include media-breakpoint-up(xl) {
           font-size: 30px;
-          left: 50px;
-          top: 54px;
-          width: 700px;
+          // left: 50px;
+          // top: 54px;
+          // width: 700px;
         }
       }
 
       .text2 {
-        bottom: 16vw;
+        // bottom: 16vw;
         font-family: "Montserrat";
         font-size: 3vw;
         font-weight: 300;
-        left: 9vw;
+        // left: 9vw;
         line-height: 1;
-        position: absolute;
-        width: 80vw;
+        // position: absolute;
+        // width: 80vw;
 
         @media (min-width: $mobile-breakpoint-width) {
-          bottom: 9vw;
+          // bottom: 9vw;
           font-size: 2.5vw;
-          left: 5vw;
-          width: 60vw;
+          // left: 5vw;
+          // width: 60vw;
         }
 
         @include media-breakpoint-up(lg) {
-          bottom: 8vw;
+          // bottom: 8vw;
           font-size: 2.5vw;
-          left: 5vw;
-          width: 56vw;
+          // left: 5vw;
+          // width: 56vw;
         }
 
         @include media-breakpoint-up(xl) {
-          bottom: 107px;
+          // bottom: 107px;
           font-size: 24px;
-          left: 50px;
-          width: 700px;
+          // left: 50px;
+          // width: 700px;
         }
       }
     }
