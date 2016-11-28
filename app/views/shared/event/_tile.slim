@@ -3,11 +3,13 @@ a.event href="#event-id-#{event.id}" data-toggle='modal' data-target="#event-id-
     .date.calendar
       - has_relevent_end_date = (event.begin_at + 1.day) <= event.end_at
       - if has_relevent_end_date
-        = l(event.begin_at, format: :short_date_with_weekday)
+        = "#{l(event.begin_at, format: :short_date)} -"
         span.end-date
-          = "- #{l event.end_at, format: :short_date}"
+          = l event.end_at, format: :short_date
       - else
-        = l(event.begin_at, format: :short_date_with_weekday)
+        = l(event.begin_at, format: :short_date_weekday)
+        br
+        = l(event.begin_at, format: :short_date)
   .venue
     - venue = event.venue
     = venue.city

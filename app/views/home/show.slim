@@ -25,7 +25,7 @@
     .desktop-size4x2.desktop-x3.desktop-y2.size2x1.x1.y5
       .slideshow
         - @slides.each_with_index do |slide, i|
-          div class=['slide', slide.slide_mode] slide="#{i}"
+          a class=['slide', slide.slide_mode] href="#{slide.link}" slide="#{i}"
             .inside-wrapper
               .text1
                 = slide.text1

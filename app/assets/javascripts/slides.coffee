@@ -6,6 +6,7 @@ class SlideshowManager
     slides = $('.slideshow .slide')
     slides.removeClass('active')
     currentSlide = slides.first().addClass('active')
+    $('.nav-block[slide="0"]').addClass('active')
     setInterval(() ->
       currentSlide.removeClass('active')
       $('.nav-block').removeClass('active')

@@ -68,15 +68,25 @@ $min-1200: 'min-width: 1200px';
     &.quote,
     &.picture{
       .text1{
-        padding: 6vw 9vw;
+        color: $black;
+        padding: 6vw 9vw 0;
         @media ($min-830){
-          padding: 4vw 5vw;
+          padding: 4vw 5vw 0;
         }
         @media ($min-1200){
-          padding: 32px 50px;
+          padding: 32px 50px 0;
         }
       }
-      .text2{}
+      .text2{
+        color: $black;
+        padding: 6vw 9vw 0;
+        @media ($min-830){
+          padding: 4vw 5vw 0;
+        }
+        @media ($min-1200){
+          padding: 32px 50px 0;
+        }
+      }
       .image{}
     }
     &.text {
@@ -239,59 +249,59 @@ $min-1200: 'min-width: 1200px';
         font-family: "Oswald";
         font-size: 3.6vw;
         font-weight: 500;
-        left: 6vw;
+        // left: 6vw;
         line-height: 9.5vw;
         max-width: 80vw;
-        padding-left: 3.25vw;
-        padding-right: 3.25vw;
-        position: absolute;
-        top: 6vw;
+        // padding-left: 3.25vw;
+        // padding-right: 3.25vw;
+        // position: absolute;
+        // top: 6vw;
         z-index: 1000;
 
         @media (min-width: $mobile-breakpoint-width) {
           font-size: 2.5vw;
-          left: 4vw;
+          // left: 4vw;
           line-height: 6vw;
-          padding-left: 2.75vw;
-          padding-right: 2.75vw;
-          top: 4vw;
+          // padding-left: 2.75vw;
+          // padding-right: 2.75vw;
+          // top: 4vw;
         }
 
         @include media-breakpoint-up(xl) {
           font-size: 30px;
           height: 70px;
-          left: 40px;
+          // left: 40px;
           line-height: 70px;
-          padding-left: 25px;
-          padding-right: 25px;
-          top: 40px;
+          // padding-left: 25px;
+          // padding-right: 25px;
+          // top: 40px;
         }
       }
 
       .text2 {
         background-color: $black-transparent;
-        bottom: .5vw;
+        // bottom: .5vw;
         color: $white;
         font-family: "Montserrat";
         font-size: 1.7vw;
         font-weight: 300;
-        padding: .5vw;
-        position: absolute;
-        right: 7vw;
+        // padding: .5vw;
+        // position: absolute;
+        // right: 7vw;
         z-index: 1000;
 
         @media (min-width: $mobile-breakpoint-width) {
-          bottom: 6px;
+          // bottom: 6px;
           font-size: 13px;
-          padding: 3px;
-          right: 4vw;
+          // padding: 3px;
+          // right: 4vw;
         }
 
         @include media-breakpoint-up(xl) {
-          bottom: 6px;
+          // bottom: 6px;
           font-size: 13px;
-          padding: 3px;
-          right: 40px;
+          // padding: 3px;
+          // right: 40px;
         }
       }
     }
