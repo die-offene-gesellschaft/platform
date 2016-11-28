@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123112104) do
+ActiveRecord::Schema.define(version: 20161128122944) do
 
   create_table "active_members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "forename"
@@ -244,6 +244,7 @@ ActiveRecord::Schema.define(version: 20161123112104) do
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.string   "slide_mode",                         null: false
+    t.integer  "order"
   end
 
   create_table "statements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
