@@ -9,4 +9,5 @@ class Slide < ApplicationRecord
   validates :picture, dimensions: { width: 800, height: 400 }
   validates_attachment_content_type :picture,
                                     content_type: %r{\Aimage\/.*\z}
+  validates :order, presence: true
 end

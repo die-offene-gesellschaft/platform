@@ -114,6 +114,7 @@ de:
         content: Inhalt
         author: Autor
       slide:
+        order: Anzeige Reihenfolge
         picture: Bild
         link: Link zu dem weiter geleitet werden soll
         text1: Der obere Slide Text

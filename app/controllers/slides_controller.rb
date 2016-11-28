@@ -6,7 +6,7 @@ class SlidesController < ApplicationController
   # GET /slides
   # GET /slides.json
   def index
-    @slides = Slide.all
+    @slides = Slide.all.order(order: :asc)
   end
 
   # GET /slides/new
@@ -57,7 +57,7 @@ class SlidesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def slide_params
     params.require(:slide).permit(
-      :link, :text1, :text2, :picture, :slide_mode
+      :link, :text1, :text2, :picture, :slide_mode, :order
     )
   end
 end

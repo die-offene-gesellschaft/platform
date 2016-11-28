@@ -12,6 +12,8 @@
         thead
           tr
             td
+              = t('activerecord.attributes.slide.order')
+            td
               | #
             td
               = t('activerecord.attributes.slide.link')
@@ -20,6 +22,8 @@
         tbody
           - slides.each do |slide|
             tr data-href="#{edit_slide_path(slide)}"
+              td
+                = slide.order
               td
                 = slide.id
               td
