@@ -93,7 +93,13 @@ class UsersController < ApplicationController
 
   def admin_update_params
     new_params = user_params
-    new_params[:terms_of_use] = true if user_params[:locked] == '0' && admin_signed_in?
+    if admin_signed_in?
+      if user_params[:locked] == '0'
+        new_params[:terms_of_use] = true
+      else
+        new_params.delete(:terms_of_use)
+      end
+    end
     new_params
   end
 
