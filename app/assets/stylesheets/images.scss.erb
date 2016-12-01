@@ -2,3 +2,13 @@
   background-image: url('<%= asset_path('top-message-ph.png') %>');
   background-size: contain;
 }
+
+.fa-remove:before,
+.fa-close:before,
+.fa-times:before {
+    background-image: url('<%= asset_path('close.svg') %>');
+}
+
+.weitersagen::before{ background-image: url('<%= asset_path('participate/weitersagen.svg') %>'); }
+.vor-ort-sein::before{ background-image: url('<%= asset_path('participate/vor-ort-sein.svg') %>'); }
+.spenden::before{ background-image: url('<%= asset_path('participate/spenden-1.svg') %>'); }

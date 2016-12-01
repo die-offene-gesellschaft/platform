@@ -13,14 +13,14 @@
         ul
           - @press_reviews.each do |press_review|
             li
+              = link_to press_review.link do
+                h2
+                  = press_review.title
               h3
                 = l press_review.created_at, format: :normal_date
               span.reference
                 = t 'about.reference',
                     reference: press_review.source_title
-              = link_to press_review.link do
-                h2
-                  = press_review.title
               p
                 = press_review.description
     .col-xs-12.contact

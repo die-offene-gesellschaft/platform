@@ -43,10 +43,10 @@
 
       span {
         background-color: $white;
-        bottom: 17px;
+        bottom: 30px;
         left: 28px;
         position: absolute;
-        width: 100%;
+        // width: 100%;
       }
     }
 
@@ -79,7 +79,7 @@
         font-weight: 600;
         height: 23px;
         left: 28px;
-        letter-spacing: .4px;
+        // letter-spacing: .4px;
         position: absolute;
         text-align: left;
       }
@@ -93,7 +93,9 @@
       font-stretch: normal;
       font-style: normal;
       font-weight: 600;
-      letter-spacing: .5px;
+      padding: 22px;
+
+      // letter-spacing: .5px;
       text-transform: uppercase;
 
       @media (min-width: $mobile-breakpoint-width) {
@@ -107,17 +109,23 @@
       span {
         position: absolute;
         text-align: center;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 100%;
+        top: calc(50% + 22px);
+        transform: translateY(calc(-50% - 22px));
+        width: calc(100% - 44px);
       }
     }
 
     .statement {
-      background-color: $red;
+      background-color: $white;
       bottom: 0;
       left: 0;
-      padding: 27px 44px 0 33px;
+      padding: 5vw;
+      @media (min-width: $mobile-breakpoint-width) {
+        padding: 27px 44px 0 33px;
+      }
+      @media (min-width: $max-viewport-width) {
+        padding: 27px 44px 0 33px;
+      }
       position: absolute;
       right: 0;
       top: 0;
@@ -125,28 +133,40 @@
 
     .event {
       background-color: $red;
-
+      padding: 5vw;
+      @media (min-width: $mobile-breakpoint-width) {
+        padding: 22px;
+      }
       .date {
-        margin: 20px 0 0 11px;
+        // margin: 20px 0 0 11px;
       }
 
       .venue {
         color: $white;
-        font-family: 'Montserrat', sans-serif;
+        // font-family: 'Montserrat', sans-serif;
+        font-family: $montserrat;
         font-size: 4.5vw;
         font-stretch: normal;
         font-style: normal;
-        font-weight: 300;
-        letter-spacing: .2px;
-        margin: 20px 11px;
+        font-weight: normal;
+        // letter-spacing: .2px;
+        // margin: 20px 11px;
+        // margin: 20px 0;
+        position: absolute;
+        bottom: 5vw;
         text-align: left;
+
+        // needed because it´s absolute positioned
+        width: calc(100% - 40px);
+        @include ellipsis();
 
         @media (min-width: $mobile-breakpoint-width) {
           font-size: 1.5vw;
+          bottom: 21px;
         }
 
         @media (min-width: $max-viewport-width) {
-          font-size: 18px;
+          font-size: 24px;
         }
       }
     }

@@ -13,7 +13,7 @@ ruby:
         p.quote-role
           = user.role
     - elsif user.video_user?
-      = image_tag 'video-play.svg',
+      = image_tag 'play-button.svg',
                   class: 'video-play-icon'
   - content_for :modals do
     .modal.modal-dog.fade id="user-id-#{user.id}" tabindex="-1" role="dialog" aria-labelledby="user-id-#{user.id}" aria-hidden="true" data-turbolinks='false'

@@ -28,3 +28,28 @@ $max-modal-height: #{$max-viewport-width / 3};
 // opacities
 
 $modal-backdrop: .8;
+
+// fonts
+
+$montserrat: "Montserrat",sans-serif;
+$oswald: "Oswald",sans-serif;
+
+
+// Albertos BREAKPOINTS
+
+// media queries
+$min-830: 'min-width: 830px';
+// @media (min-width: $mobile-breakpoint-width)
+
+$min-992: 'min-width: 992px';
+// @include media-breakpoint-up(lg)
+
+$min-1200: 'min-width: 1200px';
+// @include media-breakpoint-up(xl)
+
+
+@mixin ellipsis(){
+	text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
