@@ -130,8 +130,6 @@ class User < ApplicationRecord
   private
 
   def after_confirmation
-    return if locked
-    send_user_welcome_mail if terms_of_use
     sync_to_mailchimp_later if newsletter
   end
 
