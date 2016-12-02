@@ -69,6 +69,9 @@ class EventsController < ApplicationController
       redirect_to events_path, notice: t('actions.save.success')
     else
       flash.now[:error] = t('actions.save.error')
+      @quote = Statement.new
+      @moment = Statement.new
+      @picture = Picture.new
       render :edit
     end
   end

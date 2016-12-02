@@ -32,7 +32,7 @@ de:
         goodbye: "Herzliche Grüße!\n\nIhr Team der Initiative Offene Gesellschaft"
         action: Mein Konto bestätigen
         greeting: Liebe/r %{recipient}!
-        instruction: "Bitte bestätigen Sie Ihre Mailadresse, um Ihr Freundschaftsprofil bei der Initiative Offene Gesellschaft fertigzustellen.\n\nKlicken Sie hierzu folgen Link:"
+        instruction: "Bitte bestätigen Sie Ihre Mailadresse, um Ihr Freundschaftsprofil bei der Initiative Offene Gesellschaft fertigzustellen.\n\nKlicken Sie hierzu folgenden Link:"
         subject: Anleitung zur Bestätigung Ihres Accounts
       password_change:
         greeting: Hallo %{recipient}!

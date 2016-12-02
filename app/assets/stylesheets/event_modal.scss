@@ -23,7 +23,8 @@
   }
 
   .details,
-  .description {
+  .description,
+  .organizers {
     padding: 27px 24px;
 
     @include media-breakpoint-down(xs) {
@@ -35,7 +36,7 @@
   img {
     &.organizer {
       margin: 0 25px 0 0;
-      width: 50px;
+      width: 200px;
     }
   }
 

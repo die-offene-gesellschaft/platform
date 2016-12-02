@@ -477,6 +477,18 @@ form {
   }
 }
 
+.action-buttons {
+    position: fixed;
+    transform: translateX(269%);
+    bottom: 0;
+    z-index: 1000;
+    width: 315px;
+    @media (max-width: 1200px) {
+      transform: none;
+      right: 0;
+    }
+}
+
 .nav-tabs {
   margin: 0 0 1rem;
 
