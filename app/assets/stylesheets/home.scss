@@ -161,7 +161,7 @@
         @include ellipsis();
 
         @media (min-width: $mobile-breakpoint-width) {
-          font-size: 1.5vw;
+          font-size: 2vw;
           bottom: 21px;
         }
 

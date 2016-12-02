@@ -3,10 +3,12 @@
   background-size: contain;
 }
 
-.fa-remove:before,
-.fa-close:before,
-.fa-times:before {
-    background-image: url('<%= asset_path('close.svg') %>');
+.modal{
+	.fa-remove:before,
+	.fa-close:before,
+	.fa-times:before {
+	    background-image: url('<%= asset_path('close.svg') %>');
+	}
 }
 
 .weitersagen::before{ background-image: url('<%= asset_path('participate/weitersagen.svg') %>'); }
