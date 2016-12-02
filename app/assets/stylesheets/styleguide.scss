@@ -8,20 +8,20 @@
 
 .big-title {
   color: $black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 3.75vw;
+  font-family: $oswald;
+  font-size: 6vw;
   font-stretch: normal;
   font-style: normal;
-  font-weight: 600;
-  letter-spacing: 2.6px;
+  font-weight: 700;
   text-align: left;
+  line-height: 1.1;
 
   @media (min-width: $mobile-breakpoint-width) {
-    font-size: 3.8333vw;
+    font-size: 5vw;
   }
 
   @media (min-width: $max-viewport-width) {
-    font-size: 46px;
+    font-size: 70px;
   }
 }
 
@@ -52,21 +52,22 @@
 
 .calendar {
   color: $white;
-  font-family: 'Montserrat', sans-serif;
+  // font-family: 'Montserrat', sans-serif;
+  font-family: $oswald;
   font-size: 8.75vw;
   font-stretch: normal;
   font-style: normal;
-  font-weight: 600;
-  letter-spacing: 1.9px;
-  line-height: 1;
+  font-weight: 700;
+  // letter-spacing: 1.9px;
+  line-height: 1.2;
   text-align: left;
 
   @media (min-width: $mobile-breakpoint-width) {
-    font-size: 2.7vw;
+    font-size: 3.2vw;
   }
 
   @media (min-width: $max-viewport-width) {
-    font-size: 35px;
+    font-size: 45px;
   }
 
   .end-date {
@@ -172,8 +173,8 @@
   font-size: 5.75vw;
   font-stretch: normal;
   font-style: normal;
-  font-weight: normal;
-  letter-spacing: .5px;
+  font-weight: bold;
+  // letter-spacing: .5px;
   text-align: left;
 
   @media (min-width: $mobile-breakpoint-width) {
@@ -181,18 +182,18 @@
   }
 
   @media (min-width: $max-viewport-width) {
-    font-size: 23px;
+    font-size: 24px;
   }
 }
 
 .link {
   color: $red;
   font-family: 'Montserrat', sans-serif;
-  font-size: 19px;
+  font-size: 18px;
   font-stretch: normal;
   font-style: normal;
   font-weight: 600;
-  letter-spacing: .4px;
+  // letter-spacing: .4px;
   text-align: left;
 }
 
@@ -202,8 +203,8 @@
   font-size: 4.5vw;
   font-stretch: normal;
   font-style: normal;
-  font-weight: 300;
-  letter-spacing: .4px;
+  font-weight: normal;
+  // letter-spacing: .4px;
   text-align: left;
 
   @media (min-width: $mobile-breakpoint-width) {
@@ -211,7 +212,7 @@
   }
 
   @media (min-width: $max-viewport-width) {
-    font-size: 17px;
+    font-size: 18px;
   }
 }
 
@@ -242,7 +243,7 @@
   }
 
   @media (min-width: $max-viewport-width) {
-    font-size: 19px;
+    font-size: 18px;
   }
 }
 
@@ -327,7 +328,7 @@
   font-style: normal;
   font-weight: 300;
   letter-spacing: .4px;
-  margin-right: 10px;
+  margin-right: 4px;
   text-align: left;
 }
 
