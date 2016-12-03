@@ -16,7 +16,7 @@ class Event < ApplicationRecord
   has_attached_file :picture,
                     styles: { normal: ['800x800^', :jpg],
                               logo: ['250x250^', :png] }
-  
+
   validates :link, :url => {:allow_nil => true}
 
   validates :title,
