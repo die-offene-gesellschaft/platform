@@ -24,3 +24,5 @@
 /public/fixture_download
 
 .eslintrc.js
+
+.DS_Store
