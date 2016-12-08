@@ -38,12 +38,6 @@
           = t('events.with')
           | &nbsp;
           = event.active_members.map(&:full_name).join(', ')
-      - if event.organizers.any?
-        - event.organizers.each do |organizer|
-          p
-            a href="#{organizer.url}" target='_blank'
-              img.organizer src="#{asset_url(organizer.logo(:normal))}" alt="#{organizer.name}"
-              = organizer.name
       .links
         .share-links
           a.share-link href="#{facebook_share_link(event)}" target='_blank'
@@ -57,6 +51,12 @@
         p
           a.event-link href="#{event.link}" target='_blank'
             = t('events.more')
+  .row
+    .col-xs-12.organizers
+      - if event.organizers.any?
+        - event.organizers.each do |organizer|
+          a href="#{organizer.url}" target='_blank'
+            img.organizer src="#{asset_url(organizer.logo(:normal))}" alt="#{organizer.name}"
 
   - if event.post_description
     .row.post-event

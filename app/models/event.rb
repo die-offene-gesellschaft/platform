@@ -17,6 +17,8 @@ class Event < ApplicationRecord
                     styles: { normal: ['800x800^', :jpg],
                               logo: ['250x250^', :png] }
 
+  validates :link, :url => {:allow_nil => true}
+
   validates :title,
             :begin_at,
             :end_at,

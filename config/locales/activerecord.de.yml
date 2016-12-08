@@ -8,6 +8,10 @@ de:
               dimensions:
                 width: 'muss mindestens %{width}px breit sein'
                 height: 'muss mindestens %{height}px hoch sein'
+        event:
+          attributes:
+            link:
+              url: 'Bitte geben Sie eine gültige URL ein'
     models:
       organizer:
         one: Veranstalter

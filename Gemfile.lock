@@ -53,6 +53,8 @@ GEM
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bootstrap (4.0.0.alpha3.1)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
@@ -325,6 +327,9 @@ GEM
     unicorn (5.1.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
+    validate_url (1.0.2)
+      activemodel (>= 3.0.0)
+      addressable
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -348,6 +353,7 @@ DEPENDENCIES
   awesome_print
   bcrypt
   better_errors
+  binding_of_caller
   bootstrap (~> 4.0.0.alpha3)
   bootstrap_tokenfield_rails
   brakeman
@@ -396,6 +402,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier
   unicorn
+  validate_url
   web-console
 
 RUBY VERSION
