@@ -1,0 +1,27 @@
+.row
+  .col-xs-12
+    /diese texte findet ihr in der datei: config/locales/participate.de.yml auf Zeile 41 - 44
+    h1
+      = t 'participate.diy.donate.modal.title' 
+
+
+.submit-form
+  .row
+    .col-xs-12
+      p
+        == t 'participate.diy.donate.modal.description'
+
+  .row
+    p
+    |  Test Content
+
+    /iframe von fundraisingbox hier
+.submit-success.hidden
+  .row
+    .col-xs-12
+      p
+        == t 'participate.diy.idea.modal.submit-success'
+
+coffee:
+  window.modalDonateFormManager = new window.ModalFormManager
+  window.modalDonateFormManager.init('#participate_donate')

@@ -108,6 +108,13 @@
           .modal-body
             = render "participate/#{modal_name}_modal",
                      record: @participation[modal_name.to_sym]
-
+    .modal.modal-dog.fade id="participate_donate" tabindex='-1' role='dialog' aria-labelledby="participate_donate" aria-hidden='true'
+      .modal-dialog role='document'
+        .modal-content.participate-modal
+          button.close type='button' data-dismiss='modal' aria-label='Close'
+            span aria-hidden='true'
+              = fa_icon 'times'
+          .modal-body
+            = render "participate/donate_modal"
 coffee:
     window.avatarButton = new window.AvatarUploadButton()

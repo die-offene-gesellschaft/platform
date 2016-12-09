@@ -324,6 +324,10 @@
       padding: 37px 40px;
     }
 
+    a:focus{
+      color: $white;
+    }
+
     .weitersagen ~ p,
     .weitersagen ~ h3{
       // padding-left: 100px;
