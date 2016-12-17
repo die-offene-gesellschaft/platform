@@ -12,7 +12,7 @@ ruby:
   - if list
     = render 'list',
              active_members: @active_members.order(:surname),
-             users: @users.order(:surname)
+             users: @users.reorder(:surname)
   - elsif pictures
     = render 'pictures',
              users: @users,

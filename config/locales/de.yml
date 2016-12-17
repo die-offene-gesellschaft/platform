@@ -19,7 +19,7 @@ de:
     schema: '%{title} · %{current_page}'
     controller:
       about: 'Über uns'
-      blogposts: 'Blog'
+      blogposts: 'Magazin'
       events: 'Aktionen'
       home: 'Home'
       participate: 'Mitmachen'
