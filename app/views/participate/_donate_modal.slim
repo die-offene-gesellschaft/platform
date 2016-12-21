@@ -2,7 +2,7 @@
   .col-xs-12
     /diese texte findet ihr in der datei: config/locales/participate.de.yml auf Zeile 41 - 44
     h1
-      = t 'participate.diy.donate.modal.title' 
+      = t 'participate.diy.donate.modal.title'
 
 
 .submit-form
@@ -12,8 +12,10 @@
         == t 'participate.diy.donate.modal.description'
 
   .row
-    p
-    |  Test Content
+    .col-sx-12
+      script src='https://secure.fundraisingbox.com/app/paymentJS?hash=62kerjv1odh1wax5'
+      a target="_blank" href="http://www.fundraisingbox.com"
+        img src="https://secure.fundraisingbox.com/images/FundraisingBox-Logo-Widget.png" alt="FundraisingBox Logo"
 
     /iframe von fundraisingbox hier
 .submit-success.hidden
