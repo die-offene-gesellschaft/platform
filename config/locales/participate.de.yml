@@ -40,8 +40,8 @@ de:
           submit: 'Absenden'
       donate:
         modal:
-          title: 'Spnden Formular'
-          description: 'Hier etwas Text'
+          title: 'Spenden'
+          description: ' '
       event_proposal:
         text: 'Sie veranstalten bereits eine Aktion im Sinne der Offenen Gesellschaft? Teilen Sie uns Ihr Vorhaben mit! Wir unterstützen Sie gerne. Hier finden Sie unseren %{guideline_link}.'
         button-label: Veranstaltung mitteilen
