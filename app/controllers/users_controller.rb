@@ -130,10 +130,7 @@ class UsersController < ApplicationController
   end
 
   def set_admin_users
-    newsletter_only_ids = User.where(newsletter: true, terms_of_use: false)
-                              .map(&:id)
-    @admin_users = User.where.not(id: newsletter_only_ids)
-                       .order(created_at: :desc)
+    @admin_users = User.where("newsletter = true or terms_of_use = true")
     set_filters
     apply_filters
   end
