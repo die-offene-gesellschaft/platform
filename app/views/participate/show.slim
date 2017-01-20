@@ -33,7 +33,7 @@
               span.text
                 == t 'participate.options.terms-of-use',
                      link: link_to(t('participate.options.terms-of-use-label'), "#{imprint_path}#nutzungsbedingungen", target: '_blank')
-            = f.submit t('participate.send')
+            / = f.submit t('participate.send') removed by alberto 20.01.2017
         .col-xs-12.col-md-6.extended-form
           .inputs
             = f.input :avatar,
