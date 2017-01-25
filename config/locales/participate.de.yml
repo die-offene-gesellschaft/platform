@@ -13,10 +13,10 @@ de:
     send: 'Absenden'
     options:
       newsletter: 'Halten Sie mich über Neuigkeiten, Mitmach-Möglichkeiten und Aktionen auf dem Laufenden.'
-      terms-of-use: 'Ich zeige hier Gesicht und akzeptiere die %{link} (Pflichtfeld).'
+      terms-of-use: 'Ich akzeptiere die %{link} (Pflichtfeld).'
       terms-of-use-label: 'Nutzungsbedingungen'
     become-friend: 'Freund/in werden'
-    introduction: 'Überall in Europa nehmen Ausgrenzungswünsche, Hass und Hetze zu. Die Offene Gesellschaft braucht Menschen, die für sie eintreten. Werden Sie Freundin oder Freund der Initiative Offene Gesellschaft und setzen Sie ein Zeichen.'
+    introduction: 'Wir freuen uns, dass Sie gemeinsam mit uns ein Zeichen setzen möchten! Sie haben die Möglichkeit, sich nur mit Ihrem Name anzumelden oder aber mit Foto und/oder Statement Gesicht zu zeigen.'
     diy:
       title: Selber machen
       guidline-label: Leitfaden

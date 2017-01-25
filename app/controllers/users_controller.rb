@@ -130,7 +130,7 @@ class UsersController < ApplicationController
   end
 
   def set_admin_users
-    @admin_users = User.where("newsletter = true or terms_of_use = true")
+    @admin_users = User.where("newsletter = true or terms_of_use = true").order(id: :desc)
     set_filters
     apply_filters
   end
