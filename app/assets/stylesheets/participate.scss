@@ -197,11 +197,12 @@
 
   .file {
     margin-top: 21px;
-    text-align: right;
-
+    //text-align: right;
     .edit-user-avatar-input {
       padding: 0;
       text-align: left;
+      color: #6f6f6f;
+      
     }
 
     .avatar-input {
@@ -275,13 +276,13 @@
   [name='commit'] {
     background-color: $white;
     border: 0;
-    bottom: 40px;
+    //bottom: 40px;
     color: $red;
     // font-weight: 600;
     height: auto;
     padding: 14px 0;
-    position: absolute;
-    left: 40px;
+    //position: absolute;
+    //left: 40px;
     text-align: center;
     // text-transform: uppercase;
     // width: 223px;

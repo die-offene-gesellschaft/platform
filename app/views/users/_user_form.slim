@@ -53,10 +53,12 @@
           = t('users.user-form.image.blank-slate')
 
       .inputs
+      
         = f.input :avatar,
                   as: :file,
                   input_html: { accept: '.jpg,.jpeg,.gif,.png', class: 'edit-user-avatar-input' },
                   hint: t('participate.hints.avatar')
+
         = f.input :role,
                   input_html: { value: user.role }
         = f.input :statement,
