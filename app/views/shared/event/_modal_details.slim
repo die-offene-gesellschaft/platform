@@ -33,11 +33,6 @@
           = fa_icon 'map-marker'
       h2.type
         = event.event_type
-      - if event.active_members.any?
-        p.active-members
-          = t('events.with')
-          | &nbsp;
-          = event.active_members.map(&:full_name).join(', ')
       .links
         .share-links
           a.share-link href="#{facebook_share_link(event)}" target='_blank'
